@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QA | Questionnaires</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../css/datatables.min.css">
+        <link rel="stylesheet" href="../css/bootstrap-chosen.css">
+
+
+        <!--Customized CSS-->
+
+        <link rel="stylesheet" href="../css/style.css">
+        <style>
+            .modal-body {
+
+                padding: 33px;
+            }
+
+        </style>
+
+    </head>
+    <body>
+
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../pages/dashboard.html"><span class="fa fa-home"></span> Home</a></li>
+                            <li><a href="../pages/dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a onclick="logout()"  href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->                      
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">QA_Questionnaires</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+
+                    <li class="pull-left" style="margin-top: -7px">
+                        <button type="button" class="btn btn-blue w-100" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i> Add Questionnaires</button> 
+                    </li>
+
+                </ul>
+            </div>
+            <!--Second Header End-->
+
+            <!--Content-->
+            <div id="content-wrap">                        
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+
+                    <div class="row down">
+                        <div class="col-md-2 col-xs-12"></div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Quality Module<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" name="search_qa_moduleId" id="search_moduleId">
+                                        <option value="0">Select Module</option>
+                                        <!--                                                <option value="1">CO</option>
+                                                                                        <option value="2">DCO</option>
+                                                                                        <option value="3">ERCP</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Section<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" name="search_qa_moduleId" id="search_section_id">
+                                        <option value="0">Select Section</option>
+                                        <!--                                                <option value="1">CO</option>
+                                                                                        <option value="2">DCO</option>
+                                                                                        <option value="3">ERCP</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 col-xs-12">
+                            <button type="button" class="btn btn-blue w-100" id="search_sections" onclick="getQuestionsBasedonsectionANDmodules()"><i class="fa fa-search"></i> Search</button>
+                        </div>
+                    </div>
+
+
+                    <br>
+
+                    <h3>List of Questionnaires</h3>
+
+                    <!--Table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <!--<button type="button" class="btn btn-danger btn-sm delete" onclick="deleteAllsection()" id="deleteid" hidden="" style="style="position:absolute;margin-left: 250px;margin-top: 10px;""><i class="fa fa-trash-o"></i> Delete All</button>-->
+                                <a href="#" style="position:absolute;margin-left: 250px;margin-top: 10px;" > <i class="fa fa-trash"  onclick="deleteAllquestions()" id="deleteid"></i></a>
+
+
+
+                                <div id="driverTable"></div>
+                            </div>
+                            <!--                                <div class="table-responsive">    
+                                                                <table id="driverTable" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>S.NO</th>
+                                                                            <th>Module</th>
+                                                                            <th>Section</th>                           
+                                                                            <th>Question</th>
+                                                                            <th>Score</th>                                      
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>CO</td>
+                                                                            <td>xxx</td>
+                                                                            <td>YYYY</td>
+                                                                            <td>1</td>
+                                                                        </tr>   
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>-->
+
+
+                        </div>
+                        <br>
+                        <br>
+
+                    </div> 
+
+                </div>  
+                </form>     
+            </div>
+
+            <!--Content End-->
+            <!--Modal box for Registration-->
+            <div id="registration" class="modal fade" role="dialog">          
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">Add Questionnaires</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="sub-title">
+                                    <!--<h4> Add Questionnaires</h4>-->
+                                    <br>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <!--Section Module-->
+
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Module<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" name="" id="question_moduleid">
+                                                        <option value="0">Select Module</option>
+                                                        <!--                                                <option value="1">CO</option>
+                                                                                                        <option value="2">DCO</option>
+                                                                                                        <option value="3">ERCP</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Section<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" name="" id="question_section_id">
+                                                        <option value="0">Select Section</option>
+                                                        <!--                                                <option value="1">CO</option>
+                                                                                                        <option value="2">DCO</option>
+                                                                                                        <option value="3">ERCP</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Count-->
+
+
+                                        <br>
+
+
+
+
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Question Name</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="Enter Questions" class="form-control" name="" id="question_name_id">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Question Description</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="Enter Description" class="form-control" name="" id="question_description_id">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Score</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="Enter Score" class="form-control" name="" id="question_score_id">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <br>
+
+                                <!--  Save & Close Buttons Register page-->
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12 text-center">
+                                        <button type="button" class="btn btn-blue w-100" id="questionRegistration_id" onclick="questionRegistration()" ><i class="fa fa-plus"></i> Add Question </button>&nbsp;&nbsp;
+
+                                        <button type="reset" class="btn btn-warning w-100"  onclick="resetData()"><i class="fa fa-refresh "></i> Reset</button>
+                                        <button type="button" class="btn btn-danger w-100" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i> Close</button>
+                                    </div>
+                                </div> 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal box for Registration-->
+            <div id="update" class="modal fade" role="dialog">          
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">Add Questionnaires</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="sub-title">
+                                    <!--<h4> Add Questionnaires</h4>-->
+                                    <br>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <!--Section Module-->
+
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Module<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" name="" id="up_question_moduleid">
+                                                        <option value="0">Select Module</option>
+                                                        <!--                                                <option value="1">CO</option>
+                                                                                                        <option value="2">DCO</option>
+                                                                                                        <option value="3">ERCP</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Section<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" name="" id="up_section_id">
+                                                        <option value="0">Select Section</option>
+                                                        <!--                                                <option value="1">CO</option>
+                                                                                                        <option value="2">DCO</option>
+                                                                                                        <option value="3">ERCP</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Count-->
+
+
+
+
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Question Name</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="Enter Questions" class="form-control" name="" id="up_question_name_id">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Question Description</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="Enter Description" class="form-control" name="" id="up_question_description_id">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--                                <div class="col-md-12 col-xs-12">
+                                                                            <div class="form-group">
+                                                                                <label class="control-label col-md-4">Min TNA Score</label>
+                                                                                <div class="col-md-8">
+                                                                                    <input type="text" placeholder="Enter Min TNA Score" class="form-control" name="" id="up_min_tna_score_id">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>-->
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Score</label>
+                                                <div class="col-md-8">
+                                                    <input type="text" placeholder="Enter Score" class="form-control" name="" id="up_question_score_id">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+                                <br>
+
+                                <!--  Save & Close Buttons Register page-->
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12 text-center">
+                                        <!--<button type="button" class="btn btn-blue w-100" id="submitBtn" ><i class="fa fa-plus"></i>  Update </button>&nbsp;&nbsp;-->
+                                        <button type="button" class="btn btn-blue w-100" id="updatequestion_id" onclick="updatequestion()" ><i class="fa fa-edit"></i>  Update </button>&nbsp;&nbsp;
+                                        <button type="reset" class="btn btn-warning w-100" ><i class="fa fa-refresh "></i> Reset</button>
+                                        <button type="button" class="btn btn-danger w-100" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i> Close</button>
+                                    </div>
+                                </div> 
+
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal box for delete-->
+
+            <div id="myModal6" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Add Mandal-->
+                    <div class="modal-content">
+
+                        <h4 class="modal-title text-center">Delete Question</h4>
+
+                        <h5 style="padding-left:120px ">Are You sure you want to delete this Question ? </h5>
+                        <br>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-success btn-sm" id="yesdeleteId" onclick="deletequestions()" >Yes</button>
+                            <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">No</button>
+                        </div>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+            <input type="hidden" id="reg_no">
+            <!--Footer-->
+            <div class="footer">
+                <small>Powered  by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../js/jquery1.2.min.js"></script>
+        <script src="../js/moment.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/datatables.min.js"></script>      
+        <script src="../js/chosen.jquery.js"></script>
+        <script src="../js/metisMenu.min.js"></script>
+        <script src="../js/notify.js"></script>
+        <script src="../Quality_js/URLS.js"></script>
+<!--           <script src="../Quality_js/loginChecking.js"></script> -->
+        <script src="../Quality_js/questions.js"></script>
+
+
+        <!--         logout/login url -->
+<!--                <script src="../../Common/serviceController/dashboard.js"></script> -->
+<!--         <script src="../../Common/serviceController/ServiceUrl.js"></script>  -->
+<!--          <script src="../../Common/serviceController/logout.js"></script> -->
+
+
+        <script>
+
+
+
+                                $(document).ready(function() {
+                                	checkLoggedOrNot();
+                                    $('select').chosen();                            //Chosen select
+                                    $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                                    //                                        $('#driverTable').DataTable({// Data table
+                                    //                                            pageLength: 10,
+                                    //                                            responsive: true,
+                                    //                                            dom: '<"html5buttons"B>lTfgitp',
+                                    //                                            buttons: [
+                                    //                                                {extend: 'copy'},
+                                    //                                                {extend: 'csv'},
+                                    //                                                {extend: 'excel', title: 'ExampleFile'},
+                                    //                                                {extend: 'pdf', title: 'ExampleFile'},
+                                    //                                                {extend: 'print',
+                                    //                                                    customize: function(win) {
+                                    //                                                        $(win.document.body).addClass('white-bg');
+                                    //                                                        $(win.document.body).css('font-size', '10px');
+                                    //
+                                    //                                                        $(win.document.body).find('table')
+                                    //                                                                .addClass('compact')
+                                    //                                                                .css('font-size', 'inherit');
+                                    //                                                    }
+                                    //                                                }
+                                    //                                            ]
+                                    //
+                                    //                                        });
+
+                                });
+
+        </script>
+
+    </body>
+</html>
+
+

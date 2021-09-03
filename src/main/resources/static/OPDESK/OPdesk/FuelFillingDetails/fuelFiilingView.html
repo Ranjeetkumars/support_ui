@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OP Desk | Fuel Filling Details</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../css/style.css">
+
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                       <!--  <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul> -->
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">Fuel Filling Details</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                  <!--   <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li>  -->
+                    <li class="pull-left" style="margin-top: -7px">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i>Fuel Filling</button> 
+                    </li>
+                <!--     <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>   -->   
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">
+                        <!--District-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-xs-12">District<span class="star"></span></label>
+                                <div class="col-md-9 col-xs-12">
+<!--                                    <select class="form-control" name="dractityid" id="districs_id">-->
+                                          <select class="form-control" id="districs_id">
+                                        <option value="0">Select District</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Base Location-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star"></span></label>
+                                <div class="col-md-8 col-xs-12">
+<!--                                    <select class="form-control" name="baselocation_name" id="baselocation_id">-->
+                                          <select class="form-control" id="baselocation_id">
+                                        <option value="0">Select Base Location</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Ambulance-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Ambulance No</label>
+                                <div class="col-md-8 col-xs-12">
+<!--                                    <select class="form-control" name="dractityid" id="Ambulance_Id">-->
+                                            <select class="form-control" id="Ambulance_Id">
+                                        <option value="0">Select Ambulance</option>
+ 
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Ticket ID-->
+                    <div class="row m-t-b-sm">                        
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Ticket Id</label>
+                                <div class="col-md-9">
+                                    <input type ="text" onkeypress="return isNumberKey(event)"  placeholder="Enter Ticket ID" class="form-control" name="drticketid" id="ticketId" maxlength="15">
+                                </div>
+                            </div>
+                        </div>
+                        <!--From Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">From Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="strtDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date" type="text" id="fromDateId" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                    <p style="color:red;" id="statusOfToDateAndFromDate"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--To Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">To Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="endDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+
+                                            <input class="form-control" placeholder="Select Date" type="text" id="toDateId" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--buttons-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm" onClick="get_Fuel_filling_Search()" id="search_id"><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm"  onclick="reset_search()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                        </div>
+                    </div>  
+                
+                    <hr>
+                    <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive" id="full_Filling_Id">    
+<!--                                    <table id="driverTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>S.NO</th>
+                                                <th>Ticket #</th>
+                                                <th>District</th>                           
+                                                <th>Base Location</th>
+                                                <th>Ambulance #</th>                                      
+                                                <th>Filling Date</th>
+                                                <th>Fuel Station Details</th>                          
+                                                <th>Odo-Meter Reading</th>                           
+                                                <th>Fuel Quantity(Ltrs)</th>                           
+                                                <th>Payment Mode</th>                           
+                                                <th>fuel Card </th>                           
+                                            </tr>
+                                        </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>20171217000397</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>2017-12-15 10:28:00</td>
+                                                                                        <td>Others - KALPALATHA FILLING STATION</td>
+                                                                                        <td>62508</td>
+                                                                                        <td>27.58</td>
+                                                                                        <td>Fleet Card</td>
+                                                                                        <td>7100170007442226</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>20171217000412</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>2017-12-17 22:44:00</td>
+                                                                                        <td>Others - KALAPATHI FILLING STATION</td>
+                                                                                        <td>63045</td>
+                                                                                        <td>30.59</td>
+                                                                                        <td>Fleet Card</td>
+                                                                                        <td>7100170007442226</td>
+                                        
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>3</td>
+                                                                                        <td>20171218000221</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>2017-12-18 14:35:00</td>
+                                                                                        <td>HP - MS/HSD KALPALATHA FILLING STAT</td>
+                                                                                        <td>63287</td>
+                                                                                        <td>32.54</td>
+                                                                                        <td>Fleet Card</td>
+                                                                                        <td>7100170007442226</td>
+                                        
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>20171217000397</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>2017-12-15 10:28:00</td>
+                                                                                        <td>Others - KALPALATHA FILLING STATION</td>
+                                                                                        <td>62508</td>
+                                                                                        <td>27.58</td>
+                                                                                        <td>Fleet Card</td>
+                                                                                        <td>7100170007442226</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>20171217000412</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>2017-12-17 22:44:00</td>
+                                                                                        <td>Others - KALAPATHI FILLING STATION</td>
+                                                                                        <td>63045</td>
+                                                                                        <td>30.59</td>
+                                                                                        <td>Fleet Card</td>
+                                                                                        <td>7100170007442226</td>
+                                        
+                                                                                    </tr>                                                  
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>20171217000397</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>2017-12-15 10:28:00</td>
+                                                                                        <td>Others - KALPALATHA FILLING STATION</td>
+                                                                                        <td>62508</td>
+                                                                                        <td>27.58</td>
+                                                                                        <td>Fleet Card</td>
+                                                                                        <td>7100170007442226</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>2</td>
+                                                                                        <td>20171217000412</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>2017-12-17 22:44:00</td>
+                                                                                        <td>Others - KALAPATHI FILLING STATION</td>
+                                                                                        <td>63045</td>
+                                                                                        <td>30.59</td>
+                                                                                        <td>Fleet Card</td>
+                                                                                        <td>7100170007442226</td>
+                                        
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>3</td>
+                                                                                        <td>20171218000221</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>2017-12-18 14:35:00</td>
+                                                                                        <td>HP - MS/HSD KALPALATHA FILLING STAT</td>
+                                                                                        <td>63287</td>
+                                                                                        <td>32.54</td>
+                                                                                        <td>Fleet Card</td>
+                                                                                        <td>7100170007442226</td>
+                                        
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>20171217000397</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>2017-12-15 10:28:00</td>
+                                                                                        <td>Others - KALPALATHA FILLING STATION</td>
+                                                                                        <td>62508</td>
+                                                                                        <td>27.58</td>
+                                                                                        <td>Fleet Card</td>
+                                                                                        <td>7100170007442226</td>
+                                                                                    </tr>
+                                        
+                                        
+                                                                                </tbody>-->
+<!--                                    </table>-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <!--Content End-->
+            <!--Modal box for Registration-->
+            <div id="registration"  data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Fuel Filling </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Ambulance Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <!--District-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">District<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" id="districs_id_reg">
+<!--                                                        <option value="0">Select District</option>
+                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Base Location-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="basloc_id_reg">
+                                                        <option value="0">Select Base Location</option>
+<!--                                                       <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Ambulance-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Ambulance No<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" id="ambulance_id_reg">
+                                                        <option value="0">Select Ambulance</option>
+<!--                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Shift Type-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Shift Type<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="shiftTypeId">
+                                                        <option value="0">Select Shift Type</option>
+<!--                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4>Display EMT/Drivers</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <!--Pilot ID-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Pilot ID<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input  type="text"  class="form-control" placeholder="Enter Pilot ID" id="Pilot_id_reg" maxlength="30">
+                                                      <div class="text-right">
+                                                                <span id="valid_Pilot"></span>
+                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Pilot Name-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Pilot Name<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Pilot Name" id="PilotName_id_reg" maxlength="50">
+                                                   <div class="text-right">
+                                                   <span id="valid_pilotName">0/50</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--EMT ID-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">EMT ID<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input  type="text" class="form-control"class="form-control" placeholder="Enter EMT ID" id="emt_id_reg" maxlength="30">
+                                                                   <div class="text-right">
+
+                                                                <span id="valid_EMT"></span>
+                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--EMT Name-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">EMT Name<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter EMT Name" id="emtName_reg" maxlength="50">
+                                                     <div class="text-right">
+                                                                <span id="valid_EMTName">0/50</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
+                                </div>
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Fuel Station Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <!--Fuel Station-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Fuel Station<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="fuelStation_id">
+                                                       <option value="-1">Select Fuel Station</option>
+<!--                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                          <div class="col-md-6 col-xs-12">
+                                                    <div class="form-group" id="FuelStationName">
+                                                        <label class="control-label col-md-4 col-xs-12">Fuel Station Name<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <input type="text" class="form-control" id="FuelStationNameId" placeholder="Enter Fuel Station Name" maxlength="50">
+                                                              <div class="text-right">
+                                                                <span id="valid_FuelStationNameId">0/50</span>
+                                                              </div>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                          </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-xs-12">
+                                                    <div class="form-group" id="hideAddressId">
+                                                        <label class="control-label col-md-4 col-xs-12">Address<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <input type="text" class="form-control" placeholder="Enter Address" id="AddressId" maxlength="50">
+                                                         <div class="text-right">
+                                                                <span id="valid_AddressId">0/50</span>
+                                                           </div>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                                <div class="col-md-6 col-xs-12">
+                                                    <div class="form-group" id="hidePhoneId">
+                                                        <label class="control-label col-md-4 col-xs-12">Phone number<span class="star"></span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <input type="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Phone Number" id="PhoneNoId" maxlength="10" >
+
+                                                        </div>
+                                                    </div> 
+                                                </div></div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-xs-12">
+                                                    <div class="form-group" id="hideMobileId">
+                                                        <label class="control-label col-md-4 col-xs-12">Mobile Number<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <input type ="text" onkeypress="return isNumberKey(event)" class="form-control"  placeholder="Enter Mobile Number" id="mobileNoId" maxlength="10">
+
+                                                        </div>
+                                                    </div> 
+
+                                                </div>
+                                        <!--Filling Date-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Filling Date<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class='input-group date' id='datetimepicker1'>
+                                                        <input type='text' class="form-control" placeholder="Select Filling Date" id="fillingDateId" autocomplete="off"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <!--Previous Odo-Meter Reading-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Previous Odo-Meter Reading<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="number" onKeyPress="if (this.value.length ==7)
+                                                                        return false;" class="form-control" placeholder="Enter Previous Odo Meter Readings" id="previousOdoId">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End Odo-Meter Reading-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">End Odo-Meter Reading<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="number" onKeyPress="if (this.value.length ==7)
+                                                                        return false;" class="form-control" placeholder="Enter End Odo Meter Readings" id="endOdoId">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <!--Fuel Quantity-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Fuel Quantity<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="number" onKeyPress="if (this.value.length == 3)
+                                                                        return false;" class="form-control" placeholder="Enter Fuel Quantity (In Ltrs)" id="fuelQuantity_id">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Fuel Amount-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Fuel Amount<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type ="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Fuel Amount" id="fuelAmount_id" maxlength="7">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Payment Mode-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Payment Mode<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control"  id="paymentMode_id" onChange="hidePaymentMode()">
+                                                                <option value="0">Select Payment Mode</option>
+                                                                <option value="1">Fleet Card Payment</option>
+                                                                <option value="2">voucher Payment </option>                                         
+                                                            </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group" id="hidevoucherNo">
+                                                <label class="control-label col-md-4 col-xs-12">Enter Voucher No<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                   <input type ="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Voucher No" id="voucherNo_id" maxlength="16">
+                                             
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group" id="hideSelect">
+                                                <label class="control-label col-md-4 col-xs-12">Fuel Card No<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control"  id="fleetcardNoId">
+                                                  
+                                                                                                                  
+                                                                 <!-- <option value="0">others</option>  -->
+                                                           
+                                                                     
+                                                            </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="col-md-6 col-xs-12">
+                                           <div class="form-group" id="other_fuel_card_no">
+                                                <label class="control-label col-md-4 col-xs-12">Other Fuel Card No</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Others Fleet Card" id="otherfleetCard_id" maxlength="16">
+                                                </div>
+                                            </div>
+                                        </div>
+                                   </div>
+                                     <div class="row">
+                                         <div class="col-md-6 col-xs-12">
+                                             <div class="form-group" id="hideSelect_swiping">
+                                                <label class="control-label col-md-4 col-xs-12">Swiping<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control"  id="swiping_id">
+                                                  
+                                                                                                                  
+                                                                 <option value="0">others</option>  
+                                                                 <option value="1">Yes</option>  
+                                                                 <option value="1">No</option>  
+                                                           
+                                                                     
+                                                            </select>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        <!--  <div class="col-md-6 col-xs-12">
+                                          <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Payment No</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Payment No" id="paymentNo_id" maxlength="10">
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        </div> -->
+                                        
+                                        <!--Payment No-->
+                                       
+                                    <!--Fleet Card-->
+                                    
+                                       
+                                       
+                                        <!--Supervisor-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Supervisor Id<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type ="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Supervisor Id" id="supervisor_id" maxlength="8">
+                                                </div>
+                                            </div>
+                                        </div>
+                                            </div>                      
+                                        <!--Remarks-->
+                                          <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Remarks<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Remarks" id="fuelReg_Remarks_id" maxlength="200"></textarea>
+                                                     <div class="text-right">
+                                                                <span id="fuelReg_RemarksCount">0/200</span>
+                                                            </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--button-->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm" id="fuel_registration_id" onClick="saveRegistationDetails()"><i class="fa fa-save"></i>&nbsp;Submit</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="javascript:window.location.reload()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                     <button type="button" class="btn btn-outline-warning btn-sm" onclick="reset_Registation()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>  
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+           
+            <!--Footer-->
+         
+             <input type="hidden" id="ticketId">
+             <input type="hidden" id="districtId">  
+              <input type="hidden" id="baselocationId">
+             <input type="hidden" id="ambulance">
+              <input type="hidden" id="fuel_filling_date">
+              <input type="hidden" id="contact_no_length">
+               <input type="hidden" id="contact_no">
+               <input type="hidden" id="remarksId">
+               <input type="hidden" id="endOdometerNo">
+               <input type="hidden" id="so_message">
+               <input type="hidden" id="pilot_id">
+               <input type="hidden" id="emt_id">
+               <input type="hidden" id="fuel_qty">
+               <input type="hidden" id="fuel_amount">
+                
+                
+               
+               
+              
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+	<script src="../../js/jquery1.2.min.js"></script>
+	<script src="../../js/chosen.jquery.js"></script>
+	<script src="../../js/moment.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/datatables.min.js"></script>
+	<script src="../../js/bootstrap-datepicker.js"></script>
+	<script src="../../js/bootstrap-datetimepicker.min.js"></script>
+
+
+	<!--        PAGE RELATED-->
+
+
+	<script src="../../js/jquery.dataTables.min.js"></script>
+	<script src="../../js/dataTables.bootstrap.min.js"></script>
+
+
+	<script src="../../js/moment.js"></script>
+	<script src="../../js/datatables.min.js"></script>
+	<script src="../../js/da.js"></script>
+	<script src="../../js/swaltest.min.js"></script>
+	<!--sweet alert-->
+	<script src="../../js/notify.js"></script>
+	<script src="../../js/notify.min.js"></script>
+
+	<script src="../../js/OPDESK/Constants.js"></script>
+	<script src="../../js/OPDESK/ServiceURLS.js"></script>
+	<script src="../../js/OPDESK/msterData.js"></script>
+	<script src="../../js/OPDESK/FuelFilling.js"></script>
+	   <!--         logout/login url -->
+               <script src="../../../Common/serviceController/dashboard.js"></script>
+                <script src="../../../Common/serviceController/ServiceUrl.js"></script> 
+              <script src="../../../Common/serviceController/logout.js"></script>
+	<script type="text/javascript">
+           $(document).ready(function() {
+                                             try {
+                                                fule_Details_Diable();
+                                                fleetCard_Details_Diable();
+                             
+                                                     voucherNo_Disable();
+                                                 
+                                             }
+                                             catch (err) {
+                                                 console.log("errror in loading ready funtion" + err);
+
+                                             }
+
+                                         });
+
+</script>
+	<script>
+     
+
+            
+         
+
+                                        $(function() {
+                                        	 var today = new Date();
+//Date And Time picker in Modal Box
+                                           /*   $('#datetimepicker1').datetimepicker({                                           	 
+                                                sideBySide: true,
+                                                autoclose:true,
+                                                endDate: "today",
+                                               //maxDate: today,
+                                                format: 'YYYY-MM-DD HH:mm:ss' */
+                                            }); 
+                                        });
+
+                                        $(document).ready(function() {
+                                                                      //Chosen select
+ 	                                          checkLoggedOrNot();
+
+                                            $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                                            $('#driverTable').DataTable({// Data table
+                                                pageLength: 10,
+                                                responsive: true,
+                                                dom: '<"html5buttons"B>lTfgitp',
+                                                buttons: [
+                                                    {extend: 'copy'},
+                                                    {extend: 'csv'},
+                                                    {extend: 'excel', title: 'ExampleFile'},
+                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                                    {extend: 'print',
+                                                        customize: function(win) {
+                                                            $(win.document.body).addClass('white-bg');
+                                                            $(win.document.body).css('font-size', '10px');
+
+                                                            $(win.document.body).find('table')
+                                                                    .addClass('compact')
+                                                                    .css('font-size', 'inherit');
+                                                        }
+                                                    }
+                                                ]
+
+                                            });
+//Date Pickers
+//                                            $("#strtDate").datepicker({
+//                                                autoclose: true,
+//                                                todayHighlight: true
+//                                            }).datepicker();
+//                                            $("#endDate").datepicker({
+//                                                autoclose: true,
+//                                                todayHighlight: true
+//                                            }).datepicker();
+
+                                        });
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+               
+                   $("#fuelReg_Remarks_id").on("keydown keyup change", function(event) {
+                       var value = $(this).val();       
+                       var count =200;
+                       if (value.length > count) {
+                           event.preventDefault();                 
+                       }
+                         var len= $.trim(value).length; 
+                        $("#fuelReg_RemarksCount").text(len+"/"+count);
+                   });
+                   
+               $("#Pilot_id_reg").on("keydown keyup change", function(event) {
+                var value = $(this).val();                               
+                if (value.length > Constants.NAME_MAX_LENGTH) {
+                    event.preventDefault();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                }
+                  var len= $.trim(value).length; 
+                 $("#valid_Pilot").text(len+"/"+Constants.NAME_MAX_LENGTH);
+            });
+            
+               $("#emt_id_reg").on("keydown keyup change", function(event) {
+                var value = $(this).val();                               
+                if (value.length > Constants.NAME_MAX_LENGTH) {
+                    event.preventDefault();                 
+                }
+                  var len= $.trim(value).length; 
+                 $("#valid_EMT").text(len+"/"+Constants.NAME_MAX_LENGTH);
+            });
+            
+              $("#PilotName_id_reg").on("keydown keyup change", function(event) {
+                var value = $(this).val();                               
+                if (value.length > Constants.NAME_MAX_LENGTH) {
+                    event.preventDefault();                 
+                }
+                  var len= $.trim(value).length; 
+                 $("#valid_pilotName").text(len+"/"+Constants.NAME_MAX_LENGTH);
+            });
+                $("#emtName_reg").on("keydown keyup change", function(event) {
+                var value = $(this).val();                               
+                if (value.length > Constants.NAME_MAX_LENGTH) {
+                    event.preventDefault();                 
+                }
+                  var len= $.trim(value).length; 
+                 $("#valid_EMTName").text(len+"/"+Constants.NAME_MAX_LENGTH);
+            });
+            });
+        </script>
+
+    </body>
+</html>

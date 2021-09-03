@@ -1,0 +1,27 @@
+#eureka:         
+#  instance:
+#    prefer-ip-address: true
+#    leaseRenewalIntervalInSeconds: 1
+#    leaseExpirationDurationInSeconds: 2
+#  client:
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: ${EUREKA_URI:http://localhost:1438/eureka/}
+#    healthcheck:
+#      enabled: true
+spring:
+  application:
+     name: Ero-Downstream-Services 
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+
+logging: 
+  level:   
+    com.pro.ero: DEBUG
+    org.springframework.web: ERROR
+    org.springframework.security: ERROR
+    org.hibernate: ERROR    
+  file: Support_System_logs.log

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MMU| Service Point Registation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title Icon-->
+<link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!--CSS Links-->
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../assets/css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../assets/css/datatables.min.css">
+<link rel="stylesheet" href="../../assets/css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../assets/css/metisMenu.css" />
+<link rel="stylesheet" href="../../assets/css/datepicker.css">
+<link rel="stylesheet"
+	href="../../assets/css/bootstrap-datetimepicker.min.css">
+	<!-- time picker -->
+<link rel="stylesheet" href="../../assets/css/jquery.timepicker.css">
+<link rel="stylesheet" href="../../assets/css/jquery.timepicker.min.css">
+
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/fleet.css">
+	
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/fleet.css">
+<style>
+.card {
+	margin-left: -116px;;
+	width: 100%
+}
+
+
+</style>
+</head>
+<body>
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="../../images/pro-Logo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="../MMU-Dashboard.html"><span
+								class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href="../MMU-Dashboard.html"><i
+								class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header-->
+		<!--Second Header-->
+		<div class="second-nav">
+			<ul class="pull-left">
+				<li>
+					<h4 style="margin-top: 6px">Vehicle to Service Point Scheduling
+                    </h4>
+				</li>
+			</ul>
+			  
+			<ul class="pull-right searchbar">
+				<li class="pull-left p-r-sm"><a href="#"> <input
+						type="text" class="form-control"
+						placeholder="What are you looking for?">
+				</a></li>
+				<li class="pull-left" style="margin-top: -7px">
+                        <button type="button" class="btn btn-success btn-sm"
+                                data-toggle="modal" data-target="#registration">
+                            <i class="fa fa-plus p-r-xs"></i>Service Point Schdule
+                        </button>
+                    </li>
+				<li class="dropdown pull-left" style="margin-top: -2px"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-ellipsis-v f-md" data-toggle="tooltip"
+						data-placement="top" title="More Actions"></i>
+				</a>
+				 
+					<ul class="dropdown-menu">
+						<li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+						<li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+					</ul></li>
+			</ul> 
+		</div>
+		<!--Second Header End-->
+		<!--Content-->
+		<div id="content-wrap">
+			<div class="card">
+				<!--  Error Message-->
+				<div class="alert alert-danger" style='display: none;'>
+					<h4>
+						<i class="fa fa-warning p-r-xs"></i>Please fix the following
+						errors:
+					</h4>
+					<ul class='m-l-md'>
+						<li>District Can't be Empty</li>
+					</ul>
+				</div><br><br><br>
+			
+				<div class="row">
+				<div class="col-md-3 col-xs-12"></div>
+					<!--Vehicle Search-->
+					<div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4 col-xs-12">District
+							<span class="star">*</span>
+							</label>
+							<div class="col-md-8 col-xs-12">
+								<select class="form-control" id="sdistrictid">
+									<option value="0">Select One</option>
+									 <!-- <option value="1">Anantpur</option>
+									<option value="2">Guntur</option>
+									<option value="3">Kurnul</option>  -->
+								</select>
+							</div>
+						</div>
+					</div>
+				<!--Assigned To-->
+					<div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4 col-xs-12">Vehicle No.
+								</label>
+							<div class="col-md-8 col-xs-12">
+								<select class="form-control" id="svehicleId">
+									 <option value="0">Please Select Vehicle</option>
+									<!-- <option value="1">AP-79845</option>
+									<option value="3">AP-75787</option>  -->
+								</select>
+							</div>
+						</div>
+					</div>
+				</div> <br>
+					<!-- buttons-->
+				<div class="row m-t-b-sm">
+					<div class="col-md-12 col-xs-12 text-center m-t-sm">
+						<button type="submit" class="btn btn-primary btn-sm"
+							onclick="searchSchduleDetails()" id="resetid">
+							<i class="fa fa-refresh p-r-xs"></i>Search
+						</button>
+						<button type="button" class="btn btn-outline-warning btn-sm" onclick="resetSearchSchduleDetails()">
+							<i class="fa fa-refresh p-r-xs"></i>Reset
+						</button>
+					</div>
+				</div><br>	
+	           <br>											 
+				<!-- table-->
+				<div class="wrapper wrapper-content">
+					<div class="row">
+						<div class="col-md-12 col-xs-12">
+							<div class="table-responsive" id="get_schdule">
+								<!-- <table id="driverTable"
+									class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>S.NO</th>
+											<th>Service Point Name</th>
+											<th>District</th>
+											<th>Date</th>
+											<th>Start Time</th>
+											<th>End Time</th>
+											<th>Update</th>
+											
+
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>Service Point 1</td>
+											<td>tabemso@gmail.com</td>
+											<td>2019-01-01</td>
+											<td>11:23</td>
+											<td>13:23</td>
+											
+											<td><u><a href="#" data-toggle="modal"
+													data-placement="bottom" data-target="#update" title="View"><i
+														class="fa fa-edit"></i></a></u></td>
+										
+										</tr>
+
+										<tr>
+													<td>1</td>
+											<td>Service Point 2</td>
+											<td>tabemso@gmail.com</td>
+											<td>2020-1-12</td>
+											<td>11:23</td>
+											<td>12:45</td>
+											
+											<td><u><a href="#" data-toggle="modal"
+													data-placement="bottom" data-target="#update" title="View"><i
+														class="fa fa-edit"></i></a></u></td>
+											
+										</tr>
+									</tbody>
+								</table>
+ -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+			</div>
+		</div>
+		<!--Content End-->
+		<div id="registration" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Vehicle to Service Point Scheduling </h4>
+					</div><br>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<!--Heading-->
+							<!-- <div class="sub-title">
+								<h4>Vehicle to Service Point Scheduling</h4>
+							</div><br> -->
+							<div class="sub-body">
+								<div class="row">
+									<!--  District Name-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">District<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid"
+													id="district_id">
+													<option value="0">Please Select District</option>
+													<!-- <option value="1">Guntur</option>
+													<option value="2">Anantpur</option>
+													<option value="3">Kurnul</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Service Point Name-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Vehicle 
+												<span class="star">*</span>
+											</label>
+											<div class="col-md-8">
+												<select class="form-control" name="dractityid"
+													id="vehicleid">
+													<option value="0">Please Select Vehicle</option>
+												<!-- 	<option value="1">TS525653</option>
+													<option value="2">TS525653</option>
+													<option value="3">TS525653</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Mandal-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Service Point Name<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="servicepointid">
+													<option value="0">Please Select Service Point Name</option>
+												<!-- 	<option value="1">Guntur</option>
+													<option value="2">kurnul City</option>
+													<option value="3">anantpur</option> -->
+
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Latitude-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Date Of Visit<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+											<div class='input-group date' data-date-format="yyyy-mm-dd" id='datepicker'>
+                                                            <input type='text' class="form-control" placeholder="Select Date" id="dateofvisitid" autocomplete="off"/>
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--City/Village-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Start Time<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input id="startTime" type="text" placeholder="Select Time"class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--Longitude-->
+									<!--                                    <div class="row">-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">End Time<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input id="endTime1" type="text" placeholder="Select Time"class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--button-->
+							<div><br>
+
+								<div class="text-center">
+									<button type="button" class="btn btn-primary btn-sm"
+										id="registration_id" onclick="insertServicePointSchdule()">
+										<i class="fa fa-floppy-o p-r-xs"></i>Save
+									</button>
+									<button type="button" class="btn btn-outline-warning btn-sm"
+										data-dismiss="modal">
+										<i class="fa fa-times p-r-xs"></i>Close
+									</button>
+									 <button type="button" class="btn btn-outline-warning btn-sm"
+                                                 onclick="resetInsertSchdule()"><i class="fa fa-refresh p-r-xs"></i>
+                                            Reset
+                                        </button>
+								</div>
+							</div><br>
+						</form>
+					</div>
+				</div>
+			</div><br>
+		</div>
+		<!--Content End-->
+			<div id="update" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Vehicle to Service Point Scheduling
+                        </h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<!--Heading-->
+							<br>
+							<div class="sub-body">
+								<div class="row">
+									<!--  District Name-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">District<span
+												class="star"></span></label>
+											<div class="col-md-8 col-xs-12">
+											<input type='text' class="form-control" placeholder="Enter District Name" id="udistrict_id" disabled="disabled"/>
+										
+											</div>
+										</div>
+									</div>
+									<!--Service Point Name-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Vehicle 
+												<span class="star"></span>
+											</label>
+											<div class="col-md-8">
+											 <input type='text' class="form-control" placeholder="Enter Vehicle Name" id="uvehicleid" disabled="disabled"/>
+											
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Mandal-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Service Point Name<span
+												class="star"></span></label>
+											<div class="col-md-8 col-xs-12">
+											 <input type='text' class="form-control" placeholder="Enter Service Point Name" id="u_servicepointid" disabled="disabled"/>
+												<!-- <select class="form-control" id="u_servicepointid">
+												 	<option value="0">Please Select Service Point Name</option>
+													<option value="1">Guntur</option>
+													<option value="2">kurnul City</option>
+													<option value="3">anantpur</option>
+
+												</select> -->
+											</div>
+										</div>
+									</div>
+									<!--Latitude-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Date Of Visit<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+											<div class='input-group date' data-date-format="yyyy-mm-dd" id='udatepicker'>
+                                                            <input type='text' class="form-control" placeholder="Select Date" id="udateofvisitid"/>
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--City/Village-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Start Time<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input id="ustartTime" type="text" placeholder="Select Time"class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--Longitude-->
+									<!--                                    <div class="row">-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">End Time<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input id="uendTime1" type="text" placeholder="Select Time"class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div><br>
+
+							<!--button-->
+							<div>
+
+								<div class="text-center">
+									<button type="button" onclick="updateServicePointSchdule()" class="btn btn-primary btn-sm"
+										id="update_id">
+										<i class="fa fa-floppy-o p-r-xs"></i>Update
+									</button>
+									<button type="button" class="btn btn-outline-warning btn-sm"
+										data-dismiss="modal">
+										<i class="fa fa-times p-r-xs"></i>Close
+									</button>
+									 <button type="button" class="btn btn-outline-warning btn-sm"
+                                                 onclick="resetSchduleUpdateDetails()"><i class="fa fa-refresh p-r-xs"></i>
+                                            Reset
+                                        </button>
+								</div><br>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<input type="hidden" id="serialId"/>
+		<!--Footer-->
+		<div class="footer">
+			<small>Powdered by Procreate Techno systems Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+
+	<!-- <script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script> -->
+<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script> -->
+	
+	<!-- <script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script> -->
+	<script src="../../assets/js/jquery1.2.min.js"></script>
+	
+	<script src="../../assets/js/jquery.timepicker.js"></script>
+	<script src="../../assets/js/jquery.timepicker.min.js"></script>
+	
+	<script src="../../assets/js/moment.min.js"></script>
+	<script src="../../assets/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/datatables.min.js"></script>
+	<script src="../../assets/js/chosen.jquery.js"></script>
+	<script src="../../assets/js/metisMenu.min.js"></script>
+	<script src="../../assets/js/bootstrap-datepicker.js"></script>
+	<script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../../assets/js/notify.js/"></script>
+	<script src="../../assets/js/notify.min.js/"></script>
+	<script src="../../assets/serviceController/ServiceURL.js"></script>
+	<script src="../../assets/serviceController/ServicePointSchdule.js"></script>
+	<script src="../../assets/serviceController/masterData.js"></script>
+	<script>
+
+                                        $(function() {
+                                        //	demo()
+                                       
+                                            $('#datetimepicker1').datetimepicker({
+                                                sideBySide: true,
+                                                format: 'DD-MM-YYYY HH:mm:ss'
+                                            });
+                                        });
+
+                                        $(document).ready(function() {
+                                            $('select').chosen();                            //Chosen select
+                                            $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                                            $('#driverTable').DataTable({// Data table
+                                                pageLength: 10,
+                                                responsive: true,
+                                                dom: '<"html5buttons"B>lTfgitp',
+                                                buttons: [
+                                                    {extend: 'copy'},
+                                                    {extend: 'csv'},
+                                                    {extend: 'excel', title: 'ExampleFile'},
+                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                                    {extend: 'print',
+                                                        customize: function(win) {
+                                                            $(win.document.body).addClass('white-bg');
+                                                            $(win.document.body).css('font-size', '10px');
+
+                                                            $(win.document.body).find('table')
+                                                                    .addClass('compact')
+                                                                    .css('font-size', 'inherit');
+                                                        }
+                                                    }
+                                                ]
+
+                                            });
+//Date Pickers
+                                            $("#strtDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+                                            $("#endDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+                                           
+                                            $('#startTime').timepicker();
+                                            $('#endTime1').timepicker();
+                                            $('#ustartTime').timepicker();
+                                            $('#uendTime1').timepicker();
+                                        });
+                                      
+                                        
+                                  
+        </script>
+	<script>
+	
+	
+            $(document).ready(function() {
+  
+            	$('#basicExample1').timepicker();
+            	
+                $('.dropdown-submenu a.test').on("click", function(e) {
+                    $(this).next('ul').toggle();
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+                
+                $("#endDate").datepicker({
+                    autoclose: true,
+                    todayHighlight: true,
+                    
+                }).datepicker();
+                
+                $("#datepicker").datepicker({
+                	autoclose : true,
+                	todayHighlight : true,
+                }).datepicker();
+            });
+            
+            $("#udatepicker").datepicker({
+            	autoclose : true,
+            	todayHighlight : true,
+            }).datepicker();
+        </script>
+
+</body>
+</html>
+

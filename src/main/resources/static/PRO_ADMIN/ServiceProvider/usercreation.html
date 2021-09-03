@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Users Creation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/favicon.ico">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/metisMenu.css" />
+<link rel="stylesheet" href="css/bootstrap-chosen.css">
+<link rel="stylesheet" href="css/datepicker.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+#addressId {
+	height: 45px;
+}
+</style>
+
+</head>
+<body>
+	<div id="page-container">
+		<!--Top Menu-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<!--Side MenuIcon-->
+					<a class="navbar-brand cursor" id="sidemenu-icon"><i
+						class="fas fa-bars" style="color: #414344"></i></a>
+					<!--Logo-->
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="img/pro-Logo.png" /></a>
+					<!--Top MenuIcon-->
+					<a class="navbar-brand cursor" id="topmenu-icon"><i
+						class="fas fa-ellipsis-v" style="color: #414344"></i></a>
+
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<label id="siteLableId"> <span
+						class="siteclass text-center"
+						style="margin-left: 747px; color: mediumblue;" id="siteNameId"></span></label>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a class="logintime">LogIn Time : 25-10-2019 11:29 AM</a>
+						</li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu animated fadeInDown">
+								<li><a href="#"><i class="fas fa-user"></i>My Profile</a></li>
+								<li><a href="#" onclick="serviceProviderLogout()"><i
+										class="fas fa-sign-out-alt"></i>Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Side Menu-->
+		<nav class="side-nav" id="sideNav">
+			<ul class="nav p-t-lg" id="metisMenu">
+				<li><a href="dashboard_1.html"><i
+						class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+				<li><a href="usersegregation.html"><i class="fas fa-user"></i><span>Module
+							License Distribution</span></a></li>
+				<li><a href="usercreation.html"><i class="fas fa-user-plus"></i><span>User
+							Creation</span></a></li>
+				<li><a href="allsiteusers.html"><i class="fa fa-users"></i><span>All
+							Site Users </span></a></li>
+
+				<li><a href="#" class="has-arrow" aria-expanded="true"> <i
+						class='fa fa-users'></i> <span>Team Leaders</span>
+				</a>
+					<ul class="nav nav-second-level">
+						<li><a href="teamleadcreation.html"><i
+								class="fas fa-user-plus"></i><span>Team Leader Creation</span></a></li>
+						<li><a href="teamleadagentmap.html"><i class='far fa-map'></i><span>Team
+									Leader Agent Map</span></a></li>
+					</ul></li>
+				<li><a href="#" class="has-arrow" aria-expanded="true"> <i
+						class='fa fa-users'></i> <span>Shift Managers</span>
+				</a>
+					<ul class="nav nav-second-level">
+						<li><a href="shiftmanagercreation.html"><i
+								class="fas fa-user-plus"></i><span>Shift Manager Creation</span></a></li>
+						<li><a href="shiftmanagermapping.html"><i
+								class='far fa-map'></i><span>Shift Manager Team Leader
+									Map</span></a></li>
+					</ul></li>
+				<li><a href="#" class="has-arrow" aria-expanded="true"> <i
+						class='fas fa-phone-volume'></i> <span>CTI</span>
+				</a>
+					<ul class="nav nav-second-level">
+						<li><a href="CTIusercreation.html"><i
+								class="fas fa-user-plus"></i><span>User Creation</span></a></li>
+						<li><a href="mapping.html"><i class='far fa-map'></i><span>Mapping</span></a></li>
+					</ul></li>
+					<li><a href="terminalMapping.html"><i class="fas fa-cog"></i><span>Terminal Mapping
+							</span></a></li>
+				<li><a href="modulemapping.html"><i class="fas fa-dice-d20"></i><span>Modules
+							Mapping</span></a></li>
+				<!--                    <li>
+                                            <a href="#"><i class="fas fa-user-tag"></i><span>Roles Creation</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-puzzle-piece"></i><span>Privileges Creation</span></a>
+                                        </li>-->
+				<li><a href="whitelisting.html"><i class='fas fa-list-alt'></i><span>White
+							Listing</span></a></li>
+				<li><a href="sitesettings.html"><i class="fas fa-cog"></i><span>Site
+							Settings</span></a></li>
+				<li><a href="sitejurisdiction.html"><i
+						class='fas fa-balance-scale'></i><span>Site jurisdiction</span></a></li>
+				<li><a href="vehicles.html"><i class='fas fa-ambulance'></i><span>Vehicles</span></a>
+				</li>
+				<li><a href="socialmedia.html"><i class='fas fa-wifi'></i><span>Social
+							Media</span></a></li>
+				<li><a href="billing.html"><i class='fab fa-cc-apple-pay'></i><span>Billing</span></a>
+				</li>
+				<li><a href="thirdpartyApI.html"><i class="fas fa-cogs"></i><span>Third
+							Party ApI's</span></a></li>
+				<li><a href="#" class="has-arrow" aria-expanded="true"> <i
+						class="fas fa-chart-bar"></i> <span>Reports</span>
+				</a>
+					<ul class="nav nav-second-level">
+						<li><a href="login_Report.html"><i
+								class="fas fa-chart-line"></i><span>Login Module Wise
+									Report</span></a></li>
+						<li><a href="#"><i class="fas fa-chart-line"></i><span>Daily
+									Reports</span></a></li>
+						<li><a href="#"><i class="fas fa-chart-pie"></i><span>Weekly
+									Reports</span></a></li>
+						<li><a href="#"><i class="fas fa-chart-area"></i><span>Monthly
+									Reports</span></a></li>
+						<li><a href="#"><i class="fas fa-bezier-curve"></i><span>Quarterly
+									Reports</span></a></li>
+					</ul></li>
+				<li><a href="aboutus.html"><i class="fas fa-info-circle"></i><span>About
+							Us</span></a></li>
+				<li><a href="contactus.html"><i class="fas fa-address-book"></i><span>Contact
+							Us</span></a></li>
+			</ul>
+		</nav>
+		<!--Content-->
+		<div id="content-wrap" class="main-content">
+			<form class="p-t-n" id="myForm">
+				<h2>Users Creation</h2>
+				<!--Site registration Form-->
+				<div class="form-container">
+					<div class="row">
+						<!--User Name-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>User Name<span class="star">*</span></label> <input
+									type="text" class="form-control" name="userName"
+									id="userNameId" maxlength="50">
+								<div id="userNameId_feedback"></div>
+								<small> <span id="userNameId_Error"></span></small>
+							</div>
+
+						</div>
+						<!--Password-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Password<span class="star">*</span></label> <input
+									type="password" class="form-control" name="password"
+									id="passwordId" maxlength="50"> <small> <span
+									id="passwordId_Error"></span></small>
+							</div>
+						</div>
+						<!--Confirm Password-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Confirm Password <span class="star">*</span></label> <input
+									type="password" class="form-control" name="confirmPassword"
+									id="reEnterPasswordId" maxlength="50"> <small>
+									<span id="confirmPassword_Error"></span>
+								</small>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<!--First Name-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>First Name<span class="star">*</span></label> <input
+									type="text" class="form-control" name="firstName"
+									id="firstNameId" maxlength="50">
+								<div id="firstNameId_feedback"></div>
+								<small> <span id="firstNameId_Error"></span>
+								</small>
+							</div>
+						</div>
+						<!--Last Name-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Last Name<span class="star">*</span></label> <input
+									type="text" class="form-control" name="lastName"
+									id="lastNameId" maxlength="50">
+								<div id="lastNameId_feedback"></div>
+								<small> <span id="lastNameId_Error"></span></small>
+							</div>
+						</div>
+						<!--Gender-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Gender<span class="star">*</span></label> <select
+									class="form-control" name="gender" id="genderId">
+									<option value="0">Select Gender</option>
+								</select> <small> <span id="genderId_Error"></span>
+								</small>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<!--DOB-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Date Of Birth<span class="star">*</span></label> <input
+									data-date-format="dd-mm-yyyy" type="text" class="form-control"
+									name="dateOfBirth1" id="date_of_birth"> <span
+									id="date_of_birth_Error"></span>
+							</div>
+						</div>
+						<!--Email ID-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Email<span class="star">*</span></label> <input
+									type="email" class="form-control emailkeypress" name="email"
+									id="emailId"> <small> <span id="emailId_Error"></span></small>
+							</div>
+						</div>
+						<!--Phone #1-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Phone #1<span class="star">*</span></label> <input
+									type="text" class="form-control numkeypress" name="phone1"
+									id="phone1Id" maxlength="10"> <small> <span
+									id="phone1Id_Error"></span></small>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<!--Phone #2-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Phone #2</label> <input type="text"
+									class="form-control numkeypress" name="phone2" id="phone2Id"
+									maxlength="10"> <small> <span
+									id="phone2Id_Error"></span>
+								</small>
+							</div>
+						</div>
+						<!--Date of Joining-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Date of Joining<span class="star">*</span></label> <input
+									data-date-format="dd-mm-yyyy" type="text" class="form-control"
+									name="dateOfJoining1" id="dateOfJoiningID"> <small>
+									<span id="dateOfJoiningID_Error"></span>
+								</small>
+							</div>
+						</div>
+						<!--Date of Retirement-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Date of Retirement<span class="star">*</span></label> <input
+									data-date-format="dd-mm-yyyy" type="text" class="form-control"
+									name="dateOfRetirement1" id="dateOfRetirementID"> <small>
+									<span id="dateOfRetirementID_Error"></span>
+								</small>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<!--Employee Type-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Employee Type<span class="star">*</span></label> <select
+									class="form-control" name="empType" id="employeeID">
+									<option value="0">Select Employee Type</option>
+								</select> <small> <span id="employeeID_Error"></span>
+								</small>
+							</div>
+						</div>
+						<!--Designation Type-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Designation Type<span class="star">*</span></label> <select
+									class="form-control" name="designtionType" id="designationID">
+									<option value="0">Select Designation Type</option>
+								</select> <small> <span id="designationID_Error"></span></small>
+							</div>
+						</div>
+						<!--Designation Type-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Upload image<span class="star">*</span></label> <input
+									id="actualFile" type="file" class="form-control"
+									name="uploadImage" style="display: none"> <input
+									style="padding-right: 90px;" id="customFile" value=""
+									type="text" class="form-control" name="imageInput"> <input
+									id="customFileBtn" type="button" value="Browse"
+									class="btn btn-blue customuploadbtn" name="imageBtn"> <small>Jpg,
+									jpeg, png, pdf,formats are allowed with maximum size limit 3 MB</small>
+								<small> <span id="actualFile_Error"></span></small>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<!--Phone #2-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Address<span class="star">*</span></label>
+								<textarea class="form-control " name="addressId" id="addressId"
+									maxlength="100"></textarea>
+								<small> <span id="addressId_Error"></span>
+								</small>
+							</div>
+						</div>
+						<!--Date of Joining-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Qualification<span class="star">*</span></label> <select
+									class="form-control" name="qualification" id="qualificationId">
+									<option value="0">Select Qualification Type</option>
+								</select> <small> <span id="qualificationId_Error"></span></small>
+							</div>
+						</div>
+						<!--Date of Retirement-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Experience<span class="star">*</span></label> <input
+									type="text" class="form-control numkeypress" name="experience"
+									id="experienceId" maxlength="50"> <small> <span
+									id="experienceId_Error"></span></small>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Employee Code<span class="star">*</span></label> <input
+									type="text" class="form-control" name="employeeCode"
+									id="employeeCode" maxlength="50"> <small> <span
+									id="employeeCode_Error"></span></small>
+							</div>
+						</div>
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label>Center<span class="star">*</span></label> <select
+									class="form-control" name="Center" id="user_CenterId">
+									<option value="0">Select Center</option>
+								</select> <small><span id="CenterId_Error"></span></small>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-container">
+					<div class="row">
+						<div class="col-md-12 col-xs-12 text-center">
+							<button type="button" class="btn btn-blue w-100"
+								onclick="insertUserCreation()">
+								<i class="fa fa-check"></i> Submit
+							</button>
+							&nbsp;&nbsp;&nbsp;
+							<button type="reset" class="btn btn-warning w-100"
+								id="resetbtnId" onclick="resetbtn()">
+								<i class="fas fa-undo"></i> Reset
+							</button>
+							&nbsp;&nbsp;&nbsp;
+						</div>
+						<b><small> <span id="us_sucessId"
+								style="margin-left: 685px;"></span></small></b>
+					</div>
+				</div>
+			</form>
+		</div>
+		<input type="hidden" id="image_UrlId">
+
+			<!--Footer-->
+		<div class="footer">
+			<small>Powdered by <a href="http://procreate.co.in/"
+				target="_blank">Procreate Techno systems Private Limited</a></small>
+		</div>
+		</div>
+		<!--Footer End-->
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/metisMenu.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/chosen.jquery.js"></script>
+	<script src="js/chosen.jquery.js"></script>
+	<script src="js/notify.js"></script>
+	<script src="js/notify.min.js"></script>
+	<!-- Main  Scripts -->
+	<script src="js/Service.js"></script>
+	<!-- Page Related Scripts -->
+	<script src="js/site_Common.js"></script>
+	<script src="js/userCreation.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#sidemenu-icon').click(function() {
+				$('#sideNav').toggleClass('active');
+				$('#content-wrap').toggleClass('active');
+				$('.nav-second-level').toggleClass('active');
+
+			});
+
+			//                Menu Open in Small devices
+			$('#topmenu-icon').click(function() {
+				$('#top-navbar').toggleClass('in');
+
+			});
+
+			//                Date Of Birth 
+
+			$("#date_of_birth").datepicker({
+				autoclose : true,
+				todayHighlight : true,
+				endDate : new Date()
+			}).datepicker();
+
+			//               dateOfJoiningID
+			var date = new Date();
+			date.setDate(date.getDate());
+			$("#dateOfJoiningID").datepicker({
+				autoclose : true,
+				todayHighlight : true,
+				startDate : date
+			}).datepicker();
+			//               dateOfRetirementID
+			var date = new Date();
+			date.setDate(date.getDate());
+			$("#dateOfRetirementID").datepicker({
+				autoclose : true,
+				todayHighlight : true,
+				startDate : date
+			}).datepicker();
+
+			//                Metis Menu
+			$('#metisMenu').metisMenu({
+				toggle : true
+			});
+
+			//                Tootip
+			$('[data-toggle="tooltip"]').tooltip();
+			//                Chosen
+			$('select').chosen();
+		});
+
+		//            Upload Image
+		var actualImgFile = document.getElementById('actualFile');
+		var ImgBtn = document.getElementById('customFileBtn');
+		var customImgFile = document.getElementById('customFile');
+
+		ImgBtn.addEventListener("click", function() {
+			actualImgFile.click();
+		});
+
+		actualImgFile.addEventListener("change", function() {
+			if (actualImgFile.value) {
+				customImgFile.value = actualImgFile.value;
+
+			} else {
+				customImgFile.value = "";
+			}
+		});
+	</script>
+
+</body>
+</html>

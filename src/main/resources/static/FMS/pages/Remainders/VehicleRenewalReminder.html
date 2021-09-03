@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FMS | Vehicle Renewal Reminders</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <!--<link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">-->
+        <link rel="stylesheet" href="../../css/metisMenu.css"/>
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/fleet.css">
+        <style>
+          
+            .vehicle-img{
+                height: 50px;
+                float: left;
+            }
+            .p-l-xxl{
+                padding-left:74px;
+            }
+
+            .text-green{
+                color:#18cc6c;
+            }
+            .fa-circle{
+                font-size:10px;
+            }
+
+            .cursor{
+                cursor: pointer;
+            }
+            //label & text is same line
+            .control-label{
+                margin-top: -2px;
+            }
+            
+            
+.no-js #loader {
+	display: none;
+}
+
+.js #loader {
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+}
+
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background:
+		url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif)
+		center no-repeat #fff;
+}
+            .second-nav {
+    background: #00467A;
+}
+     .table>thead>tr>th {
+    background-color: #00467A;
+    color: #fff;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+             html, body {
+    overflow-x: hidden;
+}
+        </style>
+    </head>
+    <body>
+        <div class="se-pre-con">
+            <div class="content">
+                <div class="back-to-article">
+                    <p><a href="smallenvelop.com/blog/"></a></p>
+                </div>
+                <img src="http://smallenvelop.com/wp-content/uploads/2014/08/simple-pre-loader.jpg
+                     " style="visibility: hidden; width:100%; height: auto;">
+            </div>
+        </div>
+        <div id="page-container">
+
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+<!--                         <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../images/pro-Logo.png"/></a> -->
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                       <ul class="nav navbar-nav">                 
+                            <li><a href="../../../dashBoard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../FleetIO_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                      
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a onclick="logout()" href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Side Nav Bar-->
+                           <!--Main Header End-->
+        <nav id='sidebar' class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <h3 class="header">Fleet Management</h3>
+                    </div>
+                    <div class='sidebar-menu'>
+                        <ul class="metismenu" id="metismenu">
+                          <li>
+                                <a href='../FleetIO_Dashboard.html'>
+                                    <i class='fa fa-tachometer'></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <!--Vehicles-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-cab'></i>
+                                    <span>Vehicles</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Vehicles/vehicleList.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle List</span>
+                                        </a>
+                                    </li>
+                                 
+                                      <li>
+                                        <a href="../addBaseLocation/addBaseLocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add BaseLocation</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                        <a href="../VehicleAssign_Deassign/VehicleMapWithBaselocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Mapping</span>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="../VehicleAssign_Deassign/EMT_PilotAssign_Deassign.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Emt/Pilot Assign/Deassign</span>
+                                        </a>
+                                    </li>
+                                    
+<!--                                     <li> -->
+                    
+<!--                                         <a href="../vehicles/watchedVehicles.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Watched Vehicles</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/meterHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Meter History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/expenseHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Expense History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/gpsIntegration.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>GPS Integration</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+
+
+                                </ul>
+                            </li>
+
+                            <!--Inspections-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-building'></i>
+                                    <span>Inspections</span>
+                                </a>
+                                <ul class="nav first-child">
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/inspectionHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Inspection History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/itemFailures.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Item Failures</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                    <li>
+                                        <a href="../Scheduling/pages/Scheduling.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Schedules</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                     <a href="../Audit/pages/Auditreport_1.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Audit Report Status</span>
+                                        </a>
+                                         </li>
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/forms.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Forms</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            <!--Issues-->
+                          	<!--Issues-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-info-circle '></i> <span>Issue</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Issues/Issueslist.html"> <i
+										class="fa fa-circle-o"></i> <span>Issues List</span>
+								</a></li>
+<!-- 								<li><a href="../Issues/faults.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>Faults</span> -->
+<!-- 								</a></li> -->
+<!-- 								<li><a href="../Issues/recall.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>Recalls</span> -->
+<!-- 								</a></li> -->
+
+							</ul></li>
+
+                            <!--Remainders-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-clock-o '></i>
+                                    <span>Remainder</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Remainders/serviceremainders.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Service Remainder</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Remainders/VehicleRenewalReminder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Renewals</span>
+                                        </a>
+                                    </li>
+<!--                                     <li> -->
+<!--                                         <a href="../Remainders/contactRenewal.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Contact Renewals</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            <!--Services-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-thumbs-o-up '></i>
+                                    <span>Services</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../service/serviceHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services History </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/serviceTask.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services Task </span>
+                                        </a>
+                                    </li>
+                                 
+<!--                                     <li> -->
+<!--                                         <a href="../service/shopdirectory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Shop Directory</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../service/integrations.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Integrations</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            
+                                                    <!--Contacts & Users-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-user'></i> <span>Contacts & Users</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Contact&Users/contactlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact List</span>
+								</a></li>
+								<li><a href="../Contact&Users/userManagement.html"> <i
+										class="fa fa-circle-o"></i> <span>User Management</span>
+								</a></li>
+								<li><a href="../Contact&Users/vendorlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Vendor List</span>
+								</a></li>
+							</ul></li>
+                            <!--Fuels-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-filter '></i>
+                                    <span>Fuel</span>
+                                </a>
+                                <ul class="nav first-child">
+                                                 <li>
+                                        <a href="../Fuel/FuelHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>FuelHistory</span>
+                                    	</a></li>
+							</ul></li>
+                                    
+                                    
+                              <!--Places-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-road'></i>
+                                    <span>Places</span>
+                                </a>
+                              
+                            </li>
+                            <!--Reports-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-book'></i>
+                                    <span>Reports</span>
+                                </a>
+                            </li> 
+                            
+                              <li>
+                                <a href="#">
+                                    <i class='fa fa-money '></i>
+                                    <span>Integrations</span>
+                                </a>
+                            </li> 
+
+                                </ul>
+                            </li>
+
+                           
+
+
+
+                        </ul>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
+            <!--Side Nav Bar ENd-->
+
+            <!--Content-->
+            <div id="content-wrap">   
+                <!--Second Header-->
+                <div class="second-nav">
+                    <ul class="pull-left" style="display: inline-flex">
+                        <li>
+                            <a class="navbar-brand-1" id="menu-icon">
+                                <h4><i class="fa fa-bars"></i></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <h4  style="margin-top:5px">Vehicle Renewal Reminders</h4>
+                        </li>
+                    </ul>
+                    <ul class="pull-right searchbar">
+                        <li class="pull-left p-r-sm">
+                            <a href="#">
+                                <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                            </a>                    
+                        </li> 
+                        <li class="pull-left" style="margin-top: -7px">
+                            <a href="../Master/Vehicle/VehicleType.html"><button type="button" class="btn btn-success btn-sm" >Manage</button></a> 
+                        </li>
+                        <li class="pull-left" style="margin-top: -7px">
+                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editRemainder"><i class="fa fa-plus p-r-xs"></i>Add Remainder</button> 
+                        </li>
+                        <li class="dropdown pull-left" style="margin-top: -2px">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                                <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                            </ul>
+                        </li>     
+                    </ul>
+                </div>
+                <!--Second Header End-->
+                <div class="card">
+                    <form class="form-horizontal">
+                        <!--Error Message-->
+                        <div class="alert alert-danger" style='display: none;'>
+                            <h4>
+                                <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                            </h4>
+                            <ul class='m-l-md'>
+                                <li>District Can't be Empty</li>
+                            </ul>
+                        </div>
+                        <!--Title Heade End-->
+                        <div class="row">
+                            <!--District-->
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Reminder Status<span class="star">*</span></label>
+                                    <div class="col-md-8 col-xs-12">
+                                        <select class="form-control" id="reminderStatusId">
+                                            <option value="0">Select Reminder Status</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Base Location-->
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Vehicle Name<span class="star">*</span></label>
+                                    <div class="col-md-8 col-xs-12">
+                                        <select class="form-control" id="vehicleNameId">
+                                            <option value="0">Select Vehicle Name</option>
+                                            <!--                                                                                <option value="1">Fuel Filling</option>
+                                                                                                                            <option value="2">Oxygen Filling</option>
+                                                                                                                            <option value="3">Tyre Life</option>-->-->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Register No</label>
+                                    <div class="col-md-8 col-xs-12">
+                                        <select class="form-control" id="registerNumberId">
+                                            <option value="0">Select Register No</option>
+<!--                                                                                    <option value="0">Select Status</option>
+                                                                                    <option value="1">Fuel Filling</option>
+                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                    <option value="3">Tyre Life</option>-->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4">Due Date<span class="star">*</span></label>
+                                    <div class="col-md-8">
+                                        <div class="input-group date" data-date-format="yyyy-mm-dd">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date"  name="purchaseDate" type="text" id="strtDate1"  style="width: 239px" autocomplete="off"/>                                                             
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                            <!--Ambulance-->
+                        </div>
+                        <!--buttons-->
+                        <div class="row m-t-b-sm">
+                            <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="getRenewalRemindersList()"><i class="fa fa-search p-r-xs"></i>Search</button>
+                                <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetSearchRenewalReminder()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                            </div>
+                        </div>   
+
+                        <!--table-->
+                        <div class="wrapper wrapper-content">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12" style="display: none" id="renewaldeleteButtonID">
+                                    <button type="button" class="btn btn-danger btn-sm delete" onclick="deletechkReminder()" id="Searchdeleteid"><i class="fa fa-trash-o"></i> Delete All</button>
+                                    <div  id="renewaldataTableId">  
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>                         
+            </div>
+        </div>
+        <!--modalbox5-->
+        <div id="myModal6" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Add Mandal-->
+                <div class="modal-content">
+
+                    <h4 class="modal-title text-center">Delete Vehicle</h4>
+
+                    <h5 style="padding-left:120px ">Are You sure you want to delete this Reminder ? </h5>
+                    <br>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success btn-sm"  id="reminderDeleteId">Yes</button>
+                        <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">No</button>
+                    </div>
+                    <br>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div id="myModal7" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Add Mandal-->
+                <div class="modal-content">
+
+                    <h4 class="modal-title text-center">Delete Vehicle</h4>
+
+                    <h5 style="padding-left:120px ">Are You sure you want to delete this Reminder ? </h5>
+                    <br>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success btn-sm" onclick="deleteRnewalReminder()" id="reminderDeleteId">Yes</button>
+                        <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">No</button>
+                    </div>
+                    <br>
+                </div>
+
+            </div>
+        </div>
+        <!--Content End-->
+        <!--Modal box for Add-->
+        <div id="editRemainder" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Save Vehicle Renewal Reminders</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <!--Heading-->
+                            
+                            
+                            <div class="sub-title">
+                                <h4>Vehicle Renewal Reminder Details</h4>
+                            </div>
+                            
+                            
+                            
+                            
+                            
+                            
+                            <div class="sub-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <!--Zone-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Vehicle<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="reg_vehicleId">
+                                                        <!--                                                            <option value="0">Select Zone</option>
+                                                                                                                    <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-xs-12">    
+                                           
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Renewal Type<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" id="reg_renewalTypeId">
+                                                        <!--                                                            <option value="0">Select District</option>
+                                                                                                                    <option value="1">Fuel Filling</option><!--
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                     
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Due Date<span class="star">*</span></label>
+                                                <div class="col-md-8">
+                                                    <div class="input-group date" data-date-format="yyyy-mm-dd">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Select Date"  name="purchaseDate" type="text" id="Reg_strtDate" autocomplete="off"/>                                                             
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                       <div class="col-md-6 col-xs-12">
+                                            <div class="form-group" id="subscribedUsers" >
+                                                <label class="control-label col-md-4 col-xs-12">Subscribed Users<span class="star">*</span></label>
+                                                <div class="col-md-8 labelscss"> 
+                                                    <input type="text"  maxlength="25" placeholder="Enter Subscribed Users" class="form-control textwidth"  autocomplete="off" id="regsubscribedUsersId" autocomplete="off">
+                                                </div>                        
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Time Threshold</label>                                        
+                                                <div class="col-md-6 col-xs-12">
+                                                    <input type="text" class="form-control" placeholder="Enter Time Interval" style=" width: 270px" id="reg_timeIntervalId" onkeypress="return  Validate2(event)" autocomplete="off">                                                   
+                                                </div>
+
+                                                <div class="col-md-2 col-xs-12"  style=" width: 120px; margin-left: -30px"> 
+                                                    <select class="form-control" id="totaldaysForTimeIntervalId">                                                           
+                                                        <option value="1">Day(s)</option>
+                                                        <option value="2">Week(s)</option>
+                                                        <option value="3">Month(s)</option>
+                                                        <option value="4">Year(s)</option>
+
+                                                    </select>
+<!--                                                     <i class="fa fa-info-circle" title="Meter Interval Remainders" data-toggle="popover" data-placement="bottom" data-content="Repeat based on a time interval (e.g. Car Wash every 1 month). Leave blank if you don't want to use this option. -->
+<!--                                                        "></i> -->
+                                                </div>
+
+                                            </div>
+                                        </div>
+<!--                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group" id="subscribedUsers" >
+                                                <label class="control-label col-md-4 col-xs-12">Subscribed Users<span class="star">*</span></label>
+                                                <div class="col-md-8 labelscss"> 
+                                                    <input type="text"  maxlength="25" placeholder="Enter Subscribed Users" class="form-control textwidth"  autocomplete="off" id="regsubscribedUsersId" autocomplete="off">
+                                                </div>                        
+                                            </div>
+                                        </div>-->
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="center" style="  margin-left: 587px;">
+
+                                <!--button-->
+
+                                <button type="button" class="btn btn-primary btn-sm" onclick="saveRenewalReminder()" id="renewalReminderId"><i class="fa fa-floppy-o p-r-xs"></i>Save</button>
+                                <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetsaveRenewalReminder()"><i class="fa fa-refresh p-r-xs"></i>Rest</button>
+
+                                <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="resetsaveRenewalReminder()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                            </div> <br> </form>
+                    </div>
+                </div></div>
+        </div>
+        
+           <div id="myModal8" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Add Mandal-->
+                <div class="modal-content">
+
+                    <h4 class="modal-title text-center">Delete Vehicle</h4>
+
+                    <h5 style="padding-left:120px ">Are You sure you want to delete this Reminder ? </h5>
+                    <br>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success btn-sm" onclick="deleteRenewalReminder()" id="renewalDeleteId">Yes</button>
+                        <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">No</button>
+                    </div>
+                    <br>
+                </div>
+
+            </div>
+        </div>
+        
+        
+         <!--update reminder -->
+         <div id="updateRemainder" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Update Vehicle Renewal Reminders</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <!--Heading-->
+                            <div class="sub-title">
+                                <h4>Vehicle Renewal Reminder Details</h4>
+                            </div>
+                            <div class="sub-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <!--Zone-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Vehicle<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="UP_vehicleId">
+                                                        <!--                                                            <option value="0">Select Zone</option>
+                                                                                                                    <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-xs-12">    
+                                           
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Renewal Type<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" id="UP_renewalTypeId">
+                                                        <!--                                                            <option value="0">Select District</option>
+                                                                                                                    <option value="1">Fuel Filling</option><!--
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                     
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Due Date<span class="star">*</span></label>
+                                                <div class="col-md-8">
+                                                    <div class="input-group date" data-date-format="yyyy-mm-dd">
+                                                        <span class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </span>
+                                                        <input class="form-control" placeholder="Select Date"  name="purchaseDate" type="text" id="UP_strtDate" autocomplete="off"/>                                                             
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>  
+
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Time Threshold</label>                                        
+                                                <div class="col-md-6 col-xs-12">
+                                                    <input type="text" class="form-control" placeholder="Enter Time Interval" style=" width: 270px" id="UP_timeIntervalId" onkeypress="return  Validate2(event)" autocomplete="off">                                                   
+                                                </div>
+
+                                                <div class="col-md-2 col-xs-12"  style=" width: 120px; margin-left: -30px"> 
+                                                    <select class="form-control" id="UP_totaldaysForTimeIntervalId">                                                           
+                                                        <option value="1">Day(s)</option>
+                                                        <option value="2">Week(s)</option>
+                                                        <option value="3">Month(s)</option>
+                                                        <option value="4">Year(s)</option>
+
+                                                    </select>
+                                                    <i class="fa fa-info-circle" title="Meter Interval Remainders" data-toggle="popover" data-placement="bottom" data-content="Repeat based on a time interval (e.g. Car Wash every 1 month). Leave blank if you don't want to use this option.
+                                                       "></i>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group" id="subscribedUsers" >
+                                                <label class="control-label col-md-4 col-xs-12">Subscribed Users<span class="star">*</span></label>
+                                                <div class="col-md-8 labelscss"> 
+                                                    <input type="text"  maxlength="25" placeholder="Enter Subscribed Users" class="form-control textwidth"  autocomplete="off" id="UP_subscribedUsersId" autocomplete="off">
+                                                </div>                        
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="center" style="  margin-left: 587px;">
+
+                                <!--button-->
+
+                                <button type="button" class="btn btn-primary btn-sm" onclick="update_RenewalReminder()" id="updaterenewalReminderId"><i class="fa fa-floppy-o p-r-xs"></i>Update</button>
+                                <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetUpdaterenewalReminder()"><i class="fa fa-refresh p-r-xs"></i>Rest</button>
+
+                                <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="resetUpdaterenewalReminder()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                            </div> <br> </form>
+                    </div>
+                </div></div>
+        </div>
+        <!--Modal box for Update remainders-->
+       <input type="hidden" id="renewalReminderId">
+        <!--Footer-->
+        <div class="footer">
+            <small>Powered  by Procreate Techno systems Private Limited</small>
+        </div>
+        <!--Footer End-->
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/datatables.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.js"></script> 
+        <!--<script src="../../js/bootstrap-datetimepicker.min.js"></script>-->       
+        <script src="../../js/chosen.jquery.js"></script>
+        <script src="../../js/metisMenu.min.js"></script>
+        <script src="../../js/FMS/ServiceReminders.js"></script>
+        <script src="../../js/FMS/ServiceURL.js"></script>
+        <script src="../../js/FMS/VehicleRenewalReminderController.js"></script>
+        <script src ="../../js/notify.min.js"></script>
+        <script src ="../../js/notify.js"></script>
+           <!--         logout/login url -->
+<!--                <script src="../../../Common/serviceController/dashboard.js"></script> -->
+<!--         <script src="../../../Common/serviceController/ServiceUrl.js"></script>  -->
+<!--          <script src="../../../Common/serviceController/logout.js"></script> -->
+        <script>
+
+//                                    $(function () {
+//                                        //Date And Time picker in Modal Box
+//                                        $('#datetimepicker1').datetimepicker({
+//                                            sideBySide: true,
+//                                            format: 'DD-MM-YYYY HH:mm:ss'
+//                                        });
+//                                    });
+
+                                    $(document).ready(function () {
+                                    //	checkLoggedOrNot();
+                                        $('select').chosen();
+                                        //Side Menu
+                                        $("#menu-icon").click(function () {
+                                            $("#sidebar").toggleClass('active');
+                                            $("#content-wrap").toggleClass('active');
+                                        });
+
+                                        $('#metismenu').metisMenu();
+
+                                        $('[data-toggle="tooltip"]').tooltip();           // Tooltip
+                                        $('[data-toggle="popover"]').popover({
+                                            trigger: 'hover',
+                                            width: '200px;'
+                                        });
+                                        //                                            Data tables
+                                        $('#serviceRemainder').DataTable({// Data table
+                                            "aLengthMenu": [[05, 10, 15, 25, -1], [05, 10, 15, 25, "All"]],
+                                            pageLength: 5,
+                                            responsive: true,
+                                            dom: '<"html5buttons"B>lTfgitp',
+                                            buttons: [
+                                                {extend: 'copy'},
+                                                {extend: 'csv'},
+                                                {extend: 'excel', title: 'ExampleFile'},
+                                                //                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                                {extend: 'print',
+                                                    customize: function (win) {
+                                                        $(win.document.body).addClass('white-bg');
+                                                        $(win.document.body).css('font-size', '10px');
+
+                                                        $(win.document.body).find('table')
+                                                                .addClass('compact')
+                                                                .css('font-size', 'inherit');
+                                                    }
+                                                }
+                                            ]
+
+                                        });
+                                        //Date Pickers
+                                        //Date Pickers
+                                        var today = new Date();
+                                        $("#strtDate1").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true,
+                                            endDate: "today",
+                                            maxDate: today
+                                        }).datepicker();
+                                        $("#Reg_strtDate").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true
+                                        }).datepicker();
+                                          $("#UP_strtDate").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true
+                                        }).datepicker();
+                                        
+                                        
+                                    });
+                                    //                                        Toggle Button
+                                    $("#switch1").change(function () {
+                                        var ischecked = $(this).is(':checked');
+                                        if (ischecked === true) {
+                                            $('#subscribedUsers').css('display', 'block');
+                                        } else {
+                                            $('#subscribedUsers').css('display', 'none');
+                                        }
+                                    });
+
+
+                                    $(window).load(function () {
+                                        // Animate loader off screen
+                                        $(".se-pre-con").fadeOut(50);
+                                    });
+
+        </script>
+
+    </body>
+</html>

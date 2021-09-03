@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Complaint Response System|Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title Icon-->
+<link rel="shortcut icon" href="../assets/img/favicon.ico">
+<!--CSS Links-->
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/fontfamily/font-style.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../assets/css/login_1.css">
+
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../assets/css/font-awesome/css/font-awesome.css">
+<link rel="stylesheet" href="../assets/css/datepicker.css">
+<link rel="stylesheet"
+	href="../../assets/css/bootstrap-datetimepicker.min.css">
+	<!-- time picker -->
+
+<!--Customized CSS-->
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/fleet.css">
+	
+
+<style>
+#particles-js {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #b61924;
+	background-image: url('');
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background: #00356B;
+}
+
+.row {
+	margin: 0;
+}
+
+.remember {
+	line-height: 2;
+	color: #000;
+	font-weight: 500;
+}
+
+@media screen and (max-width:700px) {
+	.footer {
+		margin-left: 0px;
+	}
+}
+
+.toast {
+	background-color: #d68908;;
+	width: 312px;
+	height: 82px;
+	margin-left: 1522px;
+	margin-top: 46px;
+}
+
+.text-primary {
+	color: #171515fa;;
+	margin-top: 61px;
+	font-size: 18px;
+}
+
+.toast-header {
+	margin-left: 66px;
+}
+
+.btn-info1 {
+    background: #2b2bb9;
+    border-color: #2b2bb9;
+    color: #fff;
+    width: 379px;
+}
+element.style {
+    margin-left: 155px;
+    margin-top: -35px;
+}
+</style>
+
+</head>
+<body>
+      <div id="particles-js">
+      <div class="toast" id="toastid" data-autohide="false" style="display: none;">
+      <div class="toast-header"><br>
+      <!--<strong class="mr-auto text-primary">User Not Found</strong> -->
+      <strong class="mr-auto text-primary">Invalid Credentials</strong> 
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+      </div></div>
+        </div>
+        <div class="login">
+            <h2>User Login</h2>
+            <form>
+                <!--User Name-->
+                <div class="float-labels">
+                    <div class="form-group">
+                        <div class="float-group">
+                            <input style="height: 40px" type="text" class="form-control"  placeholder="Enter User Name" id="usernameid">
+                            <label class="float-field" >User Name</label>
+                        </div>
+                    </div>  
+                </div>  
+                <!--Passowrd-->
+                <div class="float-labels">
+                    <div class="form-group">
+                        <div class="float-group">
+                            <input style="height: 40px" type="password" class="form-control"  placeholder="Enter Password" id="passwordid">
+                            <label class="float-field" >Password</label>
+                        </div>
+                    </div> 
+                </div> 
+
+                 <div>
+                    <!-- <div style="display:inline-flex;margin-top: -20px">
+                        <input type="checkbox" class="check_1"><span class="p-l-sm remember">Remember me</span>
+                    </div>
+                    <a href="" class="pull-right" style="margin-top: -13px">Forgot Password?</a> -->
+                </div>
+
+                <div class="text-center m-t-md">
+                    <button style="margin-top: 4px;" type="button" class="btn btn-info1 btn-block" onclick="loginComplaintLogger()" id="log_in">Login</button>
+                     <p style= "margin-top: 14px;color: black;font-weight: bold;width: 349px;">Don't have an account first Register </p> 
+                 <button style="margin-top: 0px;" type="button" class="btn btn-info1 btn-block" onclick="login1()" id="log_in">Registation</button>
+                </div><br>
+               <div class="">
+                
+              <!--  <button style="margin-left: 230px;margin-top: -34px;" type="button" class="btn btn-info1 btn-block" onclick="loginComplaintLogger()" id="log_in">Registation</button>  -->
+            <!--     <a href="#" style="margin-left: 194px;margin-top: 14px;"><i class="fa fa-user"></i>Register here</a> -->
+            
+               
+               </div>
+               <div class="reg">
+              
+               </div>
+            </form>  
+            <!--Footer-->
+            <p class="footer">Pro-HHL® 2019 © Procreate. All Rights Reserved.</p> 
+        </div>
+        
+        <!--Modal Box Registation -->
+        <div id="registration" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">User Registation</h4>
+					</div><br>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="sub-body">
+								<div class="row">
+									<!--  Username-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Username<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+											<input id="userid" type="text" placeholder="Please Enter UserName"class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--First Name -->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">First Name 
+												<span class="star">*</span>
+											</label>
+											<div class="col-md-8">
+												<input id="firstname" type="text" placeholder="Please Enter FirstName"class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Last Name-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Last Name<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<input id="firstname" type="text" placeholder="Please Enter Last Name"class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--Email Id -->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Email Id<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+                                              <input id="emailId" type="text" placeholder="Please Enter Email Id"class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Mobile No-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Mobile No<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input id="mobileid" type="text" placeholder="Please Enter Mobile No."class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--Gender-->
+									<!--                                    <div class="row">-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Gender<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input id="endTime1" type="text" placeholder="Select Time"class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Date Of Birth-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Date Of Birth<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input id="startTime" type="text" placeholder="Select Time"class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--Pincode-->
+									<!-- <div class="row">-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Pincode<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input id="pincodeid" type="text" placeholder="Please Enter Pincode"class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+									<div class="row">
+									<!--  Country-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Country<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+											<input id="pincodeid" type="text" placeholder="Please Select Country"class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--State-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">State
+												<span class="star">*</span>
+											</label>
+											<div class="col-md-8">
+												<select class="form-control" name="dractityid"
+													id="vehicleid">
+													<option value="0">Please Select State</option>
+												<!-- 	<option value="1">TS525653</option>
+													<option value="2">TS525653</option>
+													<option value="3">TS525653</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+										<div class="row">
+									<!--  District-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">District<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid"
+													id="district_id">
+													<option value="0">Please Select District</option>
+													<!-- <option value="1">Guntur</option>
+													<option value="2">Anantpur</option>
+													<option value="3">Kurnul</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Mandal-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Mandal
+												<span class="star">*</span>
+											</label>
+											<div class="col-md-8">
+												<select class="form-control" name="dractityid"
+													id="vehicleid">
+													<option value="0">Please Select Mandal</option>
+												<!-- 	<option value="1">TS525653</option>
+													<option value="2">TS525653</option>
+													<option value="3">TS525653</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+												<div class="row">
+									<!--  Village/City-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Village/City<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid"
+													id="district_id">
+													<option value="0">Please Select Village/City</option>
+													<!-- <option value="1">Guntur</option>
+													<option value="2">Anantpur</option>
+													<option value="3">Kurnul</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Mandal-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">House No.
+												<span class="star">*</span>
+											</label>
+											<div class="col-md-8">
+													<input id="pincodeid" type="text" placeholder="Please Enter House No."class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--button-->
+							<div><br>
+
+								<div class="text-center">
+									<button type="button" class="btn btn-primary btn-sm"
+										id="registration_id" onclick="insertServicePointSchdule()">
+										<i class="fa fa-floppy-o p-r-xs"></i>Save
+									</button>
+									<button type="button" class="btn btn-outline-warning btn-sm"
+										data-dismiss="modal">
+										<i class="fa fa-times p-r-xs"></i>Close
+									</button>
+									 <button type="button" class="btn btn-outline-warning btn-sm"
+                                                 onclick="resetInsertSchdule()"><i class="fa fa-refresh p-r-xs"></i>
+                                            Reset
+                                        </button>
+								</div>
+							</div><br>
+						</form>
+					</div>
+				</div>
+			</div><br>
+		</div>
+	<script src="../assets/js/jquery1.2.min.js"></script>
+	<script src="../assets/js/moment.min.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<script src="../assets/js/datatables.min.js"></script>
+	<script src="../assets/css/plugins/particles/particles.js"></script>
+	<script src="../assets/css/plugins/particles/app.js"></script>
+	<script src="../assets/js/notify.js"></script>
+	<script src="../assets/js/notify.min.js"></script>
+	<script src="../../assets/js/chosen.jquery.js"></script>
+	<script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+
+	
+	<script src="../assets/serviceController/ServicePointSchdule.js"></script>
+	<script src="../assets/serviceController/ServiceURL.js"></script>
+	
+    </body>
+</html>

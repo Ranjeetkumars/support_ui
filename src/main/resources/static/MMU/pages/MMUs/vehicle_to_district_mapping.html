@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Vehicle to District Mapping</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title Icon-->
+<link rel="shortcut icon" href="../../img/favicon.ico">
+<!--CSS Links-->
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../assets/css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../assets/css/datatables.min.css">
+<link rel="stylesheet" href="../../assets/css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../assets/css/metisMenu.css" />
+<link rel="stylesheet" href="../../assets/css/datepicker.css">
+<link rel="stylesheet"
+	href="../../assets/css/bootstrap-datetimepicker.min.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/fleet.css">
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap-multiselect.css"
+	type="text/css" />
+<style>
+
+   .card {
+    width: 122%;
+    margin-left: -242px;
+}
+
+select[multiple], select[size] {
+	height: 239px;
+	width: 195px;
+}
+element.style {
+    outline: 5px solid green;
+    width: 1234px;
+    height: 362px;
+    margin-left: 272px;
+}
+
+.info {
+	background-color: #e7f3fe;
+	border-left: 6px solid #2196F3;
+}
+</style>
+</head>
+<body>
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="../../images/pro-Logo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="../dashBoard.html"><span
+								class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href="../dashBoard.html"><i
+								class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a  onclick="logout()" href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header-->
+		<!--Second Header-->
+		<div class="second-nav">
+			<ul class="pull-left">
+				<li>
+					<h4 style="margin-top: 6px">Vehicle to District Mapping</h4>
+				</li>
+			</ul>
+		</div>
+		<!--Second Header End-->
+		<!--Content-->
+		<div id="content-wrap">
+			<div class="card">
+			<!-- <div class="row" style="outline: 2px solid green; width: 1849px;margin-left: -1px;"> -->
+				<!--  Error Message-->
+				<div class="alert alert-danger" style='display: none;'>
+					<h4>
+						<i class="fa fa-warning p-r-xs"></i>Please fix the following
+						errors:
+					</h4>
+					<ul class='m-l-md'>
+						<li>District Can't be Empty</li>
+					</ul>
+				</div>
+				
+				 <div class="row">
+					<div class="col-md-12">
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label class="control-label col-md-4 col-xs-12">District<span
+									class="star">*</span></label>
+								<div class="col-md-8 col-xs-12">
+									<select class="form-control " name="dractityid" id="districtid">
+										<option value="0">Please Select District</option>
+
+									 </select>
+								</div>
+							</div>
+						</div>
+					</div>
+				<!-- </div> -->
+				<div class="box1">
+					<br>
+					<!-- <div class="row"> -->
+						<div class="col-md-12 col-xs-12">
+							<div class="col-md-3"></div>
+							<div class="col-md-8" style="margin-left: -40px">
+								<!--Content-->
+								<div class="col-md-4">
+									<div class='form-group' id="vehicleId">
+										<div class='col-md-8'>
+											<h5 style="width: 212px">Un Assigned Vehicle</h5>
+											<select multiple class='text-center' id="unassign_vehicleId">
+												<option value="" style="font-weight: 800">Select
+													One</option>
+											</select>
+
+										</div>
+									</div>
+								</div>
+								<!--Buttons-->
+								<div class="col-md-3 text-center"
+									style="margin-top: 50px; margin-left: 2px">
+									<button type="button" onclick="assignDistrictToVehicle()"
+										class="btn btn-primary btn-sm" style="margin-top: 60px"
+										id="assigned">
+										Assign <span class="glyphicon glyphicon-arrow-right"></span>
+									</button>
+									<br>
+									<button type="button" onclick="unAssignVehicle()" class="btn btn-outline-warning btn-sm"
+										style="margin-top: 10px">
+										<span class="glyphicon glyphicon-arrow-left"></span> DeAssign
+									</button>
+									<span id="error_message"></span>
+								</div>
+								<!--Multiple Dropdown-->
+								<div class="col-md-4">
+									<div class='form-group'>
+										<div class='col-md-8'>
+											<h5 style="width: 212px">Assigned Vehicle</h5>
+											<select multiple class='text-center' id="assign_vehicleId">
+												<option value="" style="font-weight: 800">Select
+													One</option>
+					
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					 </div> 
+					
+				</div><br>
+				<div class="container">
+					<div class="wrapper wrapper-content">
+								<div class="container">
+									<div class="col-md-12 col-xs-12">
+										<div class="table-responsive" id="assigned_vehicle"></div>
+									</div>
+								</div>
+					</div>
+				</div>
+			<!-- </div> -->
+			</div>
+		</div>
+		<input type="hidden" id="hidcommunicationDirectoryId" />
+		<!--Footer-->
+		<div class="footer">
+			<small>Powered by Procreate Techno systems Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+	<script data-main="dist/js/" src="js/require.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+	<script src="../../assets/js/jquery1.2.min.js"></script>
+	<script src="../../assets/js/moment.min.js"></script>
+	<script src="../../assets/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/datatables.min.js"></script>
+	<script src="../../assets/js/chosen.jquery.js"></script>
+	<script src="../../assets/js/metisMenu.min.js"></script>
+	<script src="../../assets/js/bootstrap-datepicker.js"></script>
+	<script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../../assets/js/notify.js/"></script>
+	<script src="../../assets/js/notify.min.js/"></script>
+	<script src="../../assets/serviceController/ServiceURL.js"></script>
+	<script
+		src="../../assets/serviceController/vehicle_to_district_mapping.js"></script>
+	<script src="../../assets/serviceController/masterData.js"></script>
+	
+	
+	    <!--         logout/login url -->
+               <script src="../../../Common/serviceController/dashboard.js"></script>
+        <script src="../../../Common/serviceController/ServiceUrl.js"></script> 
+         <script src="../../../Common/serviceController/logout.js"></script>
+	<script>
+		$(function() {
+			getDistrictForUpdate();
+			getUnAssignDistrictToVehicle();
+			getAssignDistrictToVehicleData();
+			$('#datetimepicker1').datetimepicker({
+				sideBySide : true,
+				format : 'DD-MM-YYYY HH:mm:ss'
+			});
+		});
+
+		$(document)
+				.ready(
+						function() {
+							$("#districtid").chosen(); //Chosen select
+							$('[data-toggle="tooltip"]').tooltip(); // Tooltip
+							$('#driverTable')
+									.DataTable(
+											{// Data table
+												pageLength : 10,
+												responsive : true,
+												dom : '<"html5buttons"B>lTfgitp',
+												buttons : [
+														{
+															extend : 'copy'
+														},
+														{
+															extend : 'csv'
+														},
+														{
+															extend : 'excel',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'pdf',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'print',
+															customize : function(
+																	win) {
+																$(
+																		win.document.body)
+																		.addClass(
+																				'white-bg');
+																$(
+																		win.document.body)
+																		.css(
+																				'font-size',
+																				'10px');
+
+																$(
+																		win.document.body)
+																		.find(
+																				'table')
+																		.addClass(
+																				'compact')
+																		.css(
+																				'font-size',
+																				'inherit');
+															}
+														} ]
+
+											});
+							//Date Pickers
+							$("#strtDate").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#endDate").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+
+						});
+	</script>
+	<script>
+		$(document).ready(function() {
+			 checkLoggedOrNot();
+			$('.dropdown-submenu a.test').on("click", function(e) {
+				$(this).next('ul').toggle();
+				e.stopPropagation();
+				e.preventDefault();
+			});
+		});
+	</script>
+
+</body>
+</html>
+

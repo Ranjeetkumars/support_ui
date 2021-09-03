@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>104Support Application | CRO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title Icon-->
+<link rel="shortcut icon" href="img/favicon.ico">
+<!--CSS Links-->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../css/datatables.min.css">
+<link rel="stylesheet" href="../css/bootstrap-chosen.css">
+
+
+<!--Customized CSS-->
+
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.modal-body {
+	padding: 33px;
+}
+
+
+</style>
+
+</head>
+<body>
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="../img/pro-Logo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="../../dashBoard.html"><span class="fa fa-home"></span>
+								Home</a></li>
+						<li><a href="../../dashBoard.html"><i class="fa fa-th-large"></i>
+								Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header-->
+		<!--Second Header-->
+		<div class="second-nav">
+			<ul class="pull-left">
+				<li>
+					<h4 style="margin-top: 6px">Complaint Response Officer</h4>
+				</li>
+			</ul>
+			<ul class="pull-right searchbar">
+
+				<li class="pull-left" style="margin-top: -7px">
+					<button type="button" class="btn btn-blue w-100"
+						data-toggle="modal" data-target="#registration">
+						<i class="fa fa-plus"></i> CRO Mapping
+					</button>
+				</li>
+			</ul>
+		</div>
+		<!--Second Header End-->
+		<!--Content-->
+<!-- 		<div id="content-wrap">
+			<div class="card">
+				<form class="form-horizontal">
+					Error Message
+					<div class="alert alert-danger" style='display: none;'>
+						<h4>
+							<i class="fa fa-warning p-r-xs"></i>Please fix the following
+							errors:
+						</h4>
+						<ul class='m-l-md'>
+							<li>District Can't be Empty</li>
+						</ul>
+					</div>
+
+					<br>
+					<h3>List of Complaint Response Officer Details</h3>
+					Table
+					<div class="wrapper wrapper-content">
+						<div class="row down">
+							<div class="col-md-12 col-xs-12">
+								<div style="display: none" id="">
+									<a href="#"
+										style="position: absolute; margin-left: 250px; margin-top: 10px;">
+										<i class="fa fa-trash"></i>
+									</a>
+								</div>
+								<div class="table-responsive" id="responseid">
+									  <table id="driverTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                 <th>  <label class="check ">
+                                                    <span>Select</span>
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label></th>
+                                                <th>S.NO</th>
+                                                <th>User</th>
+                                                <th>Level</th>                           
+                                                <th>State</th>
+                                                <th>District</th>                                      
+                                                <th>Mandal</th>                                                                                                                                               
+                                                <th>Update</th>
+                                                 <th>Delete</th> 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                 <td> <label class="check ">
+                                                    
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label></td>
+                                                <td>1</td>
+                                                <td>xxx</td>
+                                                <td>3</td>
+                                                <td>YYYY</td>
+                                                <td>rrr</td>
+                                                <td>sss</td>
+                                                <td><button type="button" class="btn btn-blue w-100 btn-sm" data-toggle="modal" data-target="#update"><i class="fa fa-edit"></i> Update</button></td>                                                                              
+                                                <td><button type="button" class="btn btn-warning w-100 btn-sm" data-toggle="modal" data-target="#delete"><i class="fa fa-trash"></i> Delete</button></td>
+                                            </tr>   
+                                           
+                                        </tbody>
+                                    </table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div> -->
+					<div class="panel panel-info">
+						<ul class="nav nav-tabs">
+							<li class="active"><a data-toggle="tab" href="#mandallevel"
+								onclick="getNormalComplaint()">Mandal Level Officer</a></li>
+							<li><a data-toggle="tab" href="#districtlevel"
+								onclick="getResponseOfficerDistrictLevelList()">District Level Officer</a></li>
+							<li><a data-toggle="tab" href="#statelevel"
+								onclick="getResponseOfficerStateLevelList()">State Level Officer</a></li>
+									<li><a data-toggle="tab" href="#minislevel"
+								onclick="getResponseOfficerMiniLevelList()">Minister Level Officer</a></li>
+						</ul>
+						<br>
+						<div class="tab-content">
+							<div id="mandallevel" class="tab-pane fade in active">
+								<div class="wrapper wrapper-content">
+									<div class="row">
+										<div class="col-md-12 col-xs-12">
+											<div class="table-responsive" id="responseid">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							 <div id="districtlevel" class="tab-pane fade">
+								<div class="wrapper wrapper-content">
+									<div class="row">
+										<div class="col-md-12 col-xs-12">
+											<div class="table-responsive" id="distrit_level">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> 
+
+							<div id="statelevel" class="tab-pane fade">
+								<div class="wrapper wrapper-content">
+									<div class="row">
+										<div class="col-md-12 col-xs-12">
+											<div class="table-responsive" id="state_level">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> 
+							
+							<div id="minislevel" class="tab-pane fade">
+								<div class="wrapper wrapper-content">
+									<div class="row">
+										<div class="col-md-12 col-xs-12">
+											<div class="table-responsive" id="minister_level">
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> 
+
+						</div>
+					</div>
+		<!--Content End-->
+		<!--Modal box for Registration-->
+		<div id="registration" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Complaint Response Officer Mapping</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="sub-title">
+								<!--<h4> Add Questionnaires</h4>-->
+								<br>
+							</div>
+							<div class="sub-body">
+								<div class="row">
+									<!--Section Module-->
+									<div class="col-md-12 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Response
+												Officer<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="" id="userid">
+													<!--       <option value="1">xxx</option>
+                                                        <option value="2">yyy</option>
+                                                        <option value="3">zzz</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Escalation
+												Level<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="" id="levelid">
+													  <option value="0">Please Select Escalation</option> 
+													<!--       <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Count-->
+									<br>
+									<div class="col-md-12 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">State</label>
+											<div class="col-md-8">
+												<select class="form-control" name="" id="stateid">
+												  <!-- <option value="0">Please Select State</option> -->
+													<!--   <option value="1">AP</option>
+                                                        <option value="2">Telangana</option>
+                                                        <option value="3">Rayalasema</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12 col-xs-12" id="ddistrictid">
+										<div class="form-group">
+											<label class="control-label col-md-4">District</label>
+											<div class="col-md-8">
+												<select class="form-control" name="" id="districtid">
+												  <option value="0">Please Select District</option> 
+													<!--     <option value="1">Krishna</option>
+                                                        <option value="2">Guntur</option>
+                                                        <option value="3">vij</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12 col-xs-12" id="dmandalid">
+										<div class="form-group">
+											<label class="control-label col-md-4">Mandal</label>
+											<div class="col-md-8">
+												<select class="form-control" name="" id="mandalid">
+												  <option value="0">Please Select Mandal</option>
+													<!--   <option value="1">NLK</option>
+                                                        <option value="2">AVG</option>
+                                                        <option value="3">MTM</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<br>
+							<!--  Save & Close Buttons Register page-->
+							<div class="row">
+								<div class="col-md-12 col-xs-12 text-center">
+									<button type="button" class="btn btn-blue w-100" id="btnid"
+										onclick="mappingResponseofficer()">
+										<i class="fa fa-save"></i> Save
+									</button>
+									&nbsp;&nbsp;
+									<button type="reset" class="btn btn-warning w-100"
+										onclick="resetInsertResponseOfficer()">
+										<i class="fa fa-refresh "></i> Reset
+									</button>&nbsp;&nbsp;
+									<button type="button" class="btn btn-danger w-100"
+										data-dismiss="modal">
+										<i class="fa fa-times p-r-xs"></i> Close
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Modal box for update-->
+		<div id="update" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Complaint Response Officer Mapping</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="sub-title">
+								<!--<h4> Add Questionnaires</h4>-->
+								<br>
+							</div>
+							<div class="sub-body">
+								<div class="row">
+									<!--Section Module-->
+									<div class="col-md-12 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">User<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<input id="euser_id" type="text"
+													placeholder="Please Enter User" class="form-control"
+													disabled="disabled">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Escalation
+												Level<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="" id="escalateid">
+
+													<!--          <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Count-->
+									<br>
+									<div class="col-md-12 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">State</label>
+											<div class="col-md-8">
+												<select class="form-control" name="" id="estateid">
+
+													<!--   <option value="1">AP</option>
+                                                        <option value="2">Telangana</option>
+                                                        <option value="3">Rayalasema</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12 col-xs-12" id="eddistrictid">
+										<div class="form-group">
+											<label class="control-label col-md-4">District</label>
+											<div class="col-md-8">
+												<select class="form-control" name="" id="edistrictid">
+
+													<!--  <option value="1">Krishna</option>
+                                                        <option value="2">Guntur</option>
+                                                        <option value="3">vij</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12 col-xs-12" id="edmandalid">
+										<div class="form-group">
+											<label class="control-label col-md-4">Mandal</label>
+											<div class="col-md-8">
+												<select class="form-control" name="" id="emandalid">
+
+													<!--     <option value="1">NLK</option>
+                                                        <option value="2">AVG</option>
+                                                        <option value="3">MTM</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<br>
+							<!--  Save & Close Buttons Register page-->
+							<div class="row">
+								<div class="col-md-12 col-xs-12 text-center">
+									<button type="button" class="btn btn-blue w-100" id="updatedid"
+										onclick="updateResponseofficer()">
+										<i class="fa fa-edit"></i> Update
+									</button>
+									&nbsp;&nbsp;
+									<button type="reset" class="btn btn-warning w-100"
+										onclick="resetUpdateResponseOfficer()">
+										<i class="fa fa-refresh "></i> Reset
+									</button>&nbsp;&nbsp;
+									<button type="button" class="btn btn-danger w-100"
+										data-dismiss="modal">
+										<i class="fa fa-times p-r-xs"></i> Close
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Modal box for delete-->
+		<div id="delete" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Add Mandal-->
+				<div class="modal-content">
+
+					<h4 class="modal-title text-center">Delete Mapping Response
+						officer</h4>
+
+					<h5 style="padding-left: 196px">Are you sure want to delete</h5>
+					<br>
+					<div class="text-center">
+						<button type="button" class="btn btn-success btn-sm"
+							id="deletebtn" onclick="deleteMappingResponseOfficer()">
+							<i class="fa fa-check"></i> Yes
+						</button>
+						<button type="button" class="btn btn-warning btn-sm"
+							data-dismiss="modal">
+							<i class="fa fa-close"></i> No
+						</button>
+					</div>
+					<br>
+				</div>
+
+			</div>
+		</div>
+		<input type="hidden" id="reg_no"> <input type="hidden"
+			id="serialId"> <input type="hidden" id="serialId_delete">
+		<input type="hidden" id="userId">
+		<!--Footer-->
+		<div class="footer">
+			<small>Powered by Procreate Techno systems Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+
+	<script src="../js/jquery1.2.min.js"></script>
+	<script src="../js/moment.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/datatables.min.js"></script>
+	<script src="../js/chosen.jquery.js"></script>
+	<script src="../js/metisMenu.min.js"></script>
+	<script src="../js/notify.js"></script>
+	<script src="../serviceController/responseOfficer1.js"></script>
+	<script src="../serviceController/serviceUrl.js"></script>
+	<!--       <script src="../Quality_js/URLS.js"></script>
+        <script src="../Quality_js/questions.js"></script> -->
+
+
+
+
+
+	<script>
+		$(document)
+				.ready(
+						function() {
+						//	$('select').chosen(); //Chosen select
+							$('[data-toggle="tooltip"]').tooltip(); // Tooltip
+							$('#driverTable')
+									.DataTable(
+											{// Data table
+												pageLength : 10,
+												responsive : true,
+												dom : '<"html5buttons"B>lTfgitp',
+												buttons : [
+														{
+															extend : 'copy'
+														},
+														{
+															extend : 'csv'
+														},
+														{
+															extend : 'excel',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'pdf',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'print',
+															customize : function(
+																	win) {
+																$(
+																		win.document.body)
+																		.addClass(
+																				'white-bg');
+																$(
+																		win.document.body)
+																		.css(
+																				'font-size',
+																				'10px');
+
+																$(
+																		win.document.body)
+																		.find(
+																				'table')
+																		.addClass(
+																				'compact')
+																		.css(
+																				'font-size',
+																				'inherit');
+															}
+														} ]
+
+											});
+
+						});
+	</script>
+
+</body>
+</html>
+
+

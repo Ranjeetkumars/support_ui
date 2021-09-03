@@ -1,0 +1,801 @@
+<html>
+<!DOCTYPE html>
+    <head>
+        <title>OP Desk | Field Issue Tracker</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="../../css/wizard/css/material-bootstrap-wizard.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../css/style.css">
+        <style>
+            .form-group {
+                padding-bottom: 7px;
+                margin: 0;
+            }
+            .searchbar .form-group.is-focused .form-control{
+                outline: none;
+                background-image: none;
+                background-size: 100% 2px, 100% 1px;
+                box-shadow: none;
+                transition-duration: 0.3s;
+               
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+               <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">Field Issue Tracker</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                    <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li>                    
+                    <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>     
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">                            
+                <!--Error Message-->
+                <div class="alert alert-danger" style='display: none;'>
+                    <h4>
+                        <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                    </h4>
+                    <ul class='m-l-md'>
+                        <li>District Can't be Empty</li>
+                    </ul>
+                </div>
+                <div class="container">           
+                    <div class="col-md-12 col-xs-12">
+                        <div class="wizard-container p-t-md">
+                            <div class="card wizard-card p-t-n" data-color="red" id="wizard">
+                                <form>                                                                         
+                                    <div class="wizard-navigation">
+                                        <ul>
+                                            <li><a href="#electrical" data-toggle="tab">Electrical</a></li>
+                                            <li><a href="#mechanical" data-toggle="tab">Mechanical</a></li>
+                                            <li><a href="#biomedical" data-toggle="tab">BioMedical</a></li>                                      
+                                        </ul>
+                                    </div>
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane" id="electrical">
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Schedule service to be done</h4>
+                                                    <div>
+                                                        <label class="check ">
+                                                            <span>SS1</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>SS2</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>SS3</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>SS4</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <div class='col-md-4 col-xs-12'>
+                                                            <input type='text' class='form-control' placeholder="Other Complaints">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Tyres</h4>
+                                                    <div>
+                                                        <label class="check ">
+                                                            <span>Tyres uneven wear</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Tyres worn out</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Spare tyre not available</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+
+                                                        <div class='col-md-4 col-xs-12'>
+                                                            <input type='text' class='form-control' placeholder="Other Complaints">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Leakages</h4>
+                                                    <div>
+                                                        <label class="check ">
+                                                            <span>Fuel</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Engine oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Gear Box oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Differential</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Steering box oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Radiator coolant</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <div class='col-md-4 col-xs-12'>
+                                                            <input type='text' class='form-control' placeholder="Other Complaints">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Tyres</h4>
+                                                    <div>
+                                                        <label class="check ">
+                                                            <span>Tyres uneven wear</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Tyres worn out</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Spare tyre not available</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+
+                                                        <div class='col-md-4 col-xs-12'>
+                                                            <input type='text' class='form-control' placeholder="Other Complaints">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Leakages</h4>
+                                                    <div>
+                                                        <label class="check ">
+                                                            <span>Fuel</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Engine oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Gear Box oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Differential</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Steering box oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Radiator coolant</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <div class='col-md-4 col-xs-12'>
+                                                            <input type='text' class='form-control' placeholder="Other Complaints">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="mechanical">
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Tyres</h4>
+                                                    <div>
+                                                        <label class="check ">
+                                                            <span>Tyres uneven wear</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Tyres worn out</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Spare tyre not available</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+
+                                                        <div class='col-md-4 col-xs-12'>
+                                                            <input type='text' class='form-control' placeholder="Other Complaints">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Leakages</h4>
+                                                    <div>
+                                                        <label class="check ">
+                                                            <span>Fuel</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Engine oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Gear Box oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Differential</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Steering box oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Radiator coolant</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <div class='col-md-4 col-xs-12'>
+                                                            <input type='text' class='form-control' placeholder="Other Complaints">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Tyres</h4>
+                                                    <div>
+                                                        <label class="check ">
+                                                            <span>Tyres uneven wear</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Tyres worn out</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Spare tyre not available</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+
+                                                        <div class='col-md-4 col-xs-12'>
+                                                            <input type='text' class='form-control' placeholder="Other Complaints">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Leakages</h4>
+                                                    <div>
+                                                        <label class="check ">
+                                                            <span>Fuel</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Engine oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Gear Box oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Differential</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Steering box oil</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Radiator coolant</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <div class='col-md-4 col-xs-12'>
+                                                            <input type='text' class='form-control' placeholder="Other Complaints">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="biomedical">
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>OXYGEN Related</h4>
+                                                    <div>
+                                                        <label class="check ">
+                                                            <span>Oxygen</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Pipe Damage</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Regular Problem</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Flow meter</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <label class="check ">
+                                                            <span>Oxygen Not Available</span>
+                                                            <input type="checkbox">
+                                                            <span class="checkmark"></span>
+                                                        </label>                                                 
+                                                        <div class='col-md-4 col-xs-12'>
+                                                            <input type='text' class='form-control' placeholder="Other Complaints">
+                                                        </div>
+                                                    </div>                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>ALS</h4>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Available</th>
+                                                                    <th>Working</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Multi channel Monitor + AED?</td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch1" checked>
+                                                                            <label class="onoffswitch-label" for="switch1">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch2" checked>
+                                                                            <label class="onoffswitch-label" for="switch2">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Ventilator-Transport?</td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch3" checked>
+                                                                            <label class="onoffswitch-label" for="switch3">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch4" checked>
+                                                                            <label class="onoffswitch-label" for="switch4">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>BLS</h4>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Available</th>
+                                                                    <th>Working</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Multi channel Monitor + AED?</td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch5" checked>
+                                                                            <label class="onoffswitch-label" for="switch5">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch6" checked>
+                                                                            <label class="onoffswitch-label" for="switch6">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Ventilator-Transport?</td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch3" checked>
+                                                                            <label class="onoffswitch-label" for="switch3">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch4" checked>
+                                                                            <label class="onoffswitch-label" for="switch4">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Consumables</h4>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Available</th>
+                                                                    <th>Working</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Multi channel Monitor + AED?</td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch5" checked>
+                                                                            <label class="onoffswitch-label" for="switch5">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch6" checked>
+                                                                            <label class="onoffswitch-label" for="switch6">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Ventilator-Transport?</td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch3" checked>
+                                                                            <label class="onoffswitch-label" for="switch3">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch4" checked>
+                                                                            <label class="onoffswitch-label" for="switch4">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <h4>Indent</h4>
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Available</th>
+                                                                    <th>Working</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>Multi channel Monitor + AED?</td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch5" checked>
+                                                                            <label class="onoffswitch-label" for="switch5">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch6" checked>
+                                                                            <label class="onoffswitch-label" for="switch6">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>Ventilator-Transport?</td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch3" checked>
+                                                                            <label class="onoffswitch-label" for="switch3">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="onoffswitch">
+                                                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch4" checked>
+                                                                            <label class="onoffswitch-label" for="switch4">
+                                                                                <span class="onoffswitch-inner"></span>
+                                                                                <span class="onoffswitch-switch"></span>
+                                                                            </label>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wizard-footer">
+                                        <div class="pull-right">
+                                            <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Next' />
+                                            <input type='button' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Save' />
+                                        </div>
+                                        <div class="pull-left">
+                                            <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!--Content End-->                   
+
+
+
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/datatables.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.js"></script> 
+        <script src="../../js/bootstrap-datetimepicker.min.js"></script>       
+        <script src="../../js/chosen.jquery.js"></script>
+        <script src="../../css/wizard/js/jquery.bootstrap.js"></script>
+        <script src="../../css/wizard/js/jquery.validate.min.js"></script>
+        <script src="../../css/wizard/js/material-bootstrap-wizard.js"></script>
+              <!--         logout/login url -->
+               <script src="../../../Common/serviceController/dashboard.js"></script>
+                <script src="../../../Common/serviceController/ServiceUrl.js"></script> 
+              <script src="../../../Common/serviceController/logout.js"></script>
+
+        <script>
+
+            $(function() {
+//Date And Time picker in Modal Box
+                $('#datetimepicker1').datetimepicker({
+                    sideBySide: true,
+                    format: 'DD-MM-YYYY HH:mm:ss'
+                });
+            });
+
+            $(document).ready(function() {
+             	checkLoggedOrNot();
+                $('select').chosen();                            //Chosen select
+                $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                $('#driverTable').DataTable({// Data table
+                    pageLength: 10,
+                    responsive: true,
+                    dom: '<"html5buttons"B>lTfgitp',
+                    buttons: [
+                        {extend: 'copy'},
+                        {extend: 'csv'},
+                        {extend: 'excel', title: 'ExampleFile'},
+                        {extend: 'pdf', title: 'ExampleFile'},
+                        {extend: 'print',
+                            customize: function(win) {
+                                $(win.document.body).addClass('white-bg');
+                                $(win.document.body).css('font-size', '10px');
+
+                                $(win.document.body).find('table')
+                                        .addClass('compact')
+                                        .css('font-size', 'inherit');
+                            }
+                        }
+                    ]
+
+                });
+//Date Pickers
+                $("#strtDate").datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                }).datepicker();
+                $("#endDate").datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                }).datepicker();
+
+            });
+
+
+        </script>
+
+    </body>
+</html>

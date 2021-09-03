@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Work Force Management |My Work Report</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title Icon-->
+<link rel="shortcut icon" href="../../assets/img/favicon.ico">
+<!--CSS Links-->
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../assets/css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../assets/css/datatables.min.css">
+<link rel="stylesheet" href="../../assets/css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../assets/css/datepicker.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/wfms.css">
+<style>
+</style>
+</head>
+<body>
+	<div id="page-container">
+		<!--Main Header-->
+		            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta"  data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn" id="bluecta"></div>
+                        </div>
+<!--                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../assets/img/pro-Logo.png" /></a>-->
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+<!--                             <li><a href="../../assets/dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+ -->                            <li><a href="../WFMS_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+<li><a href="#" style="color:red" onclick="wfms_Logout()"><i class="fa fa-power-off"></i> Logout</a></li>                           <!--  <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>    -->            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+		 <!--Main Header-->
+            <!--Second Header-->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#navbar1">
+                            <div class="toggle-btn bg-white"></div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../WFMS_Dashboard.html">Home</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="myProfile_HideId">My Profile <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Myprofile/MySchedule.html">My Schedule</a></li>
+                                    <li><a href="../Myprofile/LeaveApply.html">Leave Approval</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="manageResource_HideId">Manage Resources <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../ManageResource/PatternERC.html">Patterns - ERC</a></li>                        
+                                    <li><a href="../ManageResource/PatternOperator.html">Patterns - Operators</a></li>
+                                    <li><a href="../ManageResource/ResourceProfiles.html">Resource Profiles</a></li>
+                                    <li><a href="../ManageResource/EmployeeAvailabilityERC.html">Employees Availability-ERC</a></li>
+                                    <li><a href="../ManageResource/EmployeesAvailability-Operators.html">Employees Availability-Operators</a></li>
+                                    <li><a href="../ManageResource/LeaveApprove-Reject.html">Leave Approve/Reject</a></li>
+                                    <li><a href="../ManageResource/ScheduleofFieldOperators.html">Schedule of Field Operators</a></li>
+                                    <li><a href="../ManageResource/ScheduleofERC.html">Schedule of ERC</a></li>
+                                    <li><a href="../ManageResource/LeaveHistory.html">Leave History</a> 
+                                </ul>
+                            </li>
+                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="ManagerMapping_HideId">Master Mapping <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../MasterMapping/ManagerMapping.html">Manager Mapping</a></li>                          
+                                    
+                                </ul>
+                            </li>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="zone_HideId">Zone <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Zone/addzone.html">Add Zone</a></li>                          
+                                    <li><a href="../Zone/addbaselocation.html">Base Location</a></li>
+                                    <li><a href="../Zone/DistricttoManager.html">Zone to District Manager</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="assign_HideId">Assign <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Assign/DrivertoZone.html">Driver to Zone</a></li>                          
+                                    <li><a href="../Assign/DrivertoVehicle.html">Driver to Vehicle</a></li>
+                                    <li><a href="../Assign/EMTtoZone.html">EMT to Zone</a></li>
+                                    <li><a href="../Assign/EMTtoVehicle.html">EMT to Vehicle</a></li>                           
+                                    <li><a href="../Assign/VehicletoBaseLocation.html">Vehicle to Base Location</a></li> 
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="reports_HideId">Reports <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Reports/myworkreport.html">My Work Report</a> </li>                          
+                                    <li><a href="../Reports/summary.html">Summary</a> </li>
+                                    <li><a href="../Reports/departmentwiseemployees.html">Department Wise Employees</a> </li>
+                                    <li><a href="../Reports/zonewiseemployees.html">Zone Wise Employees</a> </li>
+                                    <li><a href="../Reports/shiftwiseemployees.html">Shift Wise Employees</a> </li>
+                                    <li><a href="../Reports/rosternotes.html">Roster Notes</a> </li>
+                                    <li><a href="../Reports/extraallowance.html">Extra Allowance</a> </li>
+                                    <li><a href="../Reports/trainingwise.html">Training Wise</a> </li>
+                                    <li><a href="../Reports/payrollreport.html">Pay Roll Report</a> </li>
+                                </ul>
+                            </li>
+
+                            <li><a href="../Search/search.html" id="search_HideId">Search</a></li>
+                            <li> <a href="../resorceforcasting/resorceforcasting.html" id="resource_HideId">Resource Forecasting</a></li>                    
+                            <li> <a href="../holiday/holiday.html" id="holiday_HideId">Holiday</a></li>
+                            <li>  <a href="../allowances/allowances.html" id="allowances_HideId">Allowances</a></li>
+                            <li>  <a href="../MMU/vehicle_team_mapping.html" id="mmu_HideId">MMU Vehicle Team Mapping</a></li>
+
+                        </ul>
+                      
+                    </div>
+                </div>
+            </nav>
+            <!--Second Header End-->
+		<!--Title Heade-->
+		<h4 style="padding-left: 15px">My Work Report</h4>
+		<!--Content-->
+		<div id="content-wrap">
+			<div class="card">
+				<!--Error Message-->
+				<div class="alert alert-danger" style='display: none;'>
+					<h4>
+						<i class="fa fa-warning p-r-xs"></i>Please fix the following
+						errors:
+					</h4>
+					<ul class='m-l-md'>
+						<li>District Can't be Empty</li>
+					</ul>
+				</div>
+				<!--From Date-->
+				<div class="row">
+					<div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4">From Date <span
+								class="star">*</span></label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<div id="strtDate" class="input-group date"
+										data-date-format="yyyy-mm-dd">
+										<span class="input-group-addon"> <i
+											class="fa fa-calendar"></i>
+										</span> <input class="form-control" placeholder="Select Date"
+											type="text"  id="from_Date" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--To Date-->
+					<div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4">To Date <span
+								class="star">*</span></label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<div id="endDate" class="input-group date"
+										data-date-format="yyyy-mm-dd">
+										<span class="input-group-addon"> <i
+											class="fa fa-calendar"></i>
+										</span> <input class="form-control" placeholder="Select Date"
+											type="text"  id="to_Date"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--buttons-->
+					<div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-2"></label>
+							<div class="col-md-12">
+								<button type="button" class="btn btn-primary btn-sm" onclick="get_Shedule_Details()">
+									<span class="glyphicon glyphicon-eye-open"></span>&nbsp;&nbsp;View
+									Report
+								</button>
+								<button type="button" class="btn btn-outline-warning btn-sm" onclick="reset_Report()">
+									<i class="fa fa-refresh p-r-xs"></i>Reset
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<!--table-->
+				<div class="wrapper wrapper-content">
+					<div class="row">
+						<div class="col-md-12 col-xs-12">
+							<div class="table-responsive">
+								<table id="mywork_Reports"
+									class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>S.NO</th>
+											<th>Date</th>
+											<th>Start Time</th>
+											<th>End Time</th>
+											<th>Zone</th>
+											<th>Base Location</th>
+											<th>Vehicle Reg.No</th>
+											<th>Hours</th>
+										</tr>
+									</thead>
+									<tbody id="mywork_TableId">
+										
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Content End-->
+<input type="hidden"  id="hidden_UserName"  />
+		<!--Footer-->
+		<div class="footer">
+			<small>Powered by Vsoft Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+
+	<script src="../../assets/js/jquery1.2.min.js"></script>
+	<script src="../../assets/js/moment.min.js"></script>
+	<script src="../../assets/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/datatables.min.js"></script>
+	<script src="../../assets/js/bootstrap-datepicker.js"></script>
+	<script src="../../assets/js/chosen.jquery.js"></script>
+	<script src="../../assets/js/notify.js"></script>
+	<script src="../../assets/js/notify.min.js"></script>
+	 <script src="../../assets/serviceController/wfms/Common_Constants/Menu_Hide_Show.js"></script>
+	 <script src="../../assets/serviceController/wfms/Common_Constants/Wfms_Logout.js"></script>
+	<script src="../../assets/serviceController/wfms/ServiceURLS.js"></script>
+	<script
+		src="../../assets/serviceController/wfms/Reports/My_Work_Report.js"></script>
+	<script>
+		$(document)
+				.ready(
+						function() {
+							$('select').chosen(); //Chosen select
+							$('[data-toggle="tooltip"]').tooltip(); // Tooltip
+							/*  $('#mywork_Reports').DataTable({// Data table
+                                 pageLength: 10,
+                                 responsive: true,
+                                 dom: '<"html5buttons"B>lTfgitp',
+                                 buttons: [
+                                     {extend: 'copy'},
+                                     {extend: 'csv'},
+                                     {extend: 'excel', title: 'ExampleFile'},
+                                     {extend: 'pdf', title: 'ExampleFile'},
+                                     {extend: 'print',
+                                         customize: function (win) {
+                                             $(win.document.body).addClass('white-bg');
+                                             $(win.document.body).css('font-size', '10px');
+
+                                             $(win.document.body).find('table')
+                                                     .addClass('compact')
+                                                     .css('font-size', 'inherit');
+                                         }
+                                     }
+                                 ]
+
+                             }); */
+							
+							//Date Pickers
+							$("#strtDate").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#endDate").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+
+						});
+	</script>
+
+</body>
+</html>

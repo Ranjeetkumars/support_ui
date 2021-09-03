@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FMS | Vehicle Status</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../../../../img/favicon.ico">
+
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../../css/datepicker.css">
+        <link rel="stylesheet" href="../../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../../css/metisMenu.css"/>
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../../css/style.css">
+
+        <style>          
+ .no-js #loader { display: none;  }
+            .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+            .se-pre-con {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+            }
+            #page-container {
+                position: relative;
+                min-height: 100vh;
+            }
+            #content-wrap {
+                padding-bottom: 2.5rem;
+                margin-left: 250px;
+                transition: all 0.5s;
+            }
+            .navbar-brand-1{
+                float: left;
+                padding-right: 15px;
+                font-size: 18px;
+                margin-top: -5px;
+                cursor: pointer;
+            }
+
+            /* Toggle Active Classes */
+            .sidebar.active {                
+                left: -250px;
+            }
+
+            #content-wrap.active {
+                margin-left: 0px;               
+            }
+
+            .table>thead>tr>th:first-child{
+                width: 37px !important;
+            }
+
+            .cursor{
+                cursor: pointer;
+            }
+            .table>thead>tr>th {
+    background-color: #00467A;
+    color: #fff;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+.second-nav {
+    background: #00467A;
+    border-bottom: 1px solid #d3d9db;
+    margin-bottom: 20px;
+    /* border-top: 1px solid #d3d9db; */
+    margin-top: 52px;
+    padding: 10px 16px;
+    min-height: 50px;
+    line-height: 2.7;
+}
+
+        </style>
+
+    </head>
+    <body>
+  <div class="se-pre-con">
+            <div class="content">
+                <div class="back-to-article">
+                    <p><a href="smallenvelop.com/blog/"></a></p>
+                </div>
+                <img src="http://smallenvelop.com/wp-content/uploads/2014/08/simple-pre-loader.jpg
+                     " style="visibility: hidden; width:100%; height: auto;">
+            </div>
+        </div>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+<!--                         <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../../images/pro-Logo.png" /></a> -->
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                           <li><a href="../../../../dashBoard.html"><span class="fa fa-home"></span> Home</a></li>
+                            <li><a href="../../FleetIO_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                         
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+             <!--Side Nav Bar-->
+                     <nav id='sidebar' class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <h3 class="header">Master Screens</h3>
+                    </div>
+                    <div class='sidebar-menu'>
+                        <ul class="metismenu" id="metismenu">
+
+                            <!--General Settings-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <span class="glyphicon glyphicon-cog"></span>
+                                    <span>General Settings </span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../GenaralSettings/AccountSettings.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Account Settings</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../GenaralSettings/BillingSubscriptions.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Billing & Subsciptions</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../GenaralSettings/ExportAccountData.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Export Accounts Data</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../GenaralSettings/Groups_Subgroups.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Group & Subgroup</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../GenaralSettings/Roles.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Rloes</span>
+                                        </a>
+                                    </li>
+                                  
+                                </ul>
+                            </li>
+
+                            <!--Feature Settings-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-book'></i>
+                                    <span>Feature Settings </span>
+                                </a>
+                                <ul class="nav first-child">
+<!--                                     <li> -->
+<!--                                         <a href="../FeatureSettings/CustomFields.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Custom fields</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../FeatureSettings/Labels.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Labels</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+
+                                </ul>
+                            </li>    
+
+                            <!--Dashboard-->
+                            <li>
+                                <a class="nav has-arrow"  href='../../FleetIO_Dashboard.html'>
+                                    <i class='fa fa-tachometer'></i>
+                                    <span>Dashboard</span>
+                                </a>
+                                <ul class="nav first-child">
+<!--                                     <li> -->
+<!--                                         <a href="../Dashboard/CustomWidgets.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Custom Widgets</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+
+                            <!--Vehicles-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-cab '></i>
+                                    <span>Vehicles </span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Vehicle/VehicleStatus.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicles Status</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Vehicle/VehicleType.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Type</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Vehicle/FuelType.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Fuel Type</span>
+                                        </a>
+                                    </li>
+<!--                                     <li> -->
+<!--                                         <a href="../Vehicle/FaultRules.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Fault Rules</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../Vehicle/ExternalVehicleIDS.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>External vehicle IDs</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../Vehicle/FuelSettings.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Fuel Settings</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                    <li>
+                                        <a href="../Vehicle/ExpenseTypes.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Expense Type</span>
+                                        </a>
+                                    </li>
+<!--                                     <li> -->
+<!--                                         <a href="../Vehicle/ExpenseSettings.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Expense Settings</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+
+                            <!--Inspections-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-clock-o '></i>
+                                    <span>Inspections</span>
+                                </a>
+                                <ul class="nav first-child">
+<!--                                     <li> -->
+<!--                                         <a href="../Inspections/InspectionSettings.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Inspections Settings</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+
+                                </ul>
+                            </li>
+
+                            <!--Services-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-wrench '></i>
+                                    <span>Services</span>
+                                </a>
+                                <ul class="nav first-child">
+<!--                                     <li> -->
+<!--                                         <a href="../Services/MaintenanceSettings.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Maintenance Settings </span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                 
+
+                                </ul>
+                            </li>  
+
+                            <!--Remainders-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-clock-o '></i>
+                                    <span>Remainder</span>
+                                </a>
+                                <ul class="nav first-child">
+<!--                                     <li> -->
+<!--                                         <a href="../Remainder/ServiceRemainderSettings.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Service Remainder Settings</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                    <li>
+                                        <a href="../Remainder/VehicleRenewalReminders.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Renewal Types</span>
+                                        </a>
+                                    </li>
+<!--                                     <li> -->
+<!--                                         <a href="../Remainder/ContactRenewalReminders.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Contact Renewal Types</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+
+                          
+                        </ul>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>        
+            <!--Side Nav Bar ENd-->
+            <!--Content-->
+            <div id="content-wrap">   
+                <!--Second Header-->
+                <div class="second-nav">
+                    <ul class="pull-left" style="display: inline-flex">
+                        <li>
+                            <a class="navbar-brand-1" id="menu-icon">
+                                <h4><i class="fa fa-bars"></i></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <h4  style="margin-top:5px">Vehicle Status</h4>
+                        </li>
+                    </ul>
+                    <ul class="pull-right searchbar">
+                        <li class="pull-left p-r-sm">
+                            <a href="#">
+                                <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                            </a>                    
+                        </li> 
+                        <li class="pull-left" style="margin-top: -7px">
+                            <button type="button" class="btn btn-success btn-sm"  data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i>Add Vehicle Status</button> 
+                        </li>  
+                        <li class="dropdown pull-left" style="margin-top: -2px">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                                <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                            </ul>
+                        </li>     
+                    </ul>
+                </div>
+                <!--Second Header End-->
+
+                <div class="row" style="margin-left: 0px;margin-right: 0px;">
+                    <div class="col-md-12 col-xs-12">
+                        <div class="card">
+                            <div class="panel ">             
+                                <div class="panel-heading ">
+                                    <!--<h3>Your Plan</h3>-->                                            
+                                </div>                                                                              
+                                <div class="panel-body">
+
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="table-responsive" id="vehicleStatusRefDataTableId">    
+<!--                                                 <table id="masterIem" class="table table-bordered table-striped"> -->
+<!--                                                     <thead> -->
+<!--                                                         <tr> -->
+<!--                                                             <th>S.No</th> -->
+<!--                                                             <th><label class="check"> -->
+<!--                                                                     <input type="checkbox" id="drugs_yes" > -->
+<!--                                                                     <span class="checkmark"></span> -->
+<!--                                                                     <span>Select</span>  </label></th> -->
+<!--                                                             <th>Name</th> -->
+<!--                                                             <th>Usage</th> -->
+<!--                                                             <th>Edit</th> -->
+<!--                                                             <th>Delete</th> -->
+<!--                                                         </tr> -->
+<!--                                                     </thead> -->
+<!--                                                     <tbody> -->
+<!--                                                         <tr> -->
+<!--                                                             <td>1</td> -->
+<!--                                                             <td><label class="check"> -->
+<!--                                                                     <input type="checkbox" id="drugs_yes" > -->
+<!--                                                                     <span class="checkmark"></span> -->
+<!--                                                                 </label></td> -->
+<!--                                                             <td> <p class="m-b-n"><i class="fa fa-circle p-r-xs text-green"></i>Sold</p>  -->
+<!--                                                             <td>xxx</td> -->
+<!--                                                             <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#edit"><span class="fa fa-edit"></span> Edit</button></td>                                        -->
+<!--                                                             <td><button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete"><span class="fa fa-trash"></span> Delete</button></td>                                                                               -->
+
+
+<!--                                                         </tr> -->
+
+<!--                                                     </tbody> -->
+<!--                                                 </table> -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>                                                   
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--Content End-->
+            <!--Modal box for Registration-->
+            <div id="edit" class="modal fade" role="dialog">          
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">New Vehicle Status </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="sub-title">
+                                    <h4> New Vehicle Status</h4>
+                                </div>
+                                <div class="sub-body">
+                                     <div class="col-md-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Vehicle Status<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12"> 
+                                    <input type="text" class="form-control" placeholder="Enter Vehicle Status" id="up_vehicleStatusId">
+                                </div>
+                            </div>
+                        </div> 
+                                    <div class="col-md-12 col-xs-12">
+                                    <label class="check">
+                                                                    <input type="checkbox" id="up_defaultId" value="1" >Default
+                                                                    <span class="checkmark"></span>
+                                                                </label>
+                                    </div>
+                                    <br>
+                                   
+                                        <div class="row">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-default"    style="background-color:#003872";>Navy</span>
+                                                     <input type="radio" id="up_navyId" value="2"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-primary"  value="3" style="background-color: #0074d9";>Blue</span>
+                                                    <input type="radio" id="up_blueId" value="3" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-info" value="4" style="background-color:#7fdbff";>Aqua</span>
+                                                    <input type="radio" id="up_aquaId" value="4" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-info" value="5" style="background-color:#15d4cd";>Teal</span>
+                                                    <input type="radio" id="up_tealId" value="5"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success" value="6"  style="background-color:#1dab6c";>Olive</span>
+                                                    <input type="radio" id="up_oliveId" value="6" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success"  value="7" style="background-color:#18cc6c";>Green</span>
+                                                    <input type="radio" id="up_greenId" value="7" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                    
+                                        <div class="row">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success" value="8" style="background-color:#01ff70";>Lime</span>
+                                                    <input type="radio" id="up_limeId" value="8" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-default" value="9" style="background-color:#f5e218";>Yellow</span>
+                                                    <input type="radio" id="up_yellowId" value="9"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-warning" value="10">Orange</span>
+                                                    <input type="radio" id="up_orangeId" value="10"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-danger" value="11" style="background-color: #f44336";>Red</span>
+                                                    <input type="radio" id="up_redId" value="11"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success"  value="12" style="background-color: #85144b";>Maroon</span>
+                                                    <input type="radio" id="up_maroonId" value="12"   name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success" value="13"  style="background-color: #f012be";>Fuchsia</span>
+                                                    <input type="radio" id="up_fuchsiaId" value="13" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                     <div class="row">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success"  value="14" style="background-color: #b10dc9";>Purple</span>
+                                                    <input type="radio" id="up_purpleId" value="14" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-default" value="15" style="background-color: #ddd";>Silver</span>
+                                                    <input type="radio" id="up_silverId" value="15" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-info"  value="16" style="background-color:  #a2abae";>Gray</span>
+                                                    <input type="radio" id="up_grayId" value="16" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-info" value="17"  style="background-color:#262c2d";>Black</span>
+                                                    <input type="radio" id="up_blackId" value="17"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                               
+                                                
+                                            </div>
+                                        </div>
+                                </div>
+
+
+
+                                    <!--  Save & Close Buttons Register page-->
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-primary btn-sm" id="updateVehicleStatusRegistrationId" onclick="updateVehicleStatusRegistrationDetails()" ><i class="fa fa-floppy-o p-r-xs"></i>Update</button>
+                                        <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal box for Registration-->
+            <div id="registration" class="modal fade" role="dialog">          
+                     <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">New Vehicle Status </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="sub-title">
+                                    <h4> New Vehicle Status</h4>
+                                </div>
+                                <div class="sub-body">
+                                     <div class="col-md-12 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Vehicle Status<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12"> 
+                                    <input type="text" class="form-control" placeholder="Enter Vehicle Status" id="vehicleStatusId">
+                                </div>
+                            </div>
+                        </div> 
+                                    <div class="col-md-12 col-xs-12">
+                                    <label class="check">
+                                                                    <input type="checkbox" id="defaultId" value="1" >Default
+                                                                    <span class="checkmark"></span>
+                                                                </label>
+                                    </div>
+                                    <br>
+                                   
+                                        <div class="row">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-default"    style="background-color:#003872";>Navy</span>
+                                                     <input type="radio" id="navyId" value="2"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-primary" id="blueId" value="3" style="background-color: #0074d9";>Blue</span>
+                                                    <input type="radio" id="blueId" value="3" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-info" value="4" style="background-color:#7fdbff";>Aqua</span>
+                                                    <input type="radio" id="aquaId" value="4" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-info" value="5" style="background-color:#15d4cd";>Teal</span>
+                                                    <input type="radio" id="tealId" value="5"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success" value="6"  style="background-color:#1dab6c";>Olive</span>
+                                                    <input type="radio" id="oliveId" value="6" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success"  value="7" style="background-color:#18cc6c";>Green</span>
+                                                    <input type="radio" id="greenId" value="7" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                    
+                                        <div class="row">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success" value="8" style="background-color:#01ff70";>Lime</span>
+                                                    <input type="radio" id="limeId" value="8" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-default" value="9" style="background-color:#f5e218";>Yellow</span>
+                                                    <input type="radio" id="yellowId" value="9"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-warning" value="10">Orange</span>
+                                                    <input type="radio" id="orangeId" value="10"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-danger" value="11" style="background-color: #f44336";>Red</span>
+                                                    <input type="radio" id="redId" value="11"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success"  value="12" style="background-color: #85144b";>Maroon</span>
+                                                    <input type="radio" id="maroonId" value="12"   name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success" value="13"  style="background-color: #f012be";>Fuchsia</span>
+                                                    <input type="radio" id="fuchsiaId" value="13" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                
+                                            </div>
+                                        </div>
+                                    
+                                     <div class="row">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-success"  value="14" style="background-color: #b10dc9";>Purple</span>
+                                                    <input type="radio" id="purpleId" value="14" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-default" value="15" style="background-color: #ddd";>Silver</span>
+                                                    <input type="radio" id="silverId" value="15" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                 <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-info"  value="16" style="background-color:  #a2abae";>Gray</span>
+                                                    <input type="radio" id="grayId" value="16" name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                                <div class="col-md-2 col-xs-12">
+                                                <label class="container radiocontainer"> <span class="label label-info" value="17"  style="background-color:#262c2d";>Black</span>
+                                                    <input type="radio" id="blackId" value="17"  name="radio">
+<!--                                                     <span class="checkmark ch"></span> -->
+                                                </label>
+                                                 </div>
+                                               
+                                                
+                                            </div>
+                                        </div>
+                                </div>
+
+
+
+                                    <!--  Save & Close Buttons Register page-->
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-primary btn-sm" id="vehicleStatusRegistrationId" onclick="addVehicleStatusRegistrationDetails1()" ><i class="fa fa-floppy-o p-r-xs"></i>Save</button>
+                                        <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!--Modal box for delete-->
+        <div id="delete" class="modal fade" role="dialog">          
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                        <h4 class="modal-title"> Delete Vehicle Status</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <div class="sub-title">
+                                <h4> Delete Vehicle Status</h4>
+                            </div>
+                            <div class="sub-body">
+                                <h3>R U Sure delete?</h3>
+
+                            </div>
+                            <br>
+
+                            <!--  Save & Close Buttons Register page-->
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12 text-center">
+                                    <button type="button" class="btn btn-info " id="vehicleStatusId" onclick="vehicleStatusDeletion()"><i class="fa fa-check"></i>  YES </button>&nbsp;&nbsp;
+
+                                    <button type="reset" class="btn btn-warning"><i class="fa fa-close "></i> NO</button>
+                                </div>
+                            </div> 
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+ <input type="hidden" id="reg_no">
+            <!--Footer-->
+            <div class="footer">
+                <small>Powered by Vsoft Pvt.Ltd</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../../../js/jquery1.2.min.js"></script>
+        <script src="../../../js/moment.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/datatables.min.js"></script>
+        <script src="../../../js/bootstrap-datepicker.js"></script> 
+        <script src="../../../js/chosen.jquery.js"></script>
+        <script src="../../../js/metisMenu.min.js"></script>
+        
+        
+ 
+    <Script src="../../../js/master/ServiceURL.js"></script>
+    <script src="../../../js/master/vehicleStatusRegistation.js"></script>
+     <script src ="../../../js/notify.min.js"></script>
+        <script src ="../../../js/notify.js"></script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <script>
+            $(document).ready(function () {
+        //Side Menu
+                $("#menu-icon").click(function () {
+        //                    $("#sidebar").toggleClass('active');
+        //                    $("#content-wrap").toggleClass('active');
+                });
+
+                $('#metismenu').metisMenu();
+
+                //                                            Chosen Select
+                $('#inventoryitemform').chosen();
+
+                $('[data-toggle="tooltip"]').tooltip();           // Tooltip
+                $('[data-toggle="popover"]').popover({
+                    trigger: 'hover',
+                    width: '200px;'
+                });
+                //                                            Data tables
+//                 $('#masterIem').DataTable({// Data table
+//                     "aLengthMenu": [[05, 10, 15, 25, -1], [05, 10, 15, 25, "All"]],
+//                     pageLength: 5,
+//                     responsive: true,
+//                     dom: '<"html5buttons"B>lTfgitp',
+//                     buttons: [
+//                         {extend: 'copy'}, {extend: 'csv'},
+//                         {extend: 'excel', title: 'ExampleFile'},
+//                         //                                                    {extend: 'pdf', title: 'ExampleFile'},
+//                         {extend: 'print',
+//                             customize: function (win) {
+//                                 $(win.document.body).addClass('white-bg');
+//                                 $(win.document.body).css('font-size', '10px');
+
+//                                 $(win.document.body).find('table')
+//                                         .addClass('compact')
+//                                         .css('font-size', 'inherit');
+//                             }
+//                         }
+//                     ]
+
+//                 });
+
+
+            });
+
+            $(window).load(function () {
+                // Animate loader off screen
+                $(".se-pre-con").fadeOut(50);
+            });
+
+        </script>
+
+    </body>
+</html>
+

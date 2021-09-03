@@ -1,0 +1,302 @@
+/* 
+    Created on : Aug 13, 2019, 2:14:31 PM
+    Author     : Usha Rani
+*/
+
+
+
+/*Sub Tiltles Heading Background colors*/
+.bg-title{
+    background: #33b5e5;
+    padding: 6px 6px;
+    border-radius: 0;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+.bg-title h4{
+    color:#fff;
+    margin:0;
+}
+
+
+/* Create a custom radio button */
+.radiocontainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radiocontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.ch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radiocontainer:hover input ~ .ch {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radiocontainer input:checked ~ .ch {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.ch:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radiocontainer input:checked ~ .ch:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radiocontainer .ch:after {
+    top: 7px;
+    left: 7px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+
+/*Adding Dual Box List(Assign & De-assign) Purpose*/
+
+#list{
+    font-weight: bold;
+}
+.pull-left>li>a, .dropdown>a {
+    color: white;
+    font-size: 15px;
+
+}
+.check {
+    display: initial;
+    padding-right: 0px;
+}
+.col-sm-7{
+    position: relative;
+    min-height: 1px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+#hrline {
+    margin-top: 13px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #eee;
+    width: 550px;
+}
+#hrline1 {
+    margin-top: 13px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #eee;
+    width: 420px;
+}
+.btn-sm {    
+    min-width: 112px;
+}
+
+/*Adding Second Nav Bar Purpose*/
+.p-n{
+    padding:0;
+}
+h5{
+    color: #31708f;
+    font-size: 15px;
+    margin-top: 0;
+    font-weight: 600;
+}
+/*NavBar*/
+.navbar-default{
+    border-radius: 0;
+    webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    background: #4b7ee3;
+    margin-top:52px;
+    border:none;
+}
+
+.navbar-default .navbar-nav>li>a:hover,.navbar-default .navbar-nav>li>a:focus{
+    color: #fff;      
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    color: #fff;
+    background-color: rgba(255,255,255,.1);
+}
+.p-r-sm {  
+    list-style: none;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+}
+.navbar-default .dropdown-menu{
+    right: -29px;
+    left: auto;
+    margin-top: 13px;
+}
+
+.navbar-default .navbar-brand>a { 
+    padding-top: 29px;   
+}
+/*Assigned date & Date ids css*/
+#assign{
+    padding-left: 168px;
+    font-weight: 800;
+}
+
+#assign1{
+    padding-left: 190px;
+}
+#assigns{
+    padding-left: 168px;
+    font-weight: 800;
+}
+
+#assign2{
+    padding-left: 230px;
+}
+/*Duty colors*/
+.column {
+    float: left;
+    width: 15%;
+    padding: 5px;
+}
+/*#page-container {
+    position: relative;
+    min-height: 99.9vh;
+}*/
+
+/*Assign/Unassign page check box side names css*/
+.name{
+    padding-left: 40px;
+}
+.details{
+    margin-left: -12px;
+    height: 420px;
+    width: 285px; 
+    padding-left: 0px;
+}
+/*border box*/   
+.box {
+    border: 1px solid #eee;
+    margin-left: 91px;
+    margin-right: 91px;
+}
+.box1 {
+    border: 1px solid #eee;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*buttontop down purpose adding css*/
+.buttontop{
+    margin-top: 10px;
+}
+/*Blue Cta CSS*/
+@media screen and (max-width:772px){
+    .bg-white.toggle-btn{
+        background: #fff;
+    }
+    .bg-white.toggle-btn:before{
+        box-shadow:0 -10px 0 0 #fff;
+    }
+    .bg-white.toggle-btn:after{
+        box-shadow:0 10px 0 0 #fff;
+    }
+}
+/*Assign modules css*/
+ .assignbox{
+                width: 39.333333%;
+            }
+            .empbox {
+                width: 90.333333%;
+            }
+          /*fa-circle css*/  
+             .fa-circle{
+                font-size:15px;
+            }
+           /*search bar css*/
+           .searchbar>li>a .form-control {   
+    margin-top: 5px;  
+}
+
+/* Tabs css */          
+.panel.with-nav-tabs .panel-heading{
+    padding: 5px 5px 0 5px;
+    /*    height: 45px;*/
+}
+.panel.with-nav-tabs .nav-tabs{
+    border-bottom: none;
+}
+.panel.with-nav-tabs .nav-justified{
+    margin-bottom: -1px;
+}
+
+/********************************************************************/
+
+/*** PANEL PRIMARY ***/
+.with-nav-tabs.panel-primary .nav-tabs > li > a,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+    color: #fff;
+}
+.with-nav-tabs.panel-primary .nav-tabs > .open > a,
+.with-nav-tabs.panel-primary .nav-tabs > .open > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > .open > a:focus,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li > a:focus {
+    color: #fff;
+    background-color: #3071a9;
+    border-color: transparent;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a,
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li.active > a:focus {
+    color: #428bca;
+    background-color: #fff;
+    border-color: #428bca;
+    border-bottom-color: transparent;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu {
+    background-color: #428bca;
+    border-color: #3071a9;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a {
+    color: #fff;   
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > li > a:focus {
+    background-color: #3071a9;
+}
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a,
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a:hover,
+.with-nav-tabs.panel-primary .nav-tabs > li.dropdown .dropdown-menu > .active > a:focus {
+    background-color: #4a9fe9;
+}

@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fleet Management | Contacts & Users</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!--CSS Links-->
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../assets/css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../assets/css/datatables.min.css">
+<link rel="stylesheet" href="../../assets/css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../assets/css/metisMenu.css" />
+<link rel="stylesheet" href="../../assets/css/datepicker.css">
+<link rel="stylesheet"
+	href="../../assets/css/bootstrap-datetimepicker.min.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/fleet.css">
+<style>
+.badge-danger {
+	background-color: red;
+}
+.delete{
+height: 30px; 
+padding-top: 3px;
+left: 11.5%; 
+position:absolute;  
+display:inline-block;
+}
+  .se-pre-con {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+            }
+</style>
+
+</head>
+ <body class="totalbody">
+        <div class="se-pre-con">
+            <div class="content">
+                <div class="back-to-article">
+                    <p><a href="smallenvelop.com/blog/"></a></p>
+                </div>
+                <img src="http://smallenvelop.com/wp-content/uploads/2014/08/simple-pre-loader.jpg
+                     " style="visibility: hidden; width:100%; height: auto;">
+            </div>
+        </div>
+
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="../../images/pro-Logo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="../dashboard.html"><span
+								class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href="../../Op_Dashboard.html"><i
+								class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<!--   <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a> -->
+						</li>
+						<!--    <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> -->
+						<!--     <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>  -->
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header End-->
+		<!--Side Nav Bar-->
+		<nav id='sidebar' class="sidebar">
+			<div class="sidebar-content">
+				<div class="sidebar-header">
+					<h3 class="header">Fleet Management</h3>
+				</div>
+				<div class='sidebar-menu'>
+					<ul class="metismenu" id="metismenu">
+						<li><a href='#'> <i class='fa fa-tachometer'></i> <span>Dashboard</span>
+						</a></li>
+						<!--Vehicles-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-cab'></i> <span>Vehicles</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../vehicles/vehicleList.html"> <i
+										class="fa fa-circle-o"></i> <span>Vehicle List</span>
+								</a></li>
+								<li><a href="../vehicles/vehicleAssignment.html"> <i
+										class="fa fa-circle-o"></i> <span>Vehicle Assignment</span>
+								</a></li>
+								<li><a href="../vehicles/watchedVehicles.html"> <i
+										class="fa fa-circle-o"></i> <span>Watched Vehicles</span>
+								</a></li>
+								<li><a href="../vehicles/meterHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Meter History</span>
+								</a></li>
+								<li><a href="../vehicles/expenseHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Expense History</span>
+								</a></li>
+								<li><a href="../vehicles/gpsIntegration.html"> <i
+										class="fa fa-circle-o"></i> <span>GPS Integration</span>
+								</a></li>
+							</ul></li>
+
+						<!--Inspections-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-building'></i> <span>Inspections</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../inspections/inspectionHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Inspection History</span>
+								</a></li>
+								<li><a href="../inspections/itemFailures.html"> <i
+										class="fa fa-circle-o"></i> <span>Item Failures</span>
+								</a></li>
+								<li><a href="../inspections/schedule.html"> <i
+										class="fa fa-circle-o"></i> <span>Schedules</span>
+								</a></li>
+								<li><a href="../inspections/forms.html"> <i
+										class="fa fa-circle-o"></i> <span>Forms</span>
+								</a></li>
+							</ul></li>
+						<!--Issues-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-info-circle '></i> <span>Issue</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Issues/Issueslist.html"> <i
+										class="fa fa-circle-o"></i> <span>Issues List</span>
+								</a></li>
+								<li><a href="../Issues/faults.html"> <i
+										class="fa fa-circle-o"></i> <span>Faults</span>
+								</a></li>
+								<li><a href="../Issues/recall.html"> <i
+										class="fa fa-circle-o"></i> <span>Recalls</span>
+								</a></li>
+
+							</ul></li>
+
+						<!--Remainders-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-clock-o '></i> <span>Remainder</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../remainders/serviceRemainder.html"> <i
+										class="fa fa-circle-o"></i> <span>Service Remainder</span>
+								</a></li>
+								<li><a href="../remainders/vehicleRenewal.html"> <i
+										class="fa fa-circle-o"></i> <span>Vehicle Renewals</span>
+								</a></li>
+								<li><a href="../remainders/contactRenewal.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact Renewals</span>
+								</a></li>
+							</ul></li>
+						<!--Services-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-wrench '></i> <span>Services</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../service/serviceHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Services History </span>
+								</a></li>
+								<li><a href="../service/workorder.html"> <i
+										class="fa fa-circle-o"></i> <span>Work Order</span>
+								</a></li>
+								<li><a href="../service/serviceTask.html"> <i
+										class="fa fa-circle-o"></i> <span>Services Tasks</span>
+								</a></li>
+								<li><a href="../service/shopdirectory.html"> <i
+										class="fa fa-circle-o"></i> <span>Shop Directory</span>
+								</a></li>
+								<li><a href="../service/integrations.html"> <i
+										class="fa fa-circle-o"></i> <span>Integrations</span>
+								</a></li>
+							</ul></li>
+						<!--Fuels-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-filter '></i> <span>Fuel</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Fuel/FuelHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Fuel History</span>
+								</a></li>
+								<li><a href="../Fuel/fuelintegration.html"> <i
+										class="fa fa-circle-o"></i> <span>Fuel Integration</span>
+								</a></li>
+							</ul></li>
+						<!--Contacts & Users-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-user'></i> <span>Contacts & Users</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Contact&Users/contactlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact List</span>
+								</a></li>
+								<li><a href="../Contact&Users/userManagement.html"> <i
+										class="fa fa-circle-o"></i> <span>User Management</span>
+								</a></li>
+								<li><a href="../Contact&Users/vendorlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Vendor List</span>
+								</a></li>
+							</ul></li>
+						<!--Parts & Inventory-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-money '></i> <span>Parts & Inventory</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../PartsAndInventory/partsList.html"> <i
+										class="fa fa-circle-o"></i> <span>Parts List</span>
+								</a></li>
+								<li><a href="../PartsAndInventorybulkmanageparts.html">
+										<i class="fa fa-circle-o"></i> <span>Bulk Manage Parts</span>
+								</a></li>
+								<li><a href="../PartsAndInventory/purchaseorder.html"> <i
+										class="fa fa-circle-o"></i> <span>Purchase Order</span>
+								</a></li>
+							</ul></li>
+						<!--Places-->
+						<li><a href="../places/places.html"> <span
+								class="glyphicon glyphicon-map-marker"></span> <span>Places</span>
+						</a></li>
+						<!--Reports-->
+						<li><a href="../reports/reports.html"> <i
+								class='fa fa-book '></i> <span>Reports</span>
+						</a></li>
+
+					</ul>
+					</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Side Nav Bar ENd-->
+
+		<!--Content-->
+		<div id="content-wrap">
+			<!--Second Header-->
+			<div class="second-nav">
+				<ul class="pull-left" style="display: inline-flex">
+					<li><a class="navbar-brand-1" id="menu-icon">
+							<h4>
+								<i class="fa fa-bars"></i>
+							</h4>
+					</a></li>
+					<li>
+						<h4 style="margin-top: 5px">Contacts & Users</h4>
+					</li>
+				</ul>
+
+				<ul class="pull-right searchbar">
+					<!--       <li class="pull-left p-r-sm">
+                            <a href="#">
+                                <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                            </a>                    
+                        </li>  -->
+					<li class="pull-left" style="margin-top: -7px"><a
+						href="../Contact&Users/addContact.html"><button type="button"
+								class="btn btn-success btn-sm">
+								<i class="fa fa-plus p-r-xs"></i>Add Contacts
+							</button></a></li>
+
+					<li class="dropdown pull-left" style="margin-top: -2px">
+				<!-- 	<a
+						class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+							class="fa fa-ellipsis-v f-md" data-toggle="tooltip"
+							data-placement="top" title="More Actions"></i>
+					</a> -->
+						<ul class="dropdown-menu">
+							<li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+							<li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+							<li><a href="../Contact_usrers/addmultiusers.html"><span
+									class="glyphicon glyphicon-user"></span> Add Multiple Users</a></li>
+							<li><a href="../Contact_usrers/importcontacts.html"> <span
+									class="glyphicon glyphicon-import"></span> Import Contacts
+							</a></li>
+							<li><a href="../Contact_usrers/manageuserrole.html"><span
+									class="glyphicon glyphicon-registration-mark"></span> Manage
+									Users Roles</a></li>
+							<li><a href="../Contact_usrers/managepwd.html"><span
+									class="glyphicon glyphicon-record"></span> Manage Password
+									Requires</a></li>
+							<li><a href="../Contact_usrers/findDuplicates.html"><span
+									class="glyphicon glyphicon-duplicate"></span> Find duplicates</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-export"></span>
+									Export CSV</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--Second Header End-->
+			<div class="card">
+				<!--Error Message-->
+				<div class="alert alert-danger" style='display: none;'>
+					<h4>
+						<i class="fa fa-warning p-r-xs"></i>Please fix the following
+						errors:
+					</h4>
+					<ul class='m-l-md'>
+						<li>District Can't be Empty</li>
+					</ul>
+				</div>
+				<!--Tabs-->
+				<div class="main-pills">
+					<ul class="nav nav-pills">
+					                        <li><input type='button'class='btn btn-previous btn-fill  btn-link'
+											name='previous' value='All' onclick="searchContactUsers(0)"/></li>
+											<li><input type='button'class='btn btn-previous btn-fill  btn-link'
+											name='previous' value='Employee' onclick="searchContactUsers(6)"/></li>
+											<li><input type='button'class='btn btn-previous btn-fill  btn-link'
+											name='previous' value='Operator' onclick="searchContactUsers(5)"/></li>
+											<li><input type='button'class='btn btn-previous btn-fill  btn-link'
+											name='previous' value='Technician' onclick="searchContactUsers(7)"/></li>
+						<!-- <li class="active"><a href="../Contact&Usrers/contactlist.html">All</a></li>
+						<li class=""><a href="../Contact&Usrers/contactlist.html">Employees</a></li>
+						
+						<li class=""><a href="../Contact_usrers/Operator.html">Operators</a></li>
+						<li class=""><a href="../Contact_usrers/technician.html">Technicians</a></li>						
+						<li class=""><a href="../Contact_usrers/archive.html">Archived</a></li> -->
+					</ul>
+				</div> 
+				<br> <br>
+		<!-- 		<div class="row">
+					All Searches
+					<div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-5 col-xs-12">All
+								Searches<span class="star">*</span>
+							</label>
+							<div class="col-md-7 col-xs-12">
+								<input type="text" class="form-control"
+									placeholder="Enter All Searches">
+							</div>
+						</div>
+					</div>
+					Filter Groups
+					<div class="col-md-3 col-xs-12">
+						<div class='form-group'>
+							<label class="control-label col-md-5 col-xs-12">Filter
+								Groups</label>
+							<div class="col-md-7 col-xs-12">
+								<input class="form-control" type="hidden" value="" /> <select
+									multiple="multiple" class="select form-control">
+									<option value="">Select One</option>
+									<option value="1">Active</option>
+									<option value="2">Demo vehicle</option>
+									<option value="3">Inactive</option>
+									<option value="4">In Shop</option>
+									<option value="5">Out of Service</option>
+									<option value="6">Sold</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					Employee Numbers
+					<div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-5 col-xs-12">Employee
+								Numbers<span class="star">*</span>
+							</label>
+							<div class="col-md-7 col-xs-12">
+								<input type="text" class="form-control"
+									placeholder="Enter Employee Numbers">
+							</div>
+						</div>
+					</div>
+					Address
+					<div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-5 col-xs-12">Address<span
+								class="star">*</span></label>
+							<div class="col-md-7 col-xs-12">
+								<input type="text" class="form-control"
+									placeholder="Enter Address">
+							</div>
+						</div>
+					</div>
+				</div> -->
+				<div class="row m-t-b-sm">
+					<!--City-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-5 col-xs-12">Name<span
+								class="star"></span></label>
+							<div class="col-md-7 col-xs-12">
+								<input type="text" class="form-control" placeholder="Enter  Name" id="name">
+							</div>
+						</div>
+					</div>
+					<!--State/Province/Region-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-5 col-xs-12">Email Id<span
+								class="star"></span></label>
+							<div class="col-md-7 col-xs-12">
+								<input type="text" class="form-control"
+									placeholder="Please Enter Email Id" id="email">
+							</div>
+						</div>
+					</div>
+					<!--Zip/Postal Code-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-5 col-xs-12">Phone No.<span class="star"></span>
+							</label>
+							<div class="col-md-7 col-xs-12">
+								<input type="text" class="form-control"
+									placeholder="Please Enter PhoneNo." id="phoneno">
+							</div>
+						</div>
+					</div>
+					<!--Country-->
+					<!-- <div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-5 col-xs-12">Country</label>
+							<div class="col-md-7 col-xs-12">
+								<select class="form-control">
+									<option value="0">Select One</option>
+									<option value="1">Fuel Filling</option>
+									<option value="2">Oxygen Filling</option>
+									<option value="3">Tyre Life</option>
+								</select>
+							</div>
+						</div>
+					</div> -->
+				</div>
+
+				<!--buttons-->
+				<div class="row m-t-b-sm">
+					<div class="col-md-12 col-xs-12 text-center m-t-sm">
+						<button type="button" class="btn btn-primary btn-sm " onclick="searchContactUsers()" id=serchbtnid>
+							<i class="fa fa-search p-r-xs"></i> Search
+						</button>
+						<button type="button" class="btn btn-outline-warning btn-sm" onclick="resetSearch()">
+							<i class="fa fa-refresh p-r-xs"></i> Reset
+						</button>
+					</div>
+				</div>
+				<br>
+				<!--table-->
+				        <div class="wrapper wrapper-content">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12 " >
+                                <div id="deleteButtonID"  style="display: none">
+                                    <button type="button" class="btn btn-danger btn-sm delete" onclick="deleteMultipleContactchkboxReading()" id="Searchdeleteid"><i class="fa fa-trash-o"></i> Delete All</button>
+                                    </div>
+                                    <div class="table-responsive" id="vehicleList_Id"> 
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+				
+		<!-- 		 <div class="wrapper wrapper-content"> 
+				 	<div class="row"> 
+				 	    <div class="col-md-12 col-xs-12">
+                                    <button type="button" class="btn btn-danger btn-sm delete" onclick="deleteVehicle1()" id="Searchdeleteid"><i class="fa fa-trash-o"></i> Delete All</button>
+                                    <div class="table-responsive" id="example1"> 
+
+                                    </div>
+                                </div>
+					   <div class="col-md-12 col-xs-12">
+						  <button type="button" class="btn btn-danger btn-sm delete" onclick="checkBoxReadingAssignModuleToUser()" ><i class="fa fa-trash-o"></i> Delete All</button> 	
+							</div>
+							<div class="table-responsive" id="example1">
+							     
+								<table id="serviceRemainder" class="table table-bordered table-striped"> 
+                                         <thead>
+                                            <tr>
+                                                <th><label class="check ">  
+                                                        <span style=" color: white">Select</span>
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label></th>
+                                                <th>Name</th>
+                                                <th>Email</th>     
+                                                <th>Phone No</th>                           
+                                                <th>Employee Type</th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                                <th>Merge</th>
+                                                <th>Archive Contact</th>
+                                            </tr>
+                                            </tr>
+                                        </thead>
+                                        <tbody> 
+                                            <tr>
+                                                <td>
+                                                    <label class="check ">                                                    
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="../../img/a4.jpg" class="img-circle vehicle-img" alt="vehicle">
+                                                    <div class="text-left p-l-xxl">
+                                                        <h5 class="m-b-n">Andy Miller <span class="badge">sample</span> </h5>
+                                                    </div>
+                                                </td>
+                                                <td>205-515-0001 </td>
+                                                <td>Birmingham</td>                                              
+                                                <td><span class="badge">0</span></td>
+                                                <td><a href="#" data-toggle="modal" data-placement="bottom" data-target="#update" title="View">i class="fa fa-edit"></i></a></td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="delete">
+                                                        <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#delete" ></span>
+                                                    </div>
+                                                </td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="merge">
+                                                        <span class="glyphicon glyphicon-adjust" data-toggle="modal" data-target="#merge" ></span>
+                                                    </div>
+                                                </td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="archive">
+                                                        <i class="fa fa-archive" data-toggle="modal" data-target="#archive" ></i>
+                                                    </div>
+                                                </td>                                       
+                                            </tr>
+                                            
+                                             <tr>
+                                                <td>
+                                                    <label class="check ">                                                    
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="../../img/a1.jpg" class="img-circle vehicle-img" alt="vehicle">
+                                                    <div class="text-left p-l-xxl">
+                                                        <h5 class="m-b-n"> Carlos Garcia <span class="badge">sample</span> </h5>
+                                                    </div>
+                                                </td>
+                                                <td>205-515-0001 </td>
+                                                <td>Birmingham</td>                                              
+                                                <td><span class="badge">0</span></td>
+                                                <td><a href="../Contact_usrers/addcontact.html"><i class="fa fa-edit"></i></a></td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="delete">
+                                                        <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#delete" ></span>
+                                                    </div>
+                                                </td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="merge">
+                                                        <span class="glyphicon glyphicon-adjust" data-toggle="modal" data-target="#merge" ></span>
+                                                    </div>
+                                                </td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="archive">
+                                                        <i class="fa fa-archive" data-toggle="modal" data-target="#archive" ></i>
+                                                    </div>
+                                                </td>                                       
+                                            </tr>
+                                            
+                                             <tr>
+                                                <td>
+                                                    <label class="check ">                                                    
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="../../img/a2.jpg" class="img-circle vehicle-img" alt="vehicle">
+                                                    <div class="text-left p-l-xxl">
+                                                        <h5 class="m-b-n">Jacob Silva <span class="badge">sample</span> </h5>
+                                                    </div>
+                                                </td>
+                                                <td>205-515-0001 </td>
+                                                <td>Birmingham</td>                                              
+                                                <td><span class="badge">0</span></td>
+                                                <td><i class="fa fa-edit"></i></td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="delete">
+                                                        <span class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#delete" ></span>
+                                                    </div>
+                                                </td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="merge">
+                                                        <span class="glyphicon glyphicon-adjust" data-toggle="modal" data-target="#merge" ></span>
+                                                    </div>
+                                                </td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="archive">
+                                                        <i class="fa fa-archive" data-toggle="modal" data-target="#archive" ></i>
+                                                    </div>
+                                                </td>                                       
+                                            </tr>
+
+                                        </tbody>
+                                    </table> 
+
+							</div>
+						
+					 </div> 
+				 </div>  -->
+		<!-- 	</div>
+		</div>  -->
+		<!--Content End-->
+
+		<!--Model Box For Update-->
+		<div id="update" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+				 <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">Update Contact </h4>
+                        </div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<!--Heading-->
+							<!-- <div class="sub-title">
+								<h4>Update Contact&Users</h4>
+							</div> -->
+							<div class="sub-body">
+								<div class="row">
+							
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4"> First Name<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter First Name"
+													class="form-control" id="firstname" disabled="disabled">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4"> Middle Name<span
+												class="star"></span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Middle Name"
+													class="form-control" id="middlename" disabled="disabled">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Last Name<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Last Name"
+													class="form-control" id="lastname" disabled="disabled">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Date Of Birth<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<div id="date2" class="input-group date"
+														data-date-format="yyyy-mm-dd">
+
+														<span class="input-group-addon"> <i
+															class="fa fa-calendar"></i>
+														</span> <input class="form-control" placeholder="Select Date"
+															id="dateofbirth" type="text" disabled="disabled" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">E-mailID<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter E-mailID"
+													class="form-control" name="drticketid" id="emailid">
+											</div>
+										</div>
+									</div>
+										<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Phone Number<span
+												class="star-green">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Phone Number"
+													class="form-control" id="phonenumber" disabled="disabled">
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<div class="row">				
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Country<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<select class="form-control" name="countryid"
+													id="country_id">
+													<option value="0">Please Select Country</option>
+													<!--<option value="1">Fuel Filling</option>
+                                                <option value="2">Oxygen Filling</option>
+                                                <option value="4">Tyre Life</option> -->
+											</select>
+											</div>
+										</div>
+									</div>
+										<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">State<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<select class="form-control" name="state_id"
+													id="state_id">
+													<option value="0">Please Select State</option>
+													<!--<option value="1">Fuel Filling</option>
+                                                <option value="2">Oxygen Filling</option>
+                                                <option value="4">Tyre Life</option> -->
+											</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							   <div class="row"> 						
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">District<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<select class="form-control" name="districtid"
+													id="districtid">
+													<!-- <option value="0">Please Select District</option> -->
+													<!--<option value="1">Fuel Filling</option>
+                                                <option value="2">Oxygen Filling</option>
+                                                <option value="4">Tyre Life</option> -->
+											</select>
+											</div>
+										</div>
+									</div>
+										<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Mandal<span
+												class="star">*</span></label>
+										  <div class="col-md-8">
+												<select class="form-control" name="mandal_id"
+													id="mandal_id">
+													<option value="0">Please Select Mandal</option>
+													<!--<option value="1">Fuel Filling</option>
+                                                <option value="2">Oxygen Filling</option>
+                                                <option value="4">Tyre Life</option> -->
+											</select>
+											</div>
+										</div>
+									</div>
+						          </div>
+								 <div class="row">								
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">City<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+											<select class="form-control" name="city_id"
+													id="city_id">
+													<option value="0">Please Select City</option>
+													<!--<option value="1">Fuel Filling</option>
+                                                <option value="2">Oxygen Filling</option>
+                                                <option value="4">Tyre Life</option> -->
+											</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Address<span
+												class="star-green">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Address"
+													class="form-control" id="address">
+											</div>
+										</div>
+									</div>
+								</div> 
+								<div class="row">									
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Pin code</label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Pin code"
+													class="form-control" id="pincode">
+											</div>
+										</div>
+									</div>
+										<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Job Title<span
+												class="star"></span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Job Title"
+													class="form-control" id="jobtitle">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">							
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Employee
+												Type<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" data-mini="true" name="dractityid" id="employee_type">
+													<option value="0">Select Employee Type</option>
+													<!--    <option value="1">Fuel Filling</option>
+                                                <option value="2">Oxygen Filling</option>
+                                                <option value="4">Tyre Life</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+                               </div>
+
+								<div class="sub-title">
+									<h4>Employee Details</h4>
+								</div>
+								<div class="sub-body">
+									<div class="row">
+										<div class="col-md-6 col-xs-12">
+											<div class="form-group">
+												<label class="control-label col-md-4">Employee No:<span
+													class="star">*</span></label>
+												<div class="col-md-8">
+													<input type="text" placeholder="Enter Employee No"
+														class="form-control" name="drticketid" id="employeeno">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6 col-xs-12">
+											<div class="form-group">
+												<label class="control-label col-md-4"> Joining Date<span
+													class="star">*</span></label>
+												<div class="col-md-8">
+													<div class="input-group">
+														<div id="date1" class="input-group date"
+															data-date-format="yyyy-mm-dd">
+															<span class="input-group-addon"> <i
+																class="fa fa-calendar"></i>
+															</span> <input class="form-control" placeholder="Select Date"
+																id="joiningdate" type="text" disabled="disabled"/>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6 col-xs-12">
+											<div class="form-group">
+												<label class="control-label col-md-4">Leave Date<span
+													class="star">*</span></label>
+												<div class="col-md-8">
+													<div class="input-group">
+														<div id="date" class="input-group date"
+															data-date-format="yyyy-mm-dd">
+															<span class="input-group-addon"> <i
+																class="fa fa-calendar"></i>
+															</span> <input class="form-control" placeholder="Select Date"
+																id="leavedate" type="text" disabled="disabled"/>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--                    buttons-->
+								</div>
+
+								<div class="sub-title">
+									<h4>Operator Details</h4>
+								</div>
+
+								<div class="sub-body">
+									<div class="row">
+										<div class="col-md-6 col-xs-12">
+											<div class="form-group">
+												<label class="control-label col-md-4">License No:<span
+													class="star">*</span></label>
+												<div class="col-md-8">
+													<input type="text" placeholder="Enter License No"
+														class="form-control" name="drticketid" id="licenseno">
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6 col-xs-12">
+											<div class="form-group">
+												<label class="control-label col-md-4">License Type<span
+													class="star">*</span></label>
+												<div class="col-md-8">
+													<input type="text" placeholder="Enter License Class"
+														class="form-control" name="drticketid" id="licensetype">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6 col-xs-12">
+											<div class="form-group">
+												<label class="control-label col-md-4">License State<span
+													class="star">*</span></label>
+												<div class="col-md-8">
+													<input type="text" placeholder="Enter License State"
+														class="form-control" name="drticketid" id="licensestate">
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--                    buttons-->
+								</div>
+
+
+								<div class="sub-title">
+									<h4>Technical Details</h4>
+								</div>
+								<div class="sub-body">
+									<div class="row">
+										<div class="col-md-6 col-xs-12">
+											<div class="form-group">
+												<label class="control-label col-md-4">Hourly Labor
+													Rate:<span class="star">*</span>
+												</label>
+												<div class="col-md-8">
+													<input type="text" placeholder="Enter Hourly Labor Rate"
+														class="form-control" name="drticketid"
+														id="hourlylaborrate">
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- buttons-->
+								</div>
+								<!--button-->
+								<div class="text-center">
+									<button type="button" class="btn btn-primary btn-sm"
+										onclick="updateContact()" id="update_contact_details">
+										<i class="fa fa-floppy-o p-r-xs"></i>Update
+									</button>
+									<!--                                    <button type="button" class="btn btn-success btn-sm"><i class="fa fa-floppy-o p-r-xs"></i>Update</button>-->
+									<button type="button" class="btn btn-outline-warning btn-sm"
+										data-dismiss="modal">
+										<i class="fa fa-times p-r-xs"></i>Close
+									</button>
+									 <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetUpdateContactDetails()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                        
+								</div>
+						   </form>
+					</div>
+				</div>
+			</div>
+		</div>
+          <!--Model Box For Delete--> 
+            <div id="delete" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <h5>Are you sure, do you want Delete Seleted Zone?</h5>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="deleteContactDetails()"><span class="glyphicon glyphicon-ok">OK</span></button>
+                                <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i> Cancel</button>                                     
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+		<!--Model Box For Merge-->
+		<div id="merge" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Merge Andy Miller</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-md-5 col-xs-12">Destination
+									contact<span class="star">*</span>
+								</label>
+								<div class="col-md-7 col-xs-12">
+									<select class="form-control">
+										<option value="0">Select One</option>
+										<option value="1">Fuel Filling</option>
+										<option value="2">Oxygen Filling</option>
+										<option value="3">Tyre Life</option>
+									</select>
+								</div>
+							</div>
+							<p>Select the contact which this record will be merged into.
+								All contact details, comments, documents, reminders, issues, and
+								work orders will be merged into the selected contact. The
+								destination contact's value will be used if both contacts have a
+								value for the same field. Once the merge is complete, the
+								original contact will be archived.</p>
+							<div class="text-center">
+								<button class="bn btn-primary btn-sm">
+									<i class="fa fa-adjust"></i> Merge
+								</button>
+								<button class="btn btn-outline-warning btn-sm">
+									<i class="fa fa-close"></i> Cancel
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Model Box For Archive-->
+		<div id="archive" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Contact will be hidden</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<p>Are you sure you want to archive 'Andy Miller'?</p>
+							<div class="text-center">
+								<button type="button" class="btn btn-primary btn-sm">
+									<span class="glyphicon glyphicon-ok"> OK</span>
+								</button>
+								<button class="btn btn-outline-warning btn-sm">
+									<i class="fa fa-close"></i> Cancel
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!--Model Box For Merge-->
+		<div id="merge" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Merge Andy Miller</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-md-5 col-xs-12">Destination
+									contact<span class="star">*</span>
+								</label>
+								<div class="col-md-7 col-xs-12">
+									<select class="form-control">
+										<option value="0">Select One</option>
+										<option value="1">Fuel Filling</option>
+										<option value="2">Oxygen Filling</option>
+										<option value="3">Tyre Life</option>
+									</select>
+								</div>
+							</div>
+							<p>Select the contact which this record will be merged into.
+								All contact details, comments, documents, reminders, issues, and
+								work orders will be merged into the selected contact. The
+								destination contact's value will be used if both contacts have a
+								value for the same field. Once the merge is complete, the
+								original contact will be archived.</p>
+							<div class="text-center">
+								<button class="bn btn-primary btn-sm">
+									<i class="fa fa-adjust"></i> Merge
+								</button>
+								<button class="btn btn-outline-warning btn-sm">
+									<i class="fa fa-close"></i> Cancel
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+		<input type="hidden" id="sericalID">
+		<input type="hidden" id="searchIDs">
+		<input type="hidden" id="reg_no">
+		
+		
+		<!--Footer-->
+		<div class="footer">
+			<small>Powered by Procreate Techno systems Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+	<script src="../../assets/js/jquery1.2.min.js"></script>
+	<script src="../../assets/js/moment.min.js"></script>
+	<script src="../../assets/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/datatables.min.js"></script>
+	<script src="../../assets/js/chosen.jquery.js"></script>
+	<script src="../../assets/js/metisMenu.min.js"></script>
+	<script src="../../assets/js/bootstrap-datepicker.js"></script>
+	<script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../../assets/js/notify.js/"></script>
+    <script src="../../assets/js/notify.min.js/"></script>
+	<script src="../../assets/serviceController/ServiceURL.js"></script>
+	<script src="../../assets/serviceController/Contactuser.js"></script>
+	<script src="../../assets/serviceController/masterData.js"></script>
+	<script>
+		$(document).ready(function() {
+			getContactUsers();	
+			//searchContactUsers();
+			geEmployeeTypeForUpdate();
+		});
+
+		$(function() {
+			//Date And Time picker in Modal Box
+			$('#datetimepicker').datetimepicker({
+				sideBySide : true,
+				format : 'DD-MM-YYYY HH:mm:ss'
+			});
+			$('#datetimepicker1').datetimepicker({
+				sideBySide : true,
+				format : 'DD-MM-YYYY HH:mm:ss'
+			});
+		});
+
+		$(document)
+				.ready(
+						function() {
+							//Side Menu
+							$("#menu-icon").click(function() {
+								$("#sidebar").toggleClass('active');
+								$("#content-wrap").toggleClass('active');
+							});
+
+							$('#metismenu').metisMenu();
+							//                                            Chosen Select
+							$('select').chosen();
+							$('[data-toggle="tooltip"]').tooltip(); // Tooltip
+							$('[data-toggle="popover"]').popover({
+								trigger : 'hover',
+								width : '200px;'
+							});
+							//                                            Data tables
+							$('#serviceRemainder')
+									.DataTable(
+											{// Data table
+												"aLengthMenu" : [
+														[ 05, 10, 15, 25, -1 ],
+														[ 05, 10, 15, 25, "All" ] ],
+												pageLength : 5,
+												responsive : true,
+												dom : '<"html5buttons"B>lTfgitp',
+												buttons : [
+														{
+															extend : 'copy'
+														},
+														{
+															extend : 'csv'
+														},
+														{
+															extend : 'excel',
+															title : 'ExampleFile'
+														},
+														//                                                    {extend: 'pdf', title: 'ExampleFile'},
+														{
+															extend : 'print',
+															customize : function(
+																	win) {
+																$(
+																		win.document.body)
+																		.addClass(
+																				'white-bg');
+																$(
+																		win.document.body)
+																		.css(
+																				'font-size',
+																				'10px');
+
+																$(
+																		win.document.body)
+																		.find(
+																				'table')
+																		.addClass(
+																				'compact')
+																		.css(
+																				'font-size',
+																				'inherit');
+															}
+														} ]
+
+											});
+							//Date Pickers
+							$("#strtDate").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#endDate").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#toendDate").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+
+						});
+		  $(window).load(function () {
+              // Animate loader off screen
+              $(".se-pre-con").fadeOut(50);
+          });
+	</script>
+
+</body>
+</html>
+
+

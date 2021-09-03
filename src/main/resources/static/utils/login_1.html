@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ERS Support Systems | Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../common_images/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../common_css/bootstrap.min.css">
+        <link rel="stylesheet" href="../common_css/fontfamily/font-style.css">        
+        <!--Customized CSS-->
+        <link rel="stylesheet"  href="../common_css/login.css">
+    
+        
+    </head>
+    <body>
+        <div class="bg-image">
+            <div class="login">
+                <h2>User Login</h2>
+                <form>
+                    <!--User Name-->
+                    <div class="form-group">
+                        <input type="text" required>                      
+                        <label>User Name</label>
+                        <div class="bar"></div>
+                    </div>   
+                    <!--Passowrd-->
+                    <div class="form-group">
+                        <input type="password" required>
+                        <label>Password</label>
+                        <div class="bar"></div>
+                    </div>
+                    <!--Module-->
+                    <div class="form-group">
+                        <select required>
+                            <option value="" style="display: none"></option>  
+                            <option value="1">ERO</option>    
+                            <option value="2">DCO</option>
+                            <option value="3">Supervisor</option>
+                            <option value="3">PDA</option>
+                            <option value="3">FDA</option>
+                        </select>
+                        <label>Module</label>
+                        <div class="bar"></div>
+                    </div>
+                    
+                    <!--Check box and Forget password-->
+                    <div>
+                        <div style="display:inline-flex">
+                            <input type="checkbox" class="check_1"><span style="line-height:2" class="p-l-sm">Remember me</span>
+                        </div>
+                        <a href="" class="pull-right m-t-xs">Forgot Password?</a>
+                    </div>
+                    <div class="text-center m-t-md">
+                        <button class="btn btn-info1 btn-block">Login</button>
+
+                    </div>
+                </form>  
+                <!--Footer-->
+                <p class="footer">Pro-HHL® 2019 © Procreate. All Rights Reserved.</p> 
+            </div>
+        </div>
+    </body>
+</html>

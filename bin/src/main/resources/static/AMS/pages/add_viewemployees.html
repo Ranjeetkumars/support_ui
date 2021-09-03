@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AMS| Employee</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title Icon-->
+<link rel="shortcut icon" href="../../common_images/favicon.ico">
+<!--CSS Links-->
+<link rel="stylesheet" href="../../common_css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../common_css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../common_css/datatables.min.css">
+<link rel="stylesheet" href="../../common_css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../common_css/datepicker.css">
+<link rel="stylesheet"
+	href="../../common_css/bootstrap-datetimepicker.min.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../common_css/common_css.css">
+<style>
+u {
+	text-decoration: underline;
+}
+
+.star-green {
+	color: green;
+}
+
+.img_design {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
+}
+</style>
+</head>
+<body>
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="../../common_images/pro-Logo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="../../dashboard.html"><span
+								class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href="../AMS_dashboard.html"><i
+								class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header-->
+		<!--Second Header-->
+		<div class="second-nav">
+			<ul class="pull-left">
+				<li>
+					<h4 style="margin-top: 6px">Add/View Employees</h4>
+				</li>
+			</ul>
+			<ul class="pull-right searchbar">
+				<li class="pull-left p-r-sm"><a href="#"> <input
+						type="text" class="form-control"
+						placeholder="What are you looking for?">
+				</a></li>
+				<li class="pull-left" style="margin-top: -7px">
+					<button type="button" class="btn btn-success btn-sm"
+						data-toggle="modal" data-target="#registration">
+						<i class="fa fa-plus p-r-xs"></i>Add Employees
+					</button>
+				</li>
+				<li class="dropdown pull-left" style="margin-top: -2px"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-ellipsis-v f-md" data-toggle="tooltip"
+						data-placement="top" title="More Actions"></i>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+						<li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+					</ul></li>
+			</ul>
+		</div>
+		<!--Second Header End-->
+		<!--Content-->
+		<div id="content-wrap">
+			<div class="card">
+				<!--Error message-->
+				<div class="alert alert-danger" style='display: none;'>
+					<h4>
+						<i class="fa fa-warning p-r-xs"></i>Please fix the following
+						errors:
+					</h4>
+					<ul class='m-l-md'>
+						<li>District Can't be Empty</li>
+					</ul>
+				</div>
+				<div class="row">
+					<div class="col-md-2 col-xs-12"></div>
+					<!--Module Name-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4 col-xs-12">Module
+								Name<span class="star">*</span>
+							</label>
+							<div class="col-md-8 col-xs-12">
+								<select class="form-control">
+									<option value="0">Select Module Name</option>
+									<option value="1">Fuel Filling</option>
+									<option value="2">Oxygen Filling</option>
+									<option value="4">Tyre Life</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<!--User Name-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4">User Name<span
+								class="star">*</span></label>
+							<div class="col-md-8">
+								<input type="text" placeholder="Enter User Name"
+									class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--                    Buttons-->
+				<div class="row m-t-b-sm">
+					<div class="col-md-12 col-xs-12 text-center m-t-sm">
+						<button type="button" class="btn btn-primary btn-sm">
+							<i class="fa fa-search p-r-xs"></i>Search
+						</button>
+						<button type="button" class="btn btn-outline-warning btn-sm">
+							<i class="fa fa-refresh p-r-xs"></i>Reset
+						</button>
+					</div>
+				</div>
+				<hr>
+				<!--                    table-->
+				<div class="wrapper wrapper-content">
+					<div class="container">
+						<div class="col-md-12 col-xs-12">
+							<div class="table-responsive">
+								<table id="driverTable"
+									class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>S.NO</th>
+											<th>User Name</th>
+											<th>Email Id</th>
+											<th>Phone No</th>
+											<th>User Administration</th>
+											<th>Reset Password</th>
+											<th>Update</th>
+											<th>View</th>
+											<th>Separate</th>
+
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>28408100756</td>
+											<td>tabemso@gmail.com</td>
+											<td>8888888888</td>
+											<td><u><a href="../UserAdmin/useradmin.html">User
+														Administration</a></u></td>
+											<td><u><a href="#" data-toggle="modal"
+													data-target="#ResetPassword"> Reset Password</a></u></td>
+											<td><img src="../../AMS/images/edit.gif"> <a
+												href="#" data-toggle="modal" data-target="#edit"></a></td>
+											<td><u><a href="#" data-toggle="modal"
+													data-target="#View">View</a></u></td>
+											<td><input type="checkbox" name=""></td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>28408100756</td>
+											<td>tabemso@gmail.com</td>
+											<td>8888888888</td>
+											<td><u><a href="../UserAdmin/useradmin.html">User
+														Administration</a></u></td>
+											<td><u><a href="#" data-toggle="modal"
+													data-target="#ResetPassword">Reset Password</a></u></td>
+											<td><img src="../../AMS/images/edit.gif"><a
+												href="#" data-toggle="modal" data-target="#edit"></a></td>
+											<td><u><a href="#" data-toggle="modal"
+													data-target="#View">View</a></u></td>
+											<td><input type="checkbox" name=""></td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Content End-->
+		<!--Modal box for Registration-->
+		<div id="registration" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Add Employees</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<!--Heading-->
+							<div class="sub-title">
+								<h4>Add Employees</h4>
+							</div>
+							<div class="sub-body">
+
+								<div class="row">
+									<!--User Name-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">User Name<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter User Name"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--LandMark-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">LandMark<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid">
+													<option value="0">Select LandMark</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Password-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Password<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Password"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--Pin code-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Pin code</label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Pin code"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<!--                    Confirm Password-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Confirm
+												Password<span class="star">*</span>
+											</label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Confirm Password"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--Phone Number-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Phone Number<span
+												class="star-green">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Phone Number"
+													class="form-control">
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<!--First Name-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">First Name<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter First Name"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--Mobile Number-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Mobile Number<span
+												class="star-green">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Mobile Number"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!--Middle Name-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Middle Name<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Middle Name"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--Address Line1-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Address Line1<span
+												class="star-green">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Address Line1"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Last Name-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Last Name<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Last Name"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+									<!-- Address Line2-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Address Line2<span
+												class="star-green">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Address Line2"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Date Of Birth-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Date Of Birth<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<div id="date2" class="input-group date"
+														data-date-format="dd-mm-yyyy">
+														<span class="input-group-addon"> <i
+															class="fa fa-calendar"></i>
+														</span> <input class="form-control" placeholder="Select Date"
+															type="text" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--Date Of Joining-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Date Of Joining</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<div id="strtDate2" class="input-group date"
+														data-date-format="dd-mm-yyyy">
+														<span class="input-group-addon"> <i
+															class="fa fa-calendar"></i>
+														</span> <input class="form-control" placeholder="Select Date"
+															type="text" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- E-mailID-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">E-mailID<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter E-mailID"
+													class="form-control" name="drticketid"
+													onkeypress="javascript:return numarics(this, event);"
+													maxlength="14">
+											</div>
+										</div>
+									</div>
+									<!--Date Of Retirement-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Date Of
+												Retirement</label>
+											<div class="col-md-8">
+												<div class="input-group">
+													<div id="endDate2" class="input-group date"
+														data-date-format="dd-mm-yyyy">
+														<span class="input-group-addon"> <i
+															class="fa fa-calendar"></i>
+														</span> <input class="form-control" placeholder="Select Date"
+															type="text" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="row">
+									<!--                        State-->
+
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">State<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid">
+													<option value="0">Select State</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Gender-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Gender<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid">
+													<option value="0">Select Gender</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--District-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">District<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid">
+													<option value="0">Select District</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Employee Type-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Employee
+												Type<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid">
+													<option value="0">Select Employee Type</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Tahasil-->
+								<div class="row">
+									<!--To Date-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Tahasil<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid">
+													<option value="0">Select Tahasil</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Designation Type-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Designation
+												Type<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid">
+													<option value="0">Select Designation Type</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--City-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">City<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid">
+													<option value="0">Select City</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--file-upload-->
+									<div class="col-md-6 col-xs-12">
+										<label class="file-upload"> Browse for file ... <input
+											type="file" />
+										</label>
+									</div>
+								</div>
+								<!--Locality-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Locality<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" name="dractityid">
+													<option value="0">Select Locality</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--button-->
+							<div class="text-center">
+								<button type="button" class="btn btn-primary btn-sm">
+									<i class="fa fa-floppy-o p-r-xs"></i>Save
+								</button>
+								<!--                                    <button type="button" class="btn btn-success btn-sm"><i class="fa fa-floppy-o p-r-xs"></i>Update</button>-->
+								<button type="button" class="btn btn-outline-warning btn-sm"
+									data-dismiss="modal">
+									<i class="fa fa-times p-r-xs"></i>Close
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!--Modal box for User View-->
+		<div id="View" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">View</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<!--Heading-->
+							<div class="sub-title">
+								<h4>View</h4>
+							</div>
+							<div class="sub-body">
+								<div class="wrapper wrapper-content">
+									<div class="container">
+										<div class="col-md-12 col-xs-12">
+											<div class="table-responsive">
+												<table id="driverTable1"
+													class="table table-bordered table-striped">
+
+													<tbody>
+														<tr>
+															<td><b>Designation</b></td>
+															<td colspan="2">Executive</td>
+														</tr>
+														<tr>
+															<td><b>Manager User Name</b></td>
+															<td colspan="2">N/A</td>
+														</tr>
+														<tr>
+															<td colspan='3'><span class="title-1"><b>Associates
+																		List</b></span></td>
+														</tr>
+														<tr>
+															<td colspan='3'><span class="title-1"></span></td>
+														</tr>
+														<tr>
+															<td><b>Modules </b></td>
+															<td><b>Roles<b></td>
+															<td><b>Previlages </b></td>
+														</tr>
+														<tr>
+															<td>EA</td>
+															<td>Driver Role</td>
+															<td>Driver Role System<br>Driver Role
+															</td>
+														</tr>
+													</tbody>
+												</table>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--button-->
+							<div class="text-center">
+								<button type="button" class="btn btn-primary btn-sm">
+									<i class=""></i>Assign
+								</button>
+								<!--                                    <button type="button" class="btn btn-success btn-sm"><i class="fa fa-floppy-o p-r-xs"></i>Update</button>-->
+								<button type="button" class="btn btn-outline-warning btn-sm"
+									data-dismiss="modal">
+									<i class="fa fa-times p-r-xs"></i>Close
+								</button>
+
+
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Modal box for edit-->
+		<div id="edit" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Update User</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<!--Heading-->
+							<div class="sub-title">
+								<h4>Update User</h4>
+							</div>
+							<div class="sub-body">
+								<div class="col-md-12 col-xs-12">
+									<div class="col-md-10 col-xs-12">
+										<div class="row">
+											<!--                        District-->
+
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4">User Name<span
+														class="star">*</span></label>
+													<div class="col-md-8">
+														<input type="text" placeholder="Enter User Name"
+															class="form-control">
+													</div>
+												</div>
+											</div>
+
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4 col-xs-12">Locality<span
+														class="star">*</span></label>
+													<div class="col-md-8 col-xs-12">
+														<select class="form-control" name="dractityid">
+															<option value="0">Select Locality</option>
+															<option value="1">Fuel Filling</option>
+															<option value="2">Oxygen Filling</option>
+															<option value="4">Tyre Life</option>
+														</select>
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<div class="row">
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4">First Name<span
+														class="star">*</span></label>
+													<div class="col-md-8">
+														<input type="text" placeholder="Enter First Name"
+															class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4 col-xs-12">Landmark<span
+														class="star">*</span></label>
+													<div class="col-md-8 col-xs-12">
+														<select class="form-control" name="dractityid">
+															<option value="0">Select Landmark</option>
+															<option value="1">Fuel Filling</option>
+															<option value="2">Oxygen Filling</option>
+															<option value="4">Tyre Life</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<!--                    Ticket ID-->
+										<div class="row">
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4">Middle Name<span
+														class="star">*</span></label>
+													<div class="col-md-8">
+														<input type="text" placeholder="Enter Middle Name"
+															class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4"> Pin Code<span
+														class="star-green">*</span></label>
+													<div class="col-md-8">
+														<input type="text" placeholder="Enter Pin Code"
+															class="form-control">
+													</div>
+												</div>
+
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4">Last Name<span
+														class="star">*</span></label>
+													<div class="col-md-8">
+														<input type="text" placeholder="Enter Last Name"
+															class="form-control">
+													</div>
+												</div>
+											</div>
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4">Phone Number<span
+														class="star-green">*</span></label>
+													<div class="col-md-8">
+														<input type="text" placeholder="Enter Phone Number"
+															class="form-control">
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+										<div class="row">
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4"> Date Of
+														Birth<span class="star">*</span>
+													</label>
+													<div class="col-md-8">
+														<div class="input-group">
+															<div id="date1" class="input-group date"
+																data-date-format="dd-mm-yyyy">
+																<span class="input-group-addon"> <i
+																	class="fa fa-calendar"></i>
+																</span> <input class="form-control" placeholder="Select Date"
+																	type="text" />
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4">Mobile Number<span
+														class="star-green">*</span></label>
+													<div class="col-md-8">
+														<input type="text" placeholder="Enter Mobile Number"
+															class="form-control">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4"> Date Of
+														Joining</label>
+													<div class="col-md-8">
+														<div class="input-group">
+															<div id="strtDate1" class="input-group date"
+																data-date-format="dd-mm-yyyy">
+																<span class="input-group-addon"> <i
+																	class="fa fa-calendar"></i>
+																</span> <input class="form-control" placeholder="Select Date"
+																	type="text" />
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4"> Address
+														Line1<span class="star-green">*</span>
+													</label>
+													<div class="col-md-8">
+														<input type="text" placeholder="Enter Address Line2"
+															class="form-control">
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="row">
+
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4"> Date Of
+														REtitrment</label>
+													<div class="col-md-8">
+														<div class="input-group">
+															<div id="endDate1" class="input-group date"
+																data-date-format="dd-mm-yyyy">
+																<span class="input-group-addon"> <i
+																	class="fa fa-calendar"></i>
+																</span> <input class="form-control" placeholder="Select Date"
+																	type="text" />
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-md-5 col-xs-12">
+												<div class="form-group">
+													<label class="control-label col-md-4"> Address
+														Line2<span class="star-green">*</span>
+													</label>
+													<div class="col-md-8">
+														<input type="text" placeholder="Enter Address Line2"
+															class="form-control">
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-2 col-xs-12">
+
+											<img src="../../common_images/login_bg.jpg" alt=""
+												class="img_design" style="width: 150px; height: 160px">
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<!--button-->
+							<div class="text-center">
+								<button type="button" class="btn btn-primary btn-sm">
+									<i class="fa fa-floppy-o p-r-xs"></i>Save
+								</button>
+								<!--                                    <button type="button" class="btn btn-success btn-sm"><i class="fa fa-floppy-o p-r-xs"></i>Update</button>-->
+								<button type="button" class="btn btn-outline-warning btn-sm"
+									data-dismiss="modal">
+									<i class="fa fa-times p-r-xs"></i>Close
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Footer-->
+		<div class="footer">
+			<small>Powdered by Procreate Techno systems Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+
+	<script src="../../common_js/jquery1.2.min.js"></script>
+	<script src="../../common_js/moment.min.js"></script>
+	<script src="../../common_js/bootstrap.min.js"></script>
+	<script src="../../common_js/datatables.min.js"></script>
+	<script src="../../common_js/bootstrap-datepicker.js"></script>
+	<script src="../../common_js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../../common_js/chosen.jquery.js"></script>
+	<script>
+		$(function() {
+			//Date And Time picker in Modal Box
+			$('#datetimepicker1').datetimepicker({
+				sideBySide : true,
+				format : 'DD-MM-YYYY HH:mm:ss'
+			});
+		});
+
+		$(document)
+				.ready(
+						function() {
+							$('select').chosen(); //Chosen select
+							$('[data-toggle="tooltip"]').tooltip(); // Tooltip
+							$('#driverTable')
+									.DataTable(
+											{// Data table
+												pageLength : 10,
+												responsive : true,
+												dom : '_$tag____________lTfgitp',
+												buttons : [
+														{
+															extend : 'copy'
+														},
+														{
+															extend : 'csv'
+														},
+														{
+															extend : 'excel',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'pdf',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'print',
+															customize : function(
+																	win) {
+																$(
+																		win.document.body)
+																		.addClass(
+																				'white-bg');
+																$(
+																		win.document.body)
+																		.css(
+																				'font-size',
+																				'10px');
+
+																$(
+																		win.document.body)
+																		.find(
+																				'table')
+																		.addClass(
+																				'compact')
+																		.css(
+																				'font-size',
+																				'inherit');
+															}
+														} ]
+
+											});
+							$('#driverTable1')
+									.DataTable(
+											{// Data table
+												pageLength : 10,
+												responsive : true,
+												dom : '_$tag____________lTfgitp',
+												buttons : [
+														{
+															extend : 'copy'
+														},
+														{
+															extend : 'csv'
+														},
+														{
+															extend : 'excel',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'pdf',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'print',
+															customize : function(
+																	win) {
+																$(
+																		win.document.body)
+																		.addClass(
+																				'white-bg');
+																$(
+																		win.document.body)
+																		.css(
+																				'font-size',
+																				'10px');
+
+																$(
+																		win.document.body)
+																		.find(
+																				'table')
+																		.addClass(
+																				'compact')
+																		.css(
+																				'font-size',
+																				'inherit');
+															}
+														} ]
+											});
+
+							//Date Pickers
+							$("#strtDate").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#endDate").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#date").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+
+							$("#date1").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#strtDat1").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#endDate1").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#strtDate2").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#endDate2").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+							$("#date2").datepicker({
+								autoclose : true,
+								todayHighlight : true
+							}).datepicker();
+
+						});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$('.dropdown-submenu a.test').on("click", function(e) {
+				$(this).next('ul').toggle();
+				e.stopPropagation();
+				e.preventDefault();
+			});
+		});
+	</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>OP Desk | Tyre Life</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title Icon-->
+<link rel="shortcut icon" href="../../img/favicon.ico">
+<!--CSS Links-->
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../css/datatables.min.css">
+<link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../css/datepicker.css">
+<link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../css/style.css">
+<style>
+</style>
+</head>
+<body>
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="../../img/pro-Logo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="../../dashboard.html"><span
+								class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href="../Op_Dashboard.html"><i
+								class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<!-- <ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul> -->
+				</div>
+			</div>
+		</nav>
+		<!--Main Header-->
+		<!--Second Header-->
+		<div class="second-nav">
+			<ul class="pull-left">
+				<li>
+					<h4 style="margin-top: 6px">Tyre Life</h4>
+				</li>
+			</ul>
+			<ul class="pull-right searchbar">
+				<!-- <li class="pull-left p-r-sm"><a href="#"> <input
+						type="text" class="form-control"
+						placeholder="What are you looking for?">
+				</a></li> -->
+				<li class="pull-left" style="margin-top: -7px">
+					<button type="button" class="btn btn-success btn-sm"
+						data-toggle="modal" data-target="#registration">
+						<i class="fa fa-plus p-r-xs"></i>Tyre Life
+					</button>
+				</li>
+		<!-- 		<li class="dropdown pull-left" style="margin-top: -2px"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+						class="fa fa-ellipsis-v f-md" data-toggle="tooltip"
+						data-placement="top" title="More Actions"></i>
+				</a>
+					<ul class="dropdown-menu">
+						<li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+						<li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+					</ul></li> -->
+			</ul>
+		</div>
+		<!--Second Header End-->
+		<!--Content-->
+		<div id="content-wrap">
+			<div class="card">
+				<!--Error Message-->
+				<div class="alert alert-danger" style='display: none;'>
+					<h4>
+						<i class="fa fa-warning p-r-xs"></i>Please fix the following
+						errors:
+					</h4>
+					<ul class='m-l-md'>
+						<li>District Can't be Empty</li>
+					</ul>
+				</div>
+				<!--Title Heade End-->
+				<div class="row">
+					<!--District-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-3 col-xs-12">District<span
+								class="star"></span></label>
+							<div class="col-md-9 col-xs-12">
+								<select class="form-control" name="dractityid"
+									id="tyre_district_Id">
+									<option value="0">Select District</option>
+									<!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+								</select>
+							</div>
+						</div>
+					</div>
+					<!--Base Location-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4 col-xs-12">Base
+								Location<span class="star"></span>
+							</label>
+							<div class="col-md-8 col-xs-12">
+								<select class="form-control" id="tyre_baseLocation_Id">
+									<option value="0">Select Base Location</option>
+									<!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+								</select>
+							</div>
+						</div>
+					</div>
+					<!--Ambulance-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4">Ambulance No</label>
+							<div class="col-md-8 col-xs-12">
+								<select class="form-control" name="dractityid"
+									id="tyre_ambulance_Id">
+									<option value="0">Select Ambulance</option>
+									<!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--Select Tyre-->
+				<div class="row m-t-b-sm">
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-3">Select Tyre</label>
+							<div class="col-md-9 col-xs-12">
+								<select class="form-control" name="dractityid" id="tyreId">
+									<option value="0">Select Select Tyre</option>
+									<!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+								</select>
+							</div>
+						</div>
+					</div>
+					<!--Ticket ID-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4">Ticket Id</label>
+							<div class="col-md-8">
+								<input type ="text" onkeypress="return isNumberKey(event)" placeholder="Enter Ticket ID"
+									class="form-control" name="drticketid" id="tyre_ticketId" maxlength="15">
+							</div>
+						</div>
+					</div>
+					<!--From Date-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4">From Date</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<div id="strtDate" class="input-group date"
+										data-date-format="dd-mm-yyyy">
+										<span class="input-group-addon"> <i
+											class="fa fa-calendar"></i>
+										</span> <input class="form-control" placeholder="Select Date"
+											type="text" id="tyre_fromDataID" autocomplete="off"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row m-t-b-sm">
+					<!--To Date-->
+					<div class="col-md-4 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-3">To Date</label>
+							<div class="col-md-9">
+								<div class="input-group">
+									<div id="endDate" class="input-group date"
+										data-date-format="dd-mm-yyyy">
+										<span class="input-group-addon"> <i
+											class="fa fa-calendar"></i>
+										</span> <input class="form-control" placeholder="Select Date"
+											type="text" id="tyre_toDateID" autocomplete="off"/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--buttons-->
+				<div class="row m-t-b-sm">
+					<div class="col-md-12 col-xs-12 text-center m-t-sm">
+						<button type="button" class="btn btn-primary btn-sm"
+							onclick="search()" id="search_id">
+							<i class="fa fa-search p-r-xs"></i>Search
+						</button>
+						<button type="button" class="btn btn-outline-warning btn-sm"
+							onclick="resetSearch()">
+							<i class="fa fa-refresh p-r-xs"></i>Reset
+						</button>
+					</div>
+				</div>
+				<hr>
+				<!--table-->
+				<div class="wrapper wrapper-content">
+					<div class="row">
+						<div class="col-md-12 col-xs-12" id="driverTable">
+							<div class="table-responsive"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Content End-->
+		<!--Modal box for Registration-->
+		<div id="registration" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Tyre Information</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+
+
+							<!--Ambulance Information-->
+							<!--Heading-->
+							<div class="sub-title">
+								<h4>Ambulance Information</h4>
+							</div>
+							<div class="sub-body">
+								<!--District-->
+								<div class="row">
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-sm-4 col-xs-12">District<span class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="tyre_reg_districtID">
+													<option value="0">Select District</option>
+
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Base Location-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Base
+												Location<span class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="tyre_reg_baseLocID">
+													<option value="0">Select Base Location</option>
+
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Ambulance-->
+								<div class="row">
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-sm-4 col-xs-12">Ambulance
+												No<span class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="tyre_reg_ambulanceID">
+													<option value="0">Select Ambulance</option>
+
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Shift Type-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Shift
+												Type<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="reg_tyre_shiftId">
+													<option value="0">Select Shift Type</option>
+
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--Tyre Information-->
+							<div class="sub-title">
+								<h4>Tyre Information</h4>
+							</div>
+							<div class="sub-body">
+								<div class="row">
+									<!--select Tyre-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">select
+												Tyre<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="reg_tyre_id">
+													<option value="0">Select Tyre Type</option>
+
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--UID Count-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">UID
+												Count<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type ="text" onkeypress="return isNumberKey(event)" class="form-control"placeholder="Enter UID NO  " id="tyre_reg_uniqID" maxlength="14">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Type Model-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Type
+												Model<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type ="text" onkeypress="return isNumberKey(event)" class="form-control"
+													placeholder="Enter Type Model " id="tyre_reg_typeModelID" maxlength="16">
+											</div>
+										</div>
+									</div>
+									<!--Previous Odo-Meter Reading-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Previous
+												Odo-Meter Reading<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text"  onkeypress="return isNumberKey(event)" class="form-control"
+													placeholder="Enter Previous Odo Meter Reading"
+													id="reg_preodometer" maxlength="8">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Current Odo-Meter Reading-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Current
+												Odo-Meter Reading<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" onkeypress="return isNumberKey(event)" class="form-control"
+													placeholder="Enter Current Odo Meter Reading"
+													id="tyre_reg_currOdoMeterID" maxlength="8">
+											</div>
+										</div>
+									</div>
+									<!--Report Date-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Report
+												Date <span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<div class='input-group date' id='datetimepicker1'>
+													<input type='text' class="form-control input-sm"
+														placeholder="select Date" id="report_date_reg" autocomplete="off" /> <span
+														class="input-group-addon calendar"> <span
+														class="glyphicon glyphicon-calendar"></span>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Tyre Remarks-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Tyre
+												Remarks</label>
+											<div class="col-md-8 col-xs-12">
+												<textarea class="form-control"
+													placeholder="Enter Tyre Remarks"
+													id="tyre_reg_tyreRemarksID"
+													onKeyPress="if (this.value.length == Constants.MAX_REMARKS_LEN)
+                                                                return false;" maxlength="200"></textarea>
+												<div class="text-right">
+													<span id="valid_tyre_rem">0/200</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--Remarks-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Remarks</label>
+											<div class="col-md-8 col-xs-12">
+												<textarea class="form-control" placeholder="Enter Remarks"
+													id="tyre_reg_remarksId"
+													onKeyPress="if (this.value.length == Constants.MAX_REMARKS_LEN)
+                                                                return false;" maxlength="200"></textarea>
+												<div class="text-right">
+													<span id="valid_rem">0/200</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Supervisor-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Supervisor Name</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter Supervisor " id="tyre_reg_supervisor" maxlength="50">
+											</div>
+										</div>
+									</div>
+									<!--District Manager-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">District
+												Manager Name</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter District Manager "
+													id="tyre_reg_distmanagerID"
+													onKeyPress="if (this.value.length == Constants.MAX_LENGTH)
+                                                                return false;" maxlength="50">
+												<div class="text-right">
+													<span id="valid_distmanager">0/50</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Other Manager-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Other
+												Manager</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter Other Manager "
+													id="tyre_reg_other_distManagerID"
+													onKeyPress="if (this.value.length == Constants.NAME_MAX_LENGTH)
+                                                                return false;" maxlength="50">
+
+												<div class="text-right">
+													<span id="valid_otherdistmanager">0/50</span>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--button-->
+							<div class="text-center">
+								<button type="button" class="btn btn-primary btn-sm"
+									id="tyre_registration_id" onclick="tyre_Registraion()">
+									<i class="fa fa-floppy-o p-r-xs"></i>Submit
+								</button>
+								<button type="button" class="btn btn-outline-warning btn-sm"
+									onclick="javascript:window.location.reload()"
+									data-dismiss="modal">
+									<i class="fa fa-times p-r-xs"></i>Close
+								</button>
+								<button type="button" class="btn btn-outline-warning btn-sm"
+							onclick="resetInsert()">
+							<i class="fa fa-refresh p-r-xs"></i>Reset
+						</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Modal Box For Update-->
+		<div id="UpdateModal" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Tyre Information</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+
+
+							<!--Ambulance Information-->
+							<!--Heading-->
+							<div class="sub-title">
+								<h4>Ambulance Information</h4>
+							</div>
+							<div class="sub-body">
+								<!--District-->
+								<div class="row">
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-sm-4 col-xs-12">District<span
+												class="star"></span></label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter District" id="tyre_up_districtID"
+													disabled="true">
+											</div>
+										</div>
+									</div>
+									<!--Base Location-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Base
+												Location</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter BaseLocation" id="tyre_up_baseLocID"
+													disabled="true">
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Ambulance-->
+								<div class="row">
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-sm-4 col-xs-12">Ambulance
+												No</label>
+											<div class="col-md-8 col-xs-12">
+
+												<input type="text" class="form-control"
+													placeholder="Enter AmbulanceNO" id="tyre_up_ambulanceID"
+													disabled="true">
+											</div>
+										</div>
+									</div>
+									<!--Shift Type-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Shift
+												Type<span class="star"></span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+
+												<input type="text" class="form-control"
+													placeholder="Enter ShiftType" id="up_tyre_shiftId"
+													disabled="true">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--Tyre Information-->
+							<div class="sub-title">
+								<h4>Tyre Information</h4>
+							</div>
+							<div class="sub-body">
+								<div class="row">
+									<!--Type Of Tyre-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Type
+												Of Tyre<span class="star"></span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+
+												<input type="text" class="form-control"
+													placeholder="Enter Type" id="up_tyre_id" disabled="true">
+											</div>
+										</div>
+									</div>
+									<!--UID Count-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">UID
+												Count<span class="star"></span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter UID NO  " id="tyre_up_uniqID"
+													disabled="true">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Type Model-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Type
+												Model<span class="star"></span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter Type Model " id="tyre_up_typeModelID"
+													disabled="true">
+											</div>
+										</div>
+									</div>
+									<!--Previous Odo-Meter Reading-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Previous
+												Odo-Meter Reading<span class="star"></span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter Previous Odo Meter Reading"
+													id="up_preodometer" disabled="true">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Current Odo-Meter Reading-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Current
+												Odo-Meter Reading<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="number" class="form-control"
+													placeholder="Enter Current Odo Meter Reading"
+													id="tyre_up_currOdoMeterID"
+													onKeyPress="if (this.value.length == Constants.MAX_LENGTH_FOR_ODO)
+                                                                return false;">
+											</div>
+										</div>
+									</div>
+									<!--Report Date-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Report
+												Date <span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<div class='input-group date' id='datetimepicker1'>
+													<input type='text' class="form-control input-sm"
+														placeholder="select Date" id="tyre_up_reportTimeId"
+														disabled="true"  autocomplete="off"/> <span
+														class="input-group-addon calendar"> <span
+														class="glyphicon glyphicon-calendar"></span>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Tyre Remarks-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Tyre
+												Remarks</label>
+											<div class="col-md-8 col-xs-12">
+												<textarea class="form-control"
+													placeholder="Enter Tyre Remarks" id="tyre_up_tyreRemarksID"
+													disabled="true"></textarea>
+											</div>
+										</div>
+									</div>
+									<!--Remarks-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Remarks</label>
+											<div class="col-md-8 col-xs-12">
+												<textarea class="form-control" placeholder="Enter Remarks"
+													id="tyre_up_remarksId"
+													onKeyPress="if (this.value.length == Constants.MAX_REMARKS_LEN)
+                                                                return false;"></textarea>
+												<div class="text-right">
+													<span id="valid_up_rem">0/200</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Supervisor-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Supervisor</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter Supervisor " id="tyre_up_supervisor"
+													disabled="true">
+											</div>
+										</div>
+									</div>
+									<!--District Manager-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">District
+												Manager</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter District Manager "
+													id="tyre_up_distmanagerID" disabled="true">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<!--Other Manager-->
+									<div class="col-sm-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Other
+												Manager</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control"
+													placeholder="Enter Other Manager "
+													id="tyre_up_other_distManagerID" disabled="true">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--button-->
+							<div class="text-center">
+								<button type="button" class="btn btn-primary btn-sm"
+									id="tyre_update_id" onclick="tyreUpdate()">
+									<i class="fa fa-floppy-o p-r-xs"></i>Update
+								</button>
+								<button type="button" class="btn btn-outline-warning btn-sm"
+									data-dismiss="modal">
+									<i class="fa fa-times p-r-xs"></i>Close
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" id="tyreConditionID" />
+		<input type="hidden" id="distId" />
+		<input type="hidden" id="baselocId" />
+		<input type="hidden" id="ambulance_no" />
+		<input type="hidden" id="reportedDate" />
+		<input type="hidden" id="ticket_id" />
+		<input type="hidden" id="remark_id" />
+		<!--Footer-->
+		<div class="footer">
+			<small>Powdered by Procreate Techno systems Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+	<script src="../../js/jquery1.2.min.js"></script>
+	<script src="../../js/chosen.jquery.js"></script>
+	<script src="../../js/moment.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/datatables.min.js"></script>
+	<script src="../../js/bootstrap-datepicker.js"></script>
+	<script src="../../js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../../js/moment.js"></script>
+	<script src="../../js/moment.min.js"></script>
+	<script src="../../js/moment.min_1.js"></script>
+	<script src="../../js/notify.js"></script>
+	<script src="../../js/notify.min.js"></script>
+	<script src="../../js/OPDESK/Constants.js"></script>
+	<script src="../../js/OPDESK/ServiceURLS.js"></script>
+	<script src="../../js/OPDESK/msterData.js"></script>
+	<script src="../../js/OPDESK/tyreLife.js"></script>
+	   <!--         logout/login url -->
+               <script src="../../../Common/serviceController/dashboard.js"></script>
+                <script src="../../../Common/serviceController/ServiceUrl.js"></script> 
+              <script src="../../../Common/serviceController/logout.js"></script>
+	<script>
+		$(document).ready(function() {
+			//Date Pickers
+			/* $("#strtDate").datepicker({
+				autoclose : true,
+				todayHighlight : true
+			}).datepicker(); */
+		/* 	$("#endDate").datepicker({
+				autoclose : true,
+				todayHighlight : true
+			}).datepicker(); */
+			$("#availableDate").datepicker({
+				autoclose : true,
+				todayHighlight : true
+			}).datepicker();
+			//$("#datetimepicker1").datepicker({
+			//	autoclose : true,
+			//	todayHighlight : true
+			//}).datepicker();
+		});
+		
+		  $(function() {
+              //Date And Time picker in Modal Box
+              $('#datetimepicker1').datetimepicker({
+                  sideBySide: true,
+                  format: 'YYYY-MM-DD HH:mm:ss'
+              });
+          });//datetimepicker2
+		
+	
+		//report time validation                            
+		$(document).ready(function() {
+		 	checkLoggedOrNot();
+			var todayDate = new Date().getDate();
+			var maxDate = new Date(new Date().setDate(todayDate));
+			$('#tyre_reg_reportTimeId').datepicker({
+				todayBtn : "linked",
+				startDate : $('#tyre_reg_reportTimeId').val(),
+				endDate : maxDate,
+				keyboardNavigation : true,
+				forceParse : true,
+				calendarWeeks : true,
+				autoclose : true,
+				autoApply : true
+			})
+		});
+	</script>
+	<script>
+		$("#tyre_reg_tyreRemarksID").on(
+				"keydown keyup change",
+				function(event) {
+					var value = $(this).val();
+					if (value.length >= Constants.MAX_REMARKS_LEN) {
+						event.preventDefault();
+					}
+					var len = $.trim(value).length;
+					$("#valid_tyre_rem").text(
+							len + "/" + Constants.MAX_REMARKS_LEN);
+				});
+		$("#tyre_reg_remarksId").on("keydown keyup change", function(event) {
+			var value = $(this).val();
+			if (value.length > Constants.MAX_REMARKS_LEN) {
+				event.preventDefault();
+			}
+			var len = $.trim(value).length;
+			$("#valid_rem").text(len + "/" + Constants.MAX_REMARKS_LEN);
+		});
+		$("#tyre_up_remarksId").on("keydown keyup change", function(event) {
+			var value = $(this).val();
+			if (value.length > Constants.MAX_REMARKS_LEN) {
+				event.preventDefault();
+			}
+			var len = $.trim(value).length;
+			$("#valid_up_rem").text(len + "/" + Constants.MAX_REMARKS_LEN);
+		});
+		$("#tyre_reg_distmanagerID").on(
+				"keydown keyup change",
+				function(event) {
+					var value = $(this).val();
+					if (value.length > Constants.MAX_LENGTH) {
+						event.preventDefault();
+					}
+					var len = $.trim(value).length;
+					$("#valid_distmanager").text(
+							len + "/" + Constants.MAX_LENGTH);
+				});
+		$("#tyre_reg_other_distManagerID ").on(
+				"keydown keyup change",
+				function(event) {
+					var value = $(this).val();
+					if (value.length > Constants.NAME_MAX_LENGTH) {
+						event.preventDefault();
+					}
+					var len = $.trim(value).length;
+					$("#valid_otherdistmanager").text(
+							len + "/" + Constants.NAME_MAX_LENGTH);
+				});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Email</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="../css/summernote/summernote.css">
+<link rel="stylesheet" href="../css/summernote/summernote-bs3.css">
+<link rel="stylesheet" href="../css/bootstrap-tagsinput.css">
+<link rel="stylesheet" href="../css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../css/datatables.min.css">
+<link rel="stylesheet" href="../css/email_style.css">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+</head>
+<body>
+	<div id="pagination">
+		<br>
+		<div class="row">
+			<div class="col-md-12 col-xs-12">
+				<div class="col-md-2 col-xs-12">
+					<div class="ibox">
+						<div class="ibox-content">
+							<!--<div>
+								<button type="button" class="btn btn-primary btn-block"
+									data-toggle="modal" data-target="#composeMail">Compose
+									Mail</button>
+							</div> -->
+							<div>
+								<h5>Folders</h5>
+								<ul class="folder-list">
+									<li><a id="inbox" onClick="window.location.reload()">
+											<i class="fa fa-inbox"></i> Inbox <span
+											class="label label-warning pull-right">16</span>
+									</a></li>
+									<li><a> <i class="fa fa-envelope"></i> Sent Mail
+									</a></li>
+									<li><a> <i class="fa fa-file"></i> Draft <span
+											class="label label-info pull-right">16</span>
+									</a></li>
+									<li><a> <i class="fa fa-trash"></i> Trash <span
+											class="labq	el label-danger pull-right">16</span>
+									</a></li>
+									<li><a href="helprequestform.html" target="_blank"
+										id="dispatch"> <i class="fa fa-reply"></i> Dispatch
+									</a></li>
+									
+									<li><a href="viewDispatched.html" target="_blank"
+										id="dispatch"> <i class="fa fa-reply"></i> View Dispatched
+									</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<div class="col-md-10 col-xs-12">
+					<div id="emailList">
+						<div id="search">
+							<span class="glyphicon glyphicon-search form-control-feedback"></span>
+							<input type="text" class="form-control" placeholder="Search Mail"
+								id="myInput">
+						</div>
+						<table class="table table-bordered" id="dtBasicExample">
+							<thead>
+								<tr>
+									<th><label class="check" style="top: -5px"> <input
+											type="checkbox" name=""> <span class="checkmark"></span>
+									</label></th>
+									<th>From</th>
+									<th>Subject</th>
+									<th>Received Date</th>
+								</tr>
+							</thead>
+							<tbody id="appendListOfMailDetails"></tbody>
+						</table>
+					</div>
+					<!-- Mail View -->
+					<div id="mailView" style="display: none">
+						<div class="row"
+							style="box-shadow: 0 5px 10px rgba(0, 0, 0, .5); padding: 15px"
+							id="displaymail>
+							<!-- <div class="">
+							<h3 class="subject" id="senderSubject">Re: Half-Day Leave
+								request on 22-10-2019</h3>
+							<div class="mail-1 m-t-lg">
+								<div class="row">
+									<div class="pull-left">
+										<i class="glyphicon glyphicon-user user-icon"></i>
+									</div>
+									<div>
+										<h4>
+											<span id="senderName"></span> <small class="small-id">&lt;<span
+												id="senderMailId">ranjeetkumar@gmail.com</span>&gt;
+											</small><small class="small-id pull-right" id="receivedMailTime">Mon,
+												Oct 21, 6:32 PM</small>
+										</h4>
+										<small class="small-id"> </small> <br> <br>
+										<p class="content" id="senderMessageBody">Dear Sir, As I
+											informed you,Tomorrow (22-10-2019) ,I would like to take
+											Half-day leave. Because, I have some personal work. Kindly
+											approve my leave request and provide your approval.</p>
+										<div id="hideReplyBtn">
+											<button id="reply" type="button"
+												class="btn btn-default btn-sm" onclick="hideReplyBtn();">
+												<i class="fa fa-reply"></i>&nbsp;&nbsp;Reply
+											</button>
+											<button id="reply" type="button"
+												class="btn btn-default btn-sm" onclick="SendTemplate();">
+												<i class="fa fa-reply"></i>&nbsp;&nbsp;SendTemplate
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="row" style="display: none;" id="replyContent">
+									<div class="reply-box" id="hideSummerNote">
+										<br>
+										<div class="summernote" id="replyContent1"></div>
+										<div class="text-right">
+											<button type="button" class="btn btn-primary btn-sm"
+												data-toggle="tooltip" title="Reply" data-placement="top"
+												onClick="hideReplyBtn();">
+												<i class="fa fa-reply"></i>&nbsp;&nbsp;Reply
+											</button>
+											<button type="button" class="btn btn-default btn-sm"
+												data-toggle="tooltip" title="Send" data-placement="top"
+												onClick="hideSummerNote()">
+												<i class="fa fa-times"></i>&nbsp;&nbsp;Discard
+											</button>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<br>
+
+					<!-- Dispatch View -->
+					<!-- <div id="dispatchView"></div> -->
+				</div>
+
+			</div>
+		</div>
+		<!-- Compose Mail Modal Box -->
+		<div id="composeMail" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title text-center">New Message</h4>
+					</div>
+					<div class="modal-body">
+						<form style="padding: 0">
+							<div class="input-group">
+								<!-- To -->
+								<span class="input-group-addon">To</span> <input
+									class="tagsinput form-control" type="text" id="txtKeywords"
+									name="txtKeywords">
+								<!-- CC -->
+								<span class="input-group-addon"><span>CC</span>&nbsp;&nbsp;<span>BCC</span></span>
+
+							</div>
+							<div class="input-group" style="margin-top: 10px;">
+								<!-- To -->
+								<span class="input-group-addon">CC</span> <input
+									class="tagsinput form-control" type="text" id="txtKeywords"
+									name="txtKeywords"> <span class="input-group-addon"></span>
+
+							</div>
+						</form>
+						<br>
+						<div class="summernote"></div>
+						<div class="text-right">
+							<button type="button" class="btn btn-primary btn-sm"
+								data-toggle="tooltip" title="" data-placement="top"
+								data-original-title="Send">
+								<i class="fa fa-reply"></i>&nbsp;&nbsp;Send
+							</button>
+							<button type="button" class="btn btn-default btn-sm"
+								data-toggle="tooltip" title="" data-placement="top"
+								data-original-title="Send">
+								<i class="fa fa-times"></i>&nbsp;&nbsp;Discard
+							</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script
+		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+		<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcBNzbPOZLjPn3PIzjfYWRjRDEG3rVtSE&libraries=places"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/jquery.dataTables.min.js"></script>
+		<script src="../js/summernote.min.js"></script>
+		<script src="../js/bootstrap-tagsinput.js"></script>
+		<script src="../js/chosen.jquery.js"></script>
+		<script
+	     src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+		<script src="../js/email.js"></script>
+		 <script src="../js/dispatch.js"></script>
+		<script src="../js/dispatchValidation.js"></script> 
+
+
+	
+</body>
+</html>

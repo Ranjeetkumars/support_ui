@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OP Desk | Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../css/fontfamily/font-style.css">
+        <link rel="stylesheet" href="../css/style.css">
+
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Navbar-->
+                <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../OPdesk/Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a onclick="logout()" href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Navbar End-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">OpDesk Dashboard</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                    <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li> 
+                    <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="left" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>     
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Main Content-->
+            <div id="content-wrap">
+                <!--Content-->
+                <div class="container">                 
+                    <div class='panel-group' id='accordion'>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Operational Issues and Feedback<i class="fa fa-plus icon"></i></a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <!--Fuel Filling Details-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="FuelFillingDetails/fuelFiilingView.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/fuelFilling.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Fuel Filling</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--Fuel Filling Details End-->
+
+                                        <!--Preventive maintenance-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="PreventiveMaintenance/PreventiveMaintenanceView.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/vehicleMaintance.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Preventive Maintenance</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        <!--Preventive maintenance End-->
+
+                                        <!--Breakdown Maintenance-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="BreakdownMaintaince/BreakDownMaintenance.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/breakdown.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Breakdown Maintenance</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+                                        <!--Breakdown Maintenance End-->
+
+                                        <!--Accident Maintenance-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="AccidentMaintenance/AccidentMaintenance.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/service-header.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Accident Maintenance</h4>
+                                                    </div>
+                                                </div> 
+                                            </a>
+                                        </div>
+                                        <!--Accident Maintenance End-->
+                                    </div>
+                                    <div class="row">
+                                        <!--Statutory Compliance-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="StatutoryCompliance/StatutoryCompliance.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/compliance.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Statutory Compliance</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        <!--Statutory Compliance End-->
+
+                                        <!--Tyre Life-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="TyreLife/TyreLife.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/tyre.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Tyre Life</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+                                        <!--Tyre Life End-->
+
+                                        <!--Special Indent-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="SpecialIndent/SpecialIndent.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/medicalIndents.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Special Indent</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+                                        <!--Special Indent End-->
+
+                                        <!--Visitor Update-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="VisitorUpdate/VisitorUpdate.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/visitors.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Visitor Update</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+                                        <!--Visitor Update End-->
+                                    </div>
+                                    <div class="row">
+                                        <!--Oxygen Filling-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="OxygenFilling/OxygenFilling.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review" style="height: 191px;">
+                                                            <img src="../img/opdesk/oxygen_1.jpg" alt="" class="img-responsive"  >
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Oxygen Filling</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--Oxygen Filling End-->
+
+                                        <!--Demo Training-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="DemoTraining/DemoTrainingInformation.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/demo.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Demo Training</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        <!--Demo Training End-->
+
+                                        <!--Vehicle Location Movement-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="VehicleLocationMovement/VehicleLocationMovement.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/vehicleLocation.jpeg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Vehicle Location Movement</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+                                        <!--Vehicle Location Movement-->
+
+                                        <!--Ambulance Off Road-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="AmbulanceOffRoad/AmbulanceOffRoad.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/breakdown.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Ambulance Off Road</h4>
+                                                    </div>
+                                                </div> 
+                                            </a>
+                                        </div>
+                                        <!--Ambulance Off Road End-->
+                                    </div>
+                                    <div class="row">
+                                        <!--Patient Handover Issues-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="PatienthandOveIssues/PatientHandoverIssues.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/crash.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Patient Handover Issues</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        <!--Patient Handover Issues End-->
+
+                                        <!--Scene Challenges-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="SceneChallenges/SceneChallenges.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/Scenechallenges.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Scene Challenges</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+                                        <!--Scene Challenges End-->
+
+                                        <!--Equipment Breakdown-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="EquipmentBreakdown/EquipmentBreakDown.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/medical-device-3.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Equipment Breakdown</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+                                        <!--Equipment Breakdown End-->
+
+                                        <!--Suggestions-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="Suggestions/Suggestions.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/suggestion.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Suggestions</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+                                        <!--Suggestions End-->
+                                    </div>
+                                    <div class="row">
+                                        <!--Grievances-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="Grievances/GrievancesList.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/grievances_1.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Grievances</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        <!--Grievances End-->
+
+                                        <!--Field Issue Tracker-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="FieldIssueTracker/baseLocationWiseVehiclesForInventoryComplaints.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/complaints.png" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Field Issue Tracker</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--Field Issue Tracker End-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Operational Helpdesk Admin<i class="fa fa-minus icon"></i></a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <!--Fuel Station-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="FuelStation/FuelStation.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/fuelStation.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Fuel Station</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--Fuel Station End-->
+
+                                        <!--Workshop-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="WorkShop/Workshop.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/workshop.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Workshop</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        <!--Workshop End-->
+
+                                        <!--SMS & Email Configuration-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="EmailAndSMSConfiguration/EmailAndSMSConfiguration.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/fuelStation.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">SMS & Email Configuration</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--SMS & Email Configuration End-->
+
+                                        <!--Communication Directory-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="softPhone.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/opdesk/fuelStation.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Communication Directory</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--Communication Directory End-->
+
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Admin Modules-->
+                </div>
+                <!--Content End-->
+            </div>
+            <!--Main Content End-->
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/OPDESK/Constants.js"></script>
+        
+             <!--         logout/login url -->
+               <script src="../../Common/serviceController/dashboard.js"></script>
+        <script src="../../Common/serviceController/ServiceUrl.js"></script> 
+         <script src="../../Common/serviceController/logout.js"></script>
+          <!--         logout/login url -->
+               <script src="../../Common/serviceController/dashboard.js"></script>
+                <script src="../../Common/serviceController/ServiceUrl.js"></script> 
+              <script src="../../Common/serviceController/logout.js"></script>
+        <script>
+            $(document).ready(function() {
+             	checkLoggedOrNot();
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+
+//            Accordian Form
+
+            var selectIds = $('#collapseOne,#collapseTwo');
+            $(function($) {
+                selectIds.on('show.bs.collapse hidden.bs.collapse', function() {
+                    $(this).prev().find('.fa').toggleClass('fa-plus fa-minus');
+                });
+            });
+        </script>
+    </body>
+</html>

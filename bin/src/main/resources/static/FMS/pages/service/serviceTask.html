@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fleet Management | Service Task</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!--CSS Links-->
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../css/datatables.min.css">
+<link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../css/metisMenu.css" />
+<link rel="stylesheet" href="../../css/datepicker.css">
+<link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/fleet.css">
+<style>
+.badge-danger {
+	background-color: red;
+}
+
+.card {
+	padding: 10px;
+	background: #fff;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0
+		rgba(0, 0, 0, .12) !important;
+	border-radius: 6px;
+	margin: 0px 263px 20px;
+	margin-left: 11px;
+}
+</style>
+
+</head>
+<body>
+
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="../../img/pro-Logo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="../../dashboard.html"><span
+								class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href="../../Op_Dashboard.html"><i
+								class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header End-->
+		<!--Side Nav Bar-->
+		<nav id='sidebar' class="sidebar">
+			<div class="sidebar-content">
+				<div class="sidebar-header">
+					<h3 class="header">Fleet Management</h3>
+				</div>
+				<div class='sidebar-menu'>
+					<ul class="metismenu" id="metismenu">
+						<li><a href='#'> <i class='fa fa-tachometer'></i> <span>Dashboard</span>
+						</a></li>
+						<!--Vehicles-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-cab'></i> <span>Vehicles</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../vehicles/vehicleList.html"> <i
+										class="fa fa-circle-o"></i> <span>Vehicle List</span>
+								</a></li>
+								<li><a href="../vehicles/vehicleAssignment.html"> <i
+										class="fa fa-circle-o"></i> <span>Vehicle Assignment</span>
+								</a></li>
+								<li><a href="../vehicles/watchedVehicles.html"> <i
+										class="fa fa-circle-o"></i> <span>Watched Vehicles</span>
+								</a></li>
+								<li><a href="../vehicles/meterHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Meter History</span>
+								</a></li>
+								<li><a href="../vehicles/expenseHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Expense History</span>
+								</a></li>
+								<li><a href="../vehicles/gpsIntegration.html"> <i
+										class="fa fa-circle-o"></i> <span>GPS Integration</span>
+								</a></li>
+							</ul></li>
+
+						<!--Inspections-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-building'></i> <span>Inspections</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../inspections/inspectionHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Inspection History</span>
+								</a></li>
+								<li><a href="../inspections/itemFailures.html"> <i
+										class="fa fa-circle-o"></i> <span>Item Failures</span>
+								</a></li>
+								<li><a href="../inspections/schedule.html"> <i
+										class="fa fa-circle-o"></i> <span>Schedules</span>
+								</a></li>
+								<li><a href="../inspections/forms.html"> <i
+										class="fa fa-circle-o"></i> <span>Forms</span>
+								</a></li>
+							</ul></li>
+						<!--Issues-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-info-circle '></i> <span>Issue</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Issues/Issueslist.html"> <i
+										class="fa fa-circle-o"></i> <span>Issues List</span>
+								</a></li>
+								<li><a href="../Issues/faults.html"> <i
+										class="fa fa-circle-o"></i> <span>Faults</span>
+								</a></li>
+								<li><a href="../Issues/recall.html"> <i
+										class="fa fa-circle-o"></i> <span>Recalls</span>
+								</a></li>
+
+							</ul></li>
+
+						<!--Remainders-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-clock-o '></i> <span>Remainder</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../remainders/serviceRemainder.html"> <i
+										class="fa fa-circle-o"></i> <span>Service Remainder</span>
+								</a></li>
+								<li><a href="../remainders/vehicleRenewal.html"> <i
+										class="fa fa-circle-o"></i> <span>Vehicle Renewals</span>
+								</a></li>
+								<li><a href="../remainders/contactRenewal.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact Renewals</span>
+								</a></li>
+							</ul></li>
+						<!--Services-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-wrench '></i> <span>Services</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../service/serviceHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Services History </span>
+								</a></li>
+								<li><a href="../service/workorder.html"> <i
+										class="fa fa-circle-o"></i> <span>Work Order</span>
+								</a></li>
+								<li><a href="../service/serviceTask.html"> <i
+										class="fa fa-circle-o"></i> <span>Services Tasks</span>
+								</a></li>
+								<li><a href="../service/shopdirectory.html"> <i
+										class="fa fa-circle-o"></i> <span>Shop Directory</span>
+								</a></li>
+								<li><a href="../service/integrations.html"> <i
+										class="fa fa-circle-o"></i> <span>Integrations</span>
+								</a></li>
+							</ul></li>
+						<!--Fuels-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-filter '></i> <span>Fuel</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Fuel/FuelHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Fuel History</span>
+								</a></li>
+								<li><a href="../Fuel/fuelintegration.html"> <i
+										class="fa fa-circle-o"></i> <span>Fuel Integration</span>
+								</a></li>
+							</ul></li>
+						<!--Contacts & Users-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-user'></i> <span>Contacts & Users</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Contact_usrers/contactlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact List</span>
+								</a></li>
+								<li><a href="../Contact_usrers/userManagement.html"> <i
+										class="fa fa-circle-o"></i> <span>User Management</span>
+								</a></li>
+								<li><a href="../Contact_usrers/vendorlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Vendor List</span>
+								</a></li>
+							</ul></li>
+						<!--Parts & Inventory-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-money '></i> <span>Parts & Inventory</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../parts_inventory/partsList.html"> <i
+										class="fa fa-circle-o"></i> <span>Parts List</span>
+								</a></li>
+								<li><a href="../parts_inventory/bulkmanageparts.html">
+										<i class="fa fa-circle-o"></i> <span>Bulk Manage Parts</span>
+								</a></li>
+								<li><a href="../parts_inventory/purchaseorder.html"> <i
+										class="fa fa-circle-o"></i> <span>Purchase Order</span>
+								</a></li>
+							</ul></li>
+						<!--Places-->
+						<li><a href="../places/places.html"> <span
+								class="glyphicon glyphicon-map-marker"></span> <span>Places</span>
+						</a></li>
+						<!--Reports-->
+						<li><a href="../reports/reports.html"> <i
+								class='fa fa-book '></i> <span>Reports</span>
+						</a></li>
+
+					</ul>
+					</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Side Nav Bar ENd-->
+
+		<!--Content-->
+		<div id="content-wrap">
+			<!--Second Header-->
+			<div class="second-nav">
+				<ul class="pull-left" style="display: inline-flex">
+					<li><a class="navbar-brand-1" id="menu-icon">
+							<h4>
+								<i class="fa fa-bars"></i>
+							</h4>
+					</a></li>
+					<li>
+						<h4 style="margin-top: 5px">Service Task</h4>
+					</li>
+				</ul>
+				<ul class="pull-right searchbar">
+					<li class="pull-left p-r-sm"><a href="#"> <input
+							type="text" class="form-control"
+							placeholder="What are you looking for?">
+					</a></li>
+					<li class="pull-left" style="margin-top: -7px">
+						<button type="button" class="btn btn-success btn-sm"
+							data-toggle="modal" data-target="#registration">
+							<i class="fa fa-plus p-r-xs"></i>Add Service Task
+						</button>
+					</li>
+					<li class="dropdown pull-left" style="margin-top: -2px"><a
+						class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+							class="fa fa-ellipsis-v f-md" data-toggle="tooltip"
+							data-placement="top" title="More Actions"></i>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+							<li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--Second Header End-->
+			<div class="card">
+				<!--Error Message-->
+				<div class="alert alert-danger" style='display: none;'>
+					<h4>
+						<i class="fa fa-warning p-r-xs"></i>Please fix the following
+						errors:
+					</h4>
+					<ul class='m-l-md'>
+						<li>District Can't be Empty</li>
+					</ul>
+				</div>
+				<!--Tabs-->
+				<div class="main-pills">
+					<ul class="nav nav-pills">
+						<li class="active "><a href="../service/serviceTask.html">Active</a></li>
+						<li class=" "><a href="../service/serviceTask.html">Archived</a></li>
+					</ul>
+				</div>
+				<br>
+
+				<!--table-->
+				<!--Table-->
+				<div class="wrapper wrapper-content">
+					<div class="row">
+						<div class="col-md-12 col-xs-12">
+							<button type="button" class="btn btn-danger btn-sm delete"
+								onclick="multipleserviceTaskDeletion()"
+								id=multipleserviceTaskDeletion hidden="">
+								<i class="fa fa-trash-o"></i> Delete All
+							</button>
+							<div id="registerserviceTasksDataTable"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Content End-->
+		<!--Model Box For Registration-->
+		<div id="registration" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Conform Action</h4>
+					</div>
+					<div class="modal-body">
+						<form class=" form-horizontal">
+							<div class="row">
+								<!--Name-->
+								<div class="col-md-12 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-md-4 col-xs-12 ">Service
+											Name<span class="star">*</span>
+										</label>
+										<div class="col-md-8 col-xs-12">
+											<div class="input-group">
+												<input type="text" class="form-control"
+													placeholder="Enter Name" id="serviceNameId">
+											</div>
+										</div>
+									</div>
+									<!--Description-->
+									<div class="form-group">
+										<label class="control-label col-md-4 col-xs-12">Description<span
+											class="star">*</span></label>
+										<div class="col-md-8 col-xs-12">
+											<textarea class="form-control"
+												placeholder="Enter Description" id="descriptionId"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--Filter Service Task-->
+							<div class="row">
+								<!--Name-->
+								<div class="col-md-12 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">Service Task<span
+											class="star">*</span></label>
+										<div class="col-sm-8 col-xs-12">
+											<select class="form-control" name="district"
+												id="serviceTaskId">
+												<option value="0">Select Service Task</option>
+
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4">Service Sub Task<span
+											class="star">*</span></label>
+										<div class="col-sm-8 col-xs-12">
+											<select class="form-control" name="district"
+												id="serviceSubTaskId">
+												<option value="0">Select Service Sub Task</option>
+
+											</select>
+										</div>
+									</div>
+
+								</div>
+								<!--button-->
+								<div class="row m-t-b-sm">
+									<div class="col-md-12 col-xs-12 text-center m-t-sm">
+										<button type="button" class="btn btn-primary btn-sm"
+											onclick="SaveServiceTasksDetails()"
+											id="SaveServiceTasksDetailsId">
+											<i class="fa fa-floppy-o p-r-xs"></i>Submit
+										</button>
+										<button type="button" class="btn btn-outline-warning btn-sm">
+											<i class="fa fa-refresh p-r-xs"></i>Reset
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+				<!--Model Box For Registration-->
+		<div id="update" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Update  Service Task</h4>
+					</div>
+					<div class="modal-body">
+						<form class=" form-horizontal">
+							<div class="row">
+								<!--Name-->
+								<div class="col-md-12 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-md-4 col-xs-12 ">Service
+											Name<span class="star">*</span>
+										</label>
+										<div class="col-md-8 col-xs-12">
+											<div class="input-group">
+												<input type="text" class="form-control"
+													placeholder="Enter Name" id="up_serviceNameId">
+											</div>
+										</div>
+									</div>
+									<!--Description-->
+									<div class="form-group">
+										<label class="control-label col-md-4 col-xs-12">Description<span
+											class="star">*</span></label>
+										<div class="col-md-8 col-xs-12">
+											<textarea class="form-control"
+												placeholder="Enter Description" id="up_descriptionId"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--Filter Service Task-->
+							<div class="row">
+								<!--Name-->
+								<div class="col-md-12 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">Service Task<span
+											class="star">*</span></label>
+										<div class="col-sm-8 col-xs-12">
+											<select class="form-control" name="district"
+												id="up_serviceTaskId">
+												<option value="0">Select Service Task</option>
+
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4">Service Sub Task<span
+											class="star">*</span></label>
+										<div class="col-sm-8 col-xs-12">
+											<select class="form-control" name="district"
+												id="up_serviceSubTaskId">
+												<option value="0">Select Service Sub Task</option>
+
+											</select>
+										</div>
+									</div>
+
+								</div>
+								<!--button-->
+								<div class="row m-t-b-sm">
+									<div class="col-md-12 col-xs-12 text-center m-t-sm">
+										<button type="button" class="btn btn-primary btn-sm"
+											onclick="updateServiceTasksDetails()"
+											id="updateServiceTasksDetailsId">
+											<i class="fa fa-floppy-o p-r-xs"></i>Update
+										</button>
+										<button type="button" class="btn btn-outline-warning btn-sm">
+											<i class="fa fa-refresh p-r-xs"></i>Reset
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		
+			<div id="myModal6" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Add Mandal -->
+			<div class="modal-content">
+
+				<h4 class="modal-title text-center">Delete Service Task</h4>
+
+				<h5 style="padding-left: 120px; color: red">Are You sure you
+					want to delete this Service Task ?</h5>
+				<br>
+				<div class="text-center">
+					<button type="button" class="btn btn-success btn-sm"
+						onclick="serviceTaskDeletion()" id="serviceTaskId">Yes</button>
+					<button type="button" class="btn btn-warning btn-sm"
+						data-dismiss="modal">No</button>
+				</div>
+				<br>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+	     <input type="hidden" id="reg_no">
+		<!--Footer-->
+		<div class="footer">
+			<small>Powdered by Procreate Techno systems Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+
+	<script src="../../js/jquery1.2.min.js"></script>
+	<script src="../../js/moment.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/datatables.min.js"></script>
+	<script src="../../js/chosen.jquery.js"></script>
+	<script src="../../js/metisMenu.min.js"></script>
+	<script src="../../js/bootstrap-datepicker.js"></script>
+	<script src="../../js/bootstrap-datetimepicker.min.js"></script>
+
+	<script src="../../js/chosen.jquery.js"></script>
+	<script src="../../js/metisMenu.min.js"></script>
+	<Script src="../../js/FMS/ServiceURL.js"></script>
+	<script src="../../js/FMS/ServiceTaskRegistation.js"></script>
+	<script src="../../js/notify.min.js"></script>
+	<script src="../../js/notify.js"></script>
+	<script>
+
+    $(function() {
+//Date And Time picker in Modal Box
+        $('#datetimepicker').datetimepicker({
+            sideBySide: true,
+            format: 'DD-MM-YYYY HH:mm:ss'
+        });
+        $('#datetimepicker1').datetimepicker({
+            sideBySide: true,
+            format: 'DD-MM-YYYY HH:mm:ss'
+        });
+    });
+
+
+
+    $(document).ready(function() {
+//Side Menu
+        $("#menu-icon").click(function() {
+            $("#sidebar").toggleClass('active');
+            $("#content-wrap").toggleClass('active');
+        });
+
+        $('#metismenu').metisMenu();
+//                                            Chosen Select
+       // $('select').chosen();
+        $('[data-toggle="tooltip"]').tooltip();           // Tooltip
+        $('[data-toggle="popover"]').popover({
+            trigger: 'hover',
+            width: '200px;'
+        });
+//                                            Data tables
+        $('#serviceRemainder').DataTable({// Data table
+            "aLengthMenu": [[05, 10, 15, 25, -1], [05, 10, 15, 25, "All"]],
+            pageLength: 5,
+            responsive: true,
+            dom: '<"html5buttons"B>lTfgitp',
+            buttons: [
+                {extend: 'copy'},
+                {extend: 'csv'},
+                {extend: 'excel', title: 'ExampleFile'},
+//                                                    {extend: 'pdf', title: 'ExampleFile'},
+                {extend: 'print',
+                    customize: function(win) {
+                        $(win.document.body).addClass('white-bg');
+                        $(win.document.body).css('font-size', '10px');
+
+                        $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                    }
+                }
+            ]
+
+        });
+//Date Pickers
+        $("#strtDate").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker();
+        $("#endDate").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker();
+        $("#toendDate").datepicker({
+            autoclose: true,
+            todayHighlight: true
+        }).datepicker();
+
+
+    });
+//                                        Toggle Button
+    $("#switch1").change(function() {
+        var ischecked = $(this).is(':checked');
+        if (ischecked == true) {
+            $('#secondaryInterval').css('display', 'block');
+        } else {
+            $('#secondaryInterval').css('display', 'none');
+        }
+    });
+    $("#switch2").change(function() {
+        var ischecked = $(this).is(':checked');
+        if (ischecked == true) {
+            $('#secondaryInterval').css('display', 'block');
+        } else {
+            $('#secondaryInterval').css('display', 'none');
+        }
+    });
+//hidding purpose adding this code
+    function hidePaymentMode() {
+        var storeOnchangeValue = $("#PaymentMode").val();
+
+        if (storeOnchangeValue == 1) {
+
+            $("#hideSelect").show();
+            $("#hidevoucherNo").hide();
+        }
+        else {
+            $("#hideSelect").hide();
+            $("#hidevoucherNo").show();
+        }
+    }
+
+
+        </script>
+
+</body>
+</html>
+
+

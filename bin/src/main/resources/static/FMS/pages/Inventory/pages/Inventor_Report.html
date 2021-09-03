@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inventory | Inventory Report</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <!--CSS Links-->
+
+        <link rel="stylesheet" href="../../Inventory/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../Inventory/css/font-awesome/css/font-awesome.css">
+        <!--        <link rel='stylesheet' href="../../Audit/pages/datatables.min.css">-->
+        <link rel='stylesheet' href="../../Inventory/css/datatables.min.css">
+
+        <link rel="stylesheet" href="../../Inventory/css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../Inventory/css/datepicker.css">
+        <link rel="stylesheet" href="../../Inventory/css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <!--<link rel="stylesheet" href="../css/fontfamily/font-style.css">-->
+        <link rel="stylesheet" href="../../Inventory/css/style.css">
+        <style>
+            .thstyle1{
+                width: 10%;
+            }
+            .thstyle2{
+                width: 10%;
+            }
+
+            .thstyle3{
+                text-align:center;
+            }
+            .retag{
+                margin-left: 219px;
+                margin-top: 15px;
+                position: absolute;
+            }
+            .objDivTag1{
+                text-align:center;
+                color: red;
+            }
+            
+
+            
+          
+        </style>
+    </head>
+
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../Inventory/pages/MMU-Dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../../Inventory/pages/MMU-Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">Inventory Report</h4>
+                    </li>
+                </ul>
+<!--                <ul class="pull-right searchbar">
+                    <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li>                   
+                    <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>     
+                </ul>-->
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">  
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    
+                     <form class="form-horizontal">
+                    <!--Title Heade End-->
+                    <div class="row">
+
+<!--                     
+                        <!--From Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Vehicle Id</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="vehicleId">
+                                        <option value="0">Select Vehicle Id</option>
+                                                                                                        <option value="1">Fuel Filling</option>
+                                                                                                        <option value="2">Oxygen Filling</option>
+                                                                                                        <option value="3">Tyre Life</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--To Date-->
+
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4"> Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="to_dateId" class="input-group date" data-date-format="dd-mm-yyyy" >
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+
+                                            <input class="form-control removespanError" placeholder="Select Date" type="text" id="formDateId" autocomplete="off"/>
+
+                                        </div>     
+                                        <small><span id="todate_errorId"></span></small>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Parameter Item</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="ParameterId">
+                                        <option value="0">Select Parameter Item</option>
+                                        <!--                                                                <option value="1">Fuel Filling</option>
+                                                                                                        <option value="2">Oxygen Filling</option>
+                                                                                                        <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Quantity</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="quantityId">
+                                        <option value="0">Select quantity</option>
+                                        <option value="1">0-5</option>
+                                        <option value="2">5-10</option>
+                                        <option value="3">More than 10</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--
+                    </div>
+                    <!--Ticket Id-->
+                    <div class="row m-t-b-sm"> 
+                    </div>                    
+
+                    <!-- Buttons-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-sm text" onclick="getInventoryDetails()"><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="inventoryresetbtn()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                            <span align="center"  id="auditDetailSearch_errorId"></span>
+                        </div>
+                    </div>   
+
+                    <!--Table-->
+
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive" id="eventoryDataTableId">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     </form>
+                </div>               
+            </div>
+            <!--Content End-->
+
+            <!--Footer-->
+
+            <!--Footer End-->
+        </div>
+        <div class="footer">
+            <small>Powdered by Procreate Techno systems Private Limited</small>
+        </div>
+        <script src="../../Inventory/assets/js/jquery1.2.min.js"></script>
+        <script src="../../Inventory/assets/js/jquery1.2.min.js"></script>
+        <script src="../../Inventory/assets/js/moment.min.js"></script>
+        <script src="../../Inventory/assets/js/bootstrap.min.js"></script>
+        <script src="../../Inventory/assets/js/datatables.min.js"></script>
+        <!--<script src="../../Audit/pages/datatables.min.js"></script>-->
+        <script src="../../Inventory/assets/js/bootstrap-datepicker.js"></script> 
+        <script src="../../Inventory/assets/js/bootstrap-datetimepicker.min.js"></script>       
+        <script src="../../Inventory/assets/js/chosen.jquery.js"></script>
+        <script src="../../Inventory/assets/serviceController/InventoryController.js"></script>
+        <script src="../../Inventory/assets/utils/Service.js"></script>
+        <script>
+
+                                                $(function () {
+                                                    //Date And Time picker in Modal Box
+                                                    $('#datetimepicker1').datetimepicker({
+                                                        sideBySide: true,
+                                                        format: 'DD-MM-YYYY HH:mm:ss'
+                                                    });
+                                                });
+
+                                                $(document).ready(function () {
+                                                    $("#from_dateId").datepicker({
+                                                        autoclose: true,
+                                                        todayHighlight: true
+                                                    }).datepicker();
+
+                                                    $("#to_dateId").datepicker({
+                                                        autoclose: true,
+                                                        todayHighlight: true
+                                                    }).datepicker();
+
+                                                    $('select').chosen();                            //Chosen select
+                                                    $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+        //                                    $('#audittable').DataTable({// Data table
+        //                                         "aLengthMenu": [[5, 10, 15, 25, 50, 75, -1], [5, 10, 15, 25, 50, 75, "All"]],
+        //                                          "iDisplayLength": 5,
+        //                                        pageLength: 5,
+        //                                        responsive: true,
+        //                                        dom: '<"html5buttons"B>lTfgitp',
+        //                                        buttons: [
+        //                                            {extend: 'copy'},
+        //                                            {extend: 'csv'},
+        //                                            {extend: 'excel', title: 'ExampleFile'},
+        //                                            {extend: 'pdf', title: 'ExampleFile'},
+        //                                            {extend: 'print',
+        //                                                customize: function(win) {
+        //                                                    $(win.document.body).addClass('white-bg');
+        //                                                    $(win.document.body).css('font-size', '10px');
+        //
+        //                                                    $(win.document.body).find('table')
+        //                                                            .addClass('compact')
+        //                                                            .css('font-size', 'inherit');
+        //                                                }
+        //                                            }
+        //                                        ]
+        //
+        //                                    });
+                                                });
+
+                                                $(document).ready(function () {
+                                                    var todayDate = new Date().getDate();
+                                                    var maxDate = new Date(new Date().setDate(todayDate));
+                                                    $('#fromdateID').datepicker({
+                                                        todayBtn: "linked",
+                                                        todayHighlight: true,
+                                                        startDate: $('#fromdateID').val(),
+                                                        endDate: maxDate,
+                                                        keyboardNavigation: true,
+                                                        forceParse: true,
+                                                        calendarWeeks: true,
+                                                        autoclose: true,
+                                                        autoApply: true
+                                                    }).on('changeDate', function () {
+                                                        try {
+                                                            $("#toDateId").datepicker("remove");
+                                                            $('#toDateId').val("");
+                                                        } catch (err) {
+                                                            console.log(err);
+                                                        }
+
+                                                        $('#toDateId').datepicker({
+                                                            todayBtn: "linked",
+                                                            startDate: $('#fromdateID').val(),
+                                                            keyboardNavigation: true,
+                                                            forceParse: true,
+                                                            calendarWeeks: true,
+                                                            autoclose: true,
+                                                            autoApply: true
+                                                        });
+                                                    });
+                                                });
+
+        
+
+        </script>
+        
+        
+        
+        
+        
+ <script>
+</script>
+       
+        
+        
+        
+
+    </body>
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Work Force Management| Employee Availability-ERC</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../assets/css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../assets/css/datatables.min.css">
+        <link rel="stylesheet" href="../../assets/css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../assets/css/datepicker.css">
+        <link rel="stylesheet" href="../../assets/css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../assets/css/style.css">
+        <link rel="stylesheet" href="../../assets/css/wfms.css">
+        <style>
+            .panel-body {
+                padding: 0px;
+            }
+            .title1{
+                color: blue;
+            }
+            .text-green{
+                color: green;
+            }
+            .starr{
+                color:black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+                    <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta"  data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn" id="bluecta"></div>
+                        </div>
+<!--                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../assets/img/pro-Logo.png" /></a>-->
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+<!--                             <li><a href="../../assets/dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+ -->                            <li><a href="../WFMS_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+<li><a href="#" style="color:red" onclick="wfms_Logout()"><i class="fa fa-power-off"></i> Logout</a></li>                           <!--  <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>    -->            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        <!--Main Header-->
+            <!--Second Header-->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#navbar1">
+                            <div class="toggle-btn bg-white"></div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../WFMS_Dashboard.html">Home</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="myProfile_HideId">My Profile <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Myprofile/MySchedule.html">My Schedule</a></li>
+                                    <li><a href="../Myprofile/LeaveApply.html">Leave
+										Request</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="manageResource_HideId">Manage Resources <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../ManageResource/PatternERC.html">Patterns - ERC</a></li>                        
+                                    <li><a href="../ManageResource/PatternOperator.html">Patterns - Operators</a></li>
+                                    <li><a href="../ManageResource/ResourceProfiles.html">Resource Profiles</a></li>
+                                    <li><a href="../ManageResource/EmployeeAvailabilityERC.html">Employees Availability-ERC</a></li>
+                                    <li><a href="../ManageResource/EmployeesAvailability-Operators.html">Employees Availability-Operators</a></li>
+                                    <li><a href="../ManageResource/LeaveApprove-Reject.html">Leave Approve/Reject</a></li>
+                                    <li><a href="../ManageResource/ScheduleofFieldOperators.html">Schedule of Field Operators</a></li>
+                                    <li><a href="../ManageResource/ScheduleofERC.html">Schedule of ERC</a></li>
+                                    <li><a href="../ManageResource/LeaveHistory.html">Leave History</a> 
+                                </ul>
+                            </li>
+                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="ManagerMapping_HideId">Master Mapping <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../MasterMapping/ManagerMapping.html">Manager Mapping</a></li>                          
+                                    
+                                </ul>
+                            </li>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="zone_HideId">Zone <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Zone/addzone.html">Add Zone</a></li>                          
+                                    <li><a href="../Zone/addbaselocation.html">Base Location</a></li>
+                                    <li><a href="../Zone/DistricttoManager.html">Zone to District Manager</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="assign_HideId">Assign <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Assign/DrivertoZone.html">Driver to Zone</a></li>                          
+                                    <li><a href="../Assign/DrivertoVehicle.html">Driver to Vehicle</a></li>
+                                    <li><a href="../Assign/EMTtoZone.html">EMT to Zone</a></li>
+                                    <li><a href="../Assign/EMTtoVehicle.html">EMT to Vehicle</a></li>                           
+                                    <li><a href="../Assign/VehicletoBaseLocation.html">Vehicle to Base Location</a></li> 
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="reports_HideId">Reports <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Reports/myworkreport.html">My Work Report</a> </li>                          
+                                    <li><a href="../Reports/summary.html">Summary</a> </li>
+                                    <li><a href="../Reports/departmentwiseemployees.html">Department Wise Employees</a> </li>
+                                    <li><a href="../Reports/zonewiseemployees.html">Zone Wise Employees</a> </li>
+                                    <li><a href="../Reports/shiftwiseemployees.html">Shift Wise Employees</a> </li>
+                                    <li><a href="../Reports/rosternotes.html">Roster Notes</a> </li>
+                                    <li><a href="../Reports/extraallowance.html">Extra Allowance</a> </li>
+                                    <li><a href="../Reports/trainingwise.html">Training Wise</a> </li>
+                                    <li><a href="../Reports/payrollreport.html">Pay Roll Report</a> </li>
+                                </ul>
+                            </li>
+
+                            <li><a href="../Search/search.html" id="search_HideId">Search</a></li>
+                            <li> <a href="../resorceforcasting/resorceforcasting.html" id="resource_HideId">Resource Forecasting</a></li>                    
+                            <li> <a href="../holiday/holiday.html" id="holiday_HideId">Holiday</a></li>
+                            <li>  <a href="../allowances/allowances.html" id="allowances_HideId">Allowances</a></li>
+                            <li>  <a href="../MMU/vehicle_team_mapping.html" id="mmu_HideId">MMU Vehicle Team Mapping</a></li>
+
+                        </ul>
+                      
+                    </div>
+                </div>
+            </nav>
+            <!--Second Header End-->
+            <!--Title Heade--
+            -->            <h4  style="padding-left: 15px">ERC - Employee(s) Availability </h4><!--
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <div class="row"> 
+
+                        <!--Department-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Department</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="Erc_DepartmentId">
+                                        <option value="0">Select Department</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--From Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">From Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="strtDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date" type="text" id="erc_StrDate"/>
+                                        </div>                       
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>                   
+                        <!--buttons-->                   
+                        <div class="col-md-4 col-xs-12 ">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="search_Current_Month_ERC_Details();"> <span class="glyphicon glyphicon-ok"></span>&nbsp;Submit</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetDetails()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                        </div>
+                    </div>   
+<hr>
+                    <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive">    
+                                    <table id="ERC_Table" class="table table-bordered table-striped">
+                                        <thead id="thead_Remove">
+                                            <tr id="week_Day">                                                          
+<!--                                                <th style="font-size: 14px;">Employee ID</th>
+                                                <th style="font-size: 14px;">Employee Name</th>                           
+                                                <th style="font-size: 14px;">Department</th>
+                                                                                                <th>31</th> 
+                                                <th style="font-size: 14px;">Leave Balance</th> 
+                                                <th style="font-size: 14px;">CO Balance</th>-->
+                                            </tr>
+                                        </thead>
+                                        <tbody id="ERC_TableId" style="font-size: 13px;">
+                                            <!--                                            <tr id="ERC_TableId">
+                                                                                            <td>7</td>
+                                                                                            <td> Bernadette Jackson</td>
+                                                                                            <td> ERO</td>
+                                                                                            <td></td>
+                                                                                            <td>0</td>
+                                                                                            <td>U</td>
+                                                                                       </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <!--Tabs-->
+                    <div class="container-fluid">   
+                        <div class="row">    	
+                            <div class="col-md-12">
+                                <div class="panel with-nav-tabs panel-primary">
+                                    <div class="panel-heading">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#tab2primary" data-toggle="tab">Actual</a></li>
+                                            <li><a href="#tab2primary1" data-toggle="tab">Recommended</a></li>
+                                            <li><a href="#tab2primary2" data-toggle="tab">Required</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--Tabs1 Body-->       
+                                    <div class="panel-body">
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade in active" id="tab2primary">
+                                                <div class="wrapper wrapper-content">
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-xs-12">
+                                                            <div class="table-responsive">    
+                                                                <table id="ERC_Table1" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                        <tr id="actual_Id"></tr>                                                                                                                                             
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr id="act_Day_Shift">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#EEE8AA"><b>Day Shift</b></td>
+                                                                        </tr>   
+                                                                        <tr id="act_Night_Shift">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#DEB887"><b>Night Shift</b></td>
+                                                                        </tr> 
+                                                                        <tr id="act_General_Shift">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#BCD7BC"><b>General Shift</b></td>
+                                                                        </tr> 
+                                                                        <tr id="act_Total_Count">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#1AE6D9"><b>Total</b></td>
+                                                                        </tr> 
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Tabs2 Body-->       
+                                            <div class="tab-pane fade" id="tab2primary1">
+                                                <div class="wrapper wrapper-content">
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-xs-12">
+                                                            <div class="table-responsive">    
+                                                                <table id="ERC_Table" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                        <tr id="recommanded_Id">                                                                                                                                               
+                                                                        </tr>  
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr id="rec_Day_Shift">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#EEE8AA"><b>Day Shift</b></td>
+                                                                        </tr>  
+                                                                        <tr id="rec_Night_Shift">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#DEB887"><b>Night Shift</b></td>
+                                                                        </tr> 
+                                                                        <tr id="rec_General_Shift">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#BCD7BC"><b>General Shift</b></td>
+                                                                        </tr>
+                                                                        <tr id="rec_Total_Count">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#1AE6D9"><b>Total</b></td>
+                                                                        </tr> 
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Tabs3 Body-->       
+                                            <div class="tab-pane fade" id="tab2primary2">
+                                                <div class="wrapper wrapper-content">
+                                                    <div class="row">
+                                                        <div class="col-md-12 col-xs-12">
+                                                            <div class="table-responsive">    
+                                                                <table id="ERC_Table" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                        <tr id="required_Id">                                                                                                                                               
+                                                                        </tr>  
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr id="req_Day_Shift">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#EEE8AA"><b>Day Shift</b></td>
+                                                                        </tr>  
+                                                                        <tr id="req_Night_Shift">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#DEB887"><b>Night Shift</b></td>
+                                                                        </tr> 
+                                                                        <tr id="req_General_Shift">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#BCD7BC"><b>General Shift</b></td>
+                                                                        </tr>
+                                                                        <tr id="req_Total_Count">                                                            
+                                                                            <td align="left" width="8%" bgcolor="#1AE6D9"><b>Total</b></td>
+                                                                        </tr> 
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>        
+
+                    <!--Graphs Link Table-->
+                    <!-- <table width="98%" cellspacing="0" cellpadding="0" border="1" style=" margin-left: 15px">
+                        <tbody>
+                            <tr height="25px">
+                                <td class="drContent" width="25%">
+                                    <a href="../../WFMS/ManageResource/MonthlyShiftWiseGraphs.html" onclick="openmchart1()">Monthly Shift Wise Graphs</a></td>
+                                <td class="drContent" width="25%">
+                                    <a href="../../WFMS/ManageResource/MonthlyDepartmentWiseGraphs.html" onclick="openmchart2()">Monthly Department Wise Graphs</a></td>
+                                <td class="drContent" width="25%">
+                                    <a href="../../WFMS/ManageResource/ForecastingGraph.html" onclick="openmchart3()">Forecasting Graph</a></td>
+                                <td class="drContent" width="25%">
+                                    <a href="../../WFMS/ManageResource/Actual_Recommended_RequiredGraph.html" onclick="openmchart4()">Actual/Recommended/Required Graph</a></td>
+                            </tr></tbody></table> -->
+                    <br>
+                    <!--Shifts Background Colors-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12" style=" margin-left: 15px; width:98%">                              
+                                <table id="ERC_Table" class="table table-bordered table-striped"  >
+                                    <thead>
+                                        <tr>                                                                                                         
+                                        </tr>
+                                    </thead>                                    
+                                    <tr><td class="drContent" width="1%" height="20px" align="center">
+                                            <font color="red">Legends</font></td>
+                                        <td class="drContent" title="8AM - 4PM" width="2%" bgcolor="#EEE8AA" 
+                                            align="center">M-Morning Shift 2</td>
+                                        <td class="drContent" title="8AM - 6PM" width="2%" 
+                                            height="20px" bgcolor="#BCD7BC" align="center">G-General Shift</td>
+                                        <td class="drContent" title="8PM - 8AM" width="2%" bgcolor="#DEB887"
+                                            align="center">N-Night Shift</td>
+                                        <td class="drContent" title="Compensatory Off" width="2%" bgcolor="#8FBC8F" align="center">CO-Compensatory Off</td>
+                                        <td class="drContent" title="Roster Off" width="2%"
+                                            height="20px" bgcolor="#669999" align="center">RO-Roster Off</td>
+                                        <td class="drContent" title="Leave without pay" width="2%" bgcolor="#CD5C5C" 
+                                            align="center">LOP-Leave Without Pay</td>
+                                        <td class="drContent" title="Sick Leave" width="2%" 
+                                            height="20px" bgcolor="#87CEFA" align="center">SL-Sick Leave</td>
+                                        <td class="drContent" title="Extra Shift" width="2%" bgcolor="#BFFF80" 
+                                            align="center">ES-Over 12 Hour Shift (Extra Shift)</td>
+                                        <td class="drContent" title="Casual Leave" width="2%" bgcolor="#40E0D0"
+                                            align="center">CL-Casual Leave</td>
+                                        <td class="drContent" title="Un-Assigned" width="2%" bgcolor="#ADD8E6"
+                                            align="center">U-Un-Assigned</td>
+                                        <td class="drContent" title="Leave Status" width="2%" bgcolor="#94DBFF"
+                                            align="center">Shift-LS: Leave Status</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>                  
+                </div>
+            </div>
+            <!--Content End-->
+
+
+            <!--Modal box for Registration-->
+            <div id="leave_Balance" class="modal fade" role="dialog">          
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content" style="width: 723px;">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">Employee Availability ERC</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="sub-title">
+                                    <!--<h4>Employee Availability ERC</h4>-->
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-12">
+
+                                            <p class="title-heading "><b>Employee Name : </b> <span id="emp_Name"></span></p>
+                                            <div class="table-responsive" style="width: 691px;">
+                                                <table class="table table-bordered ercTables-example" >
+                                                    <tr>
+                                                        <td colspan="4"><span class="title1">Available Leaves In The Month:</span> <span class="star" id="month"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="title-heading" style="margin-left: -82px;"><b><span>Earned Leave :</span></b> <span class="star" id="earned_Leave"></span></td>
+                                                        <td class="title-heading" style="margin-left: -23px;"><b><span>Casual Leave :</span></b> <span class="star" id="casual_Leave"></span></td>
+                                                        <td class="title-heading"><b><span>Sick Leave :</span></b> <span class="star" id="sick_Leave"> </span></td>
+                                                        <td class="title-heading" style="margin-left: -28px;"><b><span>Total Leaves</span></b> <span class="star" id="total_Leaves_InMonth"> </span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="4"><span class="title1">Present Status of Leave Balance</span></td></tr>
+                                                    <tr>
+                                                        <td class="title-heading" style="margin-left: -27px;"><span>Total Leaves Balance:</span> <span class="text-green" id="total_Leaves"></span></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="4" class="title-heading"> <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Modal box for Registration1-->
+            <div id="co_Balance" class="modal fade" role="dialog">          
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">Employee Availability ERC</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="sub-title">
+                                    <!--<h4>Employee Availability ERC</h4>-->
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-12">
+
+                                            <p class="title-heading "><b>Employee Name : </b> <span id="emp_Name1"></span></p>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <td colspan="4"><span class="title1">Availed compensatory off's In Month:</span> <span class="star" id="co_Month"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td  style="text-align: left;background-color: beige"  class="title-heading"><span>Compensatory off:</span> <span class="star" id="Compensatoryoff"></span></td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="4"><span class="title1">Present Status of Compensatory off </span></td></tr>
+
+                                                    <tr>
+                                                        <td style="text-align: left;background-color: beige" class="title-heading"><span>Compensatory off:</span> <span class="text-green" id="pr_Compensatoryoff"></span></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="4" class="title-heading"> <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Modal box for Registration2-->
+            <div id="update_ERC" class="modal fade" role="dialog">          
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">        
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">Employee Availability ERC</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="sub-title">
+                                    <!--<h4>Employee Availability ERC</h4>-->
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <div class="col-md-12 col-xs-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <td colspan="2"><b>Employee Name : </b> <span class="star" id="update_Name"></span></td>
+                                                        <td colspan="2"><b>Start Date : </b> <span class="star" id="update_Date"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td  colspan="4" class="title-heading"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2"><label>Shift</label><span>
+                                                                <select class="form-control" name="dractityid" id="update_ShiftTypeId">
+                                                                    <option value="0">Select One</option>
+                                                                </select></span>
+                                                        </td>
+
+                                                        <td colspan="2"> 
+                                                            <label>End Date</label>
+                                                            <span>
+                                                                <div class="input-group">
+                                                                    <div id="endDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                                        <span class="input-group-addon">
+                                                                            <i class="fa fa-calendar"></i>
+                                                                        </span>
+                                                                        <input class="form-control" placeholder="Select Date" type="text" id="end_Date"/>
+                                                                    </div>                        
+                                                                </div>
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="4" class="title-heading"> <button type="button" class="btn btn-info btn-sm"  onclick="cheCking_ERC_Conditions();" id="update_Erc"><i class="fa fa-edit p-r-xs"></i>Update</button>
+                                                            <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button></td>
+                                                    </tr>
+                                                </table>
+                                                <div id="update_Error"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <input type="hidden" id="earned_Leave_Count">
+            <input type="hidden" id="sick_Leave_Count">
+            <input type="hidden" id="casual_Leave_Count">
+            <input type="hidden" id="compensatory_leave_count">
+            <input type="hidden" id="lct_presentstatus_sl">
+            <input type="hidden" id="lct_presentstatus_cl">
+            <input type="hidden" id="lct_presentstatus_el">
+            <input type="hidden" id="wfleaveapply_Trans_Leave_Count">
+            <input type="hidden" id="typeof_shift">
+            <input type="hidden" id="erc_UserId">
+            <input type="hidden" id="wsashiftid">
+            <input type="hidden" id="selctedshiftid">
+            <input type="hidden" id="sheduled_Id">
+            <input type="hidden" id="hidden_UserId">
+            <input type="hidden" id="erc_ModuleId">
+            <input type="hidden" id="wsa_typeofshift">
+            <!--Footer-->
+            <div class="footer">
+                <small>Powered by Vsoft Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../../assets/js/jquery1.2.min.js"></script>
+        <script src="../../assets/js/moment.min.js"></script>
+        <script src="../../assets/js/bootstrap.min.js"></script>
+        <script src="../../assets/js/datatables.min.js"></script>
+        <script src="../../assets/js/chosen.jquery.js"></script>
+        <script src="../../assets/js/Chart.min.js"></script>
+        <script src="../../assets/js/bootstrap-datepicker.js"></script> 
+        <script src="../../assets/js/bootstrap-datetimepicker.min.js"></script> 
+        <script src="../../assets/js/notify.js"></script> 
+        <script src="../../assets/js/notify.min.js"></script> 
+        <!--        Page Related Scripts-->
+        <script src="../../assets/serviceController/wfms/Common_Constants/Menu_Hide_Show.js"></script>
+        <script src="../../assets/serviceController/wfms/Common_Constants/Wfms_Logout.js"></script>
+        <script src="../../assets/serviceController/wfms/ServiceURLS.js"></script>
+        <script src="../../assets/serviceController/wfms/wfms_Constants.js"></script>
+        <script src="../../assets/serviceController/wfms/Manage_Resource/employee-Availability_Erc.js"></script>
+
+        <script>
+                                                            $(document).ready(function() {
+                                                                //Date Pickers
+                                                                $("#strtDate").datepicker({
+                                                                    autoclose: true,
+                                                                    todayHighlight: true
+                                                                }).datepicker();
+                                                                $("#endDate").datepicker({
+                                                                    autoclose: true,
+                                                                    todayHighlight: true
+                                                                }).datepicker();
+//                                            $('select').chosen();                            //Chosen select
+                                                                $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                                                            
+                                                            });
+                                                            $('#sampleTabs a:first').tab('show');
+
+
+        </script>
+
+    </body>
+</html>
+

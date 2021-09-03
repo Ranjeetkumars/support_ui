@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OP Desk | SMS And Email</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+       
+        <!--Customized CSS-->    
+        <link rel="stylesheet" href="../../css/style.css">
+       <style>
+            .p-n{
+                padding:0;
+            }
+
+            h5{
+                color: #31708f;
+                font-size: 15px;
+                margin-top: 0;
+                font-weight: 600;
+            }
+            .row{
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .bg-title{
+                background: #33b5e5;
+                padding: 6px 6px;
+                border-radius: 0;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+            }
+            .bg-title h4{
+                color:#fff;
+                margin:0;
+            }
+            .table>tbody>tr>td{
+                border-top:none;
+            }
+
+            /*Check Box CSS*/
+            .check {
+                display: block;
+                position: relative;
+                padding-left: 25px;
+                margin-bottom: 12px;
+                padding-right: 15px;
+                cursor: pointer;
+                font-size: 14px;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                margin-left:17px;
+            }
+            .check input[type=checkbox] {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+            }
+            .checkmark {
+                position: absolute;
+                top: 3px;
+                left: 0;
+                height: 18px;
+                width: 18px;
+                background-color: #fff ;
+                border-color:#0096cc;
+                border-style:solid;
+                border-width:2px;
+                border-radius:3px;
+
+            }
+            .check input[type=checkbox]:checked ~ .checkmark {
+                background-color: #0096cc  ;
+            }
+            .checkmark:after {
+                content: '';
+                position: absolute;
+                display: none;
+            }
+            .check input[type=checkbox]:checked ~ .checkmark:after {
+                display: block;
+            }
+            .check .checkmark:after {
+                left: 5px;
+                top: 1px;
+                width: 5px;
+                height: 10px;
+                border: solid ;
+                border-color:#fff;
+                border-width: 0 3px 3px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+                <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">SMS And Email</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                    <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li>                    
+                    <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>     
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                     <!--Content-->
+       <div class="container">
+            <div class="col-md-12 col-xs-12 p-n">
+                <div class="card">                    
+                    <div class="bg-title">
+                        <h4>SMS & E-mail Received Person Details</h4>
+                    </div>
+                    <form class="form-horizontal">
+                           <!--Designation-->
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-xs-12 col-md-offset-2">Designation<span class="star">*</span></label>
+                            <div class="col-md-6 col-xs-12">
+                                <select class="form-control">
+                                    <option value="0">Select Designation</option>
+                                    <option value="1">Administrator</option>
+                                </select>
+                            </div>
+                        </div>
+                              <!--Name-->
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-xs-12 col-md-offset-2">Name<span class="star">*</span></label>
+                            <div class="col-md-6 col-xs-12 ">
+                                <select class="form-control">
+                                    <option value="0">Select Name</option>
+                                    <option value="1">Administrator</option>
+                                </select>
+                            </div>
+                        </div>
+                                 <!--Contact Number1-->
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-xs-12 col-md-offset-2">Contact Number1<span class="star">*</span></label>
+                            <div class="col-md-6 col-xs-12 ">
+                                <input type="text" class="form-control" placeholder="Enter Contact Number">
+                            </div>
+                        </div>
+                                    <!--Contact Number2-->
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-xs-12 col-md-offset-2">Contact Number2</label>
+                            <div class="col-md-6 col-xs-12 ">
+                                <input type="text" class="form-control" placeholder="Enter Contact Number">
+                            </div>
+                        </div>
+                                       <!--Email-->
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-xs-12 col-md-offset-2">Email</label>
+                            <div class="col-md-6 col-xs-12 ">
+                                <input type="email" class="form-control" placeholder="Enter Email">
+                            </div>
+                        </div>
+                                          <!--table-->
+                        <div class="form-group">
+                            <label class="control-label col-md-2 col-xs-12 col-md-offset-2">Configuration Type</label>
+                            <div class="col-md-6 col-xs-12 ">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label class="check ">
+                                                    <span>SMS</span>
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                            <td>
+                                                <label class="check ">
+                                                    <span>Email</span>
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                            </td>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="bg-title">
+                            <h4>Districts</h4>
+                        </div>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Anantapur</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Chittoor</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>East Godavari</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Guntur</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Kadapa</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Krishna</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Kurnool</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Nellore</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Prakasam</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Srikakulam</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Vishakhapatnam</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Vizianagaram</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="check ">
+                                            <span>West Godavari</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="bg-title">
+                            <h4>Modules</h4>
+                        </div>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Accident Maintenance</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Equipment Breakdown</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Preventive Maintenance</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Suggestions</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Ambulance Off Road</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Fuel Filling</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Scene Challenges</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Tyre Life</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Breakdown Maintenance</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Oxygen Filling</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Special Indent</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Vehicle Location Movement</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Demo Training</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Patient Handover Issues</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Statutory Compliance</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                    <td>
+                                        <label class="check ">
+                                            <span>Visitor Update</span>
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                                             <!--button-->
+                         <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-floppy-o p-r-xs"></i>Save</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+                </div>               
+          
+            <!--Content End-->
+            
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+  </div>
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+           
+        <script src="../../js/chosen.jquery.js"></script>
+          <!--         logout/login url -->
+               <script src="../../../Common/serviceController/dashboard.js"></script>
+                <script src="../../../Common/serviceController/ServiceUrl.js"></script> 
+              <script src="../../../Common/serviceController/logout.js"></script>
+        <script>
+
+                                        $(function() {
+//Date And Time picker in Modal Box
+                                            $('#datetimepicker1').datetimepicker({
+                                                sideBySide: true,
+                                                format: 'DD-MM-YYYY HH:mm:ss'
+                                            });
+                                        });
+
+                                        $(document).ready(function() {
+                                        	checkLoggedOrNot();
+                                            $('select').chosen();                            //Chosen select
+                                            $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                                            $('#driverTable').DataTable({// Data table
+                                                pageLength: 10,
+                                                responsive: true,
+                                                dom: '<"html5buttons"B>lTfgitp',
+                                                buttons: [
+                                                    {extend: 'copy'},
+                                                    {extend: 'csv'},
+                                                    {extend: 'excel', title: 'ExampleFile'},
+                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                                    {extend: 'print',
+                                                        customize: function(win) {
+                                                            $(win.document.body).addClass('white-bg');
+                                                            $(win.document.body).css('font-size', '10px');
+
+                                                            $(win.document.body).find('table')
+                                                                    .addClass('compact')
+                                                                    .css('font-size', 'inherit');
+                                                        }
+                                                    }
+                                                ]
+
+                                            });
+//Date Pickers
+                                            $("#strtDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+                                            $("#endDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+
+                                        });
+
+//For Collapseble Panels In Registration Modal box
+                                        var selectIds = $('#collapseOne,#collapseTwo,#collapseThree');
+                                        $(function($) {
+                                            selectIds.on('show.bs.collapse hidden.bs.collapse', function() {
+                                                $(this).prev().find('.fa').toggleClass('fa-plus fa-minus');
+                                            });
+                                        });
+        </script>
+
+    </body>
+</html>

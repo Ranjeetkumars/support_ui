@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Service Provider</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/datepicker.css">
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            .m-b-n {
+                margin-bottom: 0;
+            }
+
+            .nav-sticky {
+                position: -webkit-sticky; /* Safari */
+                position: sticky;
+                top: 0;
+                margin-top: 15px;
+                z-index: 999;
+                border-radius: 4px;
+            }
+
+            .navbar-secondary .navbar-brand {
+                color: #414344;
+            }
+
+            .footer {
+                position: unset;
+                margin-top: 5px;
+            }
+        </style>
+    </head>
+    <body class="bg-image">
+        <div class="container">
+            <!--Nav Bar-->
+            <nav class="navbar navbar-secondary m-b-n nav-sticky">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <!--Side MenuIcon-->
+                        <!--<a class="navbar-brand cursor" id="sidemenu-icon"><i class="fas fa-bars" style="color:#414344"></i></a>-->
+                        <!--Logo-->
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+                                                              src="img/pro-Logo.png" /></a>
+
+                        <!--Top MenuIcon-->
+                        <a class="navbar-brand cursor" id="topmenu-icon"><i
+                                class="fas fa-ellipsis-v" style="color: #414344"></i></a>
+
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="logintime">LogIn Time : 25-10-2019 11:29 AM</a>
+                            </li>
+                            <li><a href="dashboard_1.html">Dashboard</a></li>
+                            <li><a href="#"><i class="fa fa-question-circle"
+                                               data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a></li>
+                            <li class="dropdown"><a class="dropdown-toggle"
+                                                    data-toggle="dropdown" href="#"> <i class="fa fa-user"
+                                                                    data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu animated fadeInDown">
+                                    <li><a href="#"><i class="fas fa-user"></i>My Profile</a></li>
+                                 <li><a href="#" onclick="serviceProviderLogout()"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                                </ul></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Nav Bar End-->
+            <h2 class="h2-title">Service Provider registration Form</h2>
+            <div class="container-box">
+                <div class="row p-t-md p-b-md">
+                    <div class="col-md-9 col-xs-12">
+                        <form class="p-t-n" id="myform">
+                            <!--Service Provider registration Form-->
+                            <div class="form-container">
+
+                                <div class="row">
+                                    <!--Already registered-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Have you already Registered as Company? <a
+                                                    href="login.html">Click Here</a> to Login
+                                            </label>
+                                        </div>
+                                        <!--Service Provider Type-->
+                                        <div class="form-group">
+                                            <label>Service Provider Type<span class="star">*</span></label>
+                                            <select class="form-control" name="serviceProviederType"
+                                                    id="serviceProviederTypeId">
+                                                <option value="0">Select Service Provider Type</option>
+                                                <!-- <option value="1">Corporate</option>
+        <option value="2">Partnership</option>
+        <option value="3">Society</option>
+        <option value="4">Trust</option>-->
+                                            </select>
+                                            <p class="error-msg">Service Provider Type cannot be
+                                                blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <!--Service Provider Name-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Service Provider Name<span class="star">*</span></label>
+                                            <input type="text" class="form-control srpName " maxlength="35"
+                                                   name="serviceProviederName"
+                                                   id="serviceProviederNameId">
+                                            <p class="error-msg">Service Provider Name cannot be
+                                                blank.</p>
+                                            <div id="sprnameId_feedback"></div>
+                                        </div>
+                                    </div>
+                                    <!--Service Provider registration/incorporation date-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Service Provider Registration/Incorporation
+                                                Date<span class="star">*</span>
+                                            </label> <input id="serviceProviderDate" data-date-format="dd-mm-yyyy"
+                                                            type="text" class="form-control"
+                                                            name="serviceProviderRegistrationIncorporationDate">
+                                            <p class="error-msg">Service Provider
+                                                Registration/Incorporation Date cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <!--PAN Number-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>PAN Number<span class="star">*</span></label> <input
+                                                type="text" class="form-control " maxlength=18
+                                                " panCard" id="panCard_number"> <small>Example:
+                                                PANAB1234F</small> <span id="errMsg"></span>
+                                            <p class="error-msg">PAN Number cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                    <!--PAN Card Copy-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>PAN Card Copy<span class="star">*</span></label> <input
+                                                id="actualFile" type="file" class="form-control"
+                                                name="panCardCopy" style="display: none"> <input
+                                                style="padding-right: 90px;" id="customFile" value=""
+                                                type="text" class="form-control" name="panCardCopyInput">
+                                            <input id="customFileBtn" type="button" value="Browse"
+                                                   class="btn btn-blue customuploadbtn " maxlength=18
+                                                   " name="panCardBtn"> <small>Jpg, jpeg, png,
+                                                pdf,formats are allowed with maximum size limit 1 MB</small>
+                                            <p class="error-msg">PAN Card Copy cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <!--TIN Number-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>TIN Number</label> <input type="text"
+                                                                             class="form-control " maxlength=18 " name="tinnumber"
+                                                                             id="tinnumber"> <span id="errMsg1"></span>
+
+                                        </div>
+                                    </div>
+                                    <!--CIN Number-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>CIN Number</label> <input type="text"
+                                                                             class="form-control " maxlength=18 " name="cinnumber"
+                                                                             id="cinnumber"> <span id="errMsg2"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--Website-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Website</label> <input type="text" class="form-control"
+                                                                          maxlength="100" name="websiteurl" id="websiteurl">
+                                        </div>
+                                    </div>
+                                    <!--Service Provider logo-->
+                                    <div class="col-md-6 col-xs-12">
+
+
+
+
+                                        <div class="form-group">
+                                            <label>Service Provider logo</label> <input id="actualLogo"
+                                                                                        type="file" class="form-control" name="logo"
+                                                                                        style="display: none"> <input
+                                                                                        style="padding-right: 90px;" id="customLogo" value=""
+                                                                                        type="text" value="" type="text" class="form-control">
+                                            <input id="customLogoBtn" type="button" value="Browse"
+                                                   class="btn btn-blue customuploadbtn" maxlength=18
+                                                   " name="servicelogoBtn"> <small>Preferred
+                                                File Format- png,jpg,gif,jpeg and size 1 MB and maximum width
+                                                646px</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--CSR Head of an Organization-->
+                            <div class="form-container">
+                                <h4>CSR Head of an Organization</h4>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <!--First Name-->
+                                        <div class="form-group">
+                                            <label>First Name<span class="star">*</span></label> <input
+                                                type="text" class="form-control  charaterkeypress"
+                                                maxlength="30" name="firstName" id="firstName">
+                                            <p class="error-msg">First Name cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                    <!--Last Name-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Last Name<span class="star">*</span></label> <input
+                                                type="text" class="form-control charaterkeypress"
+                                                maxlength="16" name="lastName" id="lastName">
+                                            <p class="error-msg">Last Name cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <!--Email-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Email<span class="star">*</span></label> 
+                                            <input type="email" class="form-control emailkeypress" name="email" 
+                                                   id="email" > <span id='emailmsg'></span>
+                                            <p class="error-msg">Email cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                    <!--Re-Enter Email-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Re-Enter Email<span class="star">*</span></label> <input
+                                                type="text" class="form-control" name="reEnterEmail"
+                                                id="reEnterEmailId"> <span id='message'></span>
+                                            <p class="error-msg">Re-Enter Email cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <!--Mobile Number-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group ">
+                                            <label>Mobile No. 10 Digits (Ex-9xxxxxxxxx)<span
+                                                    class="star">*</span></label> <input type="text"
+                                                                                 class="form-control numkeypress " maxlength="10"
+                                                                                 name="mobileNumber" id="mobileNumber">
+                                            <p class="error-msg">Mobile Number cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                    <!--Alternate No-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Alternate No</label> <input type="text"
+                                                                               class="form-control numkeypress" maxlength="10"
+                                                                               name="altNumber" id="alternatemobnumber">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--Service Provider financial details FY (2016-2017)-->
+
+
+                            <!--Service Provider Registered Address-->
+                            <div class="form-container">
+                                <h4>Service Provider Registered Address</h4>
+                                <!--<form>-->
+                                <div class="row">
+                                    <!--Choose Area-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Choose Area</label>
+                                            <!--                                            <div>
+                                                                                            <input id="rural" class="radio-inline" type="radio"
+                                                                                                   value="Rural" name="chooseArea">
+                                                                                            <label for="rural"
+                                                                                                   style="padding-right: 15px;">Rural</label>
+                                                                                            <input id="urban"
+                                                                                                   value="Urban" class="radio-inline" type="radio"
+                                                                                                   name="chooseArea">
+                                                                                            <label for="urban">Urban</label>
+                                            
+                                                                                        </div>-->
+                                            <div>
+                                                <input id="rural" class="radio-inline" type="radio" name="chooseArea" value="Rural"><label for="rural" style="padding-right:15px;">Rural</label>
+                                                <input id="urban" class="radio-inline" type="radio" name="chooseArea" value="Urban"> <label for="urban">Urban</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <!--Address -->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Address<span class="star">*</span>
+                                            </label>
+                                            <textarea class="form-control" maxlength="50" name="address"
+                                                      id="straddressId"></textarea>
+                                            <p class="error-msg">Address cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                    <!--Picode -->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>PIN CODE<span class="star">*</span></label> <input
+                                                class="form-control numkeypress" maxlength="8" a
+                                                name="picode" id=strPincode>
+                                            <p class="error-msg">Pincode cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--</form>-->
+                            </div>
+                            <!--Service Provider Local address-->
+                            <div class="form-container">
+                                <h4>Service Provider Local Address</h4>
+                                <!--                                <form>-->
+                                <div class="row">
+                                    <!--Choose Area-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Choose Area</label>
+                                            <!--                                            <div>
+                                                                                            <input id="rural1" class="radio-inline1" type="radio"
+                                                                                                   value="Rural" name="chooseArea"><label
+                                                                                                   for="rural1" style="padding-right: 15px;">Rural</label> <input
+                                                                                                   id="urban1" value="Urban" class="radio-inline1" type="radio"
+                                                                                                   name="chooseArea"> <label
+                                                                                                   for="urban1">Urban</label>
+                                                                                        </div>-->
+                                            <div>
+                                                <input id="rural1" class="radio-inline" type="radio" name="chooseArea1"  value="Rural"><label for="rural1" style="padding-right:15px;">Rural</label>
+                                                <input id="urban1" class="radio-inline" type="radio" name="chooseArea1"  value="Urban"> <label for="urban1">Urban</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--Address -->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Address<span class="star">*</span>
+                                            </label>
+                                            <textarea class="form-control" maxlength="50" name="address"
+                                                      id="strlocalAddress"></textarea>
+                                            <p class="error-msg">Address cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                    <!--Picode -->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>PIN CODE<span class="star">*</span></label> <input
+                                                class="form-control numkeypress" maxlength="8" name="picode"
+                                                id="strlocalPincode">
+                                            <p class="error-msg">Pincode cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--</form>-->
+                            </div>
+                            <!--Service Provider User Registration Details-->
+                            <div class="form-container">
+                                <h4>Service Provider User Registration Details</h4>
+
+                                <div class="row">
+                                    <!--Username-->
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Username<span class="star">*</span></label> <input
+                                                type="text" class="form-control charaterkeypress"
+                                                maxlength="16" name="userName" id="usernameId">
+                                            <p class="error-msg">UserName cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--Password-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Password<span class="star">*</span></label> <input
+                                                type="password" class="form-control" maxlength="30"
+                                                name="password" id="passwordId">
+                                            <p class="error-msg">Password cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                    <!--Re-Enter Password-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Re-Enter Password<span class="star">*</span></label> <input
+                                                type="password" class="form-control" maxlength="30"
+                                                name="reEnterPassword" id="reEnterPasswordId"> <span
+                                                id='message1'></span>
+                                            <p class="error-msg">Re-Enter Password cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--Contact Information-->
+                            <div class="form-container">
+                                <h4>Contact Information</h4>
+
+                                <div class="row">
+                                    <!--Contact Person-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Contact Person<span class="star">*</span></label> <input
+                                                type="text" class="form-control charaterkeypress"
+                                                maxlength="16" name="contactPerson" id="contactPersonId">
+                                            <p class="error-msg">Contact Person cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                    <!--Designation-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Designation<span class="star">*</span></label> <input
+                                                type="text" class="form-control charaterkeypress"
+                                                maxlength="16" name="designation" id="contactDesignationId">
+                                            <p class="error-msg">Designation cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--Alternate Email-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Alternate Email</label> <input type="text"
+                                                                                  class="form-control emailkeypress1" maxlength="25"
+                                                                                  name="altEmail" id="contactaltEmailId"> <span
+                                                                                  id='altemailmsg'></span>
+                                            <!--<p class="error-msg">Password cannot be blank.</p>-->
+                                        </div>
+                                    </div>
+                                    <!--Phone Number-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Phone Number</label> <input type="text"
+                                                                               class="form-control numkeypress" maxlength="8"
+                                                                               name="phNumber" id="phoneNumberId">
+                                            <!--<p class="error-msg">Re-Enter Password cannot be blank.</p>-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--Mobile-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Mobile<span class="star">*</span></label> <input
+                                                type="text" class="form-control numkeypress" maxlength="10"
+                                                name="mobile" id="mobileNumberId">
+                                            <p class="error-msg">Mobile cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                    <!--Address-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label>Address<span class="star">*</span></label>
+                                            <textarea class="form-control" maxlength="50" name="address"
+                                                      id="addressId"></textarea>
+                                            <p class="error-msg">Address cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <!--Zip Code-->
+                                        <div class="form-group">
+                                            <label>Zip Code<span class="star">*</span></label> <input
+                                                type="text" class="form-control numkeypress" maxlength="8"
+                                                name="zipcode" id="zipcodeId">
+                                            <p class="error-msg">Zip Code cannot be blank.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!--Contact Information-->
+
+                            <div class="form-container">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12 text-center">
+                                        <button type="button" class="btn btn-blue w-100"
+                                                onclick="saveServiceProviderRegistrationDetails()"
+                                                id="save_SPR_DataId">Submit</button>
+                                        <button type="reset"  class="btn btn-warning w-100"   value="Reset" id="resetbutton"  onclick="resetbtn()">Reset</button>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-3 col-xs-12">
+                        <div class="form-container">
+                            <h2 class="service-provider">I am A Service Provider</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="srpreg_srplogo_image_UrlId">
+             <input type="hidden" id="srpreg_pancardlogo_image_UrlId">
+            
+            <div class="footer">
+                <small>Powdered by <a href="http://procreate.co.in/"
+                                      target="_blank">Procreate Techno systems Private Limited</a></small>
+            </div>
+        </div>
+
+        <script src="js/jquery-3.3.1.min.js"></script>
+       <!--   <script src="js/jquery.validate.min.js"></script>-->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/notify.js"></script>
+        <script src="js/notify.min.js"></script>
+      <!--   <script src="js/moment.js"></script>-->
+
+        <!-- 	Microservices URLS Related Scripts -->
+        <script src="js/Service.js"></script>
+        <script src="js/login.js"></script>
+        <!-- 	Page Related Scripts -->
+        <script src="js/srpreg.js"></script>
+
+        <script>
+                                            $(function() {
+                                                var date = new Date();
+                                                date.setDate(date.getDate());
+
+                                                $("#serviceProviderDate").datepicker({
+                                                    autoclose: true,
+                                                    todayHighlight: true,
+                                                    startDate: date
+                                                }).datepicker();
+
+                                                // Menu Open in Small devices
+                                                $('#topmenu-icon').click(function() {
+                                                    $('#top-navbar').toggleClass('in');
+
+                                                });
+                                                // Tootip
+                                                $('[data-toggle="tooltip"]').tooltip();
+
+                                            });
+
+                                            //Upload File button
+                                            var actualbtn = document.getElementById('actualFile');
+                                            var custombtn = document.getElementById('customFileBtn');
+                                            var filtext = document.getElementById('customFile');
+
+                                            custombtn.addEventListener("click", function() {
+                                                actualbtn.click();
+                                            });
+
+                                            actualbtn.addEventListener("change", function() {
+                                                if (actualbtn.value) {
+                                                    filtext.value = actualbtn.value;
+
+                                                } else {
+                                                    filtext.value = "";
+                                                }
+                                            });
+
+                                            //Upload Logo button
+                                            var actualLogoFile = document.getElementById('actualLogo');
+                                            var LogoBtn = document.getElementById('customLogoBtn');
+                                            var customLogoFile = document.getElementById('customLogo');
+
+                                            LogoBtn.addEventListener("click", function() {
+                                                actualLogoFile.click();
+                                            });
+
+                                            actualLogoFile.addEventListener("change", function() {
+                                                if (actualLogoFile.value) {
+                                                    customLogoFile.value = actualLogoFile.value;
+
+                                                } else {
+                                                    customLogoFile.value = "";
+                                                }
+                                            });
+        </script>
+        <script>
+
+            $('#submitBtn').click(function() {
+                validations();
+            });
+            //Form Validations
+            function validations() {
+                $('myform').validate({
+                    rules: {
+                        //                      serviceProviederType: 'required',
+                        serviceProviederName: 'required',
+        //                        serviceProviderRegistrationIncorporationDate: 'required',
+        //                        panCard: 'required',
+        //                        panCardCopyInput: 'required',
+        //                        firstName: 'required',
+        //                        lastName: 'required',
+        //                        email: 'required',
+        //                        reEnterEmail: 'required',
+        //                        mobileNumber: 'required',
+        //                        userName: 'required',
+        //                        password: 'required',
+        //                        reEnterPassword: 'required',
+        //                        contactPerson: 'required',
+        //                        designation: 'required',
+        //                        mobile: 'required',
+        //                        contactMobile: 'required',
+        //                        registeredAddress: 'required',
+        //                        registeredPicode: 'required',
+        //                        localAddress: 'required',
+        //                        localPincode: 'required',
+        //                        contactAddress: 'required',
+        //                        contactZipcode: 'required'
+                    },
+                    messages: {
+        //                        serviceProviederType: 'Please Select Service Provider Type',
+                        serviceProviederName: 'Please Enter Service Provider Name',
+        //                        serviceProviderRegistrationIncorporationDate: 'Please Select Registration Date',
+        //                        panCard: 'Please Enter Pancard Number',
+        //                        panCardCopyInput: 'Please Upload Pancard',
+        //                        firstName: 'Please Enter First Name',
+        //                        lastName: 'Please Enter Last Name',
+        //                        email: 'Please Enter EMail',
+        //                        reEnterEmail: 'Please Re-Enter EMail',
+        //                        mobileNumber: 'Please Enter Mobile Number',
+        //                        userName: 'Please Enter User Name',
+        //                        password: 'Please Enter Password',
+        //                        reEnterPassword: 'Please Re-Enter Password',
+        //                        contactPerson: 'Please Enter Contact Person Name',
+        //                        designation: 'Please Enter Designation',
+        //                        mobile: 'Please Enter Mobile Number',
+        //                        contactMobile: 'Please Enter Mobile Number',
+        //                        registeredAddress: 'Please Enter Address',
+        //                        registeredPicode: 'Please Enter Pin Code',
+        //                        contactZipcode: 'Please Enter Pin Code',
+        //                        localAddress: 'Please Enter Address',
+        //                        localPincode: 'Please Enter Pin Code',
+        //                        contactAddress: 'Please Enter Address',
+                        //contactZipcode: 'Please Enter Pin Code'
+
+                    },
+                    submitHandler: function(form) {
+                        form.submit();
+                    }
+                });
+            }
+        </script>
+
+    </body>
+</html>

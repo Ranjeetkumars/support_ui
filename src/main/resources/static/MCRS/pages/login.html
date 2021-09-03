@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Complaint Response System|Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title Icon-->
+<link rel="shortcut icon" href="../assets/img/favicon.ico">
+<!--CSS Links-->
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/fontfamily/font-style.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../assets/css/login_1.css">
+<style>
+#particles-js {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #b61924;
+	background-image: url('');
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	background: #00356B;
+}
+
+.row {
+	margin: 0;
+}
+
+.remember {
+	line-height: 2;
+	color: #000;
+	font-weight: 500;
+}
+
+@media screen and (max-width:700px) {
+	.footer {
+		margin-left: 0px;
+	}
+}
+
+.toast {
+	background-color: #d68908;;
+	width: 312px;
+	height: 82px;
+	margin-left: 1522px;
+	margin-top: 46px;
+}
+
+.text-primary {
+	color: #171515fa;;
+	margin-top: 61px;
+	font-size: 18px;
+}
+
+.toast-header {
+	margin-left: 66px;
+}
+</style>
+
+</head>
+<body>
+      <div id="particles-js">
+      <div class="toast" id="toastid" data-autohide="false" style="display: none;">
+      <div class="toast-header"><br>
+      <!--<strong class="mr-auto text-primary">User Not Found</strong> -->
+      <strong class="mr-auto text-primary">Invalid Credentials</strong> 
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+      </div></div>
+        </div>
+        <div class="login">
+            <h2>User Login</h2>
+            <form>
+                <!--User Name-->
+                <div class="float-labels">
+                    <div class="form-group">
+                        <div class="float-group">
+                            <input type="text" class="form-control"  placeholder="Enter User Name" id="usernameid">
+                            <label class="float-field" >User Name</label>
+                        </div>
+                    </div>  
+                </div>  
+                <!--Passowrd-->
+                <div class="float-labels">
+                    <div class="form-group">
+                        <div class="float-group">
+                            <input type="password" class="form-control"  placeholder="Enter Password" id="passwordid">
+                            <label class="float-field" >Password</label>
+                        </div>
+                    </div> 
+                </div> 
+
+                 <div><br>
+                    <!-- <div style="display:inline-flex;margin-top: -20px">
+                        <input type="checkbox" class="check_1"><span class="p-l-sm remember">Remember me</span>
+                    </div>
+                    <a href="" class="pull-right" style="margin-top: -13px">Forgot Password?</a> -->
+                </div>
+
+                <br><br><div class="text-center m-t-md">
+                    <button type="button" class="btn btn-info1 btn-block" onclick="loginComplaintLogger()" id="log_in">Login</button>
+                </div>
+            </form>  
+            <!--Footer-->
+            <p class="footer">Pro-HHL® 2019 © Procreate. All Rights Reserved.</p> 
+        </div>
+	<script src="../assets/js/jquery1.2.min.js"></script>
+	<script src="../assets/js/moment.min.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<script src="../assets/js/datatables.min.js"></script>
+	<script src="../assets/css/plugins/particles/particles.js"></script>
+	<script src="../assets/css/plugins/particles/app.js"></script>
+	<script src="../assets/js/notify.js"></script>
+	<script src="../assets/js/notify.min.js"></script>
+	<script src="../assets/serviceController/complaintResponse.js"></script>
+	<script src="../assets/serviceController/login.js"></script>
+	<script src="../assets/serviceController/ServiceURL.js"></script>
+	
+    </body>
+
+</html>

@@ -1,0 +1,1574 @@
+<html>
+    <head>
+        <title>Fleet Management Systems | Vehicle Registration </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/metisMenu.css"/>
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+        <!--        <link rel='stylesheet' href="../../css/bootstrap-toggle.min.css">-->
+        <link rel="stylesheet" href="../../wizard/css/material-bootstrap-wizard.css">
+
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/stepper.css">            
+        <link rel="stylesheet" href="../../css/fleet.css">
+        <link rel="stylesheet" href="../../css/sidenavbar.css">
+        <style>
+  
+            #uploadId{
+                padding: 0px 8px;
+                margin-top: -95px;
+                margin-left: 448px;
+            }
+            .form-group input[type=file] {
+                opacity: 1;
+                height:118%;
+            }
+            .no-js #loader { display: none;  }
+            .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+            .se-pre-con {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+            }
+            article, aside, figure, footer, header, hgroup, 
+            menu, nav, section { display: block; }
+            #blah{
+                margin-left: 153px;
+                margin-top: -10px;
+            }
+            #removeId{
+                margin-left: 412px;
+                margin-top: -128px; 
+            }
+            #messageId{
+                color:red;
+            }
+            .searchbar>li>a .form-control {
+
+                margin-top: -30px;
+
+            }
+            .greenbtn{
+                height: 30px;
+                font-size: 12px;
+            }
+            .chosen-container {
+                width: 111% !important;
+            }
+
+/*             .totalbody{ */
+/*                 overflow: hidden; */
+/*             } */
+            .textwidth{
+                width: 275px;
+            }
+            .btn-info .btn-info:hover, .btn-info:focus {   
+                width: 107px;
+            }
+            .bg-info {
+                background: cadetblue;
+            }
+            .modal-header .modal-title {
+                background: cadetblue;
+            }
+            .modal-header{
+                background: #00467A;
+            }
+            .second-nav{
+                background: #00467A;
+            }
+            .table>thead>tr>th{
+                background: #00467A;
+            }
+            .footer {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    color: #fff;
+    padding: 6px 10px;
+    text-align: right;
+    background-color: 00467A;
+}
+
+        </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    </head>
+    <body class="totalbody">
+        <div class="se-pre-con">
+            <div class="content">
+                <div class="back-to-article">
+                    <p><a href="smallenvelop.com/blog/"></a></p>
+                </div>
+                <img src="http://smallenvelop.com/wp-content/uploads/2014/08/simple-pre-loader.jpg
+                     " style="visibility: hidden; width:100%; height: auto;">
+            </div>
+        </div>
+        <!-- Ends -->
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../images/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Side Nav Bar-->
+           
+            <nav id='sidebar' class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <h3 class="header">Fleet Management</h3>
+                    </div>
+                    <div class='sidebar-menu'>
+                        <ul class="metismenu" id="metismenu">
+                            <li>
+                                <a href='#'>
+                                    <i class='fa fa-tachometer'></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <!--Vehicles-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-cab'></i>
+                                    <span>Vehicles</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Vehicles/vehicleList.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle List</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Vehicles/VehicleRegstration.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Registration</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                        <a href="../addBaseLocation/addBaseLocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add BaseLocation</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                        <a href="../VehicleAssign_Deassign/VehicleMapWithBaselocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Mapping</span>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="../VehicleAssign_Deassign/EMT_PilotAssign_Deassign.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Emt/Pilot Assign/Deassign</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                    
+                                        <a href="../vehicles/watchedVehicles.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Watched Vehicles</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/meterHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Meter History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/expenseHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Expense History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/gpsIntegration.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>GPS Integration</span>
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                            <!--Inspections-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-building'></i>
+                                    <span>Inspections</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../inspections/inspectionHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Inspection History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../inspections/itemFailures.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Item Failures</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../inspections/schedule.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Schedules</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../inspections/forms.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Forms</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Issues-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-info-circle '></i>
+                                    <span>Issue</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Issues/addIssues.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add Isue</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Issues/Issueslist.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>IssueList</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Issues/recall.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Recalls</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <!--Remainders-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-clock-o '></i>
+                                    <span>Remainder</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Remainders/serviceremainders.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Service Remainder</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Remainders/VehicleRenewalReminder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Renewals</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../remainders/contactRenewal.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Contact Renewals</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Services-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-thumbs-o-up '></i>
+                                    <span>Services</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../service/serviceHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services History </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/workorder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Work Order</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/serviceTask.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services Tasks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/shopdirectory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Shop Directory</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/integrations.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Integrations</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Fuels-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-filter '></i>
+                                    <span>Fuel</span>
+                                </a>
+                                <ul class="nav first-child">
+                                                 <li>
+                                        <a href="../Fuel/FuelHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>FuelHistory</span>
+                                        </a>
+                                    </li>
+ <li>
+                                        <a href="../Fuel/addnewFuel_latest.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add Fuel</span>
+                                        </a>
+                                    </li>                                 
+                                </ul>
+                            </li>
+                            <!--Contacts & Users-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-money '></i>
+                                    <span>Contacts & Users</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Contact_usrers/contactlist.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Contact List</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Contact_usrers/userManagement.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>User Management</span>
+                                        </a>
+                                    </li>  
+                                    <li>
+                                        <a href="../Contact_usrers/vendorlist.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vendor List</span>
+                                        </a>
+                                    </li> 
+                                </ul>
+                            </li>
+                            <!--Parts & Inventory-->                              
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-money '></i>
+                                    <span>Parts & Inventory</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../parts_inventory/partsList.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Parts List</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../parts_inventory/bulkmanageparts.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Bulk Manage Parts</span>
+                                        </a>
+                                    </li>  
+                                    <li>
+                                        <a href="../parts_inventory/purchaseorder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Purchase Order</span>
+                                        </a>
+                                    </li> 
+                                </ul>
+                            </li>
+                            <!--Places-->
+                            <li>
+                                <a  href="../places/places.html">
+                                    <i class='fa fa-money '></i>
+                                    <span>Places</span>
+                                </a>
+                            </li>
+                            <!--Reports-->
+                            <li>
+                                <a href="../reports/reports.html">
+                                    <i class='fa fa-money '></i>
+                                    <span>Reports</span>
+                                </a>
+                            </li> 
+
+                        </ul>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>                
+            <!--Side Nav Bar ENd-->
+            <!--Second Header-->
+            <div id="content-wrap"> 
+                <div class="second-nav">
+                    <ul class="pull-left" style="display: inline-flex">
+                        <li>
+                            <a class="navbar-brand-1" id="menu-icon">
+                                <h4><i class="fa fa-bars"></i></h4>
+                            </a>
+                        </li>
+                        <li>  <h4  style="margin-top:2px">Vehicle Registration</h4>
+                        </li>
+                    </ul>
+                    <ul class="pull-right searchbar">
+                        <li class="pull-left p-r-sm">
+                            <a href="#">
+                                <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                            </a>                    
+                        </li>
+                        <li class="pull-left" style="margin-top: -11px">
+                            <button type="button" class="btn btn-success btn-sm greenbtn" data-toggle="modal" data-target=""><a href="../../FleetManagementSystems/Vehicles/addmultiplevehicles.html" style="color: white;font-size: 13px"><i class="fa fa-plus p-r-xs"></i> Add Multiple Vehicles</a></button> 
+                        </li>
+                        <li class="dropdown pull-left" style="margin-top: -2px">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                                <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                                <!--<li><a href="#">Add Multiple Vehicles</a></li><hr>                               
+                                   <li><a href="#">Import Vehicles</a></li>
+                                   <li><a href="#">Import Meter Readings</a></li><hr>                               
+                                   <li><a href="#">Export CSV</a></li>-->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="container">
+                        <div class="col-md-12 col-xs-12">
+                            <div class="wizard-container p-t-md">
+                                <div class="card wizard-card p-t-n" data-color="red" id="wizard">
+                                    <form>
+                                        <div class="wizard-header">
+                                            <!--                                <h3 class='title'>Vehicle Registration</h3>-->
+                                        </div>
+                                        <div class="wizard-navigation">
+                                            <ul>
+                                                <li><a href="#Primary" data-toggle="tab">Primary Details</a></li>
+                                                <li><a href="#Additional" data-toggle="tab">Additional Details</a></li>
+                                                <li><a href="#Engine" data-toggle="tab">Engine Summary</a></li>
+                                                <li><a href="#Tires" data-toggle="tab">Tires and Wheels Information</a></li>
+                                                <li><a href="#Fuel" data-toggle="tab">Fuel Type</a></li>
+                                                <li><a href="#Settings" data-toggle="tab">Settings</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-content">
+                                            <div class="tab-pane" id="Primary">
+                                                <div class="row">
+
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <h4>Primary Details</h4>
+                                                        <div class="row"  lineheight>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group"  >
+                                                                    <label class="control-label col-md-4 " >Vehicle Name<span class="star">*</span></label>
+                                                                    <div class="col-md-8">
+                                                                        <input type="text"  maxlength="25" placeholder="Enter Vehicle Name" class="form-control textwidth" name="vehicleName" id="vehicleNameId"  autocomplete="off">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group" >
+                                                                    <label class="control-label col-md-4">Register Number<span class="star">*</span></label>
+                                                                    <div class="col-md-8">
+                                                                        <input type="text" maxlength="25"  name="regno" placeholder="Enter Register Number" class="form-control textwidth" id="RegisterNumberId" autocomplete="off">
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2" style="margin-top: 5px">
+                                                                <input type='button' class='btn btn-info'value='Decode vin' />
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="row"  lineheight>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 " style=" font-size: 12px">Temporary Number</label>
+                                                                    <div class="col-md-8">
+                                                                        <input type="text"  name="temporary" placeholder="Enter Temporary Number" class="form-control textwidth" id="temporaryregisterId" autocomplete="off" >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Chassis Number<span class="star">*</span></label>
+                                                                    <div class="col-md-8">
+                                                                        <input type="text" maxlength="20" id="chasisNumberId"  name="chasisNumber" placeholder="Enter Chassis Number" class="form-control textwidth" onkeypress="return isNumber(event)"  autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 col-xs-12">Vehicle Type<span class="star">*</span> </label>
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select     class="form-control" id="vehicleTypeId">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="1">car</option>
+                                                                               <option value="2">van</option>
+                                                                               <option value="3">Boat</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row"  lineheight>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group" id="servicetype" >
+                                                                    <label class="control-label col-md-4 col-xs-12">Service Type<span class="star">*</span> </label>
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select  class="form-control" name="service" id="serviceTypeId">
+                                                                            <!--                                                                            <option value="0">Select service Type</option>-->
+                                                                            <!--                                                                               <option value="1">car</option>
+                                                                                                                                                           <option value="2">van</option>
+                                                                                                                                                           <option value="3">Boat</option>-->-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 col-xs-12"> Vehicle Make<span class="star">*</span></label>
+                                                                    <div class="col-md-8 col-xs-12"> 
+                                                                        <input type="text" id="MakeId" name="Make_name" maxlength="25" placeholder="Enter Vehicle Make" class="form-control textwidth" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 col-xs-12">Vehicle Model<span class="star">*</span></label>
+                                                                    <div class="col-md-8 col-xs-12"> 
+                                                                        <input type="text" maxlength="25"  id="modelId" name="vehicle_model" placeholder="Enter Vehicle Model" class="form-control textwidth"  autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row"  lineheight>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Year<span class="star">*</span></label>                                                                                          
+                                                                    <div class="col-md-8">
+                                                                        <input type="text" maxlength="4" id="yearId" name="yearName" placeholder="Enter Year" class="form-control textwidth" onkeypress="return  Validate2(event)" autocomplete="off">
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Purchase Date<span class="star">*</span></label>
+                                                                    <div class="col-md-8">
+                                                                        <div class="input-group date" data-date-format="yyyy-mm-dd">
+                                                                            <span class="input-group-addon">
+                                                                                <i class="fa fa-calendar"></i>
+                                                                            </span>
+                                                                            <input class="form-control" placeholder="Select Date"  name="purchaseDate" type="text" id="strtDate"  style="width: 239px" autocomplete="off"/>                                                             
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>                                                                                               
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Trim<span class="star">*</span></label>
+                                                                    <div class="col-md-8">
+                                                                        <input type="text" maxlength="10"  name="Trim_name" id="trimId" placeholder="Enter Trim" class="form-control textwidth" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row"  lineheight>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4" style=" font-size: 12px">Registration State<span class="star">*</span></label>
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select class="form-control" id="registration_stateId" name="Registration" autocomplete="off">
+                                                                            <!--                                                                            <option value="0">Select One</option>
+                                                                                                                                                        <option value="1">4Runners</option>
+                                                                                                                                                        <option value="2">F-150</option>
+                                                                                                                                                        <option value="3">Refer</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 col-xs-12">Vehicle Status<span class="star">*</span> </label>
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select class="form-control" id="vehicleStatusId"name="VehicleStatus" >
+                                                                            <!--                                                                            <option value="0">Select One </option>
+                                                                                                                                                        <option value="1">1</option>
+                                                                                                                                                        <option value="2">2</option>
+                                                                                                                                                        <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 ">Operator<span class="star">*</span></label>
+                                                                    <div class="col-md-8">
+                                                                        <select class="form-control" id="operatorId"name="Operator" >
+                                                                            <!--                                                                            <option value="0">Select One </option>
+                                                                                                                                                        <option value="1">1</option>
+                                                                                                                                                        <option value="2">2</option>
+                                                                                                                                                        <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row"   lineheight>
+
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 col-xs-12" style=" font-size: 12px">Type of Ownership<span class="star">*</span> </label>
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select class="form-control" id="ownership_Id" >
+                                                                            <!--                                                                            <option value="0">Select One </option>
+                                                                                                                                                        <option value="1">1</option>
+                                                                                                                                                        <option value="2">2</option>
+                                                                                                                                                        <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Color<span class="star">*</span></label>
+                                                                    <div class="col-md-8">
+                                                                        <input type="text" maxlength="25" name="color_name" id="colorId" placeholder="Enter Color" class="form-control textwidth" name="onlyalphabet" onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" autocomplete="off" >
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Fuel Economy <span class="star">*</span></label> 
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" maxlength="4" name="economy_name" class="form-control textwidth"  placeholder="Enter Fuel Economy" id="fuelEconomyId" onkeypress="return isNumberKey(event)" autocomplete="off">                                                             
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 col-xs-12 file-upload">Photo</label>
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <!--<button type="button" id="pickFileId" class="btn btn-success btn-sm greenbtn" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i>Pick File</button>-->
+                                                                        <!--<div class="container">-->
+                                                                        <div class="preview-images-zone">
+                                                                        </div>
+                                                                        <fieldset class="form-group" >
+                                                                            <input type="file" id="pro_image"  name="pro_image[]"   style="display: none;" class="form-control fileId"  multiple>
+                                                                            <a href="javascript:void(0)" onclick="$('#pro_image').click()">
+                                                                                <button type="button" class="btn btn-success btn-sm" id="uploadId"> <span id="file_error"></span>
+                                                                                    <h5>Upload Image</h5>
+                                                                                </button>
+                                                                            </a>
+                                                                        </fieldset>
+                                                                    </div>
+
+                                                                    <!--                                                                <div style="border: 1px dashed rgb(170, 170, 170);
+                                                                                                                                       display: inline-block; margin: 0px 0px 0px 4px; border-radius: 3px;
+                                                                                                                                       background-color: rgb(243, 243, 243); color: rgb(51, 51, 51); font-size: 14px;
+                                                                                                                                   </div>-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--                                                    <div class="col-md-4 col-xs-12">
+                                                                                                               <div class="form-group">
+                                                                                                                   <label class="control-label col-md-4">Photo</label>
+                                                                                            </div>
+                                                                                                               </div>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="tab-pane" id="Additional">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <h4>Additional Details</h4>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 col-xs-12">Type of Body</label>
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select class="form-control" id="body_typeId">
+                                                                            <!--                                                                <option value="0">Select One </option>
+                                                                               <option value="1">1</option>
+                                                                               <option value="2">2</option>
+                                                                               <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 col-xs-12">Body Sub Type  </label>
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select class="form-control" id="sub_BodyTypeid">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="1">1</option>
+                                                                               <option value="2">2</option>
+                                                                               <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Dimensions</label>
+                                                                    <div class="col-md-8">
+                                                                        <input type="text" placeholder="Enter Dimensions" class="form-control textwidth" id="dimensionsId" onkeypress="return Validate(event)" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Unlanden Weight</label>
+                                                                    <div class="col-md-8">
+                                                                        <input type="text" maxlength="25" placeholder="Enter Unlanden Weight" class="form-control textwidth" id="unladdenWeightId" onkeypress="return Validate(event)" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4" style=" font-size: 11px">Towing Capacity
+                                                                        <a href="#" data-toggle="tooltip" title="The towing ability of the 
+                                                                           vehicle as it comes standard without the addition of optional
+                                                                           suspensions, engines or transmissions.">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>                                                    
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text"  maxlength="25" class="form-control textwidth"  placeholder="Enter Towing Capacity" id="towingcapacityId" onkeypress="return Validate(event)">                                                                      
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Max Payload 
+                                                                        <a href="#" data-toggle="tooltip" title="The maximum allowable
+                                                                           weight that the vehicle can hold. This includes cargo and any
+                                                                           additional options but excludes the driver and fuel.">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>                                                    
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" maxlength="25" class="form-control textwidth"  placeholder="Enter Max Payload" id="maxpayloadId" onkeypress="return Validate(event)" autocomplete="off">                                                                      
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="Engine">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <h4>Engine Summary</h4>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4" style=" font-size: 12px">Displacement(cc)
+                                                                        <a href="#" data-toggle="tooltip" title="Total volume displaced 
+                                                                           during one firing cycle of the engine.">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a> </label>
+                                                                    <div class="col-md-8">
+                                                                        <input type="text" maxlength="25" placeholder="Enter Dispalacement(cc)" class="form-control textwidth" id="displacementId" onkeypress="return Validate(event)" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4"> Aspiration Type <a href="#" data-toggle="tooltip" title="Method for drawing air into the engine.">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>
+                                                                    <div class="col-md-8">
+                                                                        <select class="form-control" id="aspiration_id">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="1">1</option>
+                                                                               <option value="2">2</option>
+                                                                               <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4" style=" font-size: 11px"> Engine Block Type
+                                                                        <a href="#" data-toggle="tooltip" title="Engine Block Type: F,H,I,R,V,W">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>
+                                                                    <div class="col-md-8">
+                                                                        <select class="form-control" id="engineBlockTypeId">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="1">1</option>
+                                                                               <option value="2">2</option>
+                                                                               <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 ">No.of Cylinders 
+                                                                        <a href="#" data-toggle="tooltip" title="Number of cylinders present in the engine.">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>                                                    
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" maxlength="25" class="form-control textwidth"  placeholder="Enter No.of Cylinders " id="noOfCylindersId" onkeypress="return Validate(event)">                                                                      
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 ">Cylinders Bore
+                                                                        <a href="#" data-toggle="tooltip" title="Diameter of the holes in the engine block used for cylinders.">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>                                                    
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" maxlength="25" class="form-control textwidth"  placeholder="Enter Cylinders Bore" id="cylinderBoreId" onkeypress="return Validate(event)" autocomplete="off">                                                                      
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label  col-md-4">Cam Type 
+                                                                        <a href="#" data-toggle="tooltip" title="Type of cam. Examples include DOHC, SOHC, etc...">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>
+                                                                    <div class=" col-md-8">
+                                                                        <select class="form-control"id="camTypeId">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="1">1</option>
+                                                                               <option value="2">2</option>
+                                                                               <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label  col-md-4 " style=" font-size: 11px">Compression Ratio
+                                                                        <a href="#" data-toggle="tooltip" title="Compression Ratio">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>  
+                                                                    <div class=" col-md-8">
+                                                                        <input  type="text" maxlength="10" class="form-control textwidth"  placeholder="Enter Compression Ratio" id="compressionRatioId" onkeypress="return Validate1(event)" autocomplete="off">                                                                                                                                 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label  col-md-4">Fuel Induction 
+                                                                        <a href="#" data-toggle="tooltip" title="Method for drawing fuel into the engine.">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>
+                                                                    <div class=" col-md-8">
+                                                                        <select class="form-control" id="fuelinductionId">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="1">1</option>
+                                                                               <option value="2">2</option>
+                                                                               <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label  col-md-4">Max Power
+                                                                        <a href="#" data-toggle="tooltip" title="Maximum power achieved by engine.
+                                                                           Expressed in units of Horsepower.">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>
+                                                                    <div class=" col-md-8">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Max Power"id="maxPowerId" onkeypress="return Validate1(event)" autocomplete="off">                                                                      
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label  col-md-4">Max Torque
+                                                                        <a href="#" data-toggle="tooltip" title="Maximum torque delivered by engine. Expressed in units of foot-pounds.">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>
+                                                                    <div class=" col-md-8">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Max Torque" id="maxTorqueId" onkeypress="return Validate1(event)" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4" style=" font-size: 11px">Valves per Cylinder
+                                                                        <a href="#" data-toggle="tooltip" title="Total number of valves in the engine (not valves per cylinder).">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>
+                                                                    <div class=" col-md-8">
+                                                                        <input type="text" maxlength="20" placeholder="Enter Valves per Cylinder  " class="form-control textwidth"id="cylinderID" onkeypress="return isNumberKey(event)" autocomplete="off">  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Transmission Type</label>
+                                                                    <div class=" col-md-8">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Transmission Type" id="TransmissionId" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4" >No.of Transmission <br>Gears
+                                                                        <a href="#" data-toggle="tooltip" title="Number of gears/speeds available.">
+                                                                            <span class="glyphicon glyphicon-info-sign" ></span></a></label>
+                                                                    <div class=" col-md-8">
+                                                                        <input type="text" placeholder="Enter No.of Transmission Gears" class="form-control textwidth" id="noOftransmissiongearsId" onkeypress="return isNumberKey(event)" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="Tires">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <h4>Tires & Wheels Information</h4>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Wheel Drive</label>
+                                                                    <div class="col-md-8">
+                                                                        <select class="form-control"id="wheelDriveId">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="1">1</option>
+                                                                               <option value="2">2</option>
+                                                                               <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Brake System</label>
+                                                                    <div class="col-md-8">
+                                                                        <select class="form-control"id="brakeid">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="1">1</option>
+                                                                               <option value="2">2</option>
+                                                                               <option value="3">3</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4"> Track Width (Front) </label>  
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Front Track Width " id="frontTrackID" onkeypress="return Validate1(event)" autocomplete="off">                                                                                                                                  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4"> Track Width (Rear) </label>  
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Rear Track Width "id="rearTrackID" id="rearTrackID" onkeypress="return Validate1(event)" autocomplete="off">                                                                                                                                  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Wheel Base</label>  
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Wheel Base " id="wheelBaseId" onkeypress="return Validate1(event)" autocomplete="off">                                                                                                                                  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Wheel Diameter (Front) </label>  
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Front Wheel Diameter  " id="frontwheelDiameterId" onkeypress="return Validate1(event)">                                                                                                                                  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Wheel Diameter (Rear)</label>  
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Rear Wheel Diameter " id="rearwheelDiameterId" onkeypress="return Validate1(event)" autocomplete="off">                                                                                                                                  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Tire PSI (Front)</label>  
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Front Tire PSI " id="fronttirePSIId" onkeypress="return isNumberKey(event)" autocomplete="off">                                                                                                                                  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Tire Type (Rear)</label>  
+                                                                    <div class="col-md-8">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Rear Tire Type "id="reartirePSIId" autocomplete="off">                                                                                                                                  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="Fuel">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <h4>Fuel Type</h4>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Fuel Type<span class="star">*</span></label> 
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select class="form-control"id="fuelTypeId">
+
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="1">car</option>
+                                                                               <option value="2">van</option>
+                                                                               <option value="3">Boat</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Fuel Rating </label>  
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Fuel Rating " id="fuelRatingId" onkeypress="return Validate1(event)" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Fuel Tank 1 Capacity</label>                                                    
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Fuel Tank1 Capacity" id="tankcapacityId1" onkeypress="return Validate1(event)" autocomplete="off">                                                    
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Fuel Tank 2 Capacity</label>                                                    
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Fuel Tank2 Capacity" id="tankcapacityId2" onkeypress="return Validate1(event)" autocomplete="off">                                                           
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Oil Reservoir Capacity</label>   
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Oil Reservoir Capacity" id="oilreserviorCapacityId" onkeypress="return Validate1(event)" autocomplete="off">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane" id="Settings">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-xs-12">
+                                                        <h4>Settings</h4>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Primary OdoMeter<span class="star">*</span></label> 
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select class="form-control meterUnitId" id="primaryMeterUnitId">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="0">Miles</option>
+                                                                               <option value="1">Kilometers</option>
+                                                                               <option value="2">Hours</option>
+                                                                               <option value="3">Others</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 ">Current OdoMeter-Reading<span class="star">*</span></label>                                                                                                                   
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <input  type="text" maxlength="10" name="currentOdoMeter"   class="form-control textwidth"  placeholder="Enter Current Reading" id="currentOdometerId"  onkeypress="return Validate2(event)" autocomplete="off">  
+                                                                        <span style=" font-size: 10px">Average Usage per Day</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12" >
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4 ">Average Usage per Day</label>                                                                                                                   
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <input  type="text" class="form-control textwidth"   id="avgUsageId" placeholder="Enter Average Usage per Day Reading" autocomplete="off"> 
+                                                                        <label class="check" ><span class="name">Automatically calculate</span><input type="checkbox" id="myCheck" onclick="myFunction1()"><span class="checkmark"></span></label>
+
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="col-sm-4 control-label">Secondary OdoMeter</label>                                                           
+                                                                    <div class="col-sm-8 col-xs-12 ">
+                                                                        <label class="switch">
+                                                                            <input type="checkbox" id="togBtn" >
+                                                                            <div class="slider round" onclick="myEnableFiled()"></div>
+                                                                        </label>
+                                                                        <br> 
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row" id="rowselect">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Secondary OdoMeter-Status<span class="star">*</span></label> 
+                                                                    <div class="col-md-8 col-xs-12" id="secondaryStatusID">
+                                                                        <select class="form-control chosen-select meterUnitId"  id="odometerId" >
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="0">Miles</option>
+                                                                               <option value="1">Kilometers</option>
+                                                                               <option value="2">Hours</option>
+                                                                               <option value="3">Others</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Current OdoMeter-Reading<span class="star">*</span></label> 
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <input  type="text" class="form-control textwidth" name="currentodo2"   placeholder="Enter Current Reading" id="current_OdometerId1" onkeypress="return Validate2(event)"  autocomplete="off">  
+                                                                        <span style=" font-size: 10px">Average Usage per Day</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12" >
+                                                                <div class="form-group" >
+                                                                    <label class="control-label col-md-4 ">Average Usage per Day</label>                                                                                                                   
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <input  type="text" class="form-control textwidth"  placeholder="Enter Average Usage per Day Reading" id="avgUsageId3" autocomplete="off"> 
+                                                                        <label class="check" ><span class="name">Automatically calculate</span><input type="checkbox" id="myCheck1" onclick="myFunction2()"><span class="checkmark"></span></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Measurement<span class="star"></span></label> 
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select class="form-control" id="measurementId">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="0">Miles</option>
+                                                                               <option value="1">Kilometers</option>
+                                                                               <option value="2">Hours</option>
+                                                                               <option value="3">Others</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 col-xs-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label col-md-4">Fuel Units<span class="star">*</span></label> 
+                                                                    <div class="col-md-8 col-xs-12">
+                                                                        <select class="form-control" id="fuelUnitId">
+                                                                            <!--                                                                <option value="0">Select One</option>
+                                                                               <option value="0">Miles</option>
+                                                                               <option value="1">Kilometers</option>
+                                                                               <option value="2">Hours</option>
+                                                                               <option value="3">Others</option>-->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="upload-response">
+                                                                <div id="multipleFileUploadError"></div>
+                                                                <div id="multipleFileUploadSuccess"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wizard-footer">
+                                            <div class="pull-right">
+                                                <input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next'id="nextId" onclick="saveTemporaryVehicleDetails1()" value='Next'/>
+                                                <input type='button' class='btn btn-finish btn-fill btn-primary btn-wd' id="saveBTNID" name='finish' value='Save' onclick="saveVehicleDetails()"/>
+                                                <button type="reset" value="reset"  class='btn btn-finish btn-fill btn-danger btn-wd' id="resetId" onclick="resetonclick()"><i class="fa fa-close"></i>Reset</button>  
+                                                <!--                                                                                         <button type="reset"  class="btn btn-warning w-100"   value="Reset" id="resetbutton"  onclick="resetbtn()">Reset</button>-->
+
+                                            </div>
+                                            <div class="pull-left t1">
+                                                <input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Previous' />
+                                            </div>
+                                            <div class="clearfix">                                    
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Modal box for Registration-->
+                    <!--            <div id="registration" class="modal fade" role="dialog">
+                                    <div class="modal-dialog modal-md">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times; </button>                      
+                                                <h4 class="modal-title">Photo Upload</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="form-horizontal" id="uploadImages" method="post" enctype="multipart/form-data">
+                                                    <div class="sub-title">
+                                                        <h5>Photo UpLoad</h5>
+                                                    </div>
+                                                    <div class="container">
+                                                        <div class="preview-images-zone">
+                                                        </div>
+                                                        <fieldset class="form-group">
+                                                            <input type="file" id="pro_image"  name="pro_image"   style="display: none;" class="form-control fileId" multiple>
+                                                            <a href="javascript:void(0)" onclick="$('#pro_image').click()">
+                                                                <button type="button" class="btn btn-success btn-sm" id="uploadId" >
+                                                                    <h5>Upload Image</h5>
+                                                                </button>
+                                                            </a>
+                                                        </fieldset>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                    <input type="hidden" id="tempstatusID">
+                    <input type="hidden" id="imagePathId">
+
+
+                    <footer>
+                        <div class="col-md-12 col-xs-12 footer text-right">
+                            <small>Powered by ProCreate Techno Systems Private Limited</small>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+                <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+                <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+                <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>-->
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/Ui.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/datatables.min.js"></script>
+
+<!--         <script src="../../js/bootstrap-datepicker.js"></script>  -->
+        <script src="../../js/bootstrap-datetimepicker.min.js"></script>       
+        <script src="../../js/chosen.jquery.js"></script>
+        <script src="../../js/metisMenu.min.js"></script>
+        <script src="../../js/bootstrap-toggle.min.js"></script>
+        <script src="../../wizard/js/jquery.bootstrap.js"></script>
+        <script src="../../wizard/js/jquery.validate.min.js"></script>
+        <script src="../../wizard/js/material-bootstrap-wizard.js"></script>
+        <script src ="../../js/FMS/VehicleRegistrationController.js"></script>
+        <script src ="../../js/FMS/ServiceURL.js"></script>
+        <script src ="../../js/notify.min.js"></script>
+        <script src ="../../js/notify.js"></script>
+        <script src="../../js/jquery.validate.min.js"></script>
+        <script>
+                                                    $(document).ready(function () {
+
+                                                        //                                            Chosen Select
+                                                        $('select').chosen();
+                                                        $('[data-toggle="tooltip"]').tooltip();           // Tooltip
+                                                        $('[data-toggle="popover"]').popover({
+                                                            trigger: 'hover',
+                                                            width: '200px;'
+                                                        });
+                                                        //Side Menu
+                                                        $("#menu-icon").click(function () {
+                                                            $("#sidebar").toggleClass('active');
+                                                            $("#content-wrap").toggleClass('active');
+                                                        });
+
+                                                        $('#metismenu').metisMenu();
+                                                        //Date Pickers
+                                                        var today = new Date();
+                                                        $("#strtDate").datepicker({
+                                                            autoclose: true,
+                                                            todayHighlight: true,
+                                                            endDate: "today",
+                                                            maxDate: today
+                                                        }).datepicker();
+                                                        $("#endDate").datepicker({
+                                                            autoclose: true,
+                                                            todayHighlight: true
+                                                        }).datepicker();
+                                                    });
+                                                    $("#menu-toggle").click(function (e) {
+                                                        e.preventDefault();
+                                                        $("#wrapper").toggleClass("toggled");
+                                                    });
+                                                    $(".imgAdd").click(function () {
+                                                        $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary">Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
+                                                    });
+                                                    $(document).on("click", "i.del", function () {
+                                                        $(this).parent().remove();
+                                                    });
+                                                    $(function () {
+                                                        $(document).on("change", ".uploadFile", function ()
+                                                        {
+                                                            var uploadFile = $(this);
+                                                            var files = !!this.files ? this.files : [];
+                                                            if (!files.length || !window.FileReader)
+                                                                return; // no file selected, or no FileReader support
+
+                                                            if (/^image/.test(files[0].type)) { // only image file
+                                                                var reader = new FileReader(); // instance of the FileReader
+                                                                reader.readAsDataURL(files[0]); // read the local file
+
+                                                                reader.onloadend = function () { // set image data as background of div
+                                                                    //alert(uploadFile.closest(".upimage").find('.imagePreview').length);
+                                                                    uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url(" + this.result + ")");
+                                                                }
+                                                            }
+
+                                                        });
+                                                    });
+        </script>
+        <!--Image Scripting-->
+        <script>
+            $(document).ready(function () {
+                document.getElementById('pro_image').addEventListener('change', readImage, false);
+                $(".preview-images-zone").sortable();
+                $(document).on('click', '.image-cancel', function () {
+                    $(this).parent().remove();
+                    $(".preview-image.preview-show-" + no).remove();
+                });
+                $(document).on('click', '#uploadID', function () {
+                    imageUploadForSaveUserDetails();
+                    $(this).parent().remove();
+                    $("#imageCancelId").hide();
+                });
+            });
+            var num = 0;
+            function readImage() {
+                if (window.File && window.FileList && window.FileReader) {
+
+                    var files = event.target.files; //FileList object
+                    var output = $(".preview-images-zone");
+                    for (let i = 0; i < 4; i++) {
+
+                        var file = files[i];
+                        if (!file.type.match('image'))
+                            continue;
+                        var picReader = new FileReader();
+                        picReader.addEventListener('load', function (event) {
+                            var picFile = event.target;
+                            var html = '<div class="preview-image preview-show-' + num + '">' +
+                                    '<div class="image-cancel" id="imageCancelId" data-no="' + num + '">x</div>' +
+                                    '<div class="image-zone"><img id="pro-img-' + num + '" src="' + picFile.result + '"></div>' +
+                                    '<div class="tools-edit-image"><a href="javascript:void(0)" data-no="' + num + '" class="fa fa-upload" id="uploadID" aria-hidden="true"></a></div>' +
+                                    '</div>';
+                            output.append(html);
+                            num = num + 1;
+                            if (num > 4) {
+
+                            }
+                        });
+                        picReader.readAsDataURL(file);
+                    }
+                    $("#pro_image").val('');
+                } else {
+                    console.log('Browser not support');
+                }
+            }
+            $(window).load(function () {
+                // Animate loader off screen
+                $(".se-pre-con").fadeOut(50);
+            });
+//            function readURL(input) {
+//
+//                if (input.files && input.files[0]) {
+//                    var reader = new FileReader();
+//                    reader.onload = function(e) {
+//                        $('#blah')
+//                                .attr('src', e.target.result)
+//
+//                                .width(4)
+//                                .height(4);
+//                    };
+//                    reader.readAsDataURL(input.files[0]);
+//                }
+//            }
+
+
+
+
+
+
+
+
+        </script>
+        //<script>
+            //$('#nextId').click(function() {
+            //validations();
+            //});
+            //Form Validations
+            //function validations() {
+            //  alert("jjjjjjjjjjjjjjjjjjjjjjjj");
+            // $('form-group').validate({
+            //  rules: {
+            //   vehicleNameId :'required',
+            //   RegisterNumberId:'required',
+            // RegisterNumberId 'required',
+//                        serviceProviderRegistrationIncorporationDate: 'required',
+//                        panCard: 'required',
+//                        panCardCopyInput: 'required',
+//                        firstName: 'required',
+//                        lastName: 'required',
+//                        email: 'required',
+//                        reEnterEmail: 'required',
+//                        mobileNumber: 'required',
+//                        userName: 'required',
+//                        password: 'required',
+//                        reEnterPassword: 'required',
+//                        contactPerson: 'required',
+//                        designation: 'required',
+//                        mobile: 'required',
+//                        contactMobile: 'required',
+//                        registeredAddress: 'required',
+//                        registeredPicode: 'required',
+//                        localAddress: 'required',
+//                        localPincode: 'required',
+//                        contactAddress: 'required',
+//                        contactZipcode: 'required'
+            // },
+            // messages: {
+            //   vehicleNameId: 'Please Select Service Provider Type',
+            //   RegisterNumberId:'Please Enter Service Provider Name',
+//                       // RegisterNumberId 'Please Enter Service Provider Name',
+//                        serviceProviderRegistrationIncorporationDate: 'Please Select Registration Date',
+//                        panCard: 'Please Enter Pancard Number',
+//                        panCardCopyInput: 'Please Upload Pancard',
+//                        firstName: 'Please Enter First Name',
+//                        lastName: 'Please Enter Last Name',
+//                        email: 'Please Enter EMail',
+//                        reEnterEmail: 'Please Re-Enter EMail',
+//                        mobileNumber: 'Please Enter Mobile Number',
+//                        userName: 'Please Enter User Name',
+//                        password: 'Please Enter Password',
+//                        reEnterPassword: 'Please Re-Enter Password',
+//                        contactPerson: 'Please Enter Contact Person Name',
+//                        designation: 'Please Enter Designation',
+//                        mobile: 'Please Enter Mobile Number',
+//                        contactMobile: 'Please Enter Mobile Number',
+//                        registeredAddress: 'Please Enter Address',
+//                        registeredPicode: 'Please Enter Pin Code',
+//                        contactZipcode: 'Please Enter Pin Code',
+//                        localAddress: 'Please Enter Address',
+//                        localPincode: 'Please Enter Pin Code',
+//                        contactAddress: 'Please Enter Address',
+//                        contactZipcode: 'Please Enter Pin Code'
+
+            //},
+            // submitHandler: function(form) {
+            ///     form.submit();
+            //}
+            //});
+            //}
+        </script>
+    </body>
+</html>

@@ -1,0 +1,566 @@
+
+<!DOCTYPE html><html><head><title>Issue #8 - 4100 [2012 Freightliner Cascadia] - Issues - Fleetio</title><meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><meta content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" name="viewport" /><meta content="production" name="environment" /><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+	<script src="../../assets/js/jquery1.2.min.js"></script>
+	<script src="../../assets/js/moment.min.js"></script>
+	<script src="../../assets/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/datatables.min.js"></script>
+	<script src="../../assets/js/chosen.jquery.js"></script>
+	<script src="../../assets/js/metisMenu.min.js"></script>
+	<script src="../../assets/js/bootstrap-datepicker.js"></script>
+	<script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../../assets/js/notify.js/"></script>
+	<script src="../../assets/js/notify.min.js/"></script>
+<script src="//d3hg8hj412aefj.cloudfront.net/assets/highcharts-31ef20f1b051a2d09c20de7c731d4fd1aa689f380ad19a7e7d5780249bce9308.js"></script><script type='text/javascript'>
+  //<![CDATA[
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t,e){var n=document.createElement("script");n.type="text/javascript";n.async=!0;n.src="https://cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(n,a);analytics._loadOptions=e};analytics.SNIPPET_VERSION="4.1.0";
+    var integrations = { All: true, 'Olark': false }
+    
+    // IE11
+    if (window.navigator.userAgent.indexOf('Trident/') !== -1) {
+      integrations['Intercom'] = false
+    }
+    analytics.load("i2bqx5ic7s", { integrations: integrations });
+    
+    analytics.ready(function () {
+      if (typeof ga !== 'undefined') {
+        ga('require', 'linker');
+        ga('linker:autoLink', ['www.fleetio.com', 'secure.fleetio.com']);
+      }
+    });
+    }}();
+  //]]>
+</script>
+<script type="text/javascript" src="https://cdn.statuspage.io/se-v2.js"></script>
+<script type="text/javascript">
+  $(document).on("fleetio:ready", function() {
+    var sp = new StatusPage.page({ page : 'gdc0jqmkq6r5' });
+    sp.scheduled_maintenances({
+      filter : 'upcoming',
+      success : function(data) {
+        // Get earliest maintenance
+        earliestScheduledMaintenance = _.first(_.sortBy(data.scheduled_maintenances, function(m) { return new Date(m.scheduled_for).getTime(); } ));
+        // If user haven't already dismissed it
+        if(earliestScheduledMaintenance && spark.cookie.get("statuspage-warning") != earliestScheduledMaintenance.id)
+        {
+          var scheduledDate = new Date(earliestScheduledMaintenance.scheduled_for);
+          var now = new Date().getTime();
+          var message = "";
+
+          if(earliestScheduledMaintenance.id == "dnyns1ydk5lq")
+          {
+            message = "All Fleetio systems will be down for routine maintenance on December 23rd at noon Central Time for about 2 hours. We're sorry for any inconvenience. If you have any questions please contact us at help@fleetio.com.";
+          }
+          else
+          {
+            var scheduledFor = moment(scheduledDate);
+            var scheduledUntil = moment(new Date(earliestScheduledMaintenance.scheduled_until));
+            var localTime = scheduledFor.utcOffset(-(new Date().getTimezoneOffset())).format("h:mma");
+            var prettyDate = ""
+            if (((scheduledDate.getTime() - now) / (1000*3600)) < 12)
+            {
+              prettyDate = moment(now).to(scheduledFor);
+            }
+            else
+            {
+              prettyDate = "on " + scheduledFor.format("dddd, MMMM Do, YYYY");
+            }
+
+            message = "We will be taking the application down for scheduled maintenance " + prettyDate + " at " + localTime + " for approximately " + scheduledUntil.diff(scheduledFor, 'minutes') + " minutes. During this time, Fleetio will be unavailable.";
+          }
+
+          if(message != "")
+          {
+            spark.toast.new({
+              message: message,
+              theme: "success",
+              timeout: false,
+              onClose: function() {
+                spark.cookie.set("statuspage-warning", earliestScheduledMaintenance.id, { expires: 2 });
+              }
+            });
+          }
+        }
+      }
+    });
+  });
+</script>
+<!-- Revision d5b8c4a1d61f38184fb4110dff09c3163018e931 --><!-- FleetioSpark: v1.0.2 --></head><body class="issues-view-styles"><div class="app-wrapper"><nav aria-label="primary sidebar" class="spark-nav-sidebar theme-primary" data-nav-id="id-8958df6379ba421e98df" data-scroll="" id="sidebar"><div class="spark-nav-sidebar-wrapper"><div class="spark-nav-sidebar-header"><a class="dropdown-toggle sidebar-header-link" data-toggle="dropdown" href="javascript:void(0)"><div class="spark-media-block layout-reverse align-middle gutter-medium"><div class="spark-media-block-image"><svg aria-hidden="" aria-label="" aria-presentation="true" class="spark-icon-placeholder-wrapper spark-icon-placeholder ui-placeholder" height="32" version="1.1" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" fill="#78858A" r="16"></circle><text alignment-baseline="central" dominant-baseline="central" fill="#ffffff" font-size="10px" text-anchor="middle" x="16" y="16">NK</text></svg></div><div class="spark-media-block-content"><div class="spark-media-block-title no-wrap"><div class="sidebar-header-account">Raja</div><svg class="svg-symbol svg-chevron-down spark-icon sidebar-header-icon" viewBox="0 0 24 24" role="img" width="10" height="10"><use xlink:href="#svg-chevron-down" width="24" height="24"></use></svg></div><div class="spark-media-block-body"><div class="sidebar-header-contact">Naresh kante</div></div></div></div></a><ul class="dropdown-menu"><li class="account-brand-wrapper auto-h-margin"><a class="account-logo-placeholder auto-h-margin" href="/b93614950b/account/edit"><i class="material-icons md-photo_size_select_large"></i><span>Add Logo</span></a><h4 class="account-name">Raja</h4></li><li><a href="/b93614950b/account/edit">Account Settings</a></li><li><a href="/b93614950b/account/subscriptions">Billing &amp; Subscriptions</a></li><li><a href="/b93614950b/users">User Management</a></li><li class="divider full-width"></li><li class="user-name"><div class="media"><div class="media-left media-middle r-padding-md"><svg aria-hidden="" aria-label="" aria-presentation="true" class="spark-icon-placeholder-wrapper spark-icon-placeholder ui-placeholder" height="44" version="1.1" viewBox="0 0 44 44" width="44" xmlns="http://www.w3.org/2000/svg"><circle cx="22" cy="22" fill="#78858A" r="22"></circle><text alignment-baseline="central" dominant-baseline="central" fill="#ffffff" font-size="14px" text-anchor="middle" x="22" y="22">NK</text></svg></div><div class="media-body media-middle"><h4 class="t-margin-sm no-b-margin">Naresh kante</h4><small class="text-muted">naresh.procreate@gmail.com</small></div></div></li><li><a href="/b93614950b/account_memberships/183265/edit">User Settings</a></li><li><a href="/b93614950b/notifications/settings">Notification Preferences</a></li><li><a href="/users/edit">Edit Login &amp; Password</a></li><li><a href="https://secure.fleetio.com/logout">Log out</a></li></ul></div><div class="spark-nav-sidebar-main"><ul aria-label="" class="nav-tree spark-nav-group" data-tree="app-sidebar-nav" id="app-sidebar-nav" role="tree"><li class="nav-item-wrapper" role="none"><a class="nav-item tree-node" href="/b93614950b/dashboard"><svg class="svg-symbol svg-dashboard spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-dashboard" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Dashboard</span></span></a></li><li aria-expanded="false" class="nav-item-wrapper tree-node" data-node="vehicles" role="treeitem"><a class="nav-item tree-trigger" href="#" role="treeitem" tabindex="0"><svg class="svg-symbol svg-vehicle spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-vehicle" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Vehicles</span></span><svg class="svg-symbol svg-chevron-down spark-icon expand-icon" viewBox="0 0 24 24" role="img" width="9px" height="9px"><use xlink:href="#svg-chevron-down" width="24" height="24"></use></svg></a><ul class="spark-nav-group" role="group"><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/vehicles"><span class="nav-item-content"><span class="nav-item-text">Vehicle List</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/vehicle_assignments"><span class="nav-item-content"><span class="nav-item-text">Vehicle Assignments</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/vehicles/watching"><span class="nav-item-content"><span class="nav-item-text">Watched Vehicles</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/meter_entries"><span class="nav-item-content"><span class="nav-item-text">Meter History</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/expense_entries"><span class="nav-item-content"><span class="nav-item-text">Expense History</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/account/gps/integrations"><span class="nav-item-content"><span class="nav-item-text">GPS Integrations</span></span></a></li></ul></li><li aria-expanded="false" class="nav-item-wrapper tree-node" data-node="inspections" role="treeitem"><a class="nav-item tree-trigger" href="#" role="treeitem" tabindex="0"><svg class="svg-symbol svg-inspection spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-inspection" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Inspections</span></span><svg class="svg-symbol svg-chevron-down spark-icon expand-icon" viewBox="0 0 24 24" role="img" width="9px" height="9px"><use xlink:href="#svg-chevron-down" width="24" height="24"></use></svg></a><ul class="spark-nav-group" role="group"><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/submitted_inspection_forms"><span class="nav-item-content"><span class="nav-item-text">Inspection History</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/failed_inspection_items"><span class="nav-item-content"><span class="nav-item-text">Item Failures</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/inspection_schedules"><span class="nav-item-content"><span class="nav-item-text">Schedules</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/inspection_forms"><span class="nav-item-content"><span class="nav-item-text">Forms</span></span></a></li></ul></li><li aria-expanded="true" class="nav-item-wrapper tree-node" data-node="issues" role="treeitem"><a class="nav-item tree-trigger" href="#" role="treeitem" tabindex="0"><svg class="svg-symbol svg-issue spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-issue" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Issues</span></span><svg class="svg-symbol svg-chevron-down spark-icon expand-icon" viewBox="0 0 24 24" role="img" width="9px" height="9px"><use xlink:href="#svg-chevron-down" width="24" height="24"></use></svg></a><ul class="spark-nav-group" role="group"><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/issues"><span class="nav-item-content"><span class="nav-item-text">Issue List</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/faults"><span class="nav-item-content"><span class="nav-item-text">Faults</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/recalls/state/needs_action"><span class="nav-item-content"><span class="nav-item-text">Recalls</span></span></a></li></ul></li><li aria-expanded="false" class="nav-item-wrapper tree-node" data-node="reminders" role="treeitem"><a class="nav-item tree-trigger" href="#" role="treeitem" tabindex="0"><svg class="svg-symbol svg-reminder spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-reminder" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Reminders</span></span><svg class="svg-symbol svg-chevron-down spark-icon expand-icon" viewBox="0 0 24 24" role="img" width="9px" height="9px"><use xlink:href="#svg-chevron-down" width="24" height="24"></use></svg></a><ul class="spark-nav-group" role="group"><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/service_reminders"><span class="nav-item-content"><span class="nav-item-text">Service Reminders</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/vehicle_renewal_reminders"><span class="nav-item-content"><span class="nav-item-text">Vehicle Renewals</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/contact_renewal_reminders"><span class="nav-item-content"><span class="nav-item-text">Contact Renewals</span></span></a></li></ul></li><li aria-expanded="false" class="nav-item-wrapper tree-node" data-node="service" role="treeitem"><a class="nav-item tree-trigger" href="#" role="treeitem" tabindex="0"><svg class="svg-symbol svg-service spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-service" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Service</span></span><svg class="svg-symbol svg-chevron-down spark-icon expand-icon" viewBox="0 0 24 24" role="img" width="9px" height="9px"><use xlink:href="#svg-chevron-down" width="24" height="24"></use></svg></a><ul class="spark-nav-group" role="group"><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/service_entries"><span class="nav-item-content"><span class="nav-item-text">Service History</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/work_orders"><span class="nav-item-content"><span class="nav-item-text">Work Orders</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/service_tasks"><span class="nav-item-content"><span class="nav-item-text">Service Tasks</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/service_programs"><span class="nav-item-content"><span class="nav-item-text">Service Programs</span><span class="nav-item-status spark-badge color-yellow outline">new</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/shop_directory"><span class="nav-item-content"><span class="nav-item-text">Shop Directory</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/service_integrations"><span class="nav-item-content"><span class="nav-item-text">Integrations</span></span></a></li></ul></li><li aria-expanded="false" class="nav-item-wrapper tree-node" data-node="fuel" role="treeitem"><a class="nav-item tree-trigger" href="#" role="treeitem" tabindex="0"><svg class="svg-symbol svg-fuel spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-fuel" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Fuel</span></span><svg class="svg-symbol svg-chevron-down spark-icon expand-icon" viewBox="0 0 24 24" role="img" width="9px" height="9px"><use xlink:href="#svg-chevron-down" width="24" height="24"></use></svg></a><ul class="spark-nav-group" role="group"><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/fuel_entries"><span class="nav-item-content"><span class="nav-item-text">Fuel History</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/account/fuel_cards"><span class="nav-item-content"><span class="nav-item-text">Fuel Integrations</span></span></a></li></ul></li><li aria-expanded="true" class="nav-item-wrapper tree-node" data-node="contacts_users" role="treeitem"><a class="nav-item tree-trigger" href="#" role="treeitem" tabindex="0"><svg class="svg-symbol svg-contact spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-contact" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Contacts &amp; Users</span></span><svg class="svg-symbol svg-chevron-down spark-icon expand-icon" viewBox="0 0 24 24" role="img" width="9px" height="9px"><use xlink:href="#svg-chevron-down" width="24" height="24"></use></svg></a><ul class="spark-nav-group" role="group"><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/contacts"><span class="nav-item-content"><span class="nav-item-text">Contact List</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/users"><span class="nav-item-content"><span class="nav-item-text">User Management</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/vendors"><span class="nav-item-content"><span class="nav-item-text">Vendor List</span></span></a></li></ul></li><li aria-expanded="true" class="nav-item-wrapper tree-node" data-node="parts_inventory" role="treeitem"><a class="nav-item tree-trigger" href="#" role="treeitem" tabindex="0"><svg class="svg-symbol svg-part spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-part" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Parts &amp; Inventory</span></span><svg class="svg-symbol svg-chevron-down spark-icon expand-icon" viewBox="0 0 24 24" role="img" width="9px" height="9px"><use xlink:href="#svg-chevron-down" width="24" height="24"></use></svg></a><ul class="spark-nav-group" role="group"><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/parts"><span class="nav-item-content"><span class="nav-item-text">Parts List</span></span></a></li><li class="nav-item-wrapper" role="treeitem"><a class="nav-item" href="/b93614950b/multiple/part_updates/new"><span class="nav-item-content"><span class="nav-item-text">Bulk Manage Parts</span></span></a></li></ul></li><li class="nav-item-wrapper" role="none"><a class="nav-item tree-node" href="/b93614950b/places"><svg class="svg-symbol svg-place spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-place" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Places</span></span></a></li><li class="nav-item-wrapper" role="none"><a class="nav-item tree-node" href="/b93614950b/reports"><svg class="svg-symbol svg-report spark-icon nav-item-icon" viewBox="0 0 24 24" role="img" width="18" height="18"><use xlink:href="#svg-report" width="24" height="24"></use></svg><span class="nav-item-content"><span class="nav-item-text">Reports</span></span></a></li></ul></div><div class="spark-nav-sidebar-footer"><div class="checklist-trigger"><div class="checklist-trigger-icon-wrapper"><svg class="svg-symbol svg-checklist spark-icon checklist-trigger-icon" viewBox="0 0 14 14" role="img" width="14" height="14"><use xlink:href="#svg-checklist" width="14" height="14"></use></svg></div><div class="checklist-trigger-content"><div class="checklist-trigger-title">Getting Started Guide</div><div class="checklist-trigger-subtitle">View Checklist</div></div></div></div></div></nav><div class="app-main"><div id="header"><button aria-hidden="" class="nav-toggle app-sidebar-toggle" data-nav-toggle="body, #sidebar" id="id-40d64019e59a035d0a41"><span class="nav-toggle-icon-wrapper"><span class="nav-toggle-menu-icon"></span></span></button><div class="spark-layout-block gutter-base action-gutter-small flex-no-wrap"><div class="spark-layout-block-items"><div class="spark-layout-block-item"><a class="app-header-logo" href="/b93614950b/dashboard"><svg class="svg-symbol svg-logo spark-icon" viewBox="0 0 88.42 52.28" role="img" width="51" height="30"><use xlink:href="#svg-logo" width="88" height="52"></use></svg></a></div><div class="spark-layout-block-item expand"><div class="search-panel" data-show-panel="#search-results" data-watch-stack="#search-stack" ng-controller="UniversalSearchController"><div data-input-type="search" class="text-input-label placeholder-label"><span class="input-wrapper"><span class="input-icon"><svg class="svg-symbol svg-search" viewBox="0 0 25 25" role="img" width="25" height="25"><use xlink:href="#svg-search" width="25" height="25"></use></svg></span><span class="input-container"><input type="text" name="q" id="q" autocorrect="off" role="search" placeholder="Search Fleetio" data-unique-id="input-141f0d06238f12c5" autocomplete="off" aria-label="Search Fleetio" class="empty" /></span><button name="button" type="button" class="clear-search" aria-label="Clear search" disabled="disabled" data-clear-input="[data-unique-id=input-141f0d06238f12c5]">x</button><span class="input-extra"><select data-sync-selected='[data-sync=input-141f0d06238f12c5]'  name="search_model" id="search_model"><option value="">All</option>
+<option value="Vehicle">Vehicles</option>
+<option value="Contact">Contacts</option>
+<option value="ServiceEntry">Service Entries</option>
+<option value="Vendor">Vendors</option>
+<option value="Issue">Issues</option>
+<option value="FuelEntry">Fuel Entries</option>
+<option value="SubmittedInspectionForm">Inspection Submissions</option>
+<option value="ServiceReminder">Service Reminders</option>
+<option value="VehicleRenewalReminder">Vehicle Renewal Reminders</option>
+<option value="ContactRenewalReminder">Contact Renewal Reminders</option>
+<option value="Place">Places</option></select><span class='select-text' data-sync='input-141f0d06238f12c5'>All</span></span></span></div><section aria-modal="true" aria-hidden="true" id="search-results" class="modal-panel"><div class="modal-panel-content"><div data-stack="root" id="search-stack"><div data-empty="false" data-stack="recent"></div><div data-stack="results"></div><div data-stack="more"></div></div></div><footer class="modal-panel-footer">Use <kbd>↑</kbd> <kbd>↓</kbd> to navigate, <kbd>enter</kbd> to select, <kbd>esc</kbd> to dismiss, and <kbd>/</kbd> to activate search.</footer></section></div></div></div><div class="spark-layout-block-actions"><div class="spark-layout-block-action trial-notice-wrapper"><div class="spark-trial-notice trial-ending-soon"><div class="spark-trial-notice-text">3 days left in trial</div><a type="button" class="spark-button size-small color-yellow" href="/b93614950b/account/subscriptions/manage"><span class="spark-button-label">Manage</span></a></div></div><div class="spark-layout-block-action trial-notice-spacer block-spacer size-base"></div><div class="spark-layout-block-action"><div class="dropdown help-dropdown" ng-controller="AnnouncementsController" ng-init="init(43)"><a class="help-menu-btn dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)" ng-class="{&#39;new-announcements&#39;: announcements_count &gt; 0}"><svg class="svg-symbol svg-question spark-icon" viewBox="0 0 24 24" role="img" width="14" height="14"><use xlink:href="#svg-question" width="24" height="24"></use></svg></a><ul class="dropdown-menu"><li class="explore-fleetio"><a href="/b93614950b/dashboard"><i class="material-icons md-explore"></i>Explore Fleetio</a></li><li class="get-help"><a href="javascript:void(0)" id="get-help">Get Help</a></li><li class="help-center"><a href="https://help.fleetio.com/hc" rel="external" target="_blank">Help Center<div class="pull-right"><i class="material-icons md-open_in_new"></i></div></a></li><li class="help-center"><a href="http://status.fleetio.com" rel="external" target="_blank">System Status<div class="pull-right"><i class="material-icons md-open_in_new"></i></div></a></li><li class="divider"></li><li class="online-training"><a href="https://www.fleetio.com/training?utm_source=fleetio&amp;utm_medium=web-app&amp;utm_campaign=help-menu" rel="external" target="_blank">Upcoming Live Training<div class="pull-right"><i class="material-icons md-open_in_new"></i></div></a></li><li class="training-videos"><a href="https://www.fleetio.com/training-videos?utm_source=fleetio&amp;utm_medium=web-app&amp;utm_campaign=help-menu" rel="external" target="_blank">Training Videos<div class="pull-right"><i class="material-icons md-open_in_new"></i></div></a></li><li class="blog"><a rel="external" target="_blank" href="https://www.fleetio.com/blog?utm_source=fleetio&amp;utm_medium=web-app&amp;utm_campaign=help-menu">Blog<div class="pull-right"><i class="material-icons md-open_in_new"></i></div></a></li><li class="divider"></li><li class="whats-new"><a class="announcement-modal-link" data-toggle="modal" href="#announcements-modal" ng-class="{&#39;new-announcements&#39;: announcements_count &gt; 0}" ng-click="clearAnnouncementsCount()">What&#39;s New<div class="badge-dot pull-right" ng-show="announcements_count &gt; 0"><i class="material-icons md-lens"></i></div></a></li><li class="give-feedback"><a data-toggle="modal" href="#feedback-modal">Give Feedback</a></li></ul></div></div><div class="spark-layout-block-action"><div class="dropdown quick-add-dropdown"><a class="quick-add-btn dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)"><svg class="svg-symbol svg-plus spark-icon" viewBox="0 0 24 24" role="img" width="14" height="14"><use xlink:href="#svg-plus" width="24" height="24"></use></svg></a><ul class="dropdown-menu"><li><a href="/b93614950b/vehicles/new"><i class="material-icons md-directions_car"></i>Vehicle</a></li><li><a href="/b93614950b/service_entries/new"><i class="material-icons md-build"></i>Service Entry</a></li><li><a href="/b93614950b/fuel_entries/new"><i class="material-icons md-local_gas_station"></i>Fuel Entry</a></li><li class="divider"></li><li><a href="/b93614950b/issues/new"><i class="material-icons md-error"></i>Issue</a></li><li><a href="/b93614950b/contacts/new"><i class="material-icons md-perm_contact_calendar"></i>Contact</a></li><li class="divider"></li><li><a data-target="#odometer-update-modal" data-toggle="modal" href="#odometer-update-modal"><i class="material-icons md-signal_cellular_4_bar"></i>Meter Reading</a></li><li class="divider"></li><li><a href="/b93614950b/imports/new"><i class="material-icons md-cloud_upload"></i>Import Data</a></li></ul></div></div></div></div></div><div class="app-content" data-scroll="true"><div class="app-content-header"><div class="main-header"><div class="main-title "><ul class="breadcrumb"><li><a href="/b93614950b/issues">Issues</a> </li><li><a href="/b93614950b/vehicles/965855">4100 [2012 Freightliner Cascadia]</a> </li></ul><div class="breadcrumb">Issue #8</div></div>
+<div tabindex="-1" role="dialog" aria-hidden="true" id="resolve-multiple-issues-modal" class=" fade remote modal"><div class=" modal-dialog"><div class="modal-content"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div></div></div><div class="modal-loader-template"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div>
+<div tabindex="-1" role="dialog" aria-hidden="true" id="preview-document-modal" class=" fade remote modal"><div class="modal-lg modal-dialog"><div class="modal-content"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div></div></div><div class="modal-loader-template"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div>
+<div class='btn-toolbar pull-right'>
+<div class="btn-group"><button type="button" class="btn-success btn dropdown-toggle" data-toggle="dropdown"><i class="material-icons md-check_circle r-margin-sm"></i>Resolve<span class="caret l-margin-sm"></span></button><ul class="dropdown-menu  pull-right"><li>
+<a href="/b93614950b/service_entries/new?issue=8&amp;vehicle=965855"><i class='material-icons md-build'></i>
+Resolve via Service Entry
+</a></li>
+<li class='divider'></li>
+
+<li>
+<a data-confirm="Are you sure you want to close Issue #8?" data-remote="true" rel="nofollow" data-method="put" href="/b93614950b/issues/8/close"><i class='material-icons md-cancel'></i>
+Close Issue
+</a></li>
+</ul></div><div class='btn-group'>
+<div class="btn-group"><a class="btn btn-primary" href="/b93614950b/issues/8/edit">Edit Issue</a><button type="button" class="btn dropdown-toggle btn-primary" data-toggle="dropdown"><span class="caret"></span></button><ul class="dropdown-menu pull-right"><li><a data-confirm="Are you sure?" data-disable-with="Deleting..." data-remote="true" rel="nofollow" data-method="delete" href="/b93614950b/issues/8"><i class="material-icons md-delete"></i> Delete</a></li>
+</ul></div></div>
+<div class='btn-group'>
+<a class="btn btn-success" href="/b93614950b/issues/new"><i class='icon-plus'></i>
+Add Issue
+</a></div>
+</div>
+</div></div><div class="main-body"><p><span class="label label-danger">Open</span></p>
+<h3 class='media-heading'>
+engine fail
+</h3>
+<p>
+<i class='material-icons md-label text-muted'></i>
+<span class='label label-default'>normal</span>
+<small>
+<a data-toggle="modal" href="#edit-labels">Edit Labels</a>
+</small>
+</p>
+<p>it will take time to come active status.</p>
+<div class='row'>
+<div class='col-md-4 col-lg-4 col-sm-12 col-xs-12'>
+<div class="panel panel-default"><div class=" panel-heading clearfix"><h3 class="panel-title ">Details</h3></div>
+<table id="issue_1486350" class="show_for issue table table-details"><tr class="wrapper issue_Vehicle"><th class="key">Vehicle</th><td class="value"><a href="/b93614950b/vehicles/965855">4100 [2012 Freightliner Cascadia]
+</a></td></tr><tr class="wrapper issue_reported_at"><th class="key">Reported Date</th><td class="value"><abbr rel="tooltip" title="10 days ago">Dec 27, 2019</abbr>
+</td></tr><tr class="wrapper issue_source blank"><th class="key">Source</th><td class="value  blank"></td></tr><tr class="wrapper issue_Odometer"><th class="key">Odometer</th><td class="value"><abbr rel="tooltip" title="Current mileage">661,947</abbr><span class="text-muted"> mi</span>
+</td></tr><tr class="wrapper issue_AssignedTo"><th class="key">Assigned To</th><td class="value"><a href="/b93614950b/contacts/421142">Jacob Silva</a>
+</td></tr></table><div class='panel-heading'>
+Overdue Settings
+</div>
+<table id="issue_1486350" class="show_for issue table table-details"><tr class="wrapper issue_due_date"><th class="key">Due Date</th><td class="value"><span class="text-error"><abbr rel="tooltip" title="7 days ago">Dec 30, 2019</abbr></span>
+</td></tr><tr class="wrapper issue_Odometer"><th class="key">Odometer</th><td class="value">661,948
+<small class='text-muted'>mi</small>
+</td></tr></table><div class='panel-heading'>Custom Fields</div>
+<table id="issue_1486350" class="show_for issue table table-details"><tr class="wrapper issue_"><th class="key"></th><td class="value">None Set
+</td></tr></table></div>
+</div>
+<div class='col-md-4 col-lg-4 col-sm-12 col-xs-12'>
+<div class="panel panel-default"><div class=" panel-heading clearfix"><h3 class="panel-title ">Activity</h3></div>
+<div class='panel-body modal-body-flush activity'>
+<table class='table' ng-cloak='ng-cloak' ng-controller='IssueActivityController' ng-init='init(8, {&quot;signature&quot;:&quot;32e630fb04ec1df4bdaf647c0ef36fc696958e457807e3d5f9784a4763ba5277&quot;,&quot;policy&quot;:&quot;eyJleHBpcnkiOjQ1MzQ5NDkzNDMsImNhbGwiOlsicmVhZCIsInBpY2siLCJzdG9yZSIsImNvbnZlcnQiXX0=&quot;}, &#39;AMcC8TGISKC46P2onhLPfz&#39;)'>
+<tbody ng-hide='loadingActivity' ng-repeat='event in activity'>
+<tr ng-class='{&#39;border-off&#39;: $index == 0, expandable: canExpand(event), &#39;cursor-p&#39;: canExpand(event)}' ng-click='expand(event)'>
+<td class='fit'>
+<span class='expand-collapse' ng-class='{expanded: isExpanded(event)}' ng-show='canExpand(event)'>
+<i class='arrow-right' ng-show='!isExpanded(event)'></i>
+<i class='arrow-down' ng-show='isExpanded(event)'></i>
+</span>
+</td>
+<td class='fit'>
+<i class='material-icons' ng-class='iconClass(event)'></i>
+</td>
+<td>
+<div ng-switch='event.type'>
+<div ng-switch-when='previously_rejected_by'>
+<div class='text-danger'>Previous Resolution Rejected</div>
+<small class='text-muted'>
+<a ng-href='/b93614950b/issues/{{event.object.issue_number}}' target='_blank'>
+Issue #{{event.object.issue_number}}
+</a>
+<br />
+By
+{{ event.user_full_name }}
+</small>
+</div>
+<div ng-switch-when='submitted_inspection_item'>
+<div ng-class='{&#39;text-danger&#39;: event.object.failed, &#39;text-success&#39;: !event.object.failed}'>{{ event.result_text }}</div>
+<small class='text-muted'>
+<a ng-href='/b93614950b/submitted_inspection_forms/{{event.object.submitted_inspection_form_id}}' target='_blank'>
+Inspection Submission #{{ event.object.submitted_inspection_form_id }}
+</a>
+<br />
+By
+{{ event.object.user_full_name }}
+</small>
+</div>
+<div ng-switch-when='created'>
+Issue
+Created
+<div ng-if='event.object.dvir_type == &quot;samsara&quot;'>
+<small class='text-muted'>
+Samsara DVIR
+</small>
+</div>
+<div ng-if='event.object.dvir_type == &quot;geotab&quot; || event.object.dvir_type == &quot;keep_truckin&quot;'>
+<small class='text-muted'>
+<div ng-show='event.object.reported_by_full_name'>
+Reported By
+{{ event.object.reported_by_full_name }}
+</div>
+<a href='{{event.object.dvir_link}}' target='_blank'>
+<span ng-if='event.object.dvir_type == &quot;geotab&quot;'>
+Geotab DVIR
+</span>
+<span ng-if='event.object.dvir_type == &quot;keep_truckin&quot;'>
+KeepTruckin Inspection
+</span>
+<i class='material-icons md-open_in_new md-13'></i>
+</a>
+&nbsp;
+<div class='text-muted'>
+#
+</div>
+</small>
+</div>
+<small class='text-muted' ng-if='!event.object.dvir_type'>
+<div ng-show='event.object.created_by_workflow &amp;&amp; !event.object.rejected_by'>
+By Workflow
+<i class='material-icons md-flash_on'></i>
+</div>
+<div ng-show='event.object.created_by_workflow &amp;&amp; event.object.rejected_by'>
+By Rejection of
+<a ng-href='/b93614950b/issues/{{event.object.rejected_by.issue_number}}' target='_blank'>
+Issue #{{event.object.rejected_by.issue_number}}
+</a>
+</div>
+<div ng-show='!event.object.created_by_workflow'>
+By
+{{ event.object.user_full_name }}
+</div>
+<div ng-show='!event.object.created_by_workflow &amp;&amp; event.object.reported_by_full_name &amp;&amp; event.object.user_full_name != event.object.reported_by_full_name'>
+Reported By
+{{ event.object.reported_by_full_name }}
+</div>
+</small>
+</div>
+<div ng-switch-when='resolution'>
+<div class='text-success' ng-show='event.object.confirmed_at'>
+Resolution Confirmed
+</div>
+<div class='text-danger' ng-show='event.object.rejected_at'>
+Resolution Rejected
+</div>
+<small class='text-muted'>
+By
+{{ event.user_full_name }}
+<div ng-show='event.object.submitted_inspection_form_id'>
+<a ng-href='/b93614950b/submitted_inspection_forms/{{event.object.submitted_inspection_form_id}}' target='_blank'>
+Inspection Submission #{{ event.object.submitted_inspection_form_id }}
+</a>
+</div>
+<div ng-show='event.object.rejected_at &amp;&amp; event.object.rejected_issue_number'>
+Created
+<a ng-href='/b93614950b/issues/{{event.object.rejected_issue_number}}' target='_blank'>
+Issue #{{ event.object.rejected_issue_number }}
+</a>
+</div>
+</small>
+</div>
+<div ng-switch-when='resolved'>
+<div class='text-success'>
+Issue
+Resolved
+</div>
+<small class='text-muted'>
+<div ng-show='event.resolvable_type == &#39;ServiceEntry&#39; &amp;&amp; !event.object.work_order'>
+<a ng-href='/b93614950b/vehicles/{{event.object.vehicle_id}}/service_entries/{{event.object.id}}' target='_blank'>
+Service Entry #{{ event.object.id }}
+</a>
+</div>
+<div ng-show='event.resolvable_type == &#39;WorkOrder&#39; || event.object.work_order'>
+<a ng-href='/b93614950b/work_orders/{{resolvedWorkOrder(event).number}}' target='_blank'>
+Work Order #{{ resolvedWorkOrder(event).number }}
+</a>
+<span class='tooltip-ng' dynamic-title='{{resolvedWorkOrder(event).work_order_status.name}}' ng-show='resolvedWorkOrder(event).work_order_status.color' rel='tooltip'>
+<i class='material-icons md-lens text-{{resolvedWorkOrder(event).work_order_status.color}}'></i>
+</span>
+</div>
+</small>
+</div>
+<div ng-switch-when='work_order_link'>
+Added to
+<a ng-href='/b93614950b/work_orders/{{event.object.work_order_number}}' target='_blank'>
+Work Order #{{ event.object.work_order_number }}
+<span class='tooltip-ng' dynamic-title='{{event.object.work_order_status.name}}' ng-show='event.object.work_order_status.color' rel='tooltip'>
+<i class='material-icons md-lens text-{{event.object.work_order_status.color}}'></i>
+</span>
+</a>
+</div>
+<div ng-switch-when='closed'>
+<div>
+Issue
+Closed
+</div>
+<small class='text-muted' ng-show='event.object.closed_by_full_name'>
+By
+{{ event.object.closed_by_full_name }}
+</small>
+</div>
+</div>
+<div ng-show='canExpand(event)'>
+<i class='text-muted material-icons md-comment' ng-show='event.comments.length &gt; 0'></i>
+<i class='text-muted material-icons md-image' ng-show='event.images.length &gt; 0'></i>
+</div>
+</td>
+<td class='ar' data-controller='timeago' datetime='{{ event.date }}'>
+{{ event.date }}
+<br />
+<small>
+<div class='text-muted'>{{ event.pretty_date }}</div>
+</small>
+</td>
+</tr>
+<tr class='border-off' ng-if='canExpand(event)' ng-show='isExpanded(event)'>
+<td class='fit'></td>
+<td colspan='3'>
+<blockquote class='no-b-margin text-muted default-font-size'>
+<p class='image' ng-repeat='image in event.images'>
+<a data-target='#preview-document-modal' data-toggle='modal' ng-href='/b93614950b/images/{{ image.id }}/preview'>
+<img class='half-width zoomable' ng-src='{{ image.secureUrl(filepickerPolicy) }}' />
+</a>
+</p>
+<div class='comment' ng-repeat='comment in event.comments'>
+{{ comment.comment }}
+</div>
+</blockquote>
+</td>
+</tr>
+</tbody>
+<tbody ng-show='loadingActivity'>
+<tr class='border-off ac'>
+<td colspan='4'>
+<span id="activity-loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class='col-md-4 col-lg-4 col-sm-12 col-xs-12'>
+<div tabindex="-1" role="dialog" aria-hidden="true" id="new-comment-modal" class=" fade remote modal"><div class=" modal-dialog"><div class="modal-content"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div></div></div><div class="modal-loader-template"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div><div ng-controller="CommentsController" ng-init="init({&quot;id&quot;:1486350,&quot;account_id&quot;:41596,&quot;number&quot;:8,&quot;vehicle_id&quot;:965855,&quot;summary&quot;:&quot;engine fail&quot;,&quot;description&quot;:&quot;it will take time to come active status.&quot;,&quot;reported_by_id&quot;:421141,&quot;due_date&quot;:&quot;2019-12-30&quot;,&quot;due_meter_value&quot;:661948.0,&quot;state&quot;:&quot;open&quot;,&quot;custom_fields&quot;:{},&quot;closed_at&quot;:null,&quot;closed_by_id&quot;:null,&quot;reopened_at&quot;:null,&quot;reopened_by_id&quot;:null,&quot;created_at&quot;:&quot;2019-12-27T12:36:26.988+05:30&quot;,&quot;updated_at&quot;:&quot;2019-12-27T12:37:54.119+05:30&quot;,&quot;resolvable_id&quot;:null,&quot;resolved_at&quot;:null,&quot;resolved_by_id&quot;:null,&quot;reported_at&quot;:&quot;2019-12-27T00:00:00.000+05:30&quot;,&quot;resolvable_type&quot;:null,&quot;resolved_meter_variance&quot;:null,&quot;resolved_secondary_meter_variance&quot;:null,&quot;resolved_date_variance_in_days&quot;:null,&quot;due_secondary_meter_value&quot;:null,&quot;images_count&quot;:0,&quot;documents_count&quot;:0,&quot;comments_count&quot;:0,&quot;fault_id&quot;:null,&quot;vehicle_archived_at&quot;:null,&quot;submitted_inspection_form_id&quot;:null,&quot;created_by_workflow&quot;:false,&quot;created_by_legacy_inspection_workflow&quot;:false,&quot;rejected_by_id&quot;:null,&quot;dvir_link&quot;:null,&quot;dvir_id&quot;:null,&quot;defect_id&quot;:null,&quot;dvir_type&quot;:null,&quot;external_id&quot;:null,&quot;vehicle_recall_id&quot;:null,&quot;is_sample&quot;:true,&quot;label_list&quot;:[&quot;normal&quot;]}, &#39;Issue&#39;, true, false)" ng-cloak="true" class="panel panel-default"><div class=" panel-heading clearfix"><h3 class="panel-title pull-left">Comments</h3><div class="count"><span class="badge badge-muted">{{ totalCommentsCount }}</span></div><div class="pull-right"><a class="btn btn-link btn-sm" data-toggle="modal" data-target="#new-comment-modal" href="/b93614950b/comments/new?commentable_id=1486350&amp;commentable_type=Issue&amp;remote_form=1"><i class="material-icons md-add"></i>Add Comment</a></div></div><div class=" panel-body"><div class='comments-list'>
+<div tabindex="-1" role="dialog" aria-hidden="true" id="comment-modal" class=" fade remote modal"><div class=" modal-dialog"><div class="modal-content"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div></div></div><div class="modal-loader-template"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div>
+<div ng-show='comments &amp;&amp; comments.length &gt; 0'>
+<div class='media media-comment' id='comment-{{comment.id}}' ng-repeat='comment in comments'>
+<div class='media-left'>
+<img alt='{{ comment.user.username }}' class='media-object img-circle comment-avatar' ng-src='{{ comment.user.photo_url }}' />
+</div>
+<div class='media-body'>
+<p class='media-heading'>
+<span ng-show='comment.user.full_name'>
+<span ng-show='comment.user.contact_id'>
+<a ng-href='/b93614950b/contacts/{{comment.user.contact_id}}' target='_blank'>
+{{ comment.user.full_name }}
+</a>
+</span>
+<span ng-hide='comment.user.contact_id'>
+<strong>
+{{ comment.user.full_name }}
+</strong>
+</span>
+</span>
+<small class='text-muted l-margin-sm'>
+<abbr class='text-muted tooltip-ng' data-container='body' data-controller='timeago' datetime='{{ comment.created_at }}' dynamic-title='{{ comment.long_date }}'>
+{{ comment.created_at }}
+<span ng-show='comment.created_at != comment.updated_at'>
+(edited)
+</span>
+</abbr>
+</small>
+</p>
+<h5 class='media-heading' ng-show='comment.title'>
+<strong>
+{{ comment.title }}
+</strong>
+</h5>
+<div ng-bind-html='comment.comment'></div>
+<p class='small no-b-margin' ng-if='canEditComment(comment)'>
+<a class='text-muted edit-comment' data-target='#comment-modal' data-toggle='modal' href='#' ng-href='/b93614950b/comments/{{ comment.id }}/edit.html?remote_form=1' title='Edit this comment'>
+Edit
+</a>
+<span class='text-subtle'>&middot;</span>
+<a class='text-muted delete-comment' data-confirm='Are you sure you want to delete this comment?' data-method='delete' data-remote='true' data-title='Confirm action' href='#' ng-href='/b93614950b/comments/{{ comment.id }}.json'>
+Delete
+</a>
+</p>
+</div>
+
+</div>
+</div>
+<div ng-show='canLoadMore'>
+<hr />
+<div class='ac'>
+<a href='javascript:void(0)' ng-click='loadMore()'>Load More</a>
+</div>
+</div>
+<div ng-show='comments &amp;&amp; comments.length == 0 &amp;&amp; !loadingComments'>
+<div style="width: 100%;" class="container blank-state"><div class="media text-center"><div class="media-body"><div class='blank-state-heading text-subtle'>
+No comments yet
+</div>
+</div></div></div></div>
+<div class='ac' ng-show='loadingComments'>
+<span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span>
+</div>
+</div>
+</div></div>
+<div class="panel panel-default"><div class=" panel-heading clearfix"><h3 class="panel-title pull-left">Photos</h3><div class="count"><span class="badge badge-muted">0</span></div><div class='pull-right'>
+<a class="btn btn-link btn-sm" href="/b93614950b/issues/8/photos/new"><i class='material-icons md-add'></i>
+Add Photo
+</a></div>
+</div><div class=" panel-body"><div ng-controller="IssueImageCtrl" ng-init="init({issue_id: 8})"><div data-fp-button-class="btn btn-success" data-fp-multiple="false" dragdrop="true" data-fp-store-path="images/41596/" data-fp-services="COMPUTER,DROPBOX,FACEBOOK,GITHUB,IMAGESEARCH,URL,WEBCAM,GOOGLEDRIVE,INSTAGRAM,FLICKR,EVERNOTE,PICASA,WEBDAV,FTP,BOX,SKYDRIVE" data-fp-conversions="crop,rotate" on-successful-upload="saveUpload(upload)" data-fp-policy="eyJleHBpcnkiOjE1NzgzMTE3NjEsImNhbGwiOlsicGljayIsInN0b3JlIl19" data-fp-signature="e7eccb3e6290bd745f1f53517d4aa85b1866de27a4e741519928e8d86ac89839" apiKey="AMcC8TGISKC46P2onhLPfz" mimetypes="image/*" class="multiFilePicker"></div></div>
+<div style="width: 100%;" class="container blank-state"><div class="media text-center"><div class="media-body"><div class='blank-state-heading text-subtle'>
+No photos yet
+</div>
+</div></div></div></div></div>
+<div class="panel panel-default"><div class=" panel-heading clearfix"><h3 class="panel-title pull-left">Documents</h3><div class="count"><span class="badge badge-muted">0</span></div><div class='pull-right'>
+<a class="btn btn-link btn-sm" href="/b93614950b/issues/8/documents/new"><i class='material-icons md-add'></i>
+Add Document
+</a></div>
+</div><div class=" panel-body"><div ng-controller="IssueDocumentCtrl" ng-init="init({vehicle_id: 965855, issue_id: 8})"><div data-fp-button-class="btn btn-success" data-fp-multiple="false" dragdrop="true" data-fp-store-path="documents/41596/" data-fp-services="COMPUTER,DROPBOX,FACEBOOK,GITHUB,IMAGESEARCH,URL,WEBCAM,GOOGLEDRIVE,INSTAGRAM,FLICKR,EVERNOTE,PICASA,WEBDAV,FTP,BOX,SKYDRIVE" data-fp-conversions="crop,rotate" on-successful-upload="saveUpload(upload)" data-fp-policy="eyJleHBpcnkiOjE1NzgzMTE3NjEsImNhbGwiOlsicGljayIsInN0b3JlIl19" data-fp-signature="e7eccb3e6290bd745f1f53517d4aa85b1866de27a4e741519928e8d86ac89839" apiKey="AMcC8TGISKC46P2onhLPfz" class="multiFilePicker"></div></div>
+<div style="width: 100%;" class="container blank-state"><div class="media text-center"><div class="media-body"><div class='blank-state-heading text-subtle'>
+No documents yet
+</div>
+</div></div></div></div></div>
+</div>
+</div>
+<div id='blame-content_blameinfo'>
+<div class='row b-margin-xl'>
+<div class='ar col-sm-12'>
+<hr class='hr-subtle' />
+<div class='small text-subtle'>
+<a class="text-subtle" data-target="#blame-modal" data-toggle="modal" href="/b93614950b/histories?q%5Bitem_id_eq%5D=1486350&amp;q%5Bitem_type_eq%5D=Issue">Created by Naresh kante 10 days ago
+<span class='text-muted l-margin-xs r-margin-xs'>·</span>
+Updated by Naresh kante 10 days ago
+</a></div>
+</div>
+</div>
+<div tabindex="-1" role="dialog" aria-hidden="true" id="blame-modal" class=" fade remote modal"><div class="modal-lg modal-dialog"><div class="modal-content"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div></div></div><div class="modal-loader-template"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div>
+
+</div>
+
+
+<div tabindex="-1" role="dialog" aria-hidden="true" id="edit-labels" class=" fade modal" data-backdrop="static" data-keyboard="false"><div class=" modal-dialog"><div class="modal-content"><div class="modal-header"><button class="close material-icons md-close" type="button" data-dismiss="modal"></button><h3 class="modal-title">Edit Issue Labels</h3></div>
+<form class="simple_form edit_issue" id="edit_issue_1486350" novalidate="novalidate" action="/b93614950b/issues/8" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="Mjeq4lJavnZbZ6rwC15PfyOukis+oib+SpIac2r77Z3nUhpsQqEDAgtGBOplO4Q+g5iLOZpbpdO2/8yxVGgYhw==" /><input type="hidden" name="return_to" id="return_to" value="https://secure.fleetio.com/b93614950b/issues/8" />
+<div class='modal-body'>
+<div class="form-group select2 optional issue_label_list"><div><label class="control-label select2 optional" for="issue_label_list">Labels</label></div><input class="form-control select2 optional label-select2 form-control" value="normal" data-create="true" data-select2-id="name" type="hidden" name="issue[label_list]" id="issue_label_list" /><p class="help-block">Use labels to categorize, group, prioritize and more. (e.g. Electrical, Priority: High)</p></div>
+</div>
+<div class='modal-footer'>
+<input type="submit" name="commit" value="Update Labels" class="btn btn-primary" data-disable-with="Saving..." />
+<button name="button" type="submit" class="btn btn-link" data-dismiss="modal" aria-hidden="true">Cancel</button>
+</div>
+</form></div></div></div>
+</div><div tabindex="-1" role="dialog" aria-hidden="true" id="new-work-order-modal" class=" fade remote modal"><div class=" modal-dialog"><div class="modal-content"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div></div></div><div class="modal-loader-template"><div class="modal-header"><div class="center-block text-center"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div></div></div><div tabindex="-1" role="dialog" aria-hidden="true" id="feedback-modal" class=" fade modal" data-backdrop="static" data-keyboard="false"><div class=" modal-dialog"><div class="modal-content"><div class="modal-header"><button class="close material-icons md-close" type="button" data-dismiss="modal"></button><h3 class="modal-title">Give us your feedback</h3></div>
+<div class="modal-body"><form id="feedback-form" class="ng-cloak clearfix" ng-controller="FeedbackAndHelpCtrl" ng-init="init()" ng-submit="saveFeedback($event)" action="/b93614950b/issues/8" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="XfeYpT4WK0CVyL/lHmKmFAuOawe4hl9w7VQx8tt141en74g11brSZ2qYgBnX7RfXllCthF6Ebo4IXvJlbPQb4A==" /><div class='callout callout-info'>
+For <strong>Account and Billing</strong> or <strong>Support questions</strong> please
+<a class='underline' href='javascript:void(0)' ng-click='getHelp()'>
+contact support
+</a>
+or visit our <a href="https://help.fleetio.com" rel="external" target="_blank">Help Center</a>
+</div>
+<div class='form-group'>
+<label for="feedback_presenter_feedback_comment">How can we make Fleetio better for you?
+</label><textarea rows="2" id="feedback-comment" class="form-control" placeholder="We welcome your feedback and suggestions" ng-model="feedback.comment" ng-disabled="sending" name="feedback_presenter[feedback_comment]">
+</textarea>
+</div>
+<div class='pull-right'>
+<a class='btn' href='javascript:void(0)' ng-click='cancel()'>
+Cancel
+</a>
+<input type="submit" name="commit" value="Give Feedback" class="btn btn-primary" ng-disabled="!feedback.comment" data-disable-with="Give Feedback" />
+<input ng-model="feedback.page" ng-init="feedback.page=&#39;issues/show&#39;" type="hidden" name="feedback_presenter[feedback_page]" id="feedback_presenter_feedback_page" />
+<input ng-model="feedback.url" ng-init="feedback.url=&#39;https://secure.fleetio.com/b93614950b/issues/8&#39;" type="hidden" name="feedback_presenter[feedback_url]" id="feedback_presenter_feedback_url" />
+</div>
+</form></div></div></div></div><div tabindex="-1" role="dialog" aria-hidden="true" id="odometer-update-modal" class=" fade modal"><div class=" modal-dialog"><div class="modal-content"><div class="modal-header"><button class="close material-icons md-close" type="button" data-dismiss="modal"></button><h3 class="modal-title">New Meter Reading</h3></div><div class="modal-body" ng-controller="OdometerUpdateController" ng-init="init()"><div class="alert alert-success" ng-show="successfullyUpdated">Meter Reading was successfully added.</div><form class="form-horizontal"><fieldset><div class="form-group"><label class="col-sm-2 control-label">Vehicle</label><div class="col-sm-10"><input class="select2 vehicle-select2 form-control" data-preload="false" ng-model="vehicle" /></div></div></fieldset></form><div class="center-block text-center" ng-show="loadingForm"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div><div id="odometer-update-form" ng-show="vehicle"></div></div></div></div></div><div tabindex="-1" role="dialog" aria-hidden="true" id="announcements-modal" class=" fade modal"><div class=" modal-dialog"><div class="modal-content"><div class="modal-header"><button class="close material-icons md-close" type="button" data-dismiss="modal"></button><h3 class="modal-title">What's New</h3></div><div class="modal-body modal-body-flush" ng-controller="AnnouncementsModalController" ng-init="init()"><div class="padded" ng-show="loadingAnnouncements"><span id="loading" class="loading  "><img alt="Loading" class="loading-img" src="//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif" /></span></div><ul class="list-group" ng-show="announcements.length &gt; 0"><li class="list-group-item" ng-repeat="announcement in announcements"><small class="text-muted" ng-show="announcement.date"><span class="text-warning" ng-show="!announcement.read"><i class="material-icons md-lens md-12"></i>&nbsp;</span>{{ announcement.date | formatDate }}</small><p><span ng-bind-html="announcement.body"></span></p></li></ul><div class="padded" ng-show="announcements.length == 0"><p>No new announcements</p></div></div></div></div></div><script>window.currentUser = {"id":188108,"username":null,"email":"naresh.procreate@gmail.com","created_at":"2019-12-26T09:48:23.536+05:30","updated_at":"2020-01-06T16:07:32.067+05:30","current_account_id":41596,"time_zone":"Chennai","_config":null,"watch_new_vehicles":false,"settings":{"registration_first_name":"Naresh","registration_last_name":"kante","recent_vehicle_ids":{"41596":[965855,965856,965854,965853,965852,965857]}},"authentication_token":"dPpj5k6H5_WeZyxb6sis","google_uid":"102540289716779579568","encrypted_admin_token":null,"admin_token_expires_at":null,"signup_visit_data":{},"salesforce_contact_id":null,"password_changed_at":"2019-12-26T09:48:23.535+05:30","sign_in_count":21,"current_sign_in_at":"2020-01-06T16:07:32.066+05:30","last_sign_in_at":"2020-01-06T10:42:33.945+05:30","current_sign_in_ip":"202.65.138.134","last_sign_in_ip":"202.65.138.134","confirmed_at":"2019-12-25T22:18:23.521-06:00"}
+window.currentAccount = {"id":41596,"name":"Raja","currency":"USD","date_format":"mmddyyy_slash","time_24_format":false,"url_token":"b93614950b","city":null,"time_zone":"Chennai","is_demo":false,"tax_free_labor":null,"default_tax_type":null,"default_tax_1":null,"default_tax_2":null,"tax_2":null,"full_address":"","currency_symbol":"$","fleetio_manage_subscription":{"id":41544,"account_id":41596,"plan_id":53,"chargify_subscription_id":30588804,"chargify_component_id":457398,"state":"trialing","activated_at":null,"expires_at":null,"canceled_at":null,"current_period_ends_at":"2020-01-09T09:49:46.000+05:30","current_period_started_at":"2019-12-26T09:49:46.000+05:30","trial_ended_at":"2020-01-09T09:49:46.000+05:30","trial_started_at":"2019-12-26T09:49:46.000+05:30","next_assessment_at":"2020-01-09T09:49:46.000+05:30","credit_card_expires_at":null,"balance_cents":0,"monthly_recurring_revenue_cents":7500,"needs_to_update_chargify_components":false,"payment_collection_method":"automatic","payment_type":"","settings":{},"plan_before_trialing_id":null,"maximum_component_allotment":null,"created_at":"2019-12-26T09:49:31.942+05:30","updated_at":"2020-01-05T15:19:26.321+05:30","total_revenue_cents":0,"cancellation_message":null,"minimum_component_allotment":null}}
+window.currentAccountMembership = {"id":183265,"settings":{"sort_settings":{"users/index":"first_name asc","contacts/index":"first_name asc","inspection_forms/index":"title asc","inspection_schedules/index":"next_due_at asc","recalls/index":"recall_issued_date desc","submitted_inspection_forms/index":"submitted_at desc","contacts/submitted_inspection_forms/index":"submitted_at desc","contacts/issues/index":"reported_at desc","issues/index":"reported_at asc","contacts/images/index":"file_size asc","contacts/employees":"first_name asc","contacts/documents/index":"created_at desc","vehicles/index":"name asc","vehicles/issues/index":"reported_at desc","vendors/fuel_entries/index":"date desc","vehicles/images/index":"name asc","vehicles/documents/index":"created_at desc"},"column_settings":{},"fuel_economy_units":"mpg_us","items_per_page":50,"watch_new_vehicles":false}}
+app.value("currentUser", window.currentUser)
+app.value("currentAccount", window.currentAccount)
+app.value("currentAccountMembership", window.currentAccountMembership)
+app.value("assetPaths", {"loader":"//d3hg8hj412aefj.cloudfront.net/assets/ajax-loader-new-071980d4c8ba2b5cd2e91ad737652ca5d72af5aa920da77017d3112b4d4d20db.gif","mpn_map_marker":"//d3hg8hj412aefj.cloudfront.net/assets/maps/mpn/pinlet-marker-8e368222ba15d6e5387e92610fecfc2d62cfdc93f0ad6844f7ebc4fbdc08cfda.png","map_marker_near_location":"//d3hg8hj412aefj.cloudfront.net/assets/maps/mpn/pinlet-marker-near-location-57fab2b731563c8a09727e6d34d7b95b241e4c12c627f44a7c64e3c2c4c6e30b.png","mpn_marker_in_network":"//d3hg8hj412aefj.cloudfront.net/assets/maps/mpn/pinlet-marker-in-network-347a15979bc663deb168da25ed87b554438faebb0ec2c95e8c9e511cd3a4c1ae.png","mpn_marker_pending":"//d3hg8hj412aefj.cloudfront.net/assets/maps/mpn/pinlet-marker-pending-82b97e1183c81d51cfada91bb0f64f24f0452a110d154cd7307116c7c7389ce4.png","mpn_marker_out_of_network":"//d3hg8hj412aefj.cloudfront.net/assets/maps/mpn/pinlet-marker-out-of-network-1448869eeeb204aae957d8d6cbf13c8cd1836987c306a5561325de75ed48cd84.png","infoBox_close_icon":"//d3hg8hj412aefj.cloudfront.net/assets/maps/infoBox-close-263c7a0ce8b3b39b71ae3f2b0f8db215042815aebcf91aea1bb953270f2ec55d.svg"})</script><script type='text/javascript'>
+  //<![CDATA[
+    if(true) {
+      analytics.page({}, {integrations: { 'Google Analytics': false }});
+    } else {
+      analytics.page();
+    }
+  //]]>
+</script>
+<script type='text/javascript'>
+  //<![CDATA[
+    analytics.ready(function () {
+      if (typeof chmln !== 'undefined' && true) {
+        chmln.on('after:profile', function() {
+          var traits = analytics.user().traits()
+          if (typeof traits.chameleon_testing_percent === 'undefined') {
+            analytics.identify("188108", {
+              "chameleon_testing_percent": chmln.data.profile.get('percent')
+            }, { integrations: { All: true }})
+          }
+        })
+      }
+    })
+    
+    analytics.identify("188108", {"email":"naresh.procreate@gmail.com","username":null,"time_zone":"Chennai","marketing_email_subscriber":true,"created_at":1577333903,"confirmed_at":1577333903,"sign_in_count":21,"current_sign_in_at":1578307052,"last_sign_in_at":1578287553,"name":"Naresh Kante","first_name":"Naresh","last_name":"Kante","photo_url":null,"phone":"+917091265510","user_type":"owner","fuel_economy_unit":"mpg_us","permission_vehicles_create":true,"permission_vehicles_edit":true,"permission_vehicles_archive_delete":true,"permission_vehicles_update_status":true,"permission_vehicles_manage_vehicle_assignment":true,"permission_vehicles_view_details":true,"permission_vehicles_view_financial_info":true,"permission_vehicles_view_custom_fields":true,"permission_vehicles_view_documents":true,"permission_vehicles_manage_documents":true,"permission_vehicles_manage_photos":true,"permission_meter_entries_create":true,"permission_meter_entries_view":true,"permission_meter_entries_edit":true,"permission_meter_entries_delete":true,"permission_fuel_entries_create":true,"permission_fuel_entries_view":true,"permission_fuel_entries_edit":true,"permission_fuel_entries_delete":true,"permission_issues_create":true,"permission_issues_view_open":true,"permission_issues_view_resolved_or_closed":true,"permission_issues_edit":true,"permission_issues_delete":true,"permission_issues_view_documents":true,"permission_issues_manage_documents":true,"permission_faults_view":true,"permission_faults_ignore_codes":true,"permission_recalls_view":true,"permission_recalls_ignore":true,"permission_service_tasks_create":true,"permission_service_tasks_edit":true,"permission_service_tasks_archive_delete":true,"permission_service_entries_create":true,"permission_service_entries_view":true,"permission_service_entries_view_update_cost_information":true,"permission_service_entries_edit":true,"permission_service_entries_delete":true,"permission_service_entries_view_documents":true,"permission_service_entries_manage_documents":true,"permission_work_orders_create":true,"permission_work_orders_view_incomplete":true,"permission_work_orders_view_completed":true,"permission_work_orders_view_update_cost_information":true,"permission_work_orders_edit":true,"permission_work_orders_delete":true,"permission_work_orders_view_documents":true,"permission_work_orders_manage_documents":true,"permission_inspections_manage_inspection_forms":true,"permission_inspections_manage_schedules":true,"permission_inspections_submit_inspections":true,"permission_inspections_view_submissions":true,"permission_inspections_edit_submissions":true,"permission_inspections_delete_submissions":true,"permission_service_reminders_create":true,"permission_service_reminders_view":true,"permission_service_reminders_edit":true,"permission_service_reminders_delete":true,"permission_service_programs_create_update":true,"permission_service_programs_view":true,"permission_vehicle_renewal_reminders_create":true,"permission_vehicle_renewal_reminders_view":true,"permission_vehicle_renewal_reminders_edit":true,"permission_vehicle_renewal_reminders_delete":true,"permission_contacts_create":true,"permission_contacts_edit":true,"permission_contacts_view_basic_info":true,"permission_contacts_view_contact_and_personal_info":true,"permission_contacts_view_custom_fields":true,"permission_contacts_archive_delete":true,"permission_contacts_view_documents":true,"permission_contacts_manage_documents":true,"permission_contacts_manage_photos":true,"permission_contact_renewal_reminders_create":true,"permission_contact_renewal_reminders_view":true,"permission_contact_renewal_reminders_edit":true,"permission_contact_renewal_reminders_delete":true,"permission_vendors_create":true,"permission_vendors_view":true,"permission_vendors_edit":true,"permission_vendors_delete":true,"permission_vendors_view_documents":true,"permission_vendors_manage_documents":true,"permission_vendors_manage_photos":true,"permission_parts_inventory_create_parts":true,"permission_parts_inventory_edit_parts":true,"permission_parts_inventory_update_inventory_quantities":true,"permission_parts_inventory_view_part_details":true,"permission_parts_inventory_view_part_activity":true,"permission_parts_inventory_archive_delete_parts":true,"permission_parts_inventory_view_documents":true,"permission_parts_inventory_manage_documents":true,"permission_purchase_orders_create_update":true,"permission_purchase_orders_delete":true,"permission_purchase_orders_view":true,"permission_purchase_orders_receive":true,"permission_purchase_orders_approve":true,"permission_reports_vehicles":true,"permission_reports_contacts":true,"permission_reports_parts":true,"permission_reports_shared":true,"permission_places_create":true,"permission_places_view":true,"permission_places_edit":true,"permission_places_delete":true,"permission_location_entries_create":true,"permission_location_entries_view":true,"permission_location_entries_edit":true,"permission_location_entries_delete":true,"permission_expense_entries_create":true,"permission_expense_entries_view":true,"permission_expense_entries_edit":true,"permission_expense_entries_delete":true,"permission_export_account_data":true,"permission_manage_subscription":true,"permission_manage_users":true,"contacts_module_enabled":true,"issues_module_enabled":true,"work_orders_module_enabled":false,"dashboard_module_enabled":true,"full_contact_details_enabled":true,"purchase_orders_module_enabled":false,"renewal_reminders_module_enabled":true,"fuel_cards_module_enabled":true,"custom_fields_module_enabled":true,"vehicles_module_enabled":true,"labels_module_enabled":true,"parts_and_inventory_module_enabled":false,"standard_gps_integrations_module_enabled":true,"advanced_gps_integrations_module_enabled":true,"faults_module_enabled":true,"recalls_module_enabled":true,"work_orders_navigation_enabled":true,"custom_fields_enabled":true,"custom_widgets_enabled":true,"fuel_cards_enabled":false,"imports_module_enabled":true,"groups_module_enabled":true,"user_permissions_module_enabled":true,"api_module_enabled":true,"places_module_enabled":true,"webhooks_module_enabled":false,"inspections_module_enabled":true,"integration_links_module_enabled":false,"dvla_module_enabled":null,"auto_integrate_module_enabled":true,"auto_integrate_customer_enabled":false,"password_requirements_module_enabled":false,"archived_at":null}, {
+      Intercom: {
+        user_hash: "81492c6a8d1ed96ddd55c2d5391177f2763819f712061b21519d8723128ca2e9"
+      }
+    });
+  //]]>
+</script>
+<script type='text/javascript'>
+  //<![CDATA[
+    analytics.group("41596", {"name":"Raja","created_at":1577333971,"url_token":"b93614950b","industry":"Construction \u0026 Materials","monthly_spend":0.0,"vehicles_count":0,"submitted_inspection_forms_count":3,"fleet_size_range":"500-999","has_ai_transaction":false,"first_visit_data_type":"","signup_visit_data_type":"","first_visit_data_source":"","signup_visit_data_source":"","first_visit_data_medium":"","signup_visit_data_medium":"","first_visit_data_campaign":"","signup_visit_data_campaign":"","first_visit_data_content":"","signup_visit_data_content":"","first_visit_data_term":"","signup_visit_data_term":"","first_visit_data_time_in_utc":"","signup_visit_data_time_in_utc":"","first_visit_data_referer":"","signup_visit_data_referer":"","first_visit_data_entrance_point":"","signup_visit_data_entrance_point":"","fl_manage_plan":"Pro Annual Plan","fl_manage_monthly_spend":75.0,"fl_manage_status":"trialing","fl_manage_balance":0.0,"fl_manage_trial_started_at":1577333986,"fl_manage_trial_ended_at":1578543586,"fl_manage_current_period_started_at":1577333986,"fl_manage_current_period_ends_at":1578543586,"fl_manage_payment_type":"","fl_manage_payment_collection_method":"automatic"});
+  //]]>
+</script>
+<script type="text/javascript">
+  (function(a){var b=a.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===a.location.protocol?"https:":"http:")+"//api.filestackapi.com/filestack.js";var c=a.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d={};d._queue=[];var e="pick,pickMultiple,pickAndStore,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");var f=function(a,b){return function(){b.push([a,arguments])}};for(var g=0;g<e.length;g++){d[e[g]]=f(e[g],d._queue)}window.filepicker=d})(document);
+</script>
+<script type='text/javascript'>
+  //<![CDATA[
+    window.zESettings = {
+      authenticate: { jwt: "eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1NzgzMDgxNjIsImp0aSI6IjE1NzgzMDgxNjIvYzBlNDdiYzNkNDVkNDBiMzE0MzBkOTg4OTQ2YjI5YjMwYzZjIiwibmFtZSI6Ik5hcmVzaCBrYW50ZSIsImVtYWlsIjoibmFyZXNoLnByb2NyZWF0ZUBnbWFpbC5jb20iLCJleHRlcm5hbF9pZCI6MTg4MTA4fQ.fd9KsfThyGK5Or1EZYVtWdUnee1A8b4iDufOsnbTyR8" },
+      helpCenter: {
+        searchPlaceholder: {
+          '*': "Search our Help Center",
+        }
+      },
+      webWidget: {
+        contactOptions: {
+          enabled: true,
+          contactButton: { '*': 'Get in touch' }
+        },
+        chat: {
+          suppress: false
+        },
+        contactForm: {
+          subject: true
+        }
+      }
+    }
+  //]]>
+</script>
+<script id='ze-snippet' src='https://static.zdassets.com/ekr/snippet.js?key=ff897192-4914-455f-9420-8dff4dc3c3e8'>:cdata</script>
+<script type='text/javascript'>
+  //<![CDATA[
+    var zeCall = function() {
+      try {
+        zE(function() {
+          if ("issue" != "")  {
+            zE.setHelpCenterSuggestions({ labels: ["issue"] });
+          } else {
+            zE.setHelpCenterSuggestions({ search: "issue_list" });
+          }
+          zE.identify({name: "Naresh kante", email: "naresh.procreate@gmail.com", external_id: "188108"});
+          document.removeEventListener("fleetio:ready", zeCall);
+        });
+      } catch (e) {
+        console.log("Zendesk unloading between turbolinks noise")
+      }
+    }
+    //document.addEventListener("fleetio:ready", zeCall);
+  //]]>
+</script>
+</div></div></div></body></html>

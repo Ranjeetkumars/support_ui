@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SCM | Item Rack & Shelves Mapping</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../../scm_common_img/img/favicon.ico">
+
+<!--CSS Links-->
+<link rel="stylesheet" href="../../scm_common_css/toster.css"> 
+        <link rel="stylesheet" href="../../scm_common_css/bootstrap.min.css">  
+       <!--  <link rel="stylesheet" href="../../scm_common_css/font-awesome/font-awesome.css"> -->
+        <link rel="stylesheet" href="../../scm_common_css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../scm_common_css/datatables.min.css">
+<link rel="stylesheet" href="../../scm_common_css/datepicker.css">
+<link rel="stylesheet" href="../../scm_common_css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../scm_common_css/metisMenu.css" />
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../scm_common_css/style.css">
+
+<style>
+#page-container {
+	position: relative;
+	min-height: 100vh;
+}
+
+#content-wrap {
+	padding-bottom: 2.5rem;
+	margin-left: 250px;
+	transition: all 0.5s;
+}
+
+.navbar-brand-1 {
+	float: left;
+	padding-right: 15px;
+	font-size: 18px;
+	margin-top: -5px;
+	cursor: pointer;
+}
+
+/* Toggle Active Classes */
+.sidebar.active {
+	left: -250px;
+}
+
+#content-wrap.active {
+	margin-left: 0px;
+}
+
+.table>thead>tr>th:first-child {
+	width: 37px !important;
+}
+
+.cursor {
+	cursor: pointer;
+}
+</style>
+
+</head>
+<body>
+
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="../../scm_common_img/img/pro-Logo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						
+						<li><a href="../../Dashboard/pages/Dashboard.html"><i
+								class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#" onclick="logout()"><i class="fa fa-power-off"></i> Logout</a></li>
+							
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header-->
+		<!--Side Nav Bar-->
+		
+<nav id='sidebar' class="sidebar">
+			<div class="sidebar-content">
+				<div class="sidebar-header">
+					<h3 class="header">SCM</h3>
+				</div>
+				<div class='sidebar-menu'>
+					<ul class="metismenu" id="metismenu">
+						
+						<li id="hideMaster"><a class="nav has-arrow" href="#"> <i
+								class='fa fa-history'></i> <span>Masters</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Masters/pages/GenericNameRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Generic Name
+											Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/BrandNameRegistration.html"> <i
+										class="fa fa-circle-o"></i> <span>Brand Name
+											Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/ManufactureNameRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Manufacture
+											Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/InventoryGroupRegistrastion.html">
+										<i class="fa fa-circle-o"></i> <span>Inventory Group
+											Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/InventoryItemFormRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Inventory Item
+											Form Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/PackingVolumeRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Packing Volume
+											Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/BatchUpdation.html"> <i
+										class="fa fa-circle-o"></i> <span>Batch Updation</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/BarCodePrint.html"> <i
+										class="fa fa-circle-o"></i> <span>Bar Code Print</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/StoreRegistration.html"> <i
+										class="fa fa-circle-o"></i> <span>Store Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/AmbulanceTypewiseItemsMapping.html">
+										<i class="fa fa-circle-o"></i> <span>Ambulance Type
+											wise Items Mapping</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/AmbulanceandSubStoreMapping.html">
+										<i class="fa fa-circle-o"></i> <span>Ambulance & Sub
+											store Mapping</span>
+								</a></li>
+
+								
+
+								<li><a href="../../Masters/pages/RackMaster.html"> <i
+										class="fa fa-circle-o"></i> <span>Rack Master</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/RackShelves.html"> <i
+										class="fa fa-circle-o"></i> <span>Rack Shelves</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/ItemandShelvesMapping.html"> <i
+										class="fa fa-circle-o"></i> <span>Item & Shelves
+											Mapping</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/ScheduleRegistration.html"> <i
+										class="fa fa-circle-o"></i> <span>Schedule Registration</span>
+								</a></li>
+							</ul></li>
+						<li  id="hideItemRegistration"><a class="nav has-arrow" href="#"> <i
+								class='fa fa-registered  '></i> <span>Item Registration</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Item_Registration/pages/ItemRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Item Registration</span>
+								</a></li>
+								<li><a href="../../Item_Registration/pages/ItemApproval.html"> <i
+										class="fa fa-circle-o"></i> <span>Item Approval</span>
+								</a></li>
+								<li><a href="../../Item_Registration/pages/Active_InactiveItems.html">
+										<i class="fa fa-circle-o"></i> <span>Active/In-Active
+											Items</span>
+								</a></li>
+								<li><a
+									href="../../Item_Registration/pages/Active_InactiveItemApproval.html">
+										<i class="fa fa-circle-o"></i> <span>Active/In-Active
+											Item Approval</span>
+								</a></li>
+							</ul></li>
+						<li id="hideVendorManagement"><a class="nav has-arrow" href="#"> <i
+								class='fa fa-building'></i> <span>Vendor Management</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../VendorManagement/pages/VendorClassification.html"> <i class="fa fa-circle-o"></i> <span>Vendor
+											Classification</span>
+								</a></li>
+								<li><a href="../../VendorManagement/pages/VendorRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Vendor
+											Registration</span>
+								</a></li>
+								<li><a href="../../VendorManagement/pages/VendorUnMapping.html">
+										<i class="fa fa-circle-o"></i> <span>Item & Vendor
+											Mapping</span>
+								</a></li>
+								
+							</ul></li>
+						<li id="hideProcurement"><a class="nav has-arrow" href="#"> <i
+								class='fa fa-thumbs-o-up '></i> <span>Procurement</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Procurement/pages/IndentRequest.html"> <i
+										class="fa fa-circle-o"></i> <span>Indent Request</span>
+								</a></li>
+								<li><a href="../../Procurement/pages/IndentApproval.html"> <i
+										class="fa fa-circle-o"></i> <span>Indent Approval</span>
+								</a></li>
+								<li><a href="../../Procurement/pages/PurchaseOrder.html"> <i
+										class="fa fa-circle-o"></i> <span>Purchase Order</span>
+								</a></li>
+							</ul></li>
+						<li id="hideGoodsReceivable"><a class="nav has-arrow" href="#"> <i
+								class='fa fa-shopping-cart'></i> <span>Goods Receivable</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../GoodsReceivable/pages/PurchaseOrderSearch.html">
+										<i class="fa fa-circle-o"></i> <span>Purchase Order
+											Search</span>
+								</a></li>
+							</ul></li>
+						<li id="hideItemReturns"><a class="nav has-arrow" href="#" aria-expanded="false">
+								<i class='fa fa-sitemap'></i> <span>Item Returns</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../ItemReturns/pages/StockAdjustment.html"> <i
+										class="fa fa-circle-o"></i> <span>Stock Adjustment</span>
+								</a></li>
+								<li><a href="../../ItemReturns/pages/ItemReturns.html"> <i
+										class="fa fa-circle-o"></i> <span>Items Returns</span>
+								</a></li>
+							</ul></li>
+						<li  id="hideSubstoreAmbulanceIndents"><a class="nav has-arrow" href="#" aria-expanded="false">
+								<i class='fa fa-hdd-o '></i> <span>Substore/Ambulance
+									Indents</span>
+						</a>
+							<ul class="nav first-child">
+
+                                 <li><a
+									href="../../Substore_AmbulanceIndent/pages/Substore_AmbulanceWiseIndentDetails.html">
+										<i class="fa fa-circle-o"></i> <span>Substore/Ambulance
+											Indent </span>
+								</a></li>
+                               <li><a
+									href="../../Substore_AmbulanceIndent/pages/Substore_ AmbulanceIndentVeiws.html ">
+										<i class="fa fa-circle-o"></i> <span>Substore/Ambulance
+											Indent Views</span>
+								</a></li>
+
+								<li><a
+									href="../../Substore_AmbulanceIndent/pages/Substore_AmbulanceIndentSearch.html">
+										<i class="fa fa-circle-o"></i> <span>Substore/Ambulance
+											Indent Verify</span>
+								</a></li>
+
+								<li><a
+									href="../../Substore_AmbulanceIndent/pages/AmbulancetoAmbulanceTransfer.html">
+										<i class="fa fa-circle-o"></i> <span>Ambulance To
+											Ambulance Transfer</span>
+								</a></li>
+								<li><a
+									href="../../Substore_AmbulanceIndent/pages/AcceptanceofTransfer.html">
+										<i class="fa fa-circle-o"></i> <span>Accept Transfer
+											Items</span>
+								</a></li>
+							
+							
+							</ul></li>
+
+						<li id="hideReports"><a class="nav" href="../Reports/Report.html"
+							aria-expanded="false"> <i class='fa fa-line-chart'></i> <span>Reports</span>
+						</a></li>
+						<li><a class="nav" href="../Help/Help.html"
+							aria-expanded="false"> <i class='fa fa-question'></i> <span>Help</span>
+						</a></li>
+						<li><a class="nav" href="../AboutUs/AboutUs.html"
+							aria-expanded="false"> <i class='fa fa-user'></i> <span>About</span>
+						</a></li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Side Nav Bar ENd-->
+		<!--Content-->
+		<div id="content-wrap">
+			<!--Second Header-->
+			<div class="second-nav">
+				<ul class="pull-left" style="display: inline-flex">
+					<li><a class="navbar-brand-1" id="menu-icon">
+							<h4>
+								<i class="fa fa-bars"></i>
+							</h4>
+					</a></li>
+					<li>
+						<h4 style="margin-top: 5px">Item Rack & Shelves Mapping</h4>
+					</li>
+				</ul>
+				<ul class="pull-right searchbar">
+					<!--                        <li class="pull-left p-r-sm">
+                                                    <a href="#">
+                                                        <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                                                    </a>                    
+                                                </li> -->
+					<li class="pull-left" style="margin-top: -7px">
+						<button type="button" class="btn btn-success btn-sm"
+							data-toggle="modal" onClick="openModalBox();">
+							<i class="fa fa-plus p-r-xs"></i>Item Rack & Shelves Mapping
+						</button>
+					</li>
+					
+				</ul>
+			</div>
+			<!--Second Header End-->
+
+			<div class="row" style="margin-left: 0px; margin-right: 0px;">
+				<div class="col-md-12 col-xs-12">
+
+					<div class="card">
+						<h4>&nbsp;</h4>
+						<!--table-->
+						<div class="wrapper wrapper-content">
+							<div class="row">
+								<div class="col-md-12 col-xs-12">
+									<div class="table-responsive">
+										<table id="masterIem"
+											class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th>S.No</th>
+													<th>Store/Ambulance</th>
+													<th>Item Name</th>
+													<th>Shelves Location</th>
+													<th>Status</th>
+													<th>Update</th>
+												</tr>
+											</thead>
+											<tbody id="list_of_data_id">
+
+											</tbody>
+										</table>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Content End-->
+		<!--Modal box for Add-->
+		<div id="packingVolume" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Item Rack & Shelves Mapping</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="">
+								<!--Error Message-->
+								<div class="alert alert-danger" style='display: none;'>
+									<h4>
+										<i class="fa fa-warning p-r-xs"></i>Please fix the following
+										errors:
+									</h4>
+									<ul class='m-l-md'>
+										<li>Packing Volume Name Can't be Empty</li>
+									</ul>
+								</div>
+								<!--Title Heade End-->
+								<div class="row">
+
+									
+									<div class="col-md-12 col-xs-12" id="disable-store-id">
+										<div class="form-group">
+											<label class="control-label col-md-4">
+												Store/Ambulance <span class="star">*</span>
+											</label>
+											<div class="col-md-8">
+												<select class="form-control" id="store-id" onchange="storeAction()">
+													
+													<option value="0">Select One</option>
+													<!-- <option value="1">DECOLD</option>
+                                                        <option value="2">Oxygen </option>
+                                                        <option value="3">Type</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-12 col-xs-12" >
+										<div class="form-group">
+											<label class="control-label col-md-4">Racks<span
+												class="star">*</span>
+											</label>
+											<div class="col-md-8">
+												<select class="form-control" id="racks-Id"
+													onchange="loadShelves();">
+													<option value="0">Select One</option>
+													<!-- <option value="1">DECOLD</option>
+                                                        <option value="2">Oxygen </option>
+                                                        <option value="3">Type</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12 col-xs-12" >
+										<div class="form-group">
+											<label class="control-label col-md-4"> Shelves <span
+												class="star">*</span>
+											</label>
+											<div class="col-md-8">
+												<select class="form-control" id="shelves-id">
+													<option value="0">Select One</option>
+													<!-- <option value="1">DECOLD</option>
+                                                        <option value="2">Oxygen </option>
+                                                        <option value="3">Type</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+
+									<div class="col-md-12 col-xs-12" id="disable-items-id">
+										<div class="form-group">
+											<label class="control-label col-md-4"> Items <span
+												class="star">*</span>
+											</label>
+											<div class="col-md-8">
+												<select class="form-control" id="items-id">
+													<option value="0">Select One</option>
+													<!-- <option value="1">DECOLD</option>
+                                                        <option value="2">Oxygen </option>
+                                                        <option value="3">Type</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<!--Status-->
+									<div class="col-md-12 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4"></label>
+											<div class="col-md-8 col-xs-12 m-none">
+												<div class="control-label col-md-4 col-sm-3 m-none">
+													<label class="check"> <input type="checkbox"
+														id="stausId" name="checkme"> <span
+														class="checkmark"></span> <!--<div>--> <label
+														class="control-label">Staus</label> <!--</div>-->
+													</label>
+												</div>
+
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- Buttons-->
+							<div class="row m-t-b-sm">
+								<div class="col-md-12 col-xs-12 text-center m-t-sm">
+									<button type="button" class="btn btn-primary btn-sm m-t-sm"
+										onClick="saveItemShelfDetails();" id="save_disable">
+										<i class="fa fa-save p-r-xs"></i>Save
+									</button>
+									<!--  <button type="button" class="btn btn-dark btn-sm" ><i class="fa fa-edit p-r-xs"></i>Update</button> -->
+									<button type="button" class="btn btn-dark btn-sm" style="margin-top: 11px"
+										onClick="updateShelveItems();" id="update_disable">
+										<i class="fa fa-times-circle p-r-xs"></i>Update
+									</button>
+									<button type="button"
+										class="btn btn-outline-warning btn-sm m-t-sm"
+										id="reset_disable" onClick="resetMaster();">
+										<i class="fa fa-refresh p-r-xs"></i>Reset
+									</button>
+									 <button type="button" class="btn btn-danger btn-sm m-t-sm" data-dismiss="modal"><i class="fa fa-times-circle p-r-xs"></i>Close</button>    
+								</div>
+							</div>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--Footer-->
+	<div class="footer">
+		<small>Powdered by Procreate Techno systems Private Limited</small>
+	</div>
+	<!--Footer End-->
+	</div>
+
+	<script src="../../scm_common_js/jquery1.2.min.js"></script>
+	<script src="../../scm_common_js/moment.min.js"></script>
+	<script src="../../scm_common_js/bootstrap.min.js"></script>
+	<script src="../../scm_common_js/bootstrap-datepicker.js"></script>
+	<script src="../../scm_common_js/datatables.min.js"></script>
+	<script src="../../scm_common_js/toster.js"></script>
+	<script src="../../scm_common_js/chosen.jquery.js"></script>
+	<script src="../../scm_common_js/metisMenu.min.js"></script>
+	<script src="../commonjs/ServiceURL.js"></script>
+	<!-- <script src="../serviceController/ambulance_substore_mapping.js"></script> -->
+	<script src="../serviceController/itemAndShelvesMapping.js"></script>
+	<script src="../../scm_common_js/Urls.js"></script>
+<script src="../../scm_constant/CommonUtils.js"></script>
+        <script>
+        
+        
+        
+            $(document).ready(function() {
+            	enableDisableMenuBasedOnRoleId();
+
+			$("#menu-icon").click(function() {
+				//                    $("#sidebar").toggleClass('active');
+				//                    $("#content-wrap").toggleClass('active');
+			});
+
+			$('#metismenu').metisMenu();
+
+			//                                            Chosen Select
+			$('#inventoryitemform').chosen();
+
+			$('[data-toggle="tooltip"]').tooltip(); // Tooltip
+			$('[data-toggle="popover"]').popover({
+				trigger : 'hover',
+				width : '200px;'
+			});
+		});
+
+		$("#switch1").change(function() {
+			var ischecked = $(this).is(':checked');
+			if (ischecked == true) {
+				$('#secondaryInterval').css('display', 'block');
+			} else {
+				$('#secondaryInterval').css('display', 'none');
+			}
+		});
+	</script>
+
+</body>
+</html>

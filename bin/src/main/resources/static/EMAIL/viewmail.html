@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>View Mail</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="../css/summernote/summernote.css">
+<link rel="stylesheet" href="../css/summernote/summernote-bs3.css">
+<link rel="stylesheet" href="../css/bootstrap-tagsinput.css">
+<!-- <link rel="stylesheet" href="../css/style.css"> -->
+<style>
+@import
+	url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+.row{
+margin:0;
+}
+.user-icon {
+	width: 35px;
+	height: 35px;
+	vertical-align: middle;
+	padding: 11px;
+	border-radius: 50%;
+	background: #ccc;
+	margin-right: 14px;
+}
+
+.subject {
+	padding: 5px 0;
+}
+
+h4 {
+	margin: 0;
+	padding: 5px 0;
+	color: #000;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.m-t-lg {
+	margin-top: 25px;
+}
+
+.content {
+	color: #555;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.small-id {
+	font-weight: 500;
+	color: #555;
+	padding-left: 3px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.reply-box {
+	min-height: 250px;
+	border: 1px solid #dadce0;
+	margin-top: 22px;
+	border-radius: 6px;
+	box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px
+		rgba(60, 64, 67, 0.149);
+	padding: 15px;
+}
+
+.bootstrap-tagsinput {
+	width: 100%;
+	min-height: 30px;
+	border-right: none;
+	border-left: none;
+	border-radius: 0px;
+	box-shadow: none;
+}
+
+.input-group-addon {
+	background: transparent !important;
+}
+</style>
+</head>
+<body>
+	<div class="row"
+		style="box-shadow: 0 5px 10px rgba(0, 0, 0, .5); padding: 15px">
+		<div class="">
+			<h3 class="subject" id="senderSubject">Re: Half-Day Leave request on 22-10-2019</h3>
+			<div class="mail-1 m-t-lg">
+				<div class="row">
+					<div class="pull-left">
+						<i class="glyphicon glyphicon-user user-icon"></i>
+					</div>
+					<div class="pull-left">
+						<h4><span id="senderName">Ranjeet, Kumar</span>
+							<small class="small-id" >&lt;<span id="senderMailId">ranjeetkumar@gmail.com</span>&gt;</small><small
+								class="small-id pull-right">Mon, Oct 21, 6:32 PM</small>
+						</h4>
+						<small class="small-id">to
+							gopikrishna@gmail.com,varunbabu@gmail.com,kondururakesh@gmail.com</small>
+						<br> <br>
+
+						<p class="content">Dear Sir, As I informed you,Tomorrow
+							(22-10-2019) ,I would like to take Half-day leave. Because, I
+							have some personal work. Kindly approve my leave request and
+							provide your approval.</p>
+						<div>
+							<button id="reply"  type="button" class="btn btn-default btn-sm">
+								<i class="fa fa-reply"></i>&nbsp;&nbsp;Reply
+							</button>
+							<!-- <button type="button" class="btn btn-default btn-sm">
+								<i class="glyphicon glyphicon-arrow-right"></i>&nbsp;&nbsp;Forward
+							</button>
+							<button type="button" class="btn btn-default btn-sm">
+								<i class="fa fa-print"></i>&nbsp;&nbsp;Print
+							</button>
+							<button type="button" class="btn btn-default btn-sm">
+								<i class="fa fa-trash"></i>&nbsp;&nbsp;Delete
+							</button> -->
+						</div>
+					</div>
+				</div>
+				<!-- Reply Box Content -->
+				<div class="row" style="display: none;" id="replyContent">
+					<div class="reply-box">				
+						<br>
+						<div class="summernote"></div>
+						<div class="text-right">
+							<button type="button" class="btn btn-primary btn-sm"
+								data-toggle="tooltip" title="Send" data-placement="top">
+								<i class="fa fa-reply"></i>&nbsp;&nbsp;Send
+							</button>
+							<button type="button" class="btn btn-default btn-sm"
+								data-toggle="tooltip" title="Send" data-placement="top">
+								<i class="fa fa-times"></i>&nbsp;&nbsp;Discard
+							</button>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<br>
+
+
+
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/summernote.min.js"></script>
+	<script src="../js/bootstrap-tagsinput.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			$('[data-toggle="tooltip"]').tooltip();
+			$('.tagsinput').tagsinput();
+			$('.summernote').summernote({
+				height : 200
+			});
+			
+			$('#reply').click(function(){
+				$('#replyContent').css('display','block');
+			});
+		});
+	</script>
+	
+	
+	
+	
+</body>
+</html>

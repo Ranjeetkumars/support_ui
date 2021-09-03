@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OP Desk | Grievances</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->    
+        <link rel="stylesheet" href="../../css/style.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <!-- <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul> -->
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px"> Grievances</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                   <!--  <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li>  -->
+                    <li class="pull-left" style="margin-top: -7px">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i>Grievances</button> 
+                    </li>
+                   <!--  <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>      -->
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12">                           
+                        </div>
+                        <!--District-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-xs-12">District<span class="star">*</span></label>
+                                <div class="col-md-9 col-xs-12">
+                                    <select class="form-control" name="dractityid" id="district_id">
+                                        <option value="0">Select District</option>
+                                        <!--    <option value="1">Fuel Filling</option>
+                                           <option value="2">Oxygen Filling</option>
+                                           <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--button-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="searchGrievances()"><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm"><i class="fa fa-refresh p-r-xs"></i>Reset</button>  
+                            <a href ='ClosedGrievances.html' > <button type="button" class="btn btn-success btn-sm" onclick="getClosedGrievances()">Closed Grievances</button></a>
+                        </div>
+                    </div>   
+                    <hr>
+                    <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive" id="grievance_id">    
+                                    <!--                                    <table id="driverTable" class="table table-bordered table-striped">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>S.NO</th>
+                                                                                    <th>Ticket #</th>
+                                                                                    <th>Grievance Type</th>                           
+                                                                                    <th>Issue Type</th>
+                                                                                    <th>Grievance Date</th>                                      
+                                                                                    <th>Status</th>
+                                                                                    <th>SLA Time (in Hrs)  </th>                                                                                         
+                                                                                    <th>Actual Duration</th>                                                                                                                                             
+                                                                                    <th>Update</th>                                                                                          
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>GR-20180627-000001</td>
+                                                                                    <td>Pilot Grievance</td>
+                                                                                    <td>Payment Related</td>
+                                                                                    <td>2018-06-27 18:13:39.110023</td>
+                                                                                    <td>Open</td>
+                                                                                    <td>2</td>
+                                                                                    <td>294 days 23:11:54.791006</td>                                                                         
+                                                                                    <td><button type="button" class="btn btn-primary btn-sm">Update</button></td>                                       
+                                                                                </tr>  
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>GR-20180627-000001</td>
+                                                                                    <td>Pilot Grievance</td>
+                                                                                    <td>Payment Related</td>
+                                                                                    <td>2018-06-27 18:13:39.110023</td>
+                                                                                    <td>Open</td>
+                                                                                    <td>2</td>
+                                                                                    <td>294 days 23:11:54.791006</td>                                                                         
+                                                                                    <td><button type="button" class="btn btn-primary btn-sm">Update</button></td>                                       
+                                                                                </tr>  
+                                    
+                                                                            </tbody>
+                                                                        </table>-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <!--Content End-->
+            <!--Modal box for Registration-->
+            <div id="registration" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Grievances </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+
+                                <!--Caller Information--> 
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Caller Information</h4>
+                                </div>
+                                <div class="sub-body">
+
+                                    <!--Caller Number-->                                            
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12" >Caller Number<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <input type='text' class="form-control" id="CallerNo"  placeholder="Enter Caller Number" >
+                                                    <label class="text-danger bolder" id="errorMessage"></label>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                        <!--Caller Name--> 
+                                        <div class="col-md-6 col-xs-12">                                                                                                                                   <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Caller Name<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type='text' class="form-control" id="CallerName" placeholder="Enter Caller Name" placeholder="Enter Caller Name">
+                                                    <label class="text-danger bolder "  id="errorMessage1" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Caller Profile-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12">Caller Profile<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">                                                    
+                                                    <select class="form-control" id="CallerProfile">
+                                                        <option value="0">Select One</option>
+                                                        <!--      <option value="1">Fuel Filling</option>
+                                                           <option value="2">Oxygen Filling</option>
+                                                           <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                    <label class="text-danger bolder "  id="errorMessage2" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Grievance Type-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Grievance Type<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12" > 
+                                                    <select class="form-control" id="GrievanceType">
+                                                        <!--                                                        <option value="0">Select One</option>
+                                                                                                                <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                    <label class="text-danger bolder "  id="errorMessage3" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!--Ambulance Information-->                                
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Ambulance Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--District-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">District<span class="star"></span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="DistrictIdReg">
+                                                        <option value="0">Select District</option>
+                                                        <!--         <option value="1">Fuel Filling</option>
+                                                             <option value="2">Oxygen Filling</option>
+                                                             <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                    <label class="text-danger bolder "  id="errorMessage4" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Base Location-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star"></span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="BaseLocationIdReg">
+                                                                                                           <option value="0">Select Base Location</option>
+                                                                                           <!--                          <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                    <label class="text-danger bolder "  id="errorMessage5" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ambulance -->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Ambulance No<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="AmbulanceIdReg">
+                                                                                                             <option value="0">Select Ambulance</option>
+                                                                 <!--                                                  <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                    <label class="text-danger bolder "  id="errorMessage6" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Incident Tagging-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Incident Tagging</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div>
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="optradio" id="incidenttagging_YES" value="Yes">Yes
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="optradio" id="incidenttagging_NO" value="No">No
+                                                        </label>
+                                                        <label class="text-danger bolder "  id="errorMessage7" ></label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                   <!-- Incident Search Filters-->
+                                <div class="sub-title" id="grievancetitleId" hidden="true">
+                                    <h4> Incident Search Filters </h4>
+                                </div>
+                                <div class="sub-body"  id="grievancedataId" hidden="true">
+                                    <!--Grievance Date & Time-->
+                                    <div class="row">
+                                     <!--Caller Number -->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Caller Number <span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type='text' class="form-control" placeholder="Enter caller Number" id="caller_number"/>
+<!--                                                    <select class="form-control" id="incidentId">
+                                                                                                                <option value="0">Select Issue Type</option>
+                                                                                                                <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>
+                                                    </select>-->
+                                                    <label class="text-danger bolder "  id="errorMessage8" ></label>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                        <!--Incident Id-->
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Incident Id<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type='text' class="form-control" placeholder="Enter caller Number" id="incidentId"/>
+<!--                                                    <select class="form-control" id="incidentId">
+                                                                                                                <option value="0">Select Issue Type</option>
+                                                                                                                <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>
+                                                    </select>-->
+                                                    <label class="text-danger bolder "  id="errorMessage8" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- From Date -->
+                                    <div class="row">                                                
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">From Date <span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class='input-group date' id='datetimepicker1'>
+                                                        <input type='text' class="form-control" placeholder="Select Date" id="fromDate" autocomplete="off"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- To Date-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">To Date <span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class='input-group date' id='datetimepicker2'>
+                                                        <input type='text' class="form-control" placeholder="Select Date" id="toDate" autocomplete="off"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                                     
+                                    <!-- Caller Name-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Caller Name<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                
+                                                    <input type='text' class="form-control" placeholder="Enter caller Number" id="IssueDescribedReg"/>
+                                                    <label class="text-danger bolder "  id="errorMessage11" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                       <div class="text-center">
+                                       <button type="button" class="btn btn-primary btn-sm" id="insertGrievancesDetailsId" onclick="getgrievanceSearchDetails()"><i class="fa fa-floppy-o p-r-xs"></i>Search</button>
+                                       <button type="button" class="btn btn-outline-warning btn-sm "  data-dismiss="modal" ><i class="fa fa-times p-r-xs"></i>Reset</button>
+                                   </div>
+                                       <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive" id="getgrievance_id">    
+<!--                                                                        <table id="driverTable" class="table table-bordered table-striped">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>S.NO</th>
+                                                                                    <th>Ticket #</th>
+                                                                                    <th>Grievance Type</th>                           
+                                                                                    <th>Issue Type</th>
+                                                                                    <th>Grievance Date</th>                                      
+                                                                                    <th>Status</th>
+                                                                                    <th>SLA Time (in Hrs)  </th>                                                                                         
+                                                                                    <th>Actual Duration</th>                                                                                                                                             
+                                                                                    <th>Update</th>                                                                                          
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>GR-20180627-000001</td>
+                                                                                    <td>Pilot Grievance</td>
+                                                                                    <td>Payment Related</td>
+                                                                                    <td>2018-06-27 18:13:39.110023</td>
+                                                                                    <td>Open</td>
+                                                                                    <td>2</td>
+                                                                                    <td>294 days 23:11:54.791006</td>                                                                         
+                                                                                    <td><button type="button" class="btn btn-primary btn-sm">Update</button></td>                                       
+                                                                                </tr>  
+                                                                                <tr>
+                                                                                    <td>1</td>
+                                                                                    <td>GR-20180627-000001</td>
+                                                                                    <td>Pilot Grievance</td>
+                                                                                    <td>Payment Related</td>
+                                                                                    <td>2018-06-27 18:13:39.110023</td>
+                                                                                    <td>Open</td>
+                                                                                    <td>2</td>
+                                                                                    <td>294 days 23:11:54.791006</td>                                                                         
+                                                                                    <td><button type="button" class="btn btn-primary btn-sm">Update</button></td>                                       
+                                                                                </tr>  
+                                    
+                                                                            </tbody>
+                                                                        </table>-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                                </div>
+                                
+                                <!--Grievance Details-->                                
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Grievance Details</h4>
+                                </div>
+                                
+                                <div class="sub-body">
+                                    <!--Grievance Date & Time-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12" >Grievance Date <span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class='input-group date' id='datetimepicker3'>
+                                                        <input type='text' class="form-control" placeholder="Select Date" id="grievancesdate" autocomplete="off"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Type Of Issue-->
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12" id="typeofIssueId">Type Of Issue<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="TypeOfIssueIdReg">
+                                                        <!--                                                        <option value="0">Select Issue Type</option>
+                                                                                                                <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                    <label class="text-danger bolder" id="errorMessage8" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Standard Remarks -->
+                                    <div class="row">                                                
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Standard Remarks<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="StandardRemarksIdReg">
+                                                        <!--                                                        <option value="0" >Select Standard Remarks</option>
+                                                                                                                <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                    <label class="text-danger bolder "  id="errorMessage9" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Additional Remarks-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Additional Remarks</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Additional Remarks" id="AdditionalRemarksReg"></textarea>
+                                                    <label class="text-danger bolder "  id="errorMessage10" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Issue Described By Caller-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Issue Described By Caller<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Issue" id="issueDescribedReg"></textarea>
+                                                    <label class="text-danger bolder "  id="errorMessage11" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                             
+                                <!--Escalate To-->
+                                <!--Heading-->
+
+                                <div class="sub-title">
+                                    <h4>Escalate To</h4>
+                                </div>
+                                <div class="sub-body">
+                                  <!--District Manager-->
+                                    <div class="col-md-12" style="margin-bottom:10px;" name="multicheck">
+                                        <div class="col-md-4 col-xs-12" >
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">District Manager
+                                            </label>
+                                        </div>
+                                          <!--Fleet Manager-->
+                                        <div class="col-md-4 col-xs-12" >
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">Fleet Manager
+                                            </label>
+                                        </div>
+                                          <!--Zonal Manager-->
+                                        <div class="col-md-4 col-xs-12" >
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="">Zonal Manager
+                                            </label>
+                                        </div>
+                                        <label class="text-danger bolder "  id="errorMessage12" ></label>
+                                    </div>
+                                    <!--Mail To-->
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 col-xs-12">Mail To<span class="star">*</span></label>
+                                        <div class="col-md-8 col-xs-12"> 
+                                            <input type="email" class="form-control" placeholder="mailto@xxx.com" id="Email">
+                                            <label class="text-danger bolder "  id="errorMessage13" ></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--button-->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm" id="insertGrievancesDetailsid" onclick="insertGrievancesDetails()"><i class="fa fa-floppy-o p-r-xs"></i>Submit</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetGrievancesRegistation()"><i class="fa fa-refresh p-r-xs"></i>Reset</button> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Box for Update-->
+            <div id="Update" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Grievances </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+
+                                <!--Caller Information--> 
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Caller Information</h4>
+                                </div>
+                                <div class="sub-body">
+
+                                    <!--Caller Number-->                                            
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12" >Caller Number<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <input type='text' class="form-control" id="CallerNoUpdate"  placeholder="Enter Caller Number" disabled>
+                                                    <label class="text-danger bolder" id="errorMessage"></label>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                        <!--Caller Name--> 
+                                        <div class="col-md-6 col-xs-12">                                                                                                                                   <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Caller Name<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type='text' class="form-control" id="CallerNameUpdate"  placeholder="Enter Caller Name" disabled>
+                                                    <label class="text-danger bolder "  id="errorMessage1" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Caller Profile-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12">Caller Profile<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">                                                    
+<!--                                                    <select class="form-control" id="CallerProfile">
+                                                        <option value="0">Select One</option>
+                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>
+                                                    </select>-->
+                        <input type='text' class="form-control" id="CallerProfileUpdate" placeholder="Enter Caller Profile" disabled>
+                                                    <label class="text-danger bolder "  id="errorMessage2" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Grievance Type-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Grievance Type<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12" > 
+                                                   <select class="form-control" id="GrievanceType">
+                                                       <option value="0">Select One</option>
+                                                      <!--    <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>
+                                                    </select>-->
+                          <input type='text' class="form-control" id="grievanceTypeUpdate" placeholder="Enter grievance Type" disabled>
+                                                    <label class="text-danger bolder "  id="errorMessage3" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <!--Grievance Details-->                                
+                                <!--Heading-->
+                                <div class="sub-title" >
+                                    <h4> Grievance Details</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--Grievance Date & Time-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Grievance Date <span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class='input-group date' id='datetimepicker1'>
+                                                        <input type='text' class="form-control" placeholder="Select Date" id="grievanceUpdate" disabled/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Type Of Issue-->
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Type Of Issue<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+<!--                                                    <select class="form-control" id="TypeOfIssue">
+                                                        <option value="0">Select Issue Type</option>
+                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>
+                                                    </select>-->
+<input type='text' class="form-control" placeholder="Enter Type Of Issue" id="typeOfIssueUpdate" disabled/>
+                                                    <label class="text-danger bolder "  id="errorMessage8" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Standard Remarks -->
+                                    <div class="row">                                                
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Standard Remarks<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+<!--                                                    <select class="form-control" id="StandardRemarks">
+                                                        <option value="0" >Select Standard Remarks</option>
+                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>
+                                                    </select>-->
+                                       <input type='text' class="form-control" placeholder="Enter Standard Remarks" id="standardRemarksUpdate" disabled/>
+                                                    <label class="text-danger bolder "  id="errorMessage9" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Additional Remarks-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Additional Remarks</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Additional Remarks" id="AdditionalRemarksUpdate" disabled></textarea>
+                                                    <label class="text-danger bolder "  id="errorMessage10" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Ambulance Number-->
+                                        <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Ambulance Number<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                 <input type='text' class="form-control" placeholder="Enter Ambulance Number" id="ambulanceNoUpdtae" disabled/>
+                                                    <label class="text-danger bolder "  id="errorMessage10" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Issue Described By Caller-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Issue Described By Caller<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Issue" id="IssueDescribedUpdate" disabled></textarea>
+                                                    <label class="text-danger bolder "  id="errorMessage11" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Grivances Update -->
+                                 <!--Grievance Details-->                                
+                                <!--Heading-->
+                                <div class="sub-title" >
+                                    <h4> Grievance Update</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--Grievance Date & Time-->
+                             
+                                    <!-- Solved By -->
+                                    <div class="row">                                                
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Solved By<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+<!--                                                    <select class="form-control" id="StandardRemarks">
+                                                        <option value="0" >Select Standard Remarks</option>
+                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>
+                                                    </select>-->
+                                       <input type='text' class="form-control" placeholder="Enter Solved By" id="solvedBy_Update" />
+                                                    <label class="text-danger bolder "  id="errorMessage9" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Designation-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Designation</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                     <select class="form-control" id="designation_Update">
+                                                      <option value="0" >Select Designation</option>
+                                                   <!--       <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                    <label class="text-danger bolder "  id="errorMessage10" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+           
+                                    <!--Reply-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Reply <span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Please Write Reply Here" id="reply_Update" ></textarea>
+                                                    <label class="text-danger bolder "  id="errorMessage11" ></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                       <!--buttons-->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm" id="updateGrievancesDetailsId" onclick="updateGrievanceDetail()"><i class="fa fa-floppy-o p-r-xs"></i>Update</button>
+                                     <button type="button" class="btn btn-outline-warning btn-sm" onclick="updateReset()"><i class="fa fa-refresh p-r-xs"></i>Reset</button> 
+                                </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="ticketId">
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/datatables.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.js"></script> 
+        <script src="../../js/bootstrap-datetimepicker.min.js"></script>       
+        <script src="../../js/chosen.jquery.js"></script>
+
+        <script src="../../js/OPDESK/Constants.js"></script>
+        <script src="../../js/OPDESK/ServiceURLS.js"></script>
+        <script src="../../js/OPDESK/msterData.js"></script>
+        <script src="../../js/OPDESK/grievances.js"></script>
+        <script src="../../js/notify.js"></script>
+        <script src="../../js/notify.min.js"></script>
+        <script src="../../js/swaltest.min.js"></script>
+           <!--         logout/login url -->
+               <script src="../../../Common/serviceController/dashboard.js"></script>
+                <script src="../../../Common/serviceController/ServiceUrl.js"></script> 
+              <script src="../../../Common/serviceController/logout.js"></script>
+        <script>
+
+                                        $(function() {
+//Date And Time picker in Modal Box
+                                            $('#datetimepicker1').datetimepicker({
+                                                sideBySide: true,
+                                                format: 'DD-MM-YYYY HH:mm:ss'
+                                            });
+                                            
+                                            $('#datetimepicker2').datetimepicker({
+                                                sideBySide: true,
+                                                format: 'DD-MM-YYYY HH:mm:ss'
+                                            });
+                                            
+                                            $('#datetimepicker3').datetimepicker({
+                                                sideBySide: true,
+                                                format: 'DD-MM-YYYY HH:mm:ss'
+                                            });
+                                        });
+
+                                        $(document).ready(function() {
+                                         	checkLoggedOrNot();
+                                            // $('select').chosen();                            //Chosen select
+                                            $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                                            $('#driverTable').DataTable({// Data table
+                                                pageLength: 10,
+                                                responsive: true,
+                                                dom: '<"html5buttons"B>lTfgitp',
+                                                buttons: [
+                                                    {extend: 'copy'},
+                                                    {extend: 'csv'},
+                                                    {extend: 'excel', title: 'ExampleFile'},
+                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                                    {extend: 'print',
+                                                        customize: function(win) {
+                                                            $(win.document.body).addClass('white-bg');
+                                                            $(win.document.body).css('font-size', '10px');
+
+                                                            $(win.document.body).find('table')
+                                                                    .addClass('compact')
+                                                                    .css('font-size', 'inherit');
+                                                        }
+                                                    }
+                                                ]
+
+                                            });
+//Date Pickers
+                                            $("#strtDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+                                            $("#endDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+
+                                        });
+
+
+
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OP Desk |  Oxygen filling View</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../css/style.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                    <!--     <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul> -->
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px"> Oxygen Filling View</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                    <!-- li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li>  -->
+                    <li class="pull-left" style="margin-top: -7px">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i> Oxygen filling</button> 
+                    </li>
+                   <!--  <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>      -->
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">
+                        <!--District-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-xs-12">District<span class="star"></span></label>
+                                <div class="col-md-9 col-xs-12">
+                                    <select class="form-control" name="dractityid" id="oxy_districtID">
+                                        <option value="0">Select District</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Base Location-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star"></span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="oxy_basLocID">
+                                        <option value="0">Select Base Location</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Ambulance-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Ambulance No</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" name="dractityid" id="oxy_ambulanceID">
+                                        <option value="0">Select Ambulance</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Ticket ID-->
+                    <div class="row m-t-b-sm">                        
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Ticket Id</label>
+                                <div class="col-md-9">
+                                    <input type="text" placeholder="Enter Ticket ID" class="form-control" name="drticketid" id="oxy_ticketID" maxlength="15">
+                                </div>
+                            </div>
+                        </div>
+                        <!--Oxygen Filling From Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Oxygen Filling From Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="strtDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date" type="text" id="oxy_fromDateID" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--Oxygen Filling To Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Oxygen Filling To Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="endDate" class="input-group date" data-date-format="dd-mm-yyyy" >
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+
+                                            <input class="form-control" placeholder="Select Date" type="text" id="oxy_toDateId" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--button-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="oxysearch()" id="search_id_oxy"><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetSearch()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                        </div>
+                    </div>   
+                    <hr>
+                    <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive" id="driverTable">   
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>               
+            </div>
+            <!--Content End-->
+            <!--Modal box for Registration-->
+            <div id="registration" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Oxygen Filling </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+
+                                <!--Ambulance Information-->                               
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Ambulance Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--District-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12">District<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" id="oxy_reg_districtID">
+                                                        <option value="0">Select District</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>   
+                                        </div>    
+                                        <!--Base Location-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="oxy_reg_baslocID">
+                                                        <option value="0">Select Base Location</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Ambulance-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12">Ambulance No<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" id="oxy_reg_ambulanceID">
+                                                        <option value="0">Select Ambulance</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Shift Type-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Shift Type<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="oxy_reg_shiftID">
+                                                        <option value="0">Select Shift Type</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!--Oxygen Station Information-->                                
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4>Oxygen Station Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <!--Oxygen Station-->  
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Oxygen Station<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="oxy_reg_stationID" onchange="hideOxyStationDetails()">
+                                                        <option value="-1">Select Oxygen Station</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>  
+                                        </div>
+
+                                        <!-- station Name-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group" id="oxygenStationName">
+                                                <label class="control-label col-md-4 col-xs-12">Station Name<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter oxygen station name " id="oxy_reg_stationName" onKeyPress="if (this.value.length == Constants.NAME_MAX_LENGTH)
+                                                                return false;" maxlength="50">
+                                                    <div class="text-right">
+                                                        <span id="valid_station_name">0/50</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+ <!-- Station Address-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Station Address<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Address " id="oxy_reg_Address" onKeyPress="if (this.value.length == Constants.MAX_ADDRESS_LENGTH)
+                                                                return false;">
+                                                    <div class="text-right">
+                                                        <span id="valid_address">0/100</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+ <!--Station Phone Number-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Station Phone Number<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Phone Number" id="oxy_reg_phNo" onKeyPress="if (this.value.length == Constants.PHONE_NUMBER_LEN)
+                                                                return false;" maxlength="10">
+                                                    <div class="text-right">
+                                                        <span id="valid_phNo">0/10</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+ <!-- Station Mobile Number-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Station Mobile Number<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type= "text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Mobile Number" id="oxy_reg_mblNo" onKeyPress="if (this.value.length == Constants.PHONE_NUMBER_LEN)
+                                                                return false;" maxlength="10">
+                                                    <div class="text-right">
+                                                        <span id="valid_mobile_no">0/10</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Cylinder Type-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Cylinder Type<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="oxy_reg_cylinderTypeID">
+                                                        <option value="0">Select Cylinder Type</option>
+                                                        <!--                                                        <option value="1">Cylinder one</option>
+                                                                                                                <option value="2">Cylinder two</option>
+                                                                                                                <option value="3">Cylinder three</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Oxygen Quantity-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Oxygen Quantity<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type= "text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Oxygen Quantity " id="oxy_quantityId" onKeyPress="if (this.value.length == Constants.MAX_OXYGEN_QUANTITY)
+                                                                return false;" maxlength="3">
+                                                    <div class="text-right">
+                                                        <span id="valid_quantity">0/3</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Oxygen Amount--> 
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Oxygen Amount<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type= "text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Oxygen Amount" id="oxy_amountId" onKeyPress="if (this.value.length == Constants.MAX_AMOUNT)
+                                                                return false;" maxlength="6">
+                                                    <div class="text-right">
+                                                        <span id="valid_amount">0/6</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Add Cylinder Button--> 
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 col-xs-12"></label>
+                                        <div class="col-md-8 col-xs-12"> 
+                                            <button type="button" class="btn btn-primary btn-sm" id="addcylinder_id" onclick="addCylinder()">Add Cylinder</button>
+                                        </div>
+                                    </div>
+
+
+                                    <!--Table For cylinder Details-->
+                                    <table class="table table-bordered" id="table">
+                                        <thead>
+                                            <tr>
+                                                <th>S.No</th>
+                                                <th>Cylinder Type</th>
+                                                <th>Oxygen Quantity</th>
+                                                <th>Paid Amount</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+
+
+                                    <!--Pre Odo-meter Reading-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Pre Odo-Meter Reading<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type ="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Pre Odo-Meter Reading " id="oxy_reg_preodometerID" maxlength="8">
+                                                    <div class="text-right">
+                                                        <span id="valid_cur_odo">0/7</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--In-Odometer Reading--> 
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">In Odo-Meter Reading<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type ="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter In Odo-Meter Reading" id="oxy_reg_currentOdoId" maxlength="8">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Payment Mode--> 
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Payment Mode<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="paymentTypeID">
+                                                        <option value="0">Select Payment Mode</option>
+                                                        <option value="1">pay card</option>
+                                                        <option value="2">Vocher payment</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Payment NO-->  
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Payment Number</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Payment No" id="oxy_reg_paymentNumberID" onKeyPress="if (this.value.length == Constants.MAX_PAYMENT_NUMBER)return false;" maxlength="20" >
+                                                    <div class="text-right">
+                                                        <span id="valid_payment">0/20</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Filling Date & Time--> 
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Filling Date<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class='input-group date' id='datetimepicker1'>
+                                                        <input type='text' class="form-control input-sm" placeholder="Select Date" id="oxy_fillingDateID" autocomplete="off"/>
+                                                        <span class="input-group-addon calendar">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>                                               
+                                            </div> 
+                                        </div>
+
+                                        <!--Supervisor Id-->  
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Supervisor Id<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Supervisor " id="oxy_reg_supervisorID" onKeyPress="if (this.value.length == Constants.MAX_LENGTH)
+                                                                return false;" maxlength="8">
+                                                    <div class="text-right">
+                                                        <span id="valid_supervisor"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--Remarks--> 
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Remarks</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Remarks" id="oxy_reg_remarksId" onKeyPress="if (this.value.length == Constants.MAX_REMARKS_LEN)
+                                                                return false;"></textarea>
+                                                    <div class="text-right">
+                                                        <span id="valid_oxy_remarks">0/200</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></div>
+
+                                <!--  Save & Close Buttons Register page-->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm" id="OxyFillingRegID" onclick="Oxygen_registration()"><i class="fa fa-floppy-o p-r-xs"></i>Submit</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="javascript:window.location.reload()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetInsert()"><i class="fa fa-refresh p-r-xs"></i>Reset</button> 
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <input type="hidden" id="ticket_id">
+             <input type="hidden" id="baselocId">
+             <input type="hidden" id="ambulance_num">
+             <input type="hidden" id="remarks">
+             <input type="hidden" id="oxy_fillingDate">
+             <input type="hidden" id="district_id">
+            
+               
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/chosen.jquery.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/datatables.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.js"></script> 
+        <script src="../../js/bootstrap-datetimepicker.min.js"></script>    
+        <script src="../../js/moment.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/moment.min_1.js"></script>
+         <script src="../../js/notify.js"></script>
+        <script src="../../js/notify.min.js"></script>
+        <script src="../../js/OPDESK/Constants.js"></script>
+        <script src="../../js/OPDESK/ServiceURLS.js"></script>
+        <script src="../../js/OPDESK/msterData.js"></script>
+        <script src="../../js/OPDESK/OxygenFilling.js"></script>
+           <!--         logout/login url -->
+               <script src="../../../Common/serviceController/dashboard.js"></script>
+                <script src="../../../Common/serviceController/ServiceUrl.js"></script> 
+              <script src="../../../Common/serviceController/logout.js"></script>
+
+        <script>
+        
+        $(function() {
+        	//Date And Time picker in Modal Box
+        	                                            $('#datetimepicker1').datetimepicker({
+        	                                                sideBySide: true,
+        	                                                format: 'YYYY-MM-DD HH:mm:ss'
+        	                                            });
+        	                                        });
+
+                                        $(document).ready(function() {
+                                         	checkLoggedOrNot();
+//Date Pickers
+                                   /*          $("#strtDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker(); */
+                                            $("#endDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+                                            $("#availableDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+                                            /* $("#datetimepicker1").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker(); */
+                                        });
+//from date and today date validaiton
+                                        /* $(document).ready(function() {
+                                            var todayDate = new Date().getDate();
+                                            var maxDate = new Date(new Date().setDate(todayDate));
+                                            $('#oxy_fromDateID').datepicker({
+                                                todayBtn: "linked",
+                                                startDate: $('#oxy_fromDateID').val(),
+                                                endDate: maxDate,
+                                                keyboardNavigation: true,
+                                                forceParse: true,
+                                                calendarWeeks: true,
+                                                autoclose: true,
+                                                autoApply: true
+                                            }).on('changeDate', function() {
+                                                try {
+                                                    $("#oxy_toDateId").datepicker("remove");
+                                                    $('#oxy_toDateId').val("");
+                                                } catch (err) {
+                                                    console.log(err);
+                                                }
+                                                $('#oxy_toDateId').datepicker({
+                                                    todayBtn: "linked",
+                                                    startDate: $('#oxy_fromDateID').val(),
+                                                    keyboardNavigation: true,
+                                                    forceParse: true,
+                                                    calendarWeeks: true,
+                                                    autoclose: true,
+                                                    autoApply: true
+                                                });
+                                            });
+                                        }); */
+//report time validation                            
+                                       /*  $(document).ready(function() {
+                                            var todayDate = new Date().getDate();
+                                            var maxDate = new Date(new Date().setDate(todayDate));
+                                            $('#oxy_fillingDateID').datepicker({
+                                                todayBtn: "linked",
+                                                startDate: $('#oxy_fillingDateID').val(),
+                                                endDate: maxDate,
+                                                keyboardNavigation: true,
+                                                forceParse: true,
+                                                calendarWeeks: true,
+                                                autoclose: true,
+                                                autoApply: true
+                                            })
+                                        }); */
+        </script>
+
+        <script>
+            $("#oxy_reg_stationName").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.NAME_MAX_LENGTH) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_station_name").text(len + "/" + Constants.NAME_MAX_LENGTH);
+            });
+            $("#oxy_reg_Address").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.MAX_ADDRESS_LENGTH) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_address").text(len + "/" + Constants.MAX_ADDRESS_LENGTH);
+            });
+            $("#oxy_reg_phNo").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.PHONE_NUMBER_LEN) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_phNo").text(len + "/" + Constants.PHONE_NUMBER_LEN);
+            });
+            $("#oxy_reg_mblNo").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.PHONE_NUMBER_LEN) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_mobile_no").text(len + "/" + Constants.PHONE_NUMBER_LEN);
+            });
+            $("#oxy_quantityId").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.MAX_OXYGEN_QUANTITY) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_quantity").text(len + "/" + Constants.MAX_OXYGEN_QUANTITY);
+            });
+            $("#oxy_amountId").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.MAX_AMOUNT) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_amount").text(len + "/" + Constants.MAX_AMOUNT);
+            });
+            $("#oxy_reg_preodometerID").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.MAX_LENGTH_FOR_ODO) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_cur_odo").text(len + "/" + Constants.MAX_LENGTH_FOR_ODO);
+            });
+            $("#oxy_reg_paymentNumberID").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.MAX_PAYMENT_NUMBER) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_payment").text(len + "/" + Constants.MAX_PAYMENT_NUMBER);
+            });
+            $("#oxy_reg_remarksId").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.MAX_REMARKS_LEN) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_oxy_remarks").text(len + "/" + Constants.MAX_REMARKS_LEN);
+            });
+            $("#oxy_reg_remarksId").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.MAX_REMARKS_LEN) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_oxy_remarks").text(len + "/" + Constants.MAX_REMARKS_LEN);
+            });
+            $("#oxy_reg_supervisorTypeId").on("keydown keyup change", function(event) {
+                var value = $(this).val();
+                if (value.length >= Constants.MAX_LENGTH) {
+                    //event.preventDefault();                
+                }
+                var len = $.trim(value).length;
+                $("#valid_supervisor").text(len + "/" + Constants.MAX_LENGTH);
+            });
+
+        </script>>
+
+    </body>
+</html>

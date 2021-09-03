@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Work Force Management| Add Base Location</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../common_images/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../common_css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../common_css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../common_css/datatables.min.css">
+        <link rel="stylesheet" href="../../common_css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../common_css/datepicker.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/wfms.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="WFMS_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header End-->
+            <!--Second Header-->
+          <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                     <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#navbar1">
+                            <div class="toggle-btn bg-white"></div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="WFMS_Dashboard.html">Home</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">My Profile <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="MySchedule.html">My Schedule</a></li>
+                                    <li><a href="LeaveApply.html">Leave Request</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage Resources <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="PatternERC.html">Patterns - ERC</a></li>                        
+                                    <li><a href="PatternOperator.html">Patterns - Operators</a></li>
+                                    <li><a href="ResourceProfiles.html">Resource Profiles</a></li>
+                                    <li><a href="EmployeeAvailabilityERC.html">Employees Availability-ERC</a></li>
+                                    <li><a href="EmployeesAvailability-Operators.html">Employees Availability-Operators</a></li>
+                                    <li><a href="LeaveApprove-Reject.html">Leave Approve/Reject</a></li>
+                                    <li><a href="ScheduleofFieldOperators.html">Schedule of Field Operators</a></li>
+                                    <li><a href="ScheduleofERC.html">Schedule of ERC</a></li>
+                                    <li><a href="LeaveHistory.html">Leave History</a> 
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Zone <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="addzone.html">Add Zone</a></li>                          
+                                    <li><a href="addbaselocation.html">Base Location</a></li>
+                                    <li><a href="assignmanager.html">Assign Manager</a></li>
+                                    <li><a href="ZonaltoManager.html">Zone to Zonal Manager</a></li>
+                                    <li><a href="DistricttoManager.html">Zone to District Manager</a></li>
+                                    <li><a href="BaselocationtoSupervisor.html">Base Location to Supervisor</a></li> 
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Assign <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="DrivertoZone.html">Driver to Zone</a></li>                          
+                                    <li><a href="DrivertoVehicle.html">Driver to Vehicle</a></li>
+                                    <li><a href="EMTtoZone.html">EMT to Zone</a></li>
+                                    <li><a href="EMTtoVehicle.html">EMT to Vehicle</a></li>                           
+                                    <li><a href="VehicletoBaseLocation.html">Vehicle to Base Location</a></li> 
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="myworkreport.html">My Work Report</a> </li>                          
+                                    <li><a href="summary.html">Summary</a> </li>
+                                    <li><a href="departmentwiseemployees.html">Department Wise Employees</a> </li>
+                                    <li><a href="zonewiseemployees.html">Zone Wise Employees</a> </li>
+                                    <li><a href="shiftwiseemployees.html">Shift Wise Employees</a> </li>
+                                    <li><a href="rosternotes.html">Roster Notes</a> </li>
+                                    <li><a href="extraallowance.html">Extra Allowance</a> </li>
+                                    <li><a href="trainingwise.html">Training Wise</a> </li>
+                                    <li><a href="payrollreport.html">Pay Roll Report</a> </li>
+                                </ul>
+                            </li>
+
+                            <li><a href="search.html">Search</a></li>
+                            <li> <a href="resorceforcasting.html">Resource Forecasting</a></li>                    
+                            <li> <a href="holiday.html">Holiday</a></li>
+                            <li>  <a href="allowances.html">Allowances</a></li>
+
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right searchbar" id="search">
+                            <li>
+                                <a href="#" style="padding:12px 15px;">
+                                    <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                                </a>                    
+                            </li> 
+                              <li class="pull-left" style="padding:12px 15px">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i>Add Base Location</button> 
+                    </li>  
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding:12px 15px;color: white">
+                                    <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                                    <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                                </ul>
+                            </li>     
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Second Header End-->
+            <!--Title Heade-->
+            <h4  style=" padding-left: 15px">Add - Base Location Details</h4>
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Base Location Name-->
+                    <div class="row">
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Base Location Name<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12"> 
+                                    <input type="text" class="form-control" placeholder="Enter BaseLocation Name" id="baselocationNameId">
+                                </div>
+                            </div>
+                        </div>
+                        <!--Zone-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Zone<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="zoneId">
+                                        <option value="0">Select Zone</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Country-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Country<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12"> 
+                                    <input type="text" class="form-control" placeholder="Enter Country" id="countryId">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--State-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">State<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12"> 
+                                    <input type="text" class="form-control" placeholder="Enter State" id="stateId">
+                                </div>
+                            </div>
+                        </div>
+                        <!--District-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">District<span class="star">*</span> </label>
+                                <div class="col-md-8 col-xs-12">
+
+                                    <input type="text" class="form-control" placeholder="Enter district" id="districtId">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Mandal-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Mandal<span class="star">*</span> </label>
+                                <div class="col-md-8 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Enter mandal" id="mandalId">
+                                </div>
+                            </div>
+                        </div>                                                               
+                    </div>
+                    <!--City-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4"> City<span class="star">*</span> </label>
+                                <div class="col-md-8 col-xs-12">
+                                    <input type="text" class="form-control" placeholder="Enter city" id="cityId">
+                                </div>
+                            </div>
+                        </div>
+                        <!--Locality-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Locality<span class="star">*</span> </label>
+                                <div class="col-md-8 col-xs-12">
+
+                                    <input type="text" class="form-control" placeholder="Enter locality" id="localityId">
+                                </div>
+                            </div>
+                        </div>
+                        <!--Landmark-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Landmark <span class="star">*</span></label>
+                                <div class="col-md-8">
+                                    <select class="form-control" id="landmarkId">
+                                        <option value="0">Select Landmark </option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Buttons-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm" id="addBaselocationId" onclick="InsertBaselocation()"><span class="glyphicon glyphicon-ok"></span>&nbsp;Submit</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                        </div>
+                    </div>   
+                    <hr>
+                    <!--Tables-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12" id="driverTable">
+                                <!--                                <div class="table-responsive">    
+                                                                    <table id="driverTable" class="table table-bordered table-striped">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>S.NO</th>
+                                                                                <th>Base Location </th> 
+                                                                                <th>Zone </th>
+                                                                                <th>Country</th>                           
+                                                                                <th>State </th>
+                                                                                <th>District </th>                                      
+                                                                                <th>Mandal </th>
+                                                                                <th>City </th>                          
+                                                                                <th>Locality</th>                           
+                                                                                <th>Landmark</th>                                                                                                                                                      
+                                                                                <th> Edit Zone</th>                           
+                                                                                <th>Delete Zone </th> 
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Icon Hos Chirala</td>
+                                                                                <td>Icon Hos Chirala</td>
+                                                                                <td>India</td>
+                                                                                <td>Andhra Pradesh</td>
+                                                                                <td>Prakasam</td>
+                                                                                <td>Chirala</td>
+                                                                                <td>Chirala</td>
+                                                                                <td>Perala Market</td>
+                                                                                <td>Melapuram </td>                                                                                               
+                                                                                <td><img src="../../img/WFMS/edit.gif"></td>
+                                                                                <td><img src="../../img/WFMS/delete.jpg"></td>
+                                                                            </tr>
+                                
+                                                                            <tr>
+                                                                                <td>2</td>
+                                                                                <td>Icon Hos Chirala</td>
+                                                                                <td>Icon Hos Chirala</td>
+                                                                                <td>India</td>
+                                                                                <td>Andhra Pradesh</td>
+                                                                                <td>Prakasam</td>
+                                                                                <td>Chirala</td>
+                                                                                <td>Chirala</td>
+                                                                                <td>Perala Market</td>
+                                                                                <td>Melapuram </td>                                                                                               
+                                                                                <td><img src="../../img/WFMS/edit.gif"></td>
+                                                                                <td><img src="../../img/WFMS/delete.jpg"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>3</td>
+                                                                                <td>Icon Hos Chirala</td>
+                                                                                <td>Icon Hos Chirala</td>
+                                                                                <td>India</td>
+                                                                                <td>Andhra Pradesh</td>
+                                                                                <td>Prakasam</td>
+                                                                                <td>Chirala</td>
+                                                                                <td>Chirala</td>
+                                                                                <td>Perala Market</td>
+                                                                                <td>Melapuram </td>                                                                                               
+                                                                                <td><img src="../../img/WFMS/edit.gif"></td>
+                                                                                <td><img src="../../img/WFMS/delete.jpg"></td>
+                                                                            </tr>
+                                
+                                
+                                                                        </tbody>
+                                                                    </table>
+                                
+                                                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+
+            <input type="hidden" id="hidden_localityId"/>
+            <input type="hidden" id="hidden_countyId"/>
+            <input type="hidden" id="hidden_stateId"/>
+            <input type="hidden" id="hidden_districtId"/>
+            <input type="hidden" id="hidden_mandalId"/>
+            <input type="hidden" id="hidden_cityId"/>
+            <input type="hidden" id="hidden_localityId"/>
+
+            <!--Content End-->   
+            
+             <!--Model box Registration-->
+        <div id="registration" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Baselocation Registration</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                          
+                            <!--                            Heading-->
+                            <div class="sub-title">
+                                <h4></h4>
+                            </div>
+                            <div class="sub-body">
+                                <!--                                Base Location Name-->
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Base Location Name<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter BaseLocation Name" id="baselocationNameId">
+                                            </div>
+                                        </div>
+                                    </div>                       
+                                    <!--                                   Zone                       -->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Zone<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input type="text" class="form-control" placeholder="Enter Zone" id="zoneId">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                  <!--                                   Country                       -->
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Country<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter Country" id="countryId">
+                                            </div>
+                                        </div>
+                                    </div>     
+                                    <!--                                   State-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">State<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter State" id="stateId">
+                                            </div>
+                                        </div>
+                                    </div>                                                                  
+                                </div>
+                                <!--                               District-->
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">District<span class="star">*</span> </label>
+                                            <div class="col-md-8 col-xs-12">
+
+                                                <input type="text" class="form-control" placeholder="Enter district" id="districtId">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--                               Mandal-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">Mandal<span class="star">*</span> </label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input type="text" class="form-control" placeholder="Enter mandal" id="mandalId">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+<!--                               City-->
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4"> City<span class="star">*</span> </label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input type="text" class="form-control" placeholder="Enter city" id="cityId">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--                               Locality-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">Locality<span class="star">*</span> </label>
+                                            <div class="col-md-8 col-xs-12">
+
+                                                <input type="text" class="form-control" placeholder="Enter locality" id="localityId">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+<!--                               District-->
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">Landmark <span class="star">*</span></label>
+                                            <div class="col-md-8">
+                                                <select class="form-control" id="landmarkId">
+                                                    <option value="0">Select Landmark </option>
+                                                    <!--                                        <option value="1">Fuel Filling</option>
+                                                                                            <option value="2">Oxygen Filling</option>
+                                                                                            <option value="3">Tyre Life</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>                    
+                            <!--                            button-->
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary btn-sm" id="update_ZoneDetailsId" onclick="update_ZoneDetails()"><i class="fa fa-floppy-o p-r-xs"></i>Save</button>
+                                <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+        
+        
+        <!--Model box Registration-->
+        <div id="update_Modal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Baselocation Update</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <!--                            Ambulance Information  -->
+                            <!--                            Heading-->
+                            <div class="sub-title">
+                                <h4></h4>
+                            </div>
+                            <div class="sub-body">
+                                <!--                                District-->
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Base Location Name<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter BaseLocation Name" id="baselocationNameId">
+                                            </div>
+                                        </div>
+                                    </div>                       
+                                    <!--                                     End Timing                        -->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Zone<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input type="text" class="form-control" placeholder="Enter Zone" id="zoneId">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Country<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter Country" id="countryId">
+                                            </div>
+                                        </div>
+                                    </div>     
+                                    <!--                                    No of Candidates-->
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">State<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter State" id="stateId">
+                                            </div>
+                                        </div>
+                                    </div>                                                                  
+                                </div>
+                                <!--                                Pupose of Demo/Training-->
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">District<span class="star">*</span> </label>
+                                            <div class="col-md-8 col-xs-12">
+
+                                                <input type="text" class="form-control" placeholder="Enter district" id="districtId">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">Mandal<span class="star">*</span> </label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input type="text" class="form-control" placeholder="Enter mandal" id="mandalId">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4"> City<span class="star">*</span> </label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input type="text" class="form-control" placeholder="Enter city" id="cityId">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">Locality<span class="star">*</span> </label>
+                                            <div class="col-md-8 col-xs-12">
+
+                                                <input type="text" class="form-control" placeholder="Enter locality" id="localityId">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">Landmark <span class="star">*</span></label>
+                                            <div class="col-md-8">
+                                                <select class="form-control" id="landmarkId">
+                                                    <option value="0">Select Landmark </option>
+                                                    <!--                                        <option value="1">Fuel Filling</option>
+                                                                                            <option value="2">Oxygen Filling</option>
+                                                                                            <option value="3">Tyre Life</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>                    
+                            <!--                            button-->
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary btn-sm" id="update_ZoneDetailsId" onclick="update_ZoneDetails()"></i>Update</button>
+                                <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <script src="../../common_js/jquery1.2.min.js"></script>
+        <script src="../../common_js/moment.min.js"></script>
+        <script src="../../common_js/bootstrap.min.js"></script>
+        <script src="../../common_js/datatables.min.js"></script>
+        <script src="../../common_js/bootstrap-datepicker.js"></script>    
+        <script src="../../common_js/chosen.jquery.js"></script>
+        <script src="../assets/js/notify.js"></script>
+        <script src="../assets/serviceController/Zone/addbaselocation.js"></script>
+        <script src="../assets/serviceController/ServiceURLS.js"></script>
+</script>
+</body>
+</html>
+

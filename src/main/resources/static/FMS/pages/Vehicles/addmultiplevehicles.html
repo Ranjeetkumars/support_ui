@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fleet Management | Import Vehicles</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/metisMenu.css"/>
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/fleet.css">
+        <style>
+/*            #customFileBtn{
+                margin-top: -54px;
+                background-color: lightskyblue;
+                color: white;
+            }*/
+.customuploadbtn {
+    position: absolute;
+    top: 28px;
+    right: -7px;
+    color: #fff;   
+    background-color: #11cdef;
+}
+}
+.form-control {   
+    height: 37px;
+}
+        </style>
+
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+<!--                         <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../images/pro-Logo.png" /></a> -->
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header End-->
+            <!--Side Nav Bar-->
+               <nav id='sidebar' class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <h3 class="header">Fleet Management</h3>
+                    </div>
+                    <div class='sidebar-menu'>
+                        <ul class="metismenu" id="metismenu">
+                            <li>
+                                <a href='#'>
+                                    <i class='fa fa-tachometer'></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <!--Vehicles-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-cab'></i>
+                                    <span>Vehicles</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Vehicles/vehicleList.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle List</span>
+                                        </a>
+                                    </li>
+                                 
+                                      <li>
+                                        <a href="../addBaseLocation/addBaseLocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add BaseLocation</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                        <a href="../VehicleAssign_Deassign/VehicleMapWithBaselocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Mapping</span>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="../VehicleAssign_Deassign/EMT_PilotAssign_Deassign.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Emt/Pilot Assign/Deassign</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                    
+                                        <a href="../vehicles/watchedVehicles.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Watched Vehicles</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/meterHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Meter History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/expenseHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Expense History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/gpsIntegration.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>GPS Integration</span>
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                            <!--Inspections-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-building'></i>
+                                    <span>Inspections</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../inspections/inspectionHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Inspection History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../inspections/itemFailures.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Item Failures</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Scheduling/pages/Scheduling.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Schedules</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../inspections/forms.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Forms</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Issues-->
+                          	<!--Issues-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-info-circle '></i> <span>Issue</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Issues/Issueslist.html"> <i
+										class="fa fa-circle-o"></i> <span>Issues List</span>
+								</a></li>
+								<li><a href="../Issues/faults.html"> <i
+										class="fa fa-circle-o"></i> <span>Faults</span>
+								</a></li>
+								<li><a href="../Issues/recall.html"> <i
+										class="fa fa-circle-o"></i> <span>Recalls</span>
+								</a></li>
+
+							</ul></li>
+
+                            <!--Remainders-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-clock-o '></i>
+                                    <span>Remainder</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Remainders/serviceremainders.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Service Remainder</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Remainders/VehicleRenewalReminder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Renewals</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Remainders/contactRenewal.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Contact Renewals</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Services-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-thumbs-o-up '></i>
+                                    <span>Services</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../service/serviceHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services History </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/serviceTask.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services Task </span>
+                                        </a>
+                                    </li>
+                                 
+                                    <li>
+                                        <a href="../service/shopdirectory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Shop Directory</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/integrations.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Integrations</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                                                    <!--Contacts & Users-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-user'></i> <span>Contacts & Users</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Contact&Users/contactlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact List</span>
+								</a></li>
+								<li><a href="../Contact&Users/userManagement.html"> <i
+										class="fa fa-circle-o"></i> <span>User Management</span>
+								</a></li>
+								<li><a href="../Contact&Users/vendorlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Vendor List</span>
+								</a></li>
+							</ul></li>
+                            <!--Fuels-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-filter '></i>
+                                    <span>Fuel</span>
+                                </a>
+                                <ul class="nav first-child">
+                                                 <li>
+                                        <a href="../Fuel/FuelHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>FuelHistory</span>
+                                    	</a></li>
+							</ul></li>
+                                    
+                                    
+                              <!--Places-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-filter '></i>
+                                    <span>Places</span>
+                                </a>
+                              
+                            </li>
+                            <!--Reports-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-filter '></i>
+                                    <span>Reports</span>
+                                </a>
+                            </li> 
+                            
+                              <li>
+                                <a href="../reports/reports.html">
+                                    <i class='fa fa-money '></i>
+                                    <span>Integrations</span>
+                                </a>
+                            </li> 
+
+                                </ul>
+                            </li>
+
+                           
+
+
+
+                        </ul>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
+            <!--Side Nav Bar ENd-->
+
+            <!--Content-->
+            <div id="content-wrap">   
+                <!--Second Header-->
+                <div class="second-nav">
+                    <ul class="pull-left" style="display: inline-flex">
+                        <li>
+                            <a class="navbar-brand-1" id="menu-icon">
+                                <h4><i class="fa fa-bars"></i></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <h4  style="margin-top:5px">Add Multiple Vehicles</h4>
+                        </li>
+                    </ul>
+                    <ul class="pull-right searchbar">
+                        <li class="pull-left p-r-sm">
+                            <a href="#">
+                                <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                            </a>                    
+                        </li> 
+                        <li class="pull-left" style="margin-top: -7px">
+                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i>Bulk Vehicles Registration</button> 
+                        </li>
+                        <li class="dropdown pull-left" style="margin-top: -2px">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                                <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                            </ul>
+                        </li>     
+                    </ul>
+                </div>
+                <!--Second Header End-->
+
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12"> 
+                            <div class="col-md-2 col-xs-12">
+                            </div>
+                            <div class="col-md-8 col-xs-12"> 
+                                <h4>Add Vehicles</h4>
+                                <h5>Each vehicle should be on a new line. You can copy & paste your vehicle data from a spreadsheet program like Excel or Google Sheets. Be sure to follow the formatting guide below.</h5>
+                                <a> Watch the video to learn more</a>
+                                <div class="container">
+
+                                    <div class="panel panel-default">    				
+                                        <div class="panel-body">
+                                            <fieldset class="col-md-12">    	
+
+                                                <form class="form-horizontal" >                      
+                                                    <div class="col-md-8 col-xs-12">                                       
+                                                        <div class="form-group">                                                                                                               
+                                                            <div class="col-md-8 col-xs-12">                                                                
+                                                                <textarea class="form-control" placeholder="Enter Notes"></textarea>                                                                 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>        
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5>Format each line like: {Vehicle name}, {VIN}, {Group}</h5>
+                                <h5>VIN and Group are optional. To leave one of them blank, leave a space like: {Vehicle name}, , {Group}</h5>
+                                <h5>Fleetio will attempt to automatically decode each VIN, importing vehicle type, details and specifications. If VIN lookup does not include a type, the default from account settings will be applied. <a> Learn more</a>about VIN decoding in Fleetio. </h5>
+                                <h5>The default status (Active) will be applied to each vehicle. The default status can be changed in account settings under <a>vehicle statuses. </a></h5>
+                                <h5>Group hierarchy is supported. Groups with hierarchy should follow the format "Parent 1|Parent 2|Group Name" with the | character functioning as the delimter. Any group (including parents) that do not exist will be created. </h5>
+                                <h5>The default type (Car) will be applied unless the VIN lookup finds the proper type.</h5>
+                                <br><br>
+                                <br>
+                                <hr>
+
+                                <div class="text-right">             
+                                    <button input type='button' class='btn btn-primary ' name='Close' ><i class="fa fa-save"></i> Add Multiple vehicles</button>  
+                                    <button input type='button' class='btn btn-outline-warning' name='Close' ><i class="fa fa-close"></i>Cancel</button>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Content End-->
+
+            <!--Modal box for Registration-->
+            <div id="registration" class="modal fade" role="dialog">          
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">Multiple Vehicle Registrations</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="sub-title">
+                                    <h4>Instructions to be followed</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <p>1.Download the Excel Sheet template on click of download button
+                                    <p>2.Fill the Data as per requirement
+                                    <p>3.UpLoad Excel template without changing file name
+                                         <div class="text-center">
+                                             <button type="button" class="btn btn-success btn-sm" onclick="Download()"><i class="fa fa-download p-r-xs"></i>Download</button>
+                                      <span style=" color: blue">template</span>  </div><br>
+                                    <!-- file upload custom designs-->
+
+                                    <!--
+                                    <div class="default-file-upload">
+                                    <h1>
+                                     Default File Upload
+                                    </h1>
+                                    
+                                    <input id="file-upload1" type="file"/>
+                                    </div>
+                                    
+                                    <br><br>-->
+
+                                    <div class="col-md-12">   
+                                          <div class="form-group">
+                                            <label>Upload File<span class="star">*</span></label>                                                                                   
+                                            <input id="actualFile" type="file" class="form-control" name="Upload File" style="display:none">
+                                            <input style="padding-right: 90px;" id="customFile" value="" type="text" class="form-control" name="panCardCopyInput">
+                                            
+                                                <input id="customFileBtn" type="button" value="Browse" class="btn btn-blue customuploadbtn" name="panCardBtn" >
+                                                
+                                         
+                                        </div>
+                                        
+                                        
+                                        
+                                        
+                                        
+<!--                                            <div class="form-group" >
+                                                <input  type="file" class="form-control" name="panCardCopy" style="display:none">
+
+                                                <div   class="input-group input-file"   multiple="multiple" name="userfile" id="actualFile1">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-info btn-choose" id ="buttonID" type="button" >Browse</button>
+                                                    </span>
+                                                    
+                                                    <input  type="text" class="form-control" placeholder='Browse a file...'  />
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-warning btn-reset" type="button" >Reset</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+-->
+                                    </div>
+                                </div><br>
+
+                                <!--  Save & Close Buttons Register page-->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm" id="update_id" onclick="imageUpload1()" ><i class="fa fa-edit" ></i> Update</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i> Close</button>
+                                    <button class="btn btn-warning btn-reset" type="button" >Reset</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="footer">
+                <small>Powered  by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/datatables.min.js"></script>
+        <script src="../../js/chosen.jquery.js"></script>
+        <script src="../../js/metisMenu.min.js"></script>
+        <script src ="../../js/FMS/VehicleRegistrationController.js"></script>
+        <script src ="../../js/FMS/ServiceURL.js"></script>
+        <script src ="../../js/notify.min.js"></script>
+        <script src ="../../js/notify.js"></script>
+        <script src="../../js/jquery.validate.min.js"></script>
+         <script src="../../js/jquery.validate.min.js"></script>
+        <script>
+            $(document).ready(function() {
+//Side Menu
+                $("#menu-icon").click(function() {
+                    $("#sidebar").toggleClass('active');
+                    $("#content-wrap").toggleClass('active');
+                });
+
+                $('#metismenu').metisMenu();
+//                                            Chosen Select
+                $('select').chosen();
+                $('[data-toggle="tooltip"]').tooltip();           // Tooltip
+                $('[data-toggle="popover"]').popover({
+                    trigger: 'hover',
+                    width: '200px;'
+                });
+//                                            Data tables
+                $('#serviceRemainder').DataTable({// Data table
+                    "aLengthMenu": [[05, 10, 15, 25, -1], [05, 10, 15, 25, "All"]],
+                    pageLength: 5,
+                    responsive: true,
+                    dom: '<"html5buttons"B>lTfgitp',
+                    buttons: [
+                        {extend: 'copy'},
+                        {extend: 'csv'},
+                        {extend: 'excel', title: 'ExampleFile'},
+//                                                    {extend: 'pdf', title: 'ExampleFile'},
+                        {extend: 'print',
+                            customize: function(win) {
+                                $(win.document.body).addClass('white-bg');
+                                $(win.document.body).css('font-size', '10px');
+
+                                $(win.document.body).find('table')
+                                        .addClass('compact')
+                                        .css('font-size', 'inherit');
+                            }
+                        }
+                    ]
+
+                });
+
+
+            });
+//                                        Toggle Button
+            $("#switch1").change(function() {
+                var ischecked = $(this).is(':checked');
+                if (ischecked == true) {
+                    $('#secondaryInterval').css('display', 'block');
+                } else {
+                    $('#secondaryInterval').css('display', 'none');
+                }
+            });
+
+
+
+
+        </script>
+        <script>
+            
+            var actualbtn = document.getElementById('actualFile');
+            var custombtn = document.getElementById('customFileBtn');
+            var filtext = document.getElementById('customFile');
+
+            custombtn.addEventListener("click", function() {
+                actualbtn.click();
+            });
+
+            actualbtn.addEventListener("change", function() {
+                if (actualbtn.value) {
+                    filtext.value = actualbtn.value;
+
+                } else {
+                    filtext.value = "";
+                }
+            });
+ 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+         function bs_input_file() {
+	$(".input-file").before(
+		function() {
+			if ( ! $(this).prev().hasClass('input-ghost') ) {
+				var element = $("<input type='file'  class='input-ghost' style='visibility:hidden; height:0'>");
+                                
+				element.attr("name",$(this).attr("name"));
+				element.change(function(){
+					element.next(element).find('input').val((element.val()).split('\\').pop());
+				});
+				$(this).find("button.btn-choose").click(function(){
+					element.click();
+				});
+				$(this).find("button.btn-reset").click(function(){
+					element.val(null);
+					$(this).parents(".input-file").find('input').val('');
+				});
+				$(this).find('input').css("cursor","pointer");
+				$(this).find('input').mousedown(function() {
+					$(this).parents('.input-file').prev().click();
+					return false;
+				});
+				return element;
+			}
+		}
+	);
+}
+$(function() {
+	bs_input_file();
+});
+            </script>
+    </body>
+</html>
+
+

@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body {
+	font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	word-break: break-word;
+}
+.row {
+	margin: 0;
+}
+
+.Unread {
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.Read {
+	font-size: 13px;
+	font-weight: normal; //
+	background: rgba(242, 245, 245, 0.8);
+}
+
+table>thead>tr>th:nth-child(1) {
+	width: 1%;
+	vertical-align: middle;
+}
+
+table>tbody>tr {
+	cursor: pointer;
+}
+
+table>thead>tr>th:last-child {
+	width: 10%;
+}
+
+.table-bordered>tbody>tr>td, .table-bordered>thead>tr>th {
+	border: none;
+	border-bottom: 1px solid #ddd;
+	
+}
+ table.table-bordered.dataTable tbody td {
+    border-bottom-width: 1px;
+}
+
+.text-gray {
+	color: #5f6368;
+}
+
+.text-black {
+	color: #000;
+}
+
+#search>.form-control {
+	margin-bottom: 20px;
+	padding-left: 39px;
+	background: #f1f3f4;
+	border: none !important;
+	box-shadow: none;
+	height: 43px;
+}
+
+.form-control-feedback {
+	top: 6px !important;
+	left: 16px;
+	font-size: 20px;
+}
+
+.ibox {
+	clear: both;
+	margin-bottom: 25px;
+	margin-top: 0;
+	padding: 0;
+}
+
+.mailbox-content {
+	background: none;
+	border: none;
+	padding: 10px;
+}
+
+.folder-list {
+	padding-left: 0;
+	margin-bottom: 15px;
+	list-style: none;
+}
+
+.folder-list li {
+	border-bottom: 1px solid #e7eaec;
+	display: block;
+}
+
+.folder-list li a {
+	color: #000;
+	display: block;
+	padding: 5px 0;
+	cursor: pointer;
+}
+
+.folder-list li a:hover {
+	text-decoration: none;
+}
+
+.folder-list li a i {
+	padding-right: 8px;
+}
+
+.bootstrap-tagsinput {
+	width: 100%;
+	min-height: 30px;
+	border-right: none !important;
+	border-left: none !important;
+	border-radius: 0px;
+	box-shadow: none;
+}
+
+.input-group-addon {
+	background: transparent !important;
+}
+div.dataTables_wrapper div.dataTables_filter{
+display: none;
+}
+
+/* -----------------------------------View Mail------------------------------------------ */
+.user-icon {
+	width: 35px;
+	height: 35px;
+	vertical-align: middle;
+	padding: 11px;
+	border-radius: 50%;
+	background: #ccc;
+	margin-right: 14px;
+}
+
+.subject {
+	padding: 5px 0;
+}
+
+h4 {
+	margin: 0;
+	padding: 5px 0;
+	color: #000;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.m-t-lg {
+	margin-top: 25px;
+}
+
+.content {
+	color: #555;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.small-id {
+	font-weight: 500;
+	color: #555;
+	padding-left: 3px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.reply-box {
+	min-height: 250px;
+	border: 1px solid #dadce0;
+	margin-top: 22px;
+	border-radius: 6px;
+	box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 2px 6px 2px
+		rgba(60, 64, 67, 0.149);
+	padding: 15px;
+}
+
+.bootstrap-tagsinput {
+	width: 100%;
+	min-height: 30px;
+	border-right: none;
+	border-left: none;
+	border-radius: 0px;
+	box-shadow: none;
+}
+
+.input-group-addon {
+	background: transparent !important;
+}
+/* ------------------------Dispatch Form-------------------------------- */
+
+
+.star {
+	color: #ff5656;
+	padding-left: 2px;
+}
+
+.form-control {
+	color: #000;
+}
+
+label, label>span {
+	font-weight: 600;
+	color: #232323;
+	font-size: 13px;
+}
+
+label.error {
+	font-weight: 600;
+	font-size: 12px;
+	color: #ed1c1c;
+	padding-left: 4px;
+}
+
+.loc-img {
+	height: 20px;
+	position: absolute;
+	top: 8px;
+	right: 22px;
+	cursor: pointer;
+}
+/*Check Boxes CSS*/
+.check {
+	display: block;
+	position: relative;
+	padding-left: 25px;
+	margin-bottom: 12px;
+	padding-right: 15px;
+	cursor: pointer;
+	font-size: 14px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin-left: 17px;
+}
+
+.check input[type=checkbox] {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.checkmark {
+	position: absolute;
+	top: 3px;
+	left: 0;
+	height: 18px;
+	width: 18px;
+	background-color: #fff;
+	border-color: #0096cc;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 3px;
+}
+
+.check input[type=checkbox]:checked ~ .checkmark {
+	background-color: #0096cc;
+}
+
+.checkmark:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+.check input[type=checkbox]:checked ~ .checkmark:after {
+	display: block;
+}
+
+.check .checkmark:after {
+	left: 5px;
+	top: 1px;
+	width: 5px;
+	height: 10px;
+	border: solid;
+	border-color: #fff;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.panel-primary>.panel-heading {
+	font-size: 21px;
+}
+
+@media screen and (min-width:1200px) {
+	.container {
+		width: 800px;
+	}
+}

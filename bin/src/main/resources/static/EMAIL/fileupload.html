@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="../css/summernote/summernote.css">
+<link rel="stylesheet" href="../css/summernote/summernote-bs3.css">
+<link rel="stylesheet" href="../css/bootstrap-tagsinput.css">
+</head>
+<body>
+<form id="upload-file-form">
+  <label for="upload-file-input">Upload your file:</label>
+  <input id="upload-file-input" type="file"  />
+</form> 
+
+
+<!-- <form  id="upload-file-form">
+     <label for="upload-file-input">Upload your file:</label>
+    <input type="file" id='files' name="files[]" multiple><br>
+  <input type="button" id="submit" value='Upload' onClick="uploadFile();"> 
+</form> -->
+
+</body>
+
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/summernote.min.js"></script>
+	<script src="../js/bootstrap-tagsinput.js"></script>
+	
+	<script>
+	$(document).ready(function() {
+		  $("#upload-file-input").on("change", uploadFile);
+		});
+
+		/**
+		 * Upload the file sending it via Ajax at the Spring Boot server.
+		 */
+		function uploadFile() {
+			
+			
+		var obj =	new FormData($("#upload-file-form")[0])
+		obj.append("uploadfile",$("#upload-file-form")[0]);
+		
+		
+		alert('uploadFile method is executed');
+		  $.ajax({
+		    url: "http://192.168.1.105:8080/uploadFile",
+		    type: "POST",
+		    data:obj,
+		    enctype: 'multipart/form-data',
+		    processData: false,
+		    contentType: false,
+		    cache: false,
+		    success: function () {
+		      // Handle upload success
+		      // ...
+		    },
+		    error: function () {
+		      // Handle upload error
+		      // ...
+		    }
+		  });
+		} // function uploadFile
+	</script>
+
+</html>
+
+
+	

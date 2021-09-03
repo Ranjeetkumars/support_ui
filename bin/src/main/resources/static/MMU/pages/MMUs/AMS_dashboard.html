@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AMS| Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <!--CSS Links-->
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../assets/css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../assets/css/datatables.min.css">
+<link rel="stylesheet" href="../../assets/css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../assets/css/metisMenu.css" />
+<link rel="stylesheet" href="../../assets/css/datepicker.css">
+<link rel="stylesheet" href="../../assets/css/bootstrap-datetimepicker.min.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/fleet.css">
+        <style>.p-n{
+                padding:0;
+            }
+
+            h5{
+                color: #31708f;
+                font-size: 15px;
+                margin-top: 0;
+                font-weight: 600;
+            }
+            .row{
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .bg-title{
+                background: #33b5e5;
+                padding: 6px 6px;
+                border-radius: 0;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+            }
+        .bg-title h4{
+                color:#fff;
+                margin:0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Navbar-->
+                <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../AMS/AMS_dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class=""> </i>Help
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Navbar End-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">AMS Dashboard</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                    <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li> 
+                    <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="left" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>     
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Main Content-->
+            <div id="content-wrap">
+                <!--Content-->
+                <div class="container">                                   
+                <div class="card">                    
+                    <div class="bg-title">
+                        <h4>Favorites</h4>
+                    </div>
+<!--                    <div class="row">
+                        
+                    </div>-->
+                    <div class="bg-title">
+                        <h4>User Dashboard</h4>
+                    </div>
+                                    <div class="row">
+                                        <!--Fuel Filling Details-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="Employee/add_viewemployees.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/images.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">  Employee</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--Fuel Filling Details End-->
+
+                                        <!--Preventive maintenance-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="TelephonyUsers/add_viewtelephonyusers.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/SS-Hosted-PBX-3.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Telephony Users</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        <!--Preventive maintenance End-->
+
+                                        <!--Breakdown Maintenance-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="MapSkillsetUsers/add_viewmapskillsetusers.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/mapskillset.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Map Skill Set Users</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+                                        <!--Breakdown Maintenance End-->
+
+                                        <!--Accident Maintenance-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="MapMEMSUsersToTelephonyUsers/mapping_viewmapping.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/mapmems.jpg" alt="" class="img-responsive" style="height:100px;width: 500px">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title" style="height:15px">Map MEMS_Telephony Users</h4>
+                                                    </div>
+                                                </div> 
+                                            </a>
+                                        </div>
+                                        <!--Accident Maintenance End-->
+                                    </div>
+                                    <div class="row">
+<!--                                        Statutory Compliance-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="AgencyType/add_viewagenytype.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/agency.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Agency Type</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+<!--                                        Statutory Compliance End-->
+
+<!--                                        Tyre Life-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="ChangePassword/changepassword.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/changepassword.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Change Password</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+<!--                                        Tyre Life End-->
+
+<!--                                        Special Indent-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="ChangeDesignation/changedesignation.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/change Designation.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Change Designation</h4>
+                                                    </div>
+                                                </div>
+                                            </a>                   
+                                        </div>
+                                    </div>
+             
+<!--                                        Special Indent End-->
+
+                              
+                         
+                       <div class="bg-title">
+                        <h4>Admin dashboard</h4>
+                    </div>
+                                    <div class="row">
+                                        <!--Fuel Station-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="CommunicationDirectory/Add_ViewConfiguration.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/communication directory.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Communication Directory</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--Fuel Station End-->
+
+                                        <!--Workshop-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="PropertyFeild/mandatoryfield_1.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/mandatory.png" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Mandatory Field</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+
+                                        </div>
+                                        <!--Workshop End-->
+
+<!--                                        SMS & Email Configuration
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="ChangePassword/changepassword.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/changepassword.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Change Password</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>-->
+                                        <!--SMS & Email Configuration End-->
+
+                                        <!--Communication Directory-->
+                                        <div class="col-md-3 col-xs-12">
+                                            <a href="ManagerMapping/managermapping.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/managermapping.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Manager Mapping</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                         <div class="col-md-3 col-xs-12">
+                                             <a href="TelephonyUsersForceLogout/telephonyusersforcelogout.html">
+                                                <div class="cards">
+                                                    <div class="view">
+                                                        <div class="review">
+                                                            <img src="../img/AMS/logout.jpg" alt="" class="img-responsive">
+                                                            <div class="mask"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title">Telephony Users Force Logout</h4>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <!--Communication Directory End-->
+
+                                    </div> 
+                                </div>
+                            </div>
+                     
+                    <!--Admin Modules-->
+             
+                <!--Content End-->
+            </div>
+            <!--Main Content End-->
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+	<script src="../../assets/js/jquery1.2.min.js"></script>
+	<script src="../../assets/js/moment.min.js"></script>
+	<script src="../../assets/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/datatables.min.js"></script>
+	<script src="../../assets/js/chosen.jquery.js"></script>
+	<script src="../../assets/js/metisMenu.min.js"></script>
+	<script src="../../assets/js/bootstrap-datepicker.js"></script>
+	<script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../../assets/js/notify.js/"></script>
+	<script src="../../assets/js/notify.min.js/"></script>
+        <script>
+            $(document).ready(function() {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+
+//            Accordian Form
+
+            var selectIds = $('#collapseOne,#collapseTwo');
+            $(function($) {
+                selectIds.on('show.bs.collapse hidden.bs.collapse', function() {
+                    $(this).prev().find('.fa').toggleClass('fa-plus fa-minus');
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OP Desk | Equipment BreakDown</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../css/style.css">
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                       <!--  <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul> -->
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">Equipment BreakDown</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                   <!--  <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li>  -->
+                    <li class="pull-left" style="margin-top: -7px">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i>Equipment BreakDown</button> 
+                    </li>
+                    <!-- <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>      -->
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">
+                        <!--District-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-xs-12">District<span class="star"></span></label>
+                                <div class="col-md-9 col-xs-12">
+                                    <select class="form-control" name="dractityid" id="eqi_districtID">
+                                        <option value="0">Select District</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Base Location-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star"></span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="eqi_baseLocID">
+                                        <option value="0">Select Base Location</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Ambulance-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Ambulance No</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" name="dractityid" id="eqi_ambulanceID">
+                                        <option value="0">Select Ambulance</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Ticket ID-->
+                    <div class="row m-t-b-sm">                        
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Ticket Id</label>
+                                <div class="col-md-9">
+                                    <input type="number" onKeyPress="if(this.value.length==15) return false;" placeholder="Enter Ticket ID" class="form-control" name="drticketid" id="eqi_ticketID" maxlength="15">
+                                </div>
+                            </div>
+                        </div>
+                        <!--Equipment Available Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-sm-4">Equipment Available Date</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <div id="availableDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date" type="text" id="eqiAvailableDateID" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--From Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">From Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="strtDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date" type="text" id="fromdateID" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--To Date-->
+                    <div class="row m-t-b-sm">   
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">To Date</label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <div id="endDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+
+                                            <input class="form-control" placeholder="Select Date" type="text" id="toDateID" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--button-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="equipment_Search()"><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetSearch()"><i class="fa fa-refresh p-r-xs" ></i>Reset</button>                                      
+                        </div>
+                    </div>   
+                    <hr>
+                    <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12" id="equipmentBreakDownTableID">
+                                <!--  <div class="table-responsive" >    
+                                    <table id="driverTable" class="table table-bordered table-striped">
+                                         <thead>
+                                             <tr>
+                                                 <th>S.NO</th>
+                                                 <th>Ticket #</th>
+                                                 <th>District</th>                           
+                                                 <th>Base Location</th>
+                                                 <th>Ambulance #</th>                                      
+                                                 <th>Severity</th>
+                                                 <th>Equipment Available Date</th>                          
+                                                 <th>Report To Supervisor</th>                          
+                                                 <th>Report To Manufacturer</th>                          
+                                                 <th>Status</th>                           
+                                                 <th>Update  </th>                           
+ 
+ 
+                                             </tr>
+                                         </thead>
+                                         <tbody>
+                                             <tr>
+                                                 <td>1</td>
+                                                 <td>20171217000397</td>
+                                                 <td>Krishna</td>
+                                                 <td>Nandigama</td>
+                                                 <td>AP16TJ0661</td>
+                                                 <td>Major</td>
+                                                 <td>2017-12-15 10:28:00</td>
+                                                 <td>Not Applicable</td>
+                                                 <td>Not Applicable</td>
+                                                 <td>In Progress</td>
+                                                 <td><button type="button" class="btn btn-primary btn-sm">Update</button></td>
+ 
+                                             </tr>
+                                             <tr>
+                                                 <td>1</td>
+                                                 <td>20171217000397</td>
+                                                 <td>Krishna</td>
+                                                 <td>Nandigama</td>
+                                                 <td>AP16TJ0661</td>
+                                                 <td>Major</td>
+                                                 <td>2017-12-15 10:28:00</td>
+                                                 <td>Not Applicable</td>
+                                                 <td>Not Applicable</td>
+                                                 <td>In Progress</td>
+                                                 <td><button type="button" class="btn btn-primary btn-sm">Update</button></td>
+ 
+                                             </tr>
+ 
+                                         </tbody>
+                                     </table>
+ 
+                                 </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <!--Content End-->
+            <!-- Breakdown Maintenance Registration-->
+            <div id="registration" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Equipment Breakdown </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+
+                                <!--Ambulance Information-->                               
+
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Ambulance Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--District-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12">District<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" id="reg_eqi_districtID">
+                                                        <option value="0">Select District</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>   
+                                        </div>
+                                        <!--Base Location-->  
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="reg_eqi_basLocID">
+                                                        <option value="0">Select Base Location</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Ambulance-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12">Ambulance No<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" id="reg_eqi_ambulanceID">
+                                                        <option value="0">Select Ambulance</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Shift Type-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Shift Type<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="reg_eqi_shiftTypeID">
+                                                        <option value="0">Select Shift Type</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!--Display EMT/Drivers-->                                
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4>Display EMT/Drivers</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--Pilot ID-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Pilot ID</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Pilot ID" id="reg_eqi_pilotID" onKeyPress="if (this.value.length == 8) return false;" maxlength="8">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Pilot Name-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Pilot Name</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Pilot Name" id="reg_eqi_pilotNameID" maxlength="50">
+                                                    <div class="text-right">
+                                                        <span id="valid_reg_pilotNameID">0/50</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--EMT ID-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">EMT ID</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter EMT ID" id="reg_eqi_emtID" onKeyPress="if (this.value.length == 8)
+                                                                return false;" maxlength="8">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--EMT Name-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">EMT Name</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter EMT Name" id="reg_eqi_emtNameId" maxlength="50">
+                                                    <div class="text-right">
+                                                        <span id="valid_EMTName">0/50</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Supervisor Id-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Supervisor Id<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Supervisor Id" id="reg_eqi_supervisorNameID" onKeyPress="if (this.value.length == 8)
+                                                                return false;" maxlength="8">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--District Manager Id-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">District Manager Id<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="District Manager Id" id="reg_eqi_distManagerID" onKeyPress="if (this.value.length == 8)
+                                                                return false;" maxlength="8">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></div>
+
+                                <!--Equipment Information-->                                
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Equipment Informatio</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <!--CompanyName-->
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Company Name<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+
+                                                    <input type="text" class="form-control" placeholder="Enter Company Name" id="reg_companyNameId" maxlength="50">
+                                                    <div class="text-right">
+                                                        <span id="valid_companyName">0/50</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--UID No-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">UID No<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter UID No" id="reg_UID_No_Id" onKeyPress="if (this.value.length == Constants.MAX_LENGTH)
+                                                                return false;" maxlength="10">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <!--Equipment Name-->
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Equipment Name<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="reg_equipmentNameId">
+                                                        <option value="0">Select Equipment Type</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Type of Problem-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Type Of Problem<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Type of Problem" id="reg_typeOfProblemID" maxlength="200"></textarea>
+                                                    <div class="text-right">
+                                                        <span id="valid_typeofProblem">0/200</span>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Biomedical Engg Name-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Biomedical Engg Name<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Biomedical Engg Name" id="reg_biomedicalEnggID" maxlength="50">
+                                                    <div class="text-right">
+                                                        <span id="valid_valid_biomedical">0/50</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Equipment Condition-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Equipment Condition<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="equipmentconditionID">
+                                                        <option value="0">Select Equipment Condition</option>
+                                                        <!--                                                        <option value="1">Working</option>
+                                                                                                                <option value="2">Not Working</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--table-->
+                                    <div class="row">
+                                        <div class="form-group">                                                
+                                            <p class="col-md-6 col-xs-12">*Note:Click on Save to Add Equipment Breakdown Details After Adding Equipments</p>
+                                            <div class="col-md-6 col-xs-12"> 
+                                                <button type="button" class="btn btn-primary btn-sm" onclick="addEquipment()">Add Equipment</button>
+                                            </div>
+                                        </div> 
+
+                                        <table class="table table-bordered" id="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>S.No</th>
+                                                    <th>Equipment Name</th>
+                                                    <th>UID No</th>
+                                                    <th>Type Of Problem</th>
+                                                    <!-- <th>Company Name</th> -->
+                                                    <th>Condition</th>
+                                                </tr>
+                                            </thead>
+                                            <!--                                            <tbody>
+                                                                                            <tr>
+                                                                                                <td>1</td>
+                                                                                                <td>Humidifier : with Metal / ABS Caps</td>
+                                                                                                <td>9632587410</td>
+                                                                                                <td>Equipment Is not working properly</td>
+                                                                                                <td>MRF</td>
+                                                                                                <td>Not Working</td>
+                                                                                            </tr>
+                                                                                        </tbody>-->
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!--Reporting Information-->
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Reporting Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--Severity-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Severity<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="severityID">
+                                                        <option value="0">Select Severity</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>   
+                                        </div>
+                                        <!--Report to Supervisor-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Report To Supervisor<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="reportToSupervisorID">
+                                                        <option value="0">Select One</option>
+                                                        <!--                                                        <option value="1">Working</option>
+                                                                                                                <option value="2">Not Working</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <!--Report To HO-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Report To HO<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="reportTo__HoID">
+                                                        <option value="0">Select One</option>
+                                                        <!--                                                        <option value="1">Working</option>
+                                                                                                                <option value="2">Not Working</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Report to Manufacturer-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Report To Manufacturer<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="reportToManufacturer_ID">
+                                                        <option value="0">Select One</option>
+                                                        <!--                                                        <option value="1">Working</option>
+                                                                                                                <option value="2">Not Working</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Equipment Available Date-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Equipment Available Date<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class='input-group date' id='datetimepicker1'>
+                                                        <input type='text' class="form-control" placeholder="Select Date" id="equipmentAvailabeDate_Id"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--remarks-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Remarks<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Remarks" id="reg_eqi_remarksID" maxlength="200"></textarea>
+
+                                                    <div class="text-right">
+                                                        <span id="valid_remarks">0/200</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div></div>                                                                                                                                                                                                                  
+                                </div>
+                                <!--button-->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="registration()" id="eqi_ReqistrationID"><i class="fa fa-floppy-o p-r-xs"></i>Submit</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="javascript:window.location.reload()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                     <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetInsert()"><i class="fa fa-refresh p-r-xs" ></i>Reset</button>                           
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <!-- Breakdown Maintenance Update-->
+            <div id="update" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Equipment Breakdown </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+
+                                <!--Ambulance Information-->                               
+
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Ambulance Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--District-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12">District<span class="star"></span></label>
+                                                <div class="col-md-8 col-xs-12">
+
+                                                    <input type="text" class="form-control" placeholder="District" id="up_eqi_districtID" disabled="true">
+                                                </div>
+                                            </div>   
+                                        </div>
+                                        <!--Base Location-->  
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star"></span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+
+                                                    <input type="text" class="form-control" placeholder="Base Location" id="up_eqi_basLocID" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Ambulance-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12">Ambulance No<span class="star"></span></label>
+                                                <div class="col-md-8 col-xs-12">
+
+                                                    <input type="text" class="form-control" placeholder="Ambulance" id="up_eqi_ambulanceID" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Shift Type-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Shift Type<span class="star"></span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Select Shift Type" id="up_eqi_shiftTypeID" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!--Display EMT/Drivers-->                                
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4>Display EMT/Drivers</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--Pilot ID-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Pilot ID</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Pilot ID" id="up_eqi_pilotID" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Pilot Name-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Pilot Name</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Pilot Name" id="up_eqi_pilotNameID" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--EMT ID-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">EMT ID</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter EMT ID" id="up_eqi_emtID" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--EMT Name-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">EMT Name</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter EMT Name" id="up_eqi_emtNameId" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Supervisor Name-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Supervisor Name<span class="star"></span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Supervisor Name" id="up_eqi_supervisorNameID" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--District Manager-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">District Manager<span class="star"></span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="District Manager" id="up_eqi_distManagerID" disabled="true">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>                               
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Equipment Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <!--Complaint Final Status-->
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Complaint Final Status</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="ComplainFinalStatusUpdate">
+                                                        <option value="0">Select one</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Complaint Closed By-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Complaint Closed By<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Complaint Closed By" id="complaintClosedUpdate" maxlength="50">
+
+                                                    <div class="text-right">
+                                                        <span id="valid_complaintClosedBY">0/50</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Mobile Number-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Mobile Number<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" onkeypress="return isNumberKey(event)" class="form-control"  placeholder="Enter Mobile Number" id="mobileNumberUpdate" maxlength="10">
+                                                </div>
+                                            </div>
+                                        </div>
+  <!--Severity-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Severity</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="up_severityID" disabled="true">
+                                                        <option value="0">Select Severity</option>
+                                                        <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                <option value="2">Oxygen Filling</option>
+                                                                                                                <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>   
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!--Reporting Information-->
+                                <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Reporting Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--Severity-->
+                                    <div class="row">
+
+                                        <!--Report to Supervisor-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Report To Supervisor<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="up_reportToSupervisorID">
+                                                        <option value="0">Select One</option>
+                                                        <!--                                                        <option value="1">Working</option>
+                                                                                                                <option value="2">Not Working</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                          <!--Report to Supervisor-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Report To HO<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="up_reportToHoID">
+                                                        <option value="0">Select One</option>
+                                                        <!--                                                        <option value="1">Working</option>
+                                                                                                                <option value="2">Not Working</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Report To HO-->
+                                    <div class="row">
+
+                                        <!--Report to Manufacturer-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Report To Manufacturer<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="up_reportToManufacturerID">
+                                                        <option value="0">Select One</option>
+                                                        <!--                                                        <option value="1">Working</option>
+                                                                                                                <option value="2">Not Working</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Equipment Available Date-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Equipment Available Date<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class='input-group date' id='datetimepicker'>
+                                                        <input type='text' class="form-control" placeholder="Select Date" id="up_equipmentAvailabeDateId" autocomplete="off"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Remarks-->
+                                    <div class="row">                                       
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Remarks<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Remarks" id="up_eqi_remarksID" maxlength="200" ></textarea>
+
+                                                    <div class="text-right">
+                                                        <span id="valid_remarks">0/200</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div></div>                                                                                                                                                                                                                  
+                                </div>
+                                <!--button-->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm" id="update_EquipmentID" onClick="updateEquipmentDetails()"><i class="fa fa-floppy-o p-r-xs"></i>Update</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="javascript:window.location.reload()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                     <button type="button" class="btn btn-outline-warning btn-sm" onclick="reset_Update()"><i class="fa fa-refresh p-r-xs" ></i>Reset</button>  
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="serialId"/>
+            <input type="hidden" id="ticketID"/>
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/chosen.jquery.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/datatables.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.js"></script> 
+        <script src="../../js/bootstrap-datetimepicker.min.js"></script>    
+        <script src="../../js/moment.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/moment.min_1.js"></script>
+         <script src="../../js/notify.js"></script>
+        <script src="../../js/notify.min.js"></script>
+        <script src="../../js/OPDESK/Constants.js"></script>
+        <script src="../../js/OPDESK/ServiceURLS.js"></script>
+        <script src="../../js/OPDESK/msterData.js"></script>
+        <script src="../../js/OPDESK/EquipmentBreakDown.js"></script>
+            <!--         logout/login url -->
+               <script src="../../../Common/serviceController/dashboard.js"></script>
+                <script src="../../../Common/serviceController/ServiceUrl.js"></script> 
+              <script src="../../../Common/serviceController/logout.js"></script>
+        <script>
+
+                                        $(function() {
+//Date And Time picker in Modal Box
+                                            $('#datetimepicker1').datetimepicker({
+                                                sideBySide: true,
+                                                format: 'YYYY-MM-DD HH:mm:ss'
+                                            });
+                                            $('#datetimepicker').datetimepicker({
+                                                sideBySide: true,
+                                                format: 'YYYY-MM-DD HH:mm:ss'
+                                            });
+                                        });
+
+                                        $(document).ready(function() {
+                                        	checkLoggedOrNot();
+                                            // $('select').chosen();                            //Chosen select
+                                            $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+//                                            $('#driverTable').DataTable({// Data table
+//                                                pageLength: 10,
+//                                                responsive: true,
+//                                                dom: '<"html5buttons"B>lTfgitp',
+//                                                buttons: [
+//                                                    {extend: 'copy'},
+//                                                    {extend: 'csv'},
+//                                                    {extend: 'excel', title: 'ExampleFile'},
+//                                                    {extend: 'pdf', title: 'ExampleFile'},
+//                                                    {extend: 'print',
+//                                                        customize: function(win) {
+//                                                            $(win.document.body).addClass('white-bg');
+//                                                            $(win.document.body).css('font-size', '10px');
+//
+//                                                            $(win.document.body).find('table')
+//                                                                    .addClass('compact')
+//                                                                    .css('font-size', 'inherit');
+//                                                        }
+//                                                    }
+//                                                ]
+//
+//                                            });
+//Date Pickers
+                                            $("#strtDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+                                            $("#endDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+                                            $("#availableDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+
+                                        });
+
+
+
+
+                    
+                                    /*     $("#reg_eqi_emtNameId").on("keydown keyup change", function(event) {
+                                            var value = $(this).val();
+                                            if (value.length >= Constants.NAME_MAX_LENGTH) {
+                                                //event.preventDefault();                
+                                            }
+                                            var len = $.trim(value).length;
+                                            $("#valid_EMTName").text(len + "/" + Constants.NAME_MAX_LENGTH);
+                                        }); */
+
+                                  /*       $("#reg_companyNameId").on("keydown keyup change", function(event) {
+                                            var value = $(this).val();
+                                            if (value.length >= Constants.NAME_MAX_LENGTH) {
+                                                //event.preventDefault();                
+                                            }
+                                            var len = $.trim(value).length;
+                                            $("#valid_companyName").text(len + "/" + Constants.NAME_MAX_LENGTH);
+                                        });
+                                         */
+                                        
+                                  /*       $("#reg_typeOfProblemID").on("keydown keyup change", function(event) {
+                                            var value = $(this).val();
+                                            if (value.length >= Constants.MAX_REMARKS_LEN) {
+                                                //event.preventDefault();                
+                                            }
+                                            var len = $.trim(value).length;
+                                            $("#valid_typeofProblem").text(len + "/" + Constants.MAX_REMARKS_LEN);
+                                        }); */
+                                     /*    $("#reg_eqi_remarksID").on("keydown keyup change", function(event) {
+                                            var value = $(this).val();
+                                            if (value.length >= Constants.NAME_MAX_LENGTH) {
+                                                //event.preventDefault();                
+                                            }
+                                            var len = $.trim(value).length;
+                                            $("#valid_remarks").text(len + "/" + Constants.MAX_REMARKS_LEN);
+                                        }); */
+                                       /*  $("#reg_biomedicalEnggID").on("keydown keyup change", function(event) {
+                                            var value = $(this).val();
+                                            if (value.length >= Constants.NAME_MAX_LENGTH) {
+                                                //event.preventDefault();                
+                                            }
+                                            var len = $.trim(value).length;
+                                            $("#valid_valid_biomedical").text(len + "/" + Constants.MAX_REMARKS_LEN);
+                                        }); */
+
+        </script>
+
+    </body>
+</html>

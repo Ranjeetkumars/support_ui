@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OP Desk | Statutory Compliance</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../css/style.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                       <!--  <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul> -->
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">Statutory Compliance</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                   <!--  <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li>  -->
+                    <li class="pull-left" style="margin-top: -7px">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i>Statutory Compliance</button> 
+                    </li>
+            <!--         <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>   -->   
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">
+                        <!--District-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-xs-12">District<span class="star"></span></label>
+                                <div class="col-md-9 col-xs-12">
+                                    <select class="form-control" name="dractityid" id="statutory_districtID">
+                                        <option value="0">Select District</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Base Location-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star"></span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="statutory_baseLocID">
+                                        <option value="0">Select Base Location</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Ambulance-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Ambulance No</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" name="dractityid" id="statutory_ambulanceID">
+                                        <option value="0">Select Ambulance</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Ticket ID-->
+                    <div class="row m-t-b-sm">                        
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Ticket Id</label>
+                                <div class="col-md-9">
+                                    <input type="text" placeholder="Enter Ticket ID" class="form-control" name="drticketid" id="statutory_ticketID">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--From Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">From Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="strtDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date" type="text" id="fromDateID" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--To Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">To Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="endDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date" type="text" id="toDateID" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--button-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="statutoryComplianceSearch()" id="search_id" ><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetSearch()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                        </div>
+                    </div>   
+                    <hr>
+                    <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12" id="statutaryComplaintsTable">                                  
+                                <!--                                <table id="driverTable" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>S.NO</th>
+                                                                            <th>Ticket #</th>
+                                                                            <th>District</th>                           
+                                                                            <th>Base Location</th>
+                                                                            <th>Ambulance #</th>                                    
+                                                                            <th>Reported Time</th>                                      
+                                                                            <th>Compliance Date</th>                                      
+                                                                            <th>Supervisor Name</th>                                                                       
+                                                                            <th>Status</th>                           
+                                                                            <th>Update  </th>                           
+                                                                        </tr>
+                                                                    </thead>                                                                            
+                                
+                                                                </table>-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+        <!--Content End-->
+        <!--Modal box for Registration-->
+        <div id="registration" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Statutory Compliance</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+
+
+                            <!--Ambulance Information-->  
+                            <!--Heading-->
+                            <div class="sub-title">
+                                <h4> Ambulance Information</h4>
+                            </div>
+                            <div class="sub-body">
+
+                                <!--District-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4 col-xs-12">District<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <select class="form-control" id="reg_statutory_districtID">
+                                                    <option value="0">Select District</option>
+                                                    <!--                                                        <option value="1">Anantapur</option>
+                                                                                                            <option value="2">Chittoor</option>
+                                                                                                            <option value="3">East Godari</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>                                            
+                                    <!--Base Location-->   
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Base Location<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <select class="form-control" id="reg_statory_baseLocID">
+                                                    <option value="0">Select Base Location</option>
+                                                    <!--                                                        <option value="1">Tadipatri</option>
+                                                                                                            <option value="2">Kalikiri</option>
+                                                                                                            <option value="3">Karapa</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Ambulance-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4 col-xs-12">Ambulance No<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <select class="form-control" id="reg_statutory_ambulanceID">
+                                                    <option value="0">Select Ambulance</option>
+                                                    <!--                                                        <option value="1">AP29BU1683</option>
+                                                                                                            <option value="2">AP28TA3604</option>
+                                                                                                            <option value="3">AP29TA4980</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Shift Type-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Shift Type<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <select class="form-control" id="reg_statutory_shiftID">
+                                                    <option value="0">Select Shift Type</option>
+                                                    <!--  <option value="1">Day 12Hrs Shift</option>
+                                                     <option value="2">Night 12Hrs Shift</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  Display EMT/Drivers-->                                
+                            <!--Heading-->
+                            <div class="sub-title">
+                                <h4> Display EMT/Drivers</h4>
+                            </div>
+                            <div class="sub-body">
+                                <!--Pilot ID-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Pilot ID</label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type ="text" onkeypress="return isNumberKey(event)" class="form-control" placeholder="Enter Pilot ID"  id="reg_statutory_pilotID" maxlength="8" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Pilot Name-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Pilot Name</label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter Pilot Name" id="reg_statutory_pilotnameID" maxlength="50">
+                                                <div class="text-right">
+                                                    <span id="valid_sc_reg_nameID">0/50</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--EMT ID-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">EMT ID</label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type ="text" onkeypress="return isNumberKey(event)" class="form-control"  placeholder="Enter EMT ID" id="reg_statutory_emtID" maxlength="8">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--EMT ID-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">EMT Name</label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter EMT Name" id="reg_statutory_emtNameID" maxlength="50">
+                                                <div class="text-right">
+                                                    <span id="valid_sc_reg_emtNameId">0/50</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Supervisor Name-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Supervisor Id<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter Supervisor Id" id="supervisorNameID" maxlength="8" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Other Supervisor Name-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Other Supervisor Name</label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Other Supervisor Name" id="othersupervisorId" maxlength="50">
+                                                <div class="text-right">
+                                                    <span id="valid_sc_reg_othersupNameId">0/50</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+
+                            <!--  Statutory Compliance-->                                
+
+                            <div class="sub-title">
+                                <h4> Statutory Compliance</h4>
+                            </div>
+                            <div class="sub-body">
+                                <!--Statutory Compliance Type-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Statutory Compliance Type<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <select class="form-control" id="reg_complianceTypeID">
+                                                    <option value="0">Select Statutory Compliance Type</option>
+                                                    <!--                                                        <option value="1">Major</option>
+                                                                                                            <option value="2">Minor</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+ <!--Equipment Name-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group" id="ename" >
+                                            <label class="control-label col-md-4 col-xs-12" >Equipment Name<span class="star" >*</span></label>
+                                            <div class="col-md-8 col-xs-12"  > 
+                                                <select class="form-control" id="sc_reg_eqipmentID" >
+                                                    <option value="0">Equipment Name</option>
+                                                    <!--                                                    <option value="1">Major</option>
+                                                                                                        <option value="2">Minor</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--Compliance-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Compliance<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <select class="form-control" id="complianceID">
+                                                    <option value="0">Select Compliance </option>
+                                                    <!--                                                        <option value="1">Compliance1</option>
+                                                                                                            <option value="2">Compliance<2/option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Date Of Renovation-->
+
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Date Of Renovation<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <div class='input-group date' id='datetimepicker1'>
+                                                    <input type='text' class="form-control" placeholder="Select Date Of Renovation" id="renovationDateID" autocomplete="off"/>
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--remarks-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Remarks<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <textarea class="form-control" placeholder="Enter Remarks" id="reg_remarksId" maxlength="200"></textarea>
+                                                <div class="text-right">
+                                                    <span id="valid_valid_sc_reg_remarksId">0/200</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Buttons-->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm" id="statutory_registrationId" onclick="savecomplianceDetails()"><i class="fa fa-floppy-o p-r-xs"></i>Submit</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="javascript:window.location.reload()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                      <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetInsert()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>
+                                </div>
+
+                            </div>  
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <!--Modal box for Update-->
+        <div id="statutoryUpdate" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Statutory Compliance</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+
+                            <!--Ambulance Information-->  
+                            <!--Heading-->
+                            <div class="sub-title">
+                                <h4> Ambulance Information</h4>
+                            </div>
+                            <div class="sub-body">
+
+                                <!--District-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4 col-xs-12">District<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input type="text" class="form-control" placeholder="Enter District" id="up_statutory_districtID" disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>                                            
+                                    <!--Base Location-->   
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Base Location<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter Baselocation" id="up_statory_baseLocID" disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Ambulance-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-4 col-xs-12">Ambulance No<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12">
+                                                <input type="text" class="form-control" placeholder="Enter Ambulance" id="up_statutory_ambulanceID" disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Shift Type-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Shift Type<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter ShiftType" id="up_statutory_shiftID" disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--  Display EMT/Drivers-->                                
+                            <!--Heading-->
+                            <div class="sub-title">
+                                <h4> Display EMT/Drivers</h4>
+                            </div>
+                            <div class="sub-body">
+                                <!--Pilot ID-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Pilot ID</label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter Pilot ID" id="up_statutory_pilotID" disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Pilot Name-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Pilot Name</label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter Pilot Name" id="up_statutory_pilotnameID" disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--EMT ID-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">EMT ID</label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter EMT ID" id="up_statutory_emtID" disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--EMT ID-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">EMT Name</label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter EMT Name" id="up_statutory_emtNameID" disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Supervisor Name-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Supervisor Name<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Enter Supervisor Name" id="up_supervisorNameID" disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Other Supervisor Name-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Other Supervisor Name</label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type="text" class="form-control" placeholder="Other Supervisor Name" id="up_othersupervisorId" disabled="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>  
+                            </div>
+
+                            <!--  Statutory Compliance-->                                
+
+                            <div class="sub-title">
+                                <h4> Statutory Compliance</h4>
+                            </div>
+                            <div class="sub-body">
+                                <!--Statutory Compliance Type-->
+                                <div class="row">
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Statutory Compliance Type<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type='text' class="form-control" placeholder="Enter statutory Compliance Type" id="up_complianceTypeID" disabled="true"/>
+                                            </div>
+                                        </div>
+                                    </div>
+ <!--Equipment Name-->     
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group" id="ename" >
+                                            <label class="control-label col-md-4 col-xs-12" >Equipment Name<span class="star" >*</span></label>
+                                            <div class="col-md-8 col-xs-12"  > 
+                                                <input type='text' class="form-control" placeholder="Equipment Name" id="sc_up_eqipmentID" disabled="true"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--Compliance-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Compliance<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input type='text' class="form-control" placeholder="Enter compliance" id="up_complianceID" disabled="true"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Date Of Renovation-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Date Of Renovation<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <div class='input-group date' id='datetimepicker1'>
+                                                    <input type='text' class="form-control" placeholder="Select Date Of Renovation" id="up_renovationDateID" disabled="true"/>
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!--remarks-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Remarks<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <textarea class="form-control" placeholder="Enter Remarks" id="up_remarksId" maxlength="200"></textarea>
+                                                <div class="text-right">
+                                                    <span id="valid_sc_remarksId">0/200</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                       <!--Next Date Of Renovation-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Next Date Of Renovation<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <div class='input-group date' id='datetimepicker2'>
+                                                    <input type='text' class="form-control" placeholder="Select Date Of Renovation" id="up_next_renovationDateID" autocomplete="off"/>
+                                                    <a href="../TyreLife/TyreLife.html"></a>
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <!--Remarks For Next DateOf Renovation-->
+                                    <div class="col-sm-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Remarks For Next DateOf Renovation<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <textarea class="form-control" placeholder="Enter Remarks" id="up_next_remarksId" maxlength="200"></textarea>
+                                                <div class="text-right">
+                                                    <span id="valid_sc_up_remarksId">0/200</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>                                           
+                            <!--Buttons-->
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary btn-sm" id="statutory_updateID" onclick="sc_update()"><i class="fa fa-floppy-o p-r-xs"></i>Update</button>
+                                <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="javascript:window.location.reload()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                  <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetUpdate()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <input type="hidden" id="tyreConditionID"/>
+        <input type="hidden" id="ser_Id">
+        <input type="hidden" id="remarkid">
+        <input type="hidden" id="dist_id">
+        <input type="hidden" id="baselocationid">
+        <input type="hidden" id="ambulance_no">
+        <input type="hidden" id="date_of_renovation">
+        <input type="hidden" id="emsoid">
+        <input type="hidden" id="pilotid">
+        <input type="hidden" id="ticketId">
+
+    </div>
+
+</div>
+
+<script src="../../js/jquery1.2.min.js"></script>
+<script src="../../js/chosen.jquery.js"></script>
+<script src="../../js/moment.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/datatables.min.js"></script>
+<script src="../../js/bootstrap-datepicker.js"></script> 
+<script src="../../js/bootstrap-datetimepicker.min.js"></script>    
+<script src="../../js/moment.js"></script>
+<script src="../../js/moment.min.js"></script>
+<script src="../../js/moment.min_1.js"></script>
+ <script src="../../js/notify.js"></script>
+ <script src="../../js/notify.min.js"></script>
+<script src="../../js/OPDESK/Constants.js"></script>
+<script src="../../js/OPDESK/ServiceURLS.js"></script>
+<script src="../../js/OPDESK/msterData.js"></script>
+<script src="../../js/OPDESK/statutoryCompliance.js"></script>
+   <!--         logout/login url -->
+               <script src="../../../Common/serviceController/dashboard.js"></script>
+                <script src="../../../Common/serviceController/ServiceUrl.js"></script> 
+              <script src="../../../Common/serviceController/logout.js"></script>
+<script>
+
+                                    $(function() {
+                                        //Date And Time picker in Modal Box
+                                        $('#datetimepicker1').datetimepicker({
+                                            sideBySide: true,
+                                            format: 'YYYY-MM-DD HH:mm:ss'
+                                        });
+                                    });//datetimepicker2
+
+                                    $(function() {
+                                        //Date And Time picker in Modal Box
+                                        $('#datetimepicker2').datetimepicker({
+                                            sideBySide: true,
+                                            format: 'YYYY-MM-DD HH:mm:ss'
+                                        });
+                                    });//datetimepicker2
+                                    
+                                    $(document).ready(function() {
+                                     	checkLoggedOrNot();
+                                        // $('select').chosen();                            //Chosen select
+//                                        $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+//                                        $('#driverTable').DataTable({// Data table
+//                                            pageLength: 10,
+//                                            responsive: true,
+//                                            dom: '<"html5buttons"B>lTfgitp',
+//                                            buttons: [
+//                                                {extend: 'copy'},
+//                                                {extend: 'csv'},
+//                                                {extend: 'excel', title: 'ExampleFile'},
+//                                                {extend: 'pdf', title: 'ExampleFile'},
+//                                                {extend: 'print',
+//                                                    customize: function(win) {
+//                                                        $(win.document.body).addClass('white-bg');
+//                                                        $(win.document.body).css('font-size', '10px');
+//
+//                                                        $(win.document.body).find('table')
+//                                                                .addClass('compact')
+//                                                                .css('font-size', 'inherit');
+//                                                    }
+//                                                }
+//                                            ]
+//
+//                                        });
+                                        //Date Pickers
+                                        $("#strtDate").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true
+                                        }).datepicker();
+                                        $("#endDate").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true
+                                        }).datepicker();
+
+                                    });
+
+                                  
+
+                                    $("#reg_statutory_pilotnameID").on("keydown keyup change", function(event) {
+                                        var value = $(this).val();
+                                        if (value.length >= Constants.NAME_MAX_LENGTH) {
+                                            //event.preventDefault();                
+                                        }
+                                        var len = $.trim(value).length;
+                                        $("#valid_sc_reg_nameID").text(len + "/" + Constants.NAME_MAX_LENGTH);
+                                    });
+
+                                    $("#reg_statutory_emtNameID").on("keydown keyup change", function(event) {
+                                        var value = $(this).val();
+                                        if (value.length >= Constants.NAME_MAX_LENGTH) {
+                                            //event.preventDefault();                
+                                        }
+                                        var len = $.trim(value).length;
+                                        $("#valid_sc_reg_emtNameId").text(len + "/" + Constants.NAME_MAX_LENGTH);
+                                    });
+
+                                    $("#othersupervisorId").on("keydown keyup change", function(event) {
+                                        var value = $(this).val();
+                                        if (value.length >= Constants.NAME_MAX_LENGTH) {
+                                            //event.preventDefault();                
+                                        }
+                                        var len = $.trim(value).length;
+                                        $("#valid_sc_reg_othersupNameId").text(len + "/" + Constants.NAME_MAX_LENGTH);
+                                    });
+                                    $("#reg_remarksId").on("keydown keyup change", function(event) {
+                                        var value = $(this).val();
+                                        if (value.length >= Constants.NAME_MAX_LENGTH) {
+                                            //event.preventDefault();                
+                                        }
+                                        var len = $.trim(value).length;
+                                        $("#valid_sc_reg_remarksId").text(len + "/" + Constants.MAX_REMARKS_LEN);
+                                    });
+                                    $("#up_next_remarksId").on("keydown keyup change", function(event) {
+                                        var value = $(this).val();
+                                        if (value.length >= Constants.NAME_MAX_LENGTH) {
+                                            //event.preventDefault();                
+                                        }
+                                        var len = $.trim(value).length;
+                                        $("#valid_sc_up_remarksId").text(len + "/" + Constants.MAX_REMARKS_LEN);
+                                    });
+                                    $("#up_remarksId").on("keydown keyup change", function(event) {
+                                        var value = $(this).val();
+                                        if (value.length >= Constants.NAME_MAX_LENGTH) {
+                                            //event.preventDefault();                
+                                        }
+                                        var len = $.trim(value).length;
+                                        $("#valid_sc_remarksId").text(len + "/" + Constants.MAX_REMARKS_LEN);
+                                    });
+
+</script>
+
+</body>
+</html>

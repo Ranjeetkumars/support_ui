@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Work Force Management| Update Pattern-ERC</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../assets/img/favicon.ico">
+        <!--CSS Links-->
+      <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../assets/css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../assets/css/datatables.min.css">
+        <link rel="stylesheet" href="../../assets/css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../assets/css/datepicker.css">
+        <link rel="stylesheet" href="../../assets/css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../assets/css/style.css">
+        <link rel="stylesheet" href="../../assets/css/wfms.css">
+        
+        <style>
+    
+        .table>thead>tr>th {
+    background-color: #5e72e4;
+    color: #fff;
+    vertical-align: middle;
+    font-size: 9px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.chosen-single span {
+    margin-right: 0px;
+    font-size: 12px;
+}
+.page-container {
+    position: relative;
+    min-height: 94.6vh;
+    width: 100%;
+}
+
+.card {
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;
+    border-radius: 6px;
+    margin: 0px 5px 20px;
+    width: 100%;
+}
+
+
+.col-md-12 {
+    width: 100%;
+}
+            .table .t {
+                background-color: white;
+                color: black;
+            }           
+            .col-sm-4 {
+                width: -1.666667%;
+            }
+            .chosen-container-single .chosen-single span {  
+                margin-right: 0px;  
+                width: 43px;
+            }
+            .chosen-container-single .chosen-single {
+
+                padding: 0 0 0 0px; 
+
+
+            }
+            
+            .second-nav {
+    background: #4b7ee3;
+    border-bottom: 1px solid #d3d9db;
+    margin-bottom: 20px;
+    /* border-top: 1px solid #d3d9db; */
+    margin-top: 52px;
+    padding: 10px 16px;
+    min-height: 50px;
+    line-height: 2.7;
+    width: 105%;
+}
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+           
+                <!--Main Header-->
+                       <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta"  data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn" id="bluecta"></div>
+                        </div>
+<!--                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../assets/img/pro-Logo.png" /></a>-->
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+<!--                             <li><a href="../../assets/dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+ -->                            <li><a href="../WFMS_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+<li><a href="#" style="color:red" onclick="wfms_Logout()"><i class="fa fa-power-off"></i> Logout</a></li>                           <!--  <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>    -->            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+           <!--Main Header-->
+            <!--Second Header-->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#navbar1">
+                            <div class="toggle-btn bg-white"></div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../WFMS_Dashboard.html">Home</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="myProfile_HideId">My Profile <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Myprofile/MySchedule.html">My Schedule</a></li>
+                                    <li><a href="../Myprofile/LeaveApply.html">Leave Approval</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="manageResource_HideId">Manage Resources <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../ManageResource/PatternERC.html">Patterns - ERC</a></li>                        
+                                    <li><a href="../ManageResource/PatternOperator.html">Patterns - Operators</a></li>
+                                    <li><a href="../ManageResource/ResourceProfiles.html">Resource Profiles</a></li>
+                                    <li><a href="../ManageResource/EmployeeAvailabilityERC.html">Employees Availability-ERC</a></li>
+                                    <li><a href="../ManageResource/EmployeesAvailability-Operators.html">Employees Availability-Operators</a></li>
+                                    <li><a href="../ManageResource/LeaveApprove-Reject.html">Leave Approve/Reject</a></li>
+                                    <li><a href="../ManageResource/ScheduleofFieldOperators.html">Schedule of Field Operators</a></li>
+                                    <li><a href="../ManageResource/ScheduleofERC.html">Schedule of ERC</a></li>
+                                    <li><a href="../ManageResource/LeaveHistory.html">Leave History</a> 
+                                </ul>
+                            </li>
+                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="ManagerMapping_HideId">Master Mapping <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../MasterMapping/ManagerMapping.html">Manager Mapping</a></li>                          
+                                    
+                                </ul>
+                            </li>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="zone_HideId">Zone <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Zone/addzone.html">Add Zone</a></li>                          
+                                    <li><a href="../Zone/addbaselocation.html">Base Location</a></li>
+                                    <li><a href="../Zone/DistricttoManager.html">Zone to District Manager</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="assign_HideId">Assign <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Assign/DrivertoZone.html">Driver to Zone</a></li>                          
+                                    <li><a href="../Assign/DrivertoVehicle.html">Driver to Vehicle</a></li>
+                                    <li><a href="../Assign/EMTtoZone.html">EMT to Zone</a></li>
+                                    <li><a href="../Assign/EMTtoVehicle.html">EMT to Vehicle</a></li>                           
+                                    <li><a href="../Assign/VehicletoBaseLocation.html">Vehicle to Base Location</a></li> 
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="reports_HideId">Reports <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Reports/myworkreport.html">My Work Report</a> </li>                          
+                                    <li><a href="../Reports/summary.html">Summary</a> </li>
+                                    <li><a href="../Reports/departmentwiseemployees.html">Department Wise Employees</a> </li>
+                                    <li><a href="../Reports/zonewiseemployees.html">Zone Wise Employees</a> </li>
+                                    <li><a href="../Reports/shiftwiseemployees.html">Shift Wise Employees</a> </li>
+                                    <li><a href="../Reports/rosternotes.html">Roster Notes</a> </li>
+                                    <li><a href="../Reports/extraallowance.html">Extra Allowance</a> </li>
+                                    <li><a href="../Reports/trainingwise.html">Training Wise</a> </li>
+                                    <li><a href="../Reports/payrollreport.html">Pay Roll Report</a> </li>
+                                </ul>
+                            </li>
+
+                            <li><a href="../Search/search.html" id="search_HideId">Search</a></li>
+                            <li> <a href="../resorceforcasting/resorceforcasting.html" id="resource_HideId">Resource Forecasting</a></li>                    
+                            <li> <a href="../holiday/holiday.html" id="holiday_HideId">Holiday</a></li>
+                            <li>  <a href="../allowances/allowances.html" id="allowances_HideId">Allowances</a></li>
+                            <li>  <a href="../MMU/vehicle_team_mapping.html" id="mmu_HideId">MMU Vehicle Team Mapping</a></li>
+
+                        </ul>
+                      
+                    </div>
+                </div>
+            </nav>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">                                                                              
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3"> Pattern Type<span class="star">*</span></label>
+                                <div class="col-md-9">
+                                    <input type="text" placeholder="Enter  Pattern Type" id="upattern_Operator_Id" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Description<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12"> 
+                                    <textarea class="form-control"  id="udesc_Operator_Id" placeholder="Enter Description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">                                                             
+                                <label class="col-sm-4 control-label" id="gender">Status<span class="star">*</span></label>
+                                <div class="col-sm-8" style="margin-left: -89px;">
+                               <input type="radio" name="isactive" value="true" checked>Yes&nbsp;&nbsp;
+                                    <input type="radio" id="Miles" name="isactive"  value="false" >No                                                                                                                         
+                                </div>
+                            </div> 
+
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row"> 
+                        <div class="col-md-12 col-xs-12">
+                            <table class="table" >
+                                <thead>
+                                    <tr>
+                                        <th class="t">Day1</th>
+                                        <th class="t">Day2</th>
+                                        <th class="t">Day3</th>
+                                        <th class="t">Day4</th>
+                                        <th class="t">Day5</th> 
+                                        <th class="t">Day6</th>
+                                        <th class="t">Day7</th> 
+                                        <th class="t">Day8</th>
+                                        <th class="t">Day9</th>
+                                        <th class="t">Day10</th>
+                                        <th class="t">Day11</th>
+                                        <th class="t">Day12</th>
+                                        <th class="t">Day13</th> 
+                                        <th class="t">Day14</th>
+                                        <th class="t">Day15</th> 
+                                        <th class="t">Day16</th>
+                                        <th class="t">Day17</th> 
+                                        <th class="t">Day18</th>
+                                        <th class="t">Day19</th> 
+                                        <th class="t">Day20</th>                                                                                                                                                                                                                 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="width: 63px;">
+                                        <td>
+                                            <select class="form-control" id="update1_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update2_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update3_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update4_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                           <select class="form-control" id="update5_Id">
+                                                <option style="font-size: 11px" value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update6_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update7_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update8_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update9_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update10_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                           <select class="form-control" id="update11_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update12_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update13_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                           <select class="form-control" id="update14_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                           <select class="form-control" id="update15_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                        <td>
+                                            <select class="form-control" id="update16_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                            <td>
+                                            <select class="form-control" id="update17_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                            <td>
+                                            <select class="form-control" id="update18_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                            <td>
+                                            <select class="form-control" id="update19_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>
+                                            <td>
+                                            <select class="form-control" id="update20_Id">
+                                                <option value="0">Select &nbsp;&nbsp;</option>
+                                            </select></td>                                                                                                                                                                                                                          
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div></div>                                                                         
+                    <!--buttons-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm"  id="update_Pattern" onclick="update_ShiftPatterns_ERC_Details();"><i class="fa fa-save p-r-xs"></i>Update</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetDetails()"><i class="fa fa-refresh p-r-xs" ></i>Reset</button>                                      
+                        </div>
+                    </div>   
+                    <hr>
+                    <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <!--Content End-->
+            <input type="hidden" id="patterenid">
+
+            <!--Footer-->
+            <div class="footer">
+                <small>Powered by Vsoft Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+         <script src="../../assets/js/jquery1.2.min.js"></script> 
+        <script src="../../assets/js/moment.min.js"></script>
+        <script src="../../assets/js/bootstrap.min.js"></script>
+        <script src="../../assets/js/datatables.min.js"></script>
+        <script src="../../assets/js/bootstrap-datepicker.js"></script> 
+        <script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>       
+        <script src="../../assets/js/chosen.jquery.js"></script>
+        <script src="../../assets/js/notify.js"></script>
+        <script src="../../assets/js/notify.min.js"></script>
+        <script src="../../assets/serviceController/wfms/Common_Constants/Menu_Hide_Show.js"></script>
+        <script src="../../assets/serviceController/wfms/Common_Constants/Wfms_Logout.js"></script>
+        <script src="../../assets/serviceController/wfms/ServiceURLS.js"></script>
+        <script src="../../assets/serviceController/wfms/Manage_Resource/update_pattern_erc.js"></script>
+        <script>
+
+            $(function() {   
+            	
+                //Date And Time picker in Modal Box
+                $('#datetimepicker1').datetimepicker({
+                    sideBySide: true,
+                    format: 'DD-MM-YYYY HH:mm:ss'
+                });
+            });
+
+            $(document).ready(function() {
+                $('select').chosen();                            //Chosen select
+                $('[data-toggle="tooltip"]').tooltip();          // Tooltip            
+                //Date Pickers
+                $("#strtDate").datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                }).datepicker();
+                $("#endDate").datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                }).datepicker();
+
+            });
+
+            //For Collapseble Panels In Registration Modal box
+            var selectIds = $('#collapseOne,#collapseTwo,#collapseThree');
+            $(function($) {
+                selectIds.on('show.bs.collapse hidden.bs.collapse', function() {
+                    $(this).prev().find('.fa').toggleClass('fa-plus fa-minus');
+                });
+            });
+        </script>
+
+    </body>
+</html>

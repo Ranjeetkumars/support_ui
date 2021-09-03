@@ -1,0 +1,19 @@
+${AnsiBackground.WHITE}${AnsiColor.RED}
+
+                                                                                                                                                                      
+    //   ) )     //   / /     //   ) )     //   ) )     //   ) )     //   ) )  /__  ___/       //   ) ) \\    / /     //   ) )  /__  ___/     //   / /     /|    //| | 
+   ((           //   / /     //___/ /     //___/ /     //   / /     //___/ /     / /          ((         \\  / /     ((           / /        //____       //|   // | | 
+     \\        //   / /     / ____ /     / ____ /     //   / /     / ___ (      / /             \\        \\/ /        \\        / /        / ____       // |  //  | | 
+       ) )    //   / /     //           //           //   / /     //   | |     / /                ) )      / /           ) )    / /        //           //  | //   | | 
+((___ / /    ((___/ /     //           //           ((___/ /     //    | |    / /          ((___ / /      / /     ((___ / /    / /        //____/ /    //   |//    | | 
+
+
+${Ansi.RED}Spring Boot ${spring-boot.version}
+${Ansi.RED}Java ${java.version}
+${Ansi.RED}@author : Venkat koniki
+${Ansi.RED}@author : Ranjeet kr. Sinha
+${Ansi.RED}@Des: This Support System is containing multiple project ui which are FMA,AMS,WFMS,SCM,OpDesk and Social Media Agent.
+
+
+
+

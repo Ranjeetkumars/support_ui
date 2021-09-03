@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OP Desk |  Oxygen filling View</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../common_images/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../common_css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../common_css/font-awesome/common_css/font-awesome.css">
+        <link rel='stylesheet' href="../../common_css/datatables.min.css">
+        <link rel="stylesheet" href="../../common_css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../common_css/datepicker.css">
+        <link rel="stylesheet" href="../../common_css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../common_css/common_css.css">
+        <style>
+#page-container {
+/*    min-height: 85.6vh;*/
+min-height: 92.6vh;
+}
+.footer{
+    position: fixed;
+}
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px"> Oxygen Filling View</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                    <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li> 
+                    <li class="pull-left" style="margin-top: -7px">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i> Oxygen filling</button> 
+                    </li>
+                    <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>     
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">
+                        <!--District-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-xs-12">District<span class="star">*</span></label>
+                                <div class="col-md-9 col-xs-12">
+                                    <select class="form-control" name="dractityid">
+                                        <option value="0">Select District</option>
+                                        <option value="1">Fuel Filling</option>
+                                        <option value="2">Oxygen Filling</option>
+                                        <option value="3">Tyre Life</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                         <!--Base Location-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control">
+                                        <option value="0">Select Base Location</option>
+                                        <option value="1">Fuel Filling</option>
+                                        <option value="2">Oxygen Filling</option>
+                                        <option value="3">Tyre Life</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                          <!--Ambulance-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Ambulance #</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" name="dractityid">
+                                        <option value="0">Select Ambulance</option>
+                                        <option value="1">Fuel Filling</option>
+                                        <option value="2">Oxygen Filling</option>
+                                        <option value="3">Tyre Life</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!--Ticket ID-->
+                    <div class="row m-t-b-sm">                        
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Ticket #</label>
+                                <div class="col-md-9">
+                                    <input type="text" placeholder="Enter Ticket ID" class="form-control" name="drticketid" onkeypress="javascript:return numarics(this, event);" maxlength="14">
+                                </div>
+                            </div>
+                        </div>
+                         <!--Oxygen Filling From Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Oxygen Filling from Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="strtDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date" type="text"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                          <!--Oxygen Filling To Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Oxygen Filling to Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="endDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+
+                                            <input class="form-control" placeholder="Select Date" type="text"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      <!--button-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                        </div>
+                    </div>   
+                    <hr>
+                     <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive">    
+                                    <table id="driverTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>S.NO</th>
+                                                <th>Ticket #</th>
+                                                <th>District</th>                           
+                                                <th>Base Location</th>
+                                                <th>Ambulance #</th>                                      
+                                                <th>Filling Date </th>
+                                                <th>Cylinder Type</th>                          
+                                                <th>Oxygen station Details</th>                          
+                                                <th>Oxygen Quantity</th> 
+                                                <th>Payment Mode</th> 
+                                                <th> Filling Card </th>  
+                                                <th>Supervisor Name</th>                           
+                                                <th>Update  </th>                                                                                          
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>20171217000397</td>
+                                                <td>Krishna</td>
+                                                <td>Nandigama</td>
+                                                <td>AP16TJ0661</td>
+                                                <td>2017-12-15 10:28:00</td>
+                                                <td>Major</td>
+                                                <td>Major</td>
+                                                <td>Not Applicable</td>
+                                                <td>Not Applicable</td>
+                                                <td>In Progress</td>
+                                                <td>Maoj</td>
+                                                <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registration">Update</button></td>                                       
+                                            </tr>      
+                                            <tr>
+                                                <td>2</td>
+                                                <td>20171217000397</td>
+                                                <td>Krishna</td>
+                                                <td>Nandigama</td>
+                                                <td>AP16TJ0661</td>
+                                                <td>2017-12-15 10:28:00</td>
+                                                <td>Major</td>
+                                                <td>Major</td>
+                                                <td>Not Applicable</td>
+                                                <td>Not Applicable</td>
+                                                <td>In Progress</td>
+                                                <td>Maoj</td>
+                                                <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registration">Update</button></td>                                       
+                                            </tr>      
+                                            <tr>
+                                                <td>3</td>
+                                                <td>20171217000397</td>
+                                                <td>Krishna</td>
+                                                <td>Nandigama</td>
+                                                <td>AP16TJ0661</td>
+                                                <td>2017-12-15 10:28:00</td>
+                                                <td>Major</td>
+                                                <td>Major</td>
+                                                <td>Not Applicable</td>
+                                                <td>Not Applicable</td>
+                                                <td>In Progress</td>
+                                                <td>Maoj</td>
+                                                <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registration">Update</button></td>                                       
+                                            </tr>                                               
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <!--Content End-->
+            <!--Modal box for Registration-->
+            <div id="registration" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Oxygen Filling </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+
+                                <!--Ambulance Information-->                               
+                                   <!--Heading-->
+                                <div class="sub-title">
+                                    <h4> Ambulance Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <!--District-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12">District<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control">
+                                                        <option value="0">Select District</option>
+                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>
+                                                    </select>
+                                                </div>
+                                            </div>   
+                                        </div>    
+                                        <!--Base Location-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control">
+                                                        <option value="0">Select Base Location</option>
+                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Ambulance-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-sm-4 col-xs-12">Ambulance #<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control">
+                                                        <option value="0">Select Ambulance</option>
+                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Shift Type-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Shift Type<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control">
+                                                        <option value="0">Select Shift Type</option>
+                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!--Oxygen Station Information-->                                
+                                        <!--Heading-->
+                                <div class="sub-title">
+                                    <h4>Oxygen Station Information</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <!--Oxygen Station-->  
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Oxygen Station<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control">
+                                                        <option value="0">Select Oxygen Station</option>
+                                                        <option value="1">Fuel Filling</option>
+                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="3">Tyre Life</option>
+                                                    </select>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                        <!--Cylinder Type-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Cylinder Type<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control">
+                                                        <option value="0">Select Cylinder Type</option>
+                                                        <option value="1">Cylinder one</option>
+                                                        <option value="2">Cylinder two</option>
+                                                        <option value="3">Cylinder three</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Oxygen Quantity-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Oxygen Quantity<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Oxygen Quantity ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Oxygen Amount--> 
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Oxygen Amount<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Oxygen Amount ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Add Cylinder Button--> 
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 col-xs-12"></label>
+                                        <div class="col-md-8 col-xs-12"> 
+                                            <button type="button" class="btn btn-secondary btn-sm">Add Cylinder</button>
+                                        </div>
+                                    </div>
+
+                                    <!--Table For cylinder Details-->
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>S.No</th>
+                                                <th>Cylinder Type</th>
+                                                <th>Oxygen Quantity</th>
+                                                <th>Paid Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Cylinder One</td>
+                                                <td>2</td>
+                                                <td>3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Cylinder One</td>
+                                                <td>2</td>
+                                                <td>3</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--Pre-Odometer Reading-->
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Pre Odo-Meter Reading<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Pre Odo-Meter Reading ">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--In-Odometer Reading--> 
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">In Odo-Meter Reading<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter In Odo-Meter Reading ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Payment Mode--> 
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Payment Mode<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control">
+                                                        <option value="0">Select Payment Mode</option>
+                                                        <option value="1">pay card</option>
+                                                        <option value="2">Vocher payment</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--Payment Number-->  
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Payment Number</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Payment Number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--Filling Date & Time--> 
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Filling Date<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class='input-group date' id='datetimepicker1'>
+                                                        <input type='text' class="form-control input-sm" placeholder="Select Date"/>
+                                                        <span class="input-group-addon calendar">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>                                               
+                                            </div> 
+                                        </div>
+
+                                        <!--Supervisor-->  
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Supervisor<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <input type="text" class="form-control" placeholder="Enter Supervisor ">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!--Remarks--> 
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Remarks</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Remarks"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></div>
+
+                                <!--  Save & Close Buttons Register page-->
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-floppy-o p-r-xs"></i>Save</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../../common_js/jquery1.2.min.js"></script>
+        <script src="../../common_js/moment.min.js"></script>
+        <script src="../../common_js/bootstrap.min.js"></script>
+        <script src="../../common_js/datatables.min.js"></script>
+        <script src="../../common_js/bootstrap-datepicker.js"></script> 
+        <script src="../../common_js/bootstrap-datetimepicker.min.js"></script>       
+        <script src="../../common_js/chosen.jquery.js"></script>
+        <script>
+
+                                        $(function() {
+//Date And Time picker in Modal Box
+                                            $('#datetimepicker1').datetimepicker({
+                                                sideBySide: true,
+                                                format: 'DD-MM-YYYY HH:mm:ss'
+                                            });
+                                        });
+
+                                        $(document).ready(function() {
+                                            $('select').chosen();                            //Chosen select
+                                            $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                                            $('#driverTable').DataTable({// Data table
+                                                pageLength: 10,
+                                                responsive: true,
+                                                dom: '<"html5buttons"B>lTfgitp',
+                                                buttons: [
+                                                    {extend: 'copy'},
+                                                    {extend: 'csv'},
+                                                    {extend: 'excel', title: 'ExampleFile'},
+                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                                    {extend: 'print',
+                                                        customize: function(win) {
+                                                            $(win.document.body).addClass('white-bg');
+                                                            $(win.document.body).css('font-size', '10px');
+
+                                                            $(win.document.body).find('table')
+                                                                    .addClass('compact')
+                                                                    .css('font-size', 'inherit');
+                                                        }
+                                                    }
+                                                ]
+
+                                            });
+//Date Pickers
+                                            $("#strtDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+                                            $("#endDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+
+                                        });
+
+
+        </script>
+
+    </body>
+</html>

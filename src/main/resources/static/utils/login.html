@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ERS Support Systems | Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../common_images/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../common_css/bootstrap.min.css">
+        <link rel="stylesheet" href="../common_css/fontfamily/font-style.css">                     
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../common_css/login_1.css">
+
+        <style>
+            #particles-js{
+			position:fixed;
+                width: 100%;
+                height: 100%;
+                background-color: #b61924;
+                background-image: url('');
+                background-size: cover;
+                background-position: 50% 50%;
+                background-repeat: no-repeat;
+                background:#00356B;
+            }
+            .row{
+                margin: 0;
+            }
+            .remember{
+                line-height:2;
+                color:#000;
+                font-weight: 500;
+            }
+			@media screen and (max-width:700px){
+			.footer{
+			margin-left: 0px;
+			}
+			}
+        </style>
+
+    </head>
+    <body>
+        <div id="particles-js"></div>
+        <div class="login">
+            <h2>User Login</h2>
+            <form>
+                <!--User Name-->
+                <div class="float-labels">
+                    <div class="form-group">
+                        <div class="float-group">
+                            <input type="text" class="form-control" placeholder="Enter User Name">
+                            <label class="float-field">User Name</label>
+                        </div>
+                    </div>  
+                </div>  
+                <!--Passowrd-->
+                <div class="float-labels">
+                    <div class="form-group">
+                        <div class="float-group">
+                            <input type="password" class="form-control" placeholder="Enter Password">
+                            <label class="float-field">Password</label>
+                        </div>
+                    </div> 
+                </div> 
+                <!--Shift-->
+<!--                <div class="float-labels">
+                    <div class="form-group">
+                        <div class="float-group">
+                            <select class="form-control" id="shift">
+                                <option value="" style="display:none;"></option>
+                                <option value="0">Select One</option>
+                                <option value="1">Morning Shift</option>
+                                <option value="2">Night Shift</option>
+                            </select>
+                            <label class="float-field" for="shift">Shift</label>
+                        </div>
+                    </div>
+                </div>-->
+
+                <!--Check box and Forget password-->
+                <div>
+                    <div style="display:inline-flex;margin-top: -20px">
+                        <input type="checkbox" class="check_1"><span class="p-l-sm remember">Remember me</span>
+                    </div>
+                    <a href="" class="pull-right" style="margin-top: -13px">Forgot Password?</a>
+                </div>
+                <div class="text-center m-t-md">
+                    <button class="btn btn-info1 btn-block">Login</button>
+
+                </div>
+            </form>  
+            <!--Footer-->
+            <p class="footer">Pro-HHL® 2019 © Procreate. All Rights Reserved.</p> 
+        </div>
+
+        <script src="../common_js/jquery-3.3.1.min.js"></script>
+        <script src="../common_js/bootstrap.min.js"></script>
+        <script src="../common_css/plugins/particles/particles.js"></script>
+        <script src="../common_css/plugins/particles/app.js"></script>
+        
+        
+       
+        
+        
+        
+        
+        <script>
+//            for Shift Dropdown
+            $(document).ready(function() {
+
+                $('select.form-control').focus(function() {
+                    $('label[for="' + this.id + '"]').addClass('active');
+                });
+            });
+
+// For Body Background
+
+            var count_particles, stats, update;
+            stats = new Stats;
+            stats.setMode(0);
+            stats.domElement.style.position = 'absolute';
+            stats.domElement.style.left = '0px';
+            stats.domElement.style.top = '0px';
+            document.body.appendChild(stats.domElement);
+            count_particles = document.querySelector('.js-count-particles');
+            update = function() {
+                stats.begin();
+                stats.end();
+                if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+                    count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+                }
+                requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+
+
+
+        </script>
+    </body>
+</html>

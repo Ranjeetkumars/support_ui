@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SCM | Dress Registration</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="shortcut icon" href="../../scm_common_img/img/favicon.ico">
+
+        <!--CSS Links-->
+          <link rel="stylesheet" href="../../scm_common_css/toster.css"> 
+        <link rel="stylesheet" href="../../scm_common_css/bootstrap.min.css">  
+       <!--  <link rel="stylesheet" href="../../scm_common_css/font-awesome/font-awesome.css"> -->
+        <link rel="stylesheet" href="../../scm_common_css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../scm_common_css/datatables.min.css">
+        <link rel="stylesheet" href="../../scm_common_css/datepicker.css">
+        <link rel="stylesheet" href="../../scm_common_css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../scm_common_css/metisMenu.css"/>
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../scm_common_css/style.css">
+<style>
+#page-container {
+	position: relative;
+	min-height: 100vh;
+}
+
+#content-wrap {
+	padding-bottom: 2.5rem;
+	margin-left: 250px;
+	transition: all 0.5s;
+}
+
+.navbar-brand-1 {
+	float: left;
+	padding-right: 15px;
+	font-size: 18px;
+	margin-top: -5px;
+	cursor: pointer;
+}
+
+/* Toggle Active Classes */
+.sidebar.active {
+	left: -250px;
+}
+
+#content-wrap.active {
+	margin-left: 0px;
+}
+
+.table>thead>tr>th:first-child {
+	width: 37px !important;
+}
+
+.vehicle-img {
+	height: 50px;
+	float: left;
+}
+
+.p-l-xxl {
+	padding-left: 74px;
+}
+
+.text-green {
+	color: #18cc6c;
+}
+
+.fa-circle {
+	font-size: 10px;
+}
+
+.update-icon {
+	border: 1px solid #7f863c;
+	padding: 2px;
+	border-radius: 4px;
+	margin-left: 6px;
+	cursor: pointer;
+}
+
+.cursor {
+	cursor: pointer;
+}
+
+label, .form-control, .chosen-container-single .chosen-single span,
+	.popover-title, .popover-content {
+	font-weight: normal;
+	font-size: 13px;
+	color: #262C2D;
+	font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
+		"Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol";
+}
+/*Toggle Button Css*/
+.onoffswitch {
+	position: relative;
+	width: 76px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+.onoffswitch-checkbox {
+	display: none;
+}
+
+.onoffswitch-label {
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+	border: 2px solid #27A1CA;
+	border-radius: 0px;
+}
+
+.onoffswitch-inner {
+	display: block;
+	width: 200%;
+	margin-left: -100%;
+	-moz-transition: margin 0.3s ease-in 0s;
+	-webkit-transition: margin 0.3s ease-in 0s;
+	-o-transition: margin 0.3s ease-in 0s;
+	transition: margin 0.3s ease-in 0s;
+}
+
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+	display: block;
+	float: left;
+	width: 50%;
+	height: 22px;
+	padding: 0;
+	line-height: 20px;
+	font-size: 14px;
+	color: white;
+	font-family: Trebuchet, Arial, sans-serif;
+	font-weight: bold;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 2px solid transparent;
+	background-clip: padding-box;
+}
+
+.onoffswitch-inner:before {
+	content: 'Yes';
+	padding-left: 10px;
+	background-color: #FFFFFF;
+	color: #27A1CA;
+}
+
+.onoffswitch-inner:after {
+	content: 'No';
+	padding-right: 10px;
+	background-color: #FFFFFF;
+	color: #666666;
+	text-align: right;
+}
+
+.onoffswitch-switch {
+	display: block;
+	width: 25px;
+	margin: 0px;
+	background: #27A1CA;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 49px;
+	-moz-transition: all 0.3s ease-in 0s;
+	-webkit-transition: all 0.3s ease-in 0s;
+	-o-transition: all 0.3s ease-in 0s;
+	transition: all 0.3s ease-in 0s;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
+	margin-left: 0;
+}
+
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
+	right: 0px;
+}
+</style>
+
+</head>
+<body>
+
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="../../scm_common_img/img/pro-Logo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						
+						<li><a href="../../Dashboard/pages/Dashboard.html"><i
+								class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#" onclick="logout()"><i class="fa fa-power-off"></i> Logout</a></li>
+							
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header-->
+		<!--Side Nav Bar-->
+		<nav id='sidebar' class="sidebar">
+			<div class="sidebar-content">
+				<div class="sidebar-header">
+					<h3 class="header">SCM</h3>
+				</div>
+				<div class='sidebar-menu'>
+					<ul class="metismenu" id="metismenu">
+						
+						<li id="hideMaster"><a class="nav has-arrow" href="#"> <i
+								class='fa fa-history'></i> <span>Masters</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Masters/pages/GenericNameRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Generic Name
+											Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/BrandNameRegistration.html"> <i
+										class="fa fa-circle-o"></i> <span>Brand Name
+											Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/ManufactureNameRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Manufacture
+											Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/InventoryGroupRegistrastion.html">
+										<i class="fa fa-circle-o"></i> <span>Inventory Group
+											Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/InventoryItemFormRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Inventory Item
+											Form Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/PackingVolumeRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Packing Volume
+											Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/BatchUpdation.html"> <i
+										class="fa fa-circle-o"></i> <span>Batch Updation</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/BarCodePrint.html"> <i
+										class="fa fa-circle-o"></i> <span>Bar Code Print</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/StoreRegistration.html"> <i
+										class="fa fa-circle-o"></i> <span>Store Registration</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/AmbulanceTypewiseItemsMapping.html">
+										<i class="fa fa-circle-o"></i> <span>Ambulance Type
+											wise Items Mapping</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/AmbulanceandSubStoreMapping.html">
+										<i class="fa fa-circle-o"></i> <span>Ambulance & Sub
+											store Mapping</span>
+								</a></li>
+
+								
+
+								<li><a href="../../Masters/pages/RackMaster.html"> <i
+										class="fa fa-circle-o"></i> <span>Rack Master</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/RackShelves.html"> <i
+										class="fa fa-circle-o"></i> <span>Rack Shelves</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/ItemandShelvesMapping.html"> <i
+										class="fa fa-circle-o"></i> <span>Item & Shelves
+											Mapping</span>
+								</a></li>
+
+								<li><a href="../../Masters/pages/ScheduleRegistration.html"> <i
+										class="fa fa-circle-o"></i> <span>Schedule Registration</span>
+								</a></li>
+							</ul></li>
+						<li  id="hideItemRegistration"><a class="nav has-arrow" href="#"> <i
+								class='fa fa-registered  '></i> <span>Item Registration</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Item_Registration/pages/ItemRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Item Registration</span>
+								</a></li>
+								<li><a href="../../Item_Registration/pages/ItemApproval.html"> <i
+										class="fa fa-circle-o"></i> <span>Item Approval</span>
+								</a></li>
+								<li><a href="../../Item_Registration/pages/Active_InactiveItems.html">
+										<i class="fa fa-circle-o"></i> <span>Active/In-Active
+											Items</span>
+								</a></li>
+								<li><a
+									href="../../Item_Registration/pages/Active_InactiveItemApproval.html">
+										<i class="fa fa-circle-o"></i> <span>Active/In-Active
+											Item Approval</span>
+								</a></li>
+							</ul></li>
+						<li id="hideVendorManagement"><a class="nav has-arrow" href="#"> <i
+								class='fa fa-building'></i> <span>Vendor Management</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../VendorManagement/pages/VendorClassification.html"> <i class="fa fa-circle-o"></i> <span>Vendor
+											Classification</span>
+								</a></li>
+								<li><a href="../../VendorManagement/pages/VendorRegistration.html">
+										<i class="fa fa-circle-o"></i> <span>Vendor
+											Registration</span>
+								</a></li>
+								<li><a href="../../VendorManagement/pages/VendorUnMapping.html">
+										<i class="fa fa-circle-o"></i> <span>Item & Vendor
+											Mapping</span>
+								</a></li>
+								
+							</ul></li>
+						<li id="hideProcurement"><a class="nav has-arrow" href="#"> <i
+								class='fa fa-thumbs-o-up '></i> <span>Procurement</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Procurement/pages/IndentRequest.html"> <i
+										class="fa fa-circle-o"></i> <span>Indent Request</span>
+								</a></li>
+								<li><a href="../../Procurement/pages/IndentApproval.html"> <i
+										class="fa fa-circle-o"></i> <span>Indent Approval</span>
+								</a></li>
+								<li><a href="../../Procurement/pages/PurchaseOrder.html"> <i
+										class="fa fa-circle-o"></i> <span>Purchase Order</span>
+								</a></li>
+							</ul></li>
+						<li id="hideGoodsReceivable"><a class="nav has-arrow" href="#"> <i
+								class='fa fa-shopping-cart'></i> <span>Goods Receivable</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../GoodsReceivable/pages/PurchaseOrderSearch.html">
+										<i class="fa fa-circle-o"></i> <span>Purchase Order
+											Search</span>
+								</a></li>
+							</ul></li>
+						<li id="hideItemReturns"><a class="nav has-arrow" href="#" aria-expanded="false">
+								<i class='fa fa-sitemap'></i> <span>Item Returns</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../ItemReturns/pages/StockAdjustment.html"> <i
+										class="fa fa-circle-o"></i> <span>Stock Adjustment</span>
+								</a></li>
+								<li><a href="../../ItemReturns/pages/ItemReturns.html"> <i
+										class="fa fa-circle-o"></i> <span>Items Returns</span>
+								</a></li>
+							</ul></li>
+						<li  id="hideSubstoreAmbulanceIndents"><a class="nav has-arrow" href="#" aria-expanded="false">
+								<i class='fa fa-hdd-o '></i> <span>Substore/Ambulance
+									Indents</span>
+						</a>
+							<ul class="nav first-child">
+
+                                 <li><a
+									href="../../Substore_AmbulanceIndent/pages/Substore_AmbulanceWiseIndentDetails.html">
+										<i class="fa fa-circle-o"></i> <span>Substore/Ambulance
+											Indent </span>
+								</a></li>
+                               <li><a
+									href="../../Substore_AmbulanceIndent/pages/Substore_ AmbulanceIndentVeiws.html ">
+										<i class="fa fa-circle-o"></i> <span>Substore/Ambulance
+											Indent Views</span>
+								</a></li>
+
+								<li><a
+									href="../../Substore_AmbulanceIndent/pages/Substore_AmbulanceIndentSearch.html">
+										<i class="fa fa-circle-o"></i> <span>Substore/Ambulance
+											Indent Verify</span>
+								</a></li>
+
+								<li><a
+									href="../../Substore_AmbulanceIndent/pages/AmbulancetoAmbulanceTransfer.html">
+										<i class="fa fa-circle-o"></i> <span>Ambulance To
+											Ambulance Transfer</span>
+								</a></li>
+								<li><a
+									href="../../Substore_AmbulanceIndent/pages/AcceptanceofTransfer.html">
+										<i class="fa fa-circle-o"></i> <span>Accept Transfer
+											Items</span>
+								</a></li>
+							
+							
+							</ul></li>
+
+						<li id="hideReports"><a class="nav" href="../Reports/Report.html"
+							aria-expanded="false"> <i class='fa fa-line-chart'></i> <span>Reports</span>
+						</a></li>
+						<li><a class="nav" href="../Help/Help.html"
+							aria-expanded="false"> <i class='fa fa-question'></i> <span>Help</span>
+						</a></li>
+						<li><a class="nav" href="../AboutUs/AboutUs.html"
+							aria-expanded="false"> <i class='fa fa-user'></i> <span>About</span>
+						</a></li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<!--Content-->
+		<div id="content-wrap">
+			<!--Second Header-->
+			<div class="second-nav">
+				<ul class="pull-left" style="display: inline-flex">
+					<li><a class="navbar-brand-1" id="menu-icon">
+							<h4>
+								<i class="fa fa-bars"></i>
+							</h4>
+					</a></li>
+					<li>
+						<h4 style="margin-top: 5px">Dress Registration/Update</h4>
+					</li>
+				</ul>
+				<ul class="pull-right searchbar">
+					<!-- <li class="pull-left p-r-sm"><a href="#"> <input
+							type="text" class="form-control"
+							placeholder="What are you looking for?">
+					</a></li> -->
+					<li class="pull-left" style="margin-top: -7px">
+						<button type="button" class="btn btn-success btn-sm"
+							data-toggle="modal"
+							onClick="openModalBoxForRegistration_and_update();">
+
+							<i class="fa fa-plus p-r-xs"></i>Dress Registration
+						</button>
+					</li>
+					
+				</ul>
+			</div>
+			<!--Second Header End-->
+			<h4 class="m-b-md">Item Search</h4>
+			<div class="card">
+				<!--Error Message-->
+				<div class="alert alert-danger" style='display: none;'>
+					<h4>
+						<i class="fa fa-warning p-r-xs"></i>Please fix the following
+						errors:
+					</h4>
+					<ul class='m-l-md'>
+						<li>Item Name Can't be Empty</li>
+					</ul>
+				</div>
+
+				<div class="main-pills">
+					<ul class="nav nav-pills">
+						<li class=""><a href="../pages/ItemRegistration.html">Drugs</a></li>
+						<li class=""><a
+							href="../pages/ItemConsumablesRegistration.html">Consumables</a></li>
+						<li class=""><a
+							href="../pages/ItemEquipmentRegistration.html">Equipment</a></li>
+						<li class=""><a
+							href="../pages/ItemITEquipmentRegistration.html">IT-Equipments</a></li>
+						<li class="active"><a
+							href="../pages/ItemDressRegistration.html">Dress</a></li>
+						<li class=" "><a
+							href="../pages/ItemLibraryInventoryRegistration.html">Library
+								Inventory</a></li>
+						<li class=" "><a
+							href="../pages/ItemMiscellaneousRegistration.html">Miscellaneous</a></li>
+					</ul>
+				</div>
+				<br>
+				<!--table-->
+				<div class="wrapper wrapper-content">
+
+					<div class="row">
+						<div class="col-md-12 col-xs-12">
+							<div class="row m-t-b-sm">
+								<div class="col-md-4 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-md-4 ">Short Code</label>
+										<div class="col-md-8 col-xs-12">
+											<input type="text" id="short_codeId"
+												placeholder="Enter Short Code" class="form-control">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-md-4">Item Name</label>
+										<div class="col-md-8 col-xs-12">
+											<input type="text" id="item_name_for_filter"
+												placeholder="Enter Item Name" class="form-control">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-md-4">Brand Name</label>
+										<div class="col-md-8 col-xs-12">
+											<select class="form-control" id="brandNameId">
+												<option value="0">Select Brand</option>
+												<!--                                                    <option value="1">car</option>
+                                                                                                        <option value="2">van</option>
+                                                                                                        <option value="3">Boat</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+
+                          </div>
+							<div class="row m-t-b-sm">
+								<div class="col-md-4 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-md-4 ">Inventory Item
+											Form</label>
+										<div class="col-md-8 col-xs-12">
+											<select class="form-control" id="load_from_inventory_id">
+												<option value="0">Select Inventory Item</option>
+												<!--                                                    <option value="1">car</option>
+                                                                                                        <option value="2">van</option>
+                                                                                                        <option value="3">Boat</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+							
+								<div class="col-md-4 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-md-4">Manufacture</label>
+										<div class="col-md-8 col-xs-12">
+											<select class="form-control" id="manufactureId">
+												<option value="0">Select Manufacture</option>
+												<!--                                                    <option value="1">car</option>
+                                                                                                        <option value="2">van</option>
+                                                                                                        <option value="3">Boat</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-md-3"></label>
+										<div class="col-md-9 col-xs-12">
+											<button type="button" class="btn btn-primary btn-sm"
+												id="drugSearchId" onClick="itemSearchByFilter()">
+												<i class="fa fa-search p-r-xs"></i>Search
+											</button>
+											<button type="button" class="btn btn-outline-warning btn-sm"
+												onClick="clearDrugRegistration();">
+												<i class="fa fa-refresh p-r-xs"></i>Reset
+											</button>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<hr>
+
+					<div class="row">
+						<div class="col-md-12 col-xs-12" id="driverTable">
+							<div class="table-responsive">
+								<!-- <table id="serviceRemainder"
+									class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<th>S.No</th>
+											<th>Generic Name</th>
+											<th>Short Code</th>
+											<th>Brand Name</th>
+											<th>Manufacture</th>
+											<th>Inventory Item Form</th>
+											<th>Strength</th>
+											<th>Item Name</th>
+											<th>Schedule</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>Decold</td>
+											<td>DR-21</td>
+											<td>Brand Name</td>
+											<td>Bharat Medical Pvt Ltd</td>
+											<td>Inventory Item Form</td>
+											<td>Strength</td>
+											<td>Item Name</td>
+											<td>Schedule</td>
+										</tr>
+
+
+									</tbody>
+								</table> -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Content End-->
+		<!--Modal box for Registration-->
+		<div id="registration_and_update_modal" class="modal fade"
+			role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Dress Registration</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<div class="sub-title">
+								<h4>Dress Registration</h4>
+							</div>
+							<div class="sub-body">
+								<!--District-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 ">Generic Name<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="reg_drug_genericNameId">
+													<option value="0">Select Generic Name</option>
+													<!-- <option value="1">DECOLD</option>
+													<option value="2">Oxygen</option>
+													<option value="3">Type</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<!--Base Location-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Item Name<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" id="scmitemname"
+													placeholder="Enter Item Name" class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Manufacture<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="reg_drug_manufactureId">
+													<option value="0">Select Manufacture</option>
+
+													<!-- <option value="1">car</option>
+													<option value="2">van</option>
+													<option value="3">Boat</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-6 col-xs-12">
+										<!-- <div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">
+												Short Code</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" id="reg_drug_shortCodeId 
+													class="form-control" disabled>
+											</div>
+										</div> -->
+										<div class="form-group">
+											<label class="control-label col-md-4 ">Short Code</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" id="reg_drug_shortCodeId" disabled
+													class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<!--Extend & Damage-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Inventory Group<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="reg_drug_inventorygroupId">
+													<option value="0">Select Inventory Group</option>
+													<!-- <option value="1">car</option>
+													<option value="2">van</option>
+													<option value="3">Boat</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Accident Security-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Inventory Item
+												Form<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control"
+													id="reg_drug_inventoryItemFormId">
+													<option value="0">Select Inventory Item</option>
+													<!-- <option value="1">car</option>
+													<option value="2">van</option>
+													<option value="3">Boat</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!--Informed to police-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Packing<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="reg_drug_packingId"
+													onchange="getPackingValue();">
+													<option value="0">Select Packing</option>
+													<!-- <option value="1">4Runners</option>
+													<option value="2">F-150</option>
+													<option value="3">Refer</option> -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<!--Informed to Insurance-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Quantity</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" id="scmitemQuantity" disabled
+													class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--Informed to fire-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Central
+												Store Min Qty<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" id="reg_drug_centralMinQtyId"
+													placeholder="Enter Store Minimum Quantity"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+									<!--Towing Required-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Central
+												Store Reorder Qty<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" id="reg_drug_centralMaxQtyId"
+													placeholder="Enter Reorder Quantity" class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!--Description-->
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Description<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<textarea class="form-control"
+													placeholder="Enter Description" id="reg_drug_descId"></textarea>
+											</div>
+										</div>
+									</div>
+									<!--Bar Code-->
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Bar
+												Code<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<input type="text" class="form-control" disabled disabled
+													id="reg_drug_barcodeId">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 col-xs-12">
+										<div class="col-md-4 col-xs-12"></div>
+										<div class="col-md-4 col-xs-12"></div>
+										<!-- <div class="col-md-4 col-xs-12">
+											<img alt="Barcode Image" src="../../img/barcode.png">
+										</div> -->
+									</div>
+								</div>
+
+							</div>
+					
+					
+					<div class="row m-t-b-sm">
+						<div class="col-md-12 col-xs-12 text-center m-t-sm">
+							<button type="button" class="btn btn-primary btn-sm"
+								id="save_disable" onclick="DrugMiscellaneousRegistation()">
+								<i class="fa fa-save p-r-xs"></i>Save
+							</button>
+							<button type="button" class="btn btn-dark btn-sm"
+								id="update_disable" onClick="DrugMiscellaneousUpdate();">
+								<i class="fa fa-edit p-r-xs"></i>Update
+							</button>
+							<a href="ItemApproval.html"><button type="button"
+									class="btn btn-success btn-sm" id="item_approval_id">
+									<i class="fa fa-check"></i>Item Approval
+								</button></a>
+							<button type="button" class="btn btn-outline-warning btn-sm"
+								id="reset_disable" onclick="clearDrugRegistration();">
+								<i class="fa fa-refresh p-r-xs"></i>Reset
+							</button>
+							
+							 <button type="button" class="btn btn-danger btn-sm " data-dismiss="modal"><i class="fa fa-times-circle p-r-xs"></i>Close</button>    
+							<!--<button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-close p-r-xs"></i>Close</button> -->
+						</div>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!--Footer-->
+		<div class="footer">
+			<small>Powdered by Procreate Techno systems Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+
+	 <script src="../../scm_common_js/jquery1.2.min.js"></script>
+	<script src="../../scm_common_js/moment.min.js"></script>
+	<script src="../../scm_common_js/bootstrap.min.js"></script>
+	<script src="../../scm_common_js/bootstrap-datepicker.js"></script>
+	<script src="../../scm_common_js/datatables.min.js"></script>
+	<script src="../../scm_common_js/chosen.jquery.js"></script>
+	<script src="../../scm_common_js/metisMenu.min.js"></script>
+	<script src="../../scm_common_js/Urls.js"></script>
+	<script src="../../scm_common_js/toster.js"></script>
+	<script src="../commonjs/fieldsValidationOfScm.js"></script>
+	<script src="../serviceController/Equipment_RegisrationAndUpdaate.js"></script>
+	<script src="../serviceController/common_drop_down_load.js"></script>
+	<script src="../serviceController/consumable_data_filter.js"></script>
+	<script src="../serviceController/drugFilters.js"></script>
+
+	<script src="../serviceController/dressRegistartion_and_update.js"></script>
+	<script src="../serviceController/drugRegistration.js"></script>
+	<script
+		src="../serviceController/clear_all_types_of_drugs_registration.js"></script>
+
+<script src="../../scm_constant/CommonUtils.js"></script>
+        <script>
+        
+        
+        
+            $(document).ready(function() {
+            	enableDisableMenuBasedOnRoleId();
+							//Side Menu
+							$("#menu-icon").click(function() {
+								$("#sidebar").toggleClass('active');
+								$("#content-wrap").toggleClass('active');
+							});
+
+							$('#metismenu').metisMenu();
+							//                                            Chosen Select
+							$('#scmitemgenname').chosen();
+							$('#scmitembrandname').chosen();
+							$('#scmitemSchedule').chosen();
+							$('#scmitemManufacture').chosen();
+							$('#scmitemInventoryGroup').chosen();
+							$('#scmitemInventoryItemForm').chosen();
+							$('#scmitempacking').chosen();
+							$('#scmitemnamebrandname').chosen();
+							$('#scmitemnameinventoryform').chosen();
+							$('#scmitemnameManufacture').chosen();
+
+							//                                            Chosen Select End
+
+							$('[data-toggle="tooltip"]').tooltip(); // Tooltip
+							$('[data-toggle="popover"]').popover({
+								trigger : 'hover',
+								width : '200px;'
+							});
+							//                                            Data tables
+							$('#serviceRemainder')
+									.DataTable(
+											{// Data table
+												"aLengthMenu" : [
+														[ 05, 10, 15, 25, -1 ],
+														[ 05, 10, 15, 25, "All" ] ],
+												pageLength : 5,
+												responsive : true,
+												dom : '<"html5buttons"B>lTfgitp',
+												buttons : [
+														{
+															extend : 'copy'
+														},
+														{
+															extend : 'csv'
+														},
+														{
+															extend : 'excel',
+															title : 'ExampleFile'
+														},
+														//                                                    {extend: 'pdf', title: 'ExampleFile'},
+														{
+															extend : 'print',
+															customize : function(
+																	win) {
+																$(
+																		win.document.body)
+																		.addClass(
+																				'white-bg');
+																$(
+																		win.document.body)
+																		.css(
+																				'font-size',
+																				'10px');
+
+																$(
+																		win.document.body)
+																		.find(
+																				'table')
+																		.addClass(
+																				'compact')
+																		.css(
+																				'font-size',
+																				'inherit');
+															}
+														} ]
+
+											});
+
+						});
+		//                                        Toggle Button
+		$("#switch1").change(function() {
+			var ischecked = $(this).is(':checked');
+			if (ischecked == true) {
+				$('#secondaryInterval').css('display', 'block');
+			} else {
+				$('#secondaryInterval').css('display', 'none');
+			}
+		});
+	</script>
+
+</body>
+</html>

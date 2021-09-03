@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SLA | Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+
+
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../css/fontfamily/font-style.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <style>
+            .btn {
+                width: 200px;
+                height: 100px;
+                margin: 7px;
+            }
+           
+        </style>
+
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Navbar-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                          <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../img/newlog.jpeg"
+                                                 style="width: 50px; height: 42px;  margin-top: -10px;" /></a>
+<!--                         <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="img/pro-Logo.png" /></a> -->
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                                                <ul class="nav navbar-nav">                 
+                                                    <li><a href="../../dashBoard.html"><i class="fa fa-home"></i> Home</a></li>
+                                                    <li><a href="../../dashBoard.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>                        
+                                                </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a  onclick="logout()" href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Navbar End-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">SLA</h4>
+                    </li>
+                </ul>
+         
+            </div>
+             
+            <!--Second Header End-->
+            <!--Main Content-->
+            <div id="content-wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">               
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-12">                           
+                                        </div>
+                                        <div class="col-xs-12 col-md-12">
+                                            <a  href="Assessment.html" class="btn btn-info btn" role="button">
+                                                <span><i class="fa fa-user" aria-hidden="true"></i>
+                                                </span><br/>Assessment
+                                            </a>
+                                            <a  href="Measurment.html" class="btn btn-success btn" role="button">
+                                                <span><i class="fa fa-user" aria-hidden="true"></i>
+                                                </span><br/>Measurment
+                                            </a>
+                                            <a  href="SLAReport.html" class="btn btn-primary btn" role="button">
+                                                <span><i class="fa fa-user" aria-hidden="true"></i>
+                                                </span><br/>SLAReport
+                                            </a>
+                                            <a  href="SLA_SectionCreation.html" class="btn btn-warning btn" role="button">
+                                                <span><i class="fa fa-user" aria-hidden="true"></i>
+                                                </span><br/>SLA_SectionCreation
+                                            </a>
+                                            <a  href="Target.html" class="btn btn-danger btn" role="button">
+                                                <span><i class="fa fa-user" aria-hidden="true"></i>
+                                                </span><br/>Target
+                                            </a>
+                                            
+                                            <a  href="Complain.html" class="btn btn-danger btn" role="button">
+                                                <span><i class="fa fa-user" aria-hidden="true"></i>
+                                                </span><br/>Complain
+                                            </a>
+                                            <a  href="complainResolve.html" class="btn btn-danger btn" role="button">
+                                                <span><i class="fa fa-user" aria-hidden="true"></i>
+                                                </span><br/>ComplainResolve
+                                            </a>
+                                            <a  href="Equipment.html" class="btn btn-info btn" role="button">
+                                                <span><i class="fa fa-user" aria-hidden="true"></i>
+                                                </span><br/>Equipment
+                                            </a>
+                                           
+                                        </div>
+                                    </div>                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="footer">
+                <small>Powered  by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+   <script src="../js/jquery1.2.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+        
+        
+      
+       
+        <script src="../../Common/serviceController/dashboard.js"></script>
+        <script src="../../Common/serviceController/ServiceUrl.js"></script> 
+        <script src="../../Common/serviceController/logout.js"></script>
+        
+        <script>
+            $(document).ready(function() {
+            	 checkLoggedOrNot();
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+
+
+        </script>
+    </body>
+</html>
+
+

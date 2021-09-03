@@ -1,0 +1,210 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8 May, 2019, 11:23:26 AM
+    Author     : Gopi Krishna Y
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,600,700');
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    color: #fff;
+    max-width: 90%;
+    padding: 25px;
+    background: #fff;  
+    width: 350px;
+    border-radius: 6px;
+
+}
+
+.login h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #00356B;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+/*For Labels*/
+.form-control {
+    font-size: 14px;
+    line-height: 1.25;
+    display: block;
+    width: 100%;
+    height: -webkit-calc(38.5px + 2px);
+    height: -moz-calc(38.5px + 2px);
+    height: calc(38.5px + 2px);
+    padding: 10.5px 15px;
+    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    -moz-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -o-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    color: #4e5154;
+    border: 1px solid #babfc7;
+    border-radius: .25rem;
+    background-color: #fff;
+    font-weight: 500;
+    color:#000;
+
+}
+
+form label {
+    color: #2b335e;
+    font-weight: 500;
+}
+label{
+    font-weight: 500;  
+}
+
+/*Floating Labels*/
+
+.float-labels .form-group input,.float-labels .form-group select,.float-labels .form-group textarea{
+    box-shadow: none;              
+}
+.float-labels .form-group{
+    margin-bottom: 20px;
+    float: left;
+    width:100%;
+}
+.float-labels .float-group,.float-labels .float-field{
+    position: relative;
+}
+.float-labels .form-control{
+    border: 1px solid #babfc7;
+    transition: .25s all;
+}
+
+.float-labels> .form-group>.float-group .float-field{
+    position: absolute;
+    transition: 0.3s all;
+    transform-origin: 0 0;
+    top:11px;
+    left:15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.float-labels .form-control::placeholder{
+    opacity: 0;
+}
+
+.float-labels .form-control:focus{
+    box-shadow:none;
+    border:1px solid #2520fb;;
+}
+.float-labels select.form-control + .float-field{
+    top:11px !important;
+}
+
+.float-field.active{
+    -webkit-transform: translateY(-112%);
+    -ms-transform: translateY(-112%);
+    transform: translateY(-112%);  
+    
+}
+
+.float-labels .form-control:focus+ .float-field,.float-labels .form-control:not(:placeholder-shown)+ .float-field{
+    top: -9px;
+    left: 15px;
+    background: #fff;
+    padding: 0 5px;
+    font-size: 12px;
+    color: #00356b;
+    font-weight: 600;
+
+
+}
+.footer {
+    font-size: 11px;
+    position: absolute;
+    bottom: -27px;
+    right: 6px;
+    color: #f1f1ff;
+    text-align: center;
+    left: 68px;
+    margin-left: -64px;
+}
+
+/*Floating Labels End*/
+.btn-info1{
+    background: #2b2bb9;
+    border-color: #2b2bb9;
+    color:#fff;
+}
+.btn-info1:hover,btn-info1:focus{
+    background: #5d5de5;
+    border-color: #5d5de5;
+    color:#fff;
+}
+.p-l-sm{
+    padding-left:10px;
+}
+.m-t-md{
+    margin-top:20px;
+}
+
+/*Check Boxes*/
+
+/*Check Box -1*/
+.check_1{
+    position: relative;
+    top:0;
+    height: 22px;
+    width:22px;
+    -webkit-appearance: none; 
+    transition: 0.5s;
+    border-bottom: none;
+    margin-right:10px;
+    cursor: pointer;
+}
+.check_1:before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    border:2px solid #000;
+    box-sizing: border-box;
+    transition: 0.5s;
+
+
+}
+.check_1:focus{
+    outline: none !important; 
+}
+.check_1:checked:before{
+
+    border-left: none;
+    border-top: none;
+    width: 12px;
+    border-color: blue;
+    transform: rotate(45deg) translate(5px, -10px);
+
+}
+
+@media screen and (max-width:600px){
+    .footer{
+        width:100%;
+        left:0;
+        text-align: center;
+    }
+    .login {
+        width: 95%;
+        margin:auto;
+    }
+
+}
+

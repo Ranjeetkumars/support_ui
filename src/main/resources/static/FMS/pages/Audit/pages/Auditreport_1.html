@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fleet Management | Audit Report Hostory</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!--CSS Links-->
+<link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../../css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../../css/datatables.min.css">
+<link rel="stylesheet" href="../../../css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../../css/metisMenu.css" />
+<link rel="stylesheet" href="../../../css/datepicker.css">
+<link rel="stylesheet"
+	href="../../../css/bootstrap-datetimepicker.min.css">
+
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../Scheduling/css/style.css">
+<link rel="stylesheet" href="../../../css/fleet.css">
+<style>
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #2b7979;
+    border-color: #2b7979;
+}
+         .faeye{
+            color: darkcyan;
+                    }
+      .objDivTag1{
+                text-align:center;
+                color: red;
+            }
+     .thstyle1{
+                width: 10%;
+            }
+            .thstyle2{
+                width: 10%;
+            }
+           
+             .thstyle3{
+                text-align:center;
+            }
+            .retag{
+     margin-left: 170px;
+    margin-top: 11px;
+    position: absolute;
+   
+}
+.btn-primary, .btn-primary:hover, .btn-primary:focus {
+    color: #fff;
+   
+    border-color: #25a1a5;
+    background-color: #3a6263;
+}
+
+.thstyle4{
+    padding: 0%;
+            }
+            input:checked + .slider {
+    background-color: darkcyan;
+}
+
+.retag {
+    margin-left: 170px;
+    margin-top: 6px;
+    position: absolute;
+    color: crimson;
+    font-size: 18px;
+}
+.objDivTag1 {
+	text-align: center;
+	color: red;
+}
+
+.thstyle1 {
+	width: 10%;
+}
+
+.thstyle2 {
+	width: 10%;
+}
+
+.thstyle3 {
+	text-align: center;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover,
+	.pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover
+	{
+	z-index: 3;
+	color: #fff;
+	cursor: default;
+	background-color: darkcyan;
+	border-color: darkcyan;
+}
+
+#page-container {
+	position: relative;
+	min-height: 93.2vh;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:focus {
+	color: #fff;
+	border-color: cadetblue;
+	background-color: cadetblue;
+}
+
+.thstyle4 {
+	padding: 0%;
+}
+
+input:checked+.slider {
+	background-color: darkcyan;
+}
+
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background:
+		url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif)
+		center no-repeat #fff;
+}
+
+.retag {
+	margin-left: 237px;
+	margin-top: 6px;
+	position: absolute;
+	color: crimson;
+	font-size: 18px;
+}
+
+.no-js #loader {
+	display: none;
+}
+
+.js #loader {
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+}
+
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background:
+		url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif)
+		center no-repeat #fff;
+}
+
+#page-container {
+	position: relative;
+	min-height: 93.5vh;
+}
+
+.card {
+	width: 99%;
+	margin-left: 11px;
+}
+
+.form-horizontal .control-label {
+	padding-left: 24px;
+}
+
+.labelscss {
+	padding-top: 10px;
+	padding-right: 21px;
+}
+
+.bg-info {
+	background: cadetblue;
+}
+
+.modal-header .modal-title {
+	background: #00467A;
+}
+
+.modal-header {
+	background: #00467A;
+}
+
+.second-nav {
+	background: #00467A;
+}
+
+.table>thead>tr>th {
+	background: #00467A;
+}
+
+.form-horizontal .control-label {
+	padding-left: 20px;
+}
+/*   .form-horizontal .control-label {
+                padding-left: 21px;
+                }*/
+.form-horizontal .control-label {
+	padding-right: 9px;
+}
+
+.delete {
+	height: 30px;
+	padding-top: 3px;
+	left: 14%;
+	position: absolute;
+	display: inline-block;
+}
+
+.second-nav {
+	background: linear-gradient(87deg, #00467A 0, #00467A 100%) !important;
+	border-bottom: 1px solid #d3d9db;
+	margin-bottom: 20px;
+	/* border-top: 1px solid #d3d9db; */
+	margin-top: 52px;
+	padding: 10px 16px;
+	min-height: 50px;
+	line-height: 2.7;
+}
+.modal-header {
+    background: linear-gradient(87deg,#00467A 0,#00467A 100%)!important;
+    color: #fff;
+}
+
+
+.footer {
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	color: aliceblue;
+	padding: 6px 10px;
+	text-align: right;
+	background: linear-gradient(87deg, #00467A 0, #00467A 100%) !important;
+	/* background: linear-gradient(87deg,#11cdef 0,#1171ef 100%)!important; */
+}
+</style>
+
+</head>
+<body>
+	<div class="se-pre-con">
+		<div class="content">
+			<div class="back-to-article">
+				<p>
+					<a href="smallenvelop.com/blog/"></a>
+				</p>
+			</div>
+			<img
+				src="http://smallenvelop.com/wp-content/uploads/2014/08/simple-pre-loader.jpg
+                     "
+				style="visibility: hidden; width: 100%; height: auto;">
+		</div>
+	</div>
+
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+<!-- 					<a class="navbar-brand" href="#"><img alt="ProCreate Logo" -->
+<!-- 						src="../../../images/pro-Logo.png" /></a> -->
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="../../../../dashBoard.html"><span
+								class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href="../../FleetIO_Dashboard.html"><i
+								class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a onclick="logout()" href="#"><i
+										class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header End-->
+		<nav id='sidebar' class="sidebar">
+			<div class="sidebar-content">
+				<div class="sidebar-header">
+					<h3 class="header">Fleet Management</h3>
+				</div>
+				<div class='sidebar-menu'>
+					<ul class="metismenu" id="metismenu">
+						<li><a href='../../FleetIO_Dashboard.html'> <i
+								class='fa fa-tachometer'></i> <span>Dashboard</span>
+						</a></li>
+						<!--Vehicles-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-cab'></i> <span>Vehicles</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Vehicles/vehicleList.html"> <i
+										class="fa fa-circle-o"></i> <span>Vehicle List</span>
+								</a></li>
+
+								<li><a href="../../addBaseLocation/addBaseLocation.html">
+										<i class="fa fa-circle-o"></i> <span>Add BaseLocation</span>
+								</a></li>
+								<li><a
+									href="../../VehicleAssign_Deassign/VehicleMapWithBaselocation.html">
+										<i class="fa fa-circle-o"></i> <span>Vehicle Mapping</span>
+								</a></li>
+								<li><a
+									href="../../VehicleAssign_Deassign/EMT_PilotAssign_Deassign.html">
+										<i class="fa fa-circle-o"></i> <span>Emt/Pilot
+											Assign/Deassign</span>
+								</a></li>
+
+								<!--                                     <li> -->
+
+								<!--                                         <a href="../vehicles/watchedVehicles.html"> -->
+								<!--                                             <i class="fa fa-circle-o"></i> -->
+								<!--                                             <span>Watched Vehicles</span> -->
+								<!--                                         </a> -->
+								<!--                                     </li> -->
+								<!--                                     <li> -->
+								<!--                                         <a href="../vehicles/meterHistory.html"> -->
+								<!--                                             <i class="fa fa-circle-o"></i> -->
+								<!--                                             <span>Meter History</span> -->
+								<!--                                         </a> -->
+								<!--                                     </li> -->
+								<!--                                     <li> -->
+								<!--                                         <a href="../vehicles/expenseHistory.html"> -->
+								<!--                                             <i class="fa fa-circle-o"></i> -->
+								<!--                                             <span>Expense History</span> -->
+								<!--                                         </a> -->
+								<!--                                     </li> -->
+								<!--                                     <li> -->
+								<!--                                         <a href="../vehicles/gpsIntegration.html"> -->
+								<!--                                             <i class="fa fa-circle-o"></i> -->
+								<!--                                             <span>GPS Integration</span> -->
+								<!--                                         </a> -->
+								<!--                                     </li> -->
+
+
+							</ul></li>
+
+						<!--Inspections-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-building'></i> <span>Inspections</span>
+						</a>
+							<ul class="nav first-child">
+							
+								<li><a href="../../Scheduling/pages/Scheduling.html"> <i
+										class="fa fa-circle-o"></i> <span>Schedules</span>
+								</a></li>
+								  <li>
+                                     <a href="../../Audit/pages/Auditreport_1.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Audit Report Status</span>
+                                        </a>
+                                         </li>
+								<!--                                     <li> -->
+								<!--                                         <a href="../inspections/forms.html"> -->
+								<!--                                             <i class="fa fa-circle-o"></i> -->
+								<!--                                             <span>Forms</span> -->
+								<!--                                         </a> -->
+								<!--                                     </li> -->
+							</ul></li>
+						<!--Issues-->
+						<!--Issues-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-info-circle '></i> <span>Issue</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Issues/Issueslist.html"> <i
+										class="fa fa-circle-o"></i> <span>Issues List</span>
+								</a></li>
+								<!-- 								<li><a href="../Issues/faults.html"> <i -->
+								<!-- 										class="fa fa-circle-o"></i> <span>Faults</span> -->
+								<!-- 								</a></li> -->
+								<!-- 								<li><a href="../Issues/recall.html"> <i -->
+								<!-- 										class="fa fa-circle-o"></i> <span>Recalls</span> -->
+								<!-- 								</a></li> -->
+
+							</ul></li>
+
+						<!--Remainders-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-clock-o '></i> <span>Remainder</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Remainders/serviceremainders.html"> <i
+										class="fa fa-circle-o"></i> <span>Service Remainder</span>
+								</a></li>
+								<li><a href="../../Remainders/VehicleRenewalReminder.html">
+										<i class="fa fa-circle-o"></i> <span>Vehicle Renewals</span>
+								</a></li>
+								<!--                                     <li> -->
+								<!--                                         <a href="../Remainders/contactRenewal.html"> -->
+								<!--                                             <i class="fa fa-circle-o"></i> -->
+								<!--                                             <span>Contact Renewals</span> -->
+								<!--                                         </a> -->
+								<!--                                     </li> -->
+							</ul></li>
+						<!--Services-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-thumbs-o-up '></i> <span>Services</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../service/serviceHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>Services History </span>
+								</a></li>
+								<li><a href="../../service/serviceTask.html"> <i
+										class="fa fa-circle-o"></i> <span>Services Task </span>
+								</a></li>
+
+								<!--                                     <li> -->
+								<!--                                         <a href="../service/shopdirectory.html"> -->
+								<!--                                             <i class="fa fa-circle-o"></i> -->
+								<!--                                             <span>Shop Directory</span> -->
+								<!--                                         </a> -->
+								<!--                                     </li> -->
+								<!--                                     <li> -->
+								<!--                                         <a href="../service/integrations.html"> -->
+								<!--                                             <i class="fa fa-circle-o"></i> -->
+								<!--                                             <span>Integrations</span> -->
+								<!--                                         </a> -->
+								<!--                                     </li> -->
+							</ul></li>
+
+						<!--Contacts & Users-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-user'></i> <span>Contacts & Users</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Contact&Users/contactlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact List</span>
+								</a></li>
+								<!-- 								<li><a href="../Contact&Users/userManagement.html"> <i -->
+								<!-- 										class="fa fa-circle-o"></i> <span>User Management</span> -->
+								<!-- 								</a></li> -->
+								<li><a href="../../Contact&Users/vendorlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Vendor List</span>
+								</a></li>
+							</ul></li>
+						<!--Fuels-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-filter '></i> <span>Fuel</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../../Fuel/FuelHistory.html"> <i
+										class="fa fa-circle-o"></i> <span>FuelHistory</span>
+								</a></li>
+							</ul></li>
+
+
+						<!--Places-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-road'></i> <span>Places</span>
+						</a></li>
+						<!--Reports-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-book'></i> <span>Reports</span>
+						</a></li>
+
+						<li><a href="#"> <i
+								class='fa fa-money '></i> <span>Integrations</span>
+						</a></li>
+
+					</ul>
+					</li>
+
+
+
+
+
+					</ul>
+					</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Side Nav Bar ENd-->
+
+		<!--Content-->
+		<div id="content-wrap">
+
+			<!--Second Header-->
+			<div class="second-nav">
+				<ul class="pull-left" style="display: inline-flex">
+					<li><a class="navbar-brand-1" id="menu-icon">
+							<h4>
+								<i class="fa fa-bars"></i>
+							</h4>
+					</a></li>
+					<li>
+						<h4 style="margin-top: 5px">Audit Report</h4>
+					</li>
+				</ul>
+				<ul class="pull-right searchbar">
+					<li class="pull-left p-r-sm"><a href="#"> <input
+							type="text" class="form-control"
+							placeholder="What are you looking for?">
+					</a></li>
+					<!--                         <li class="pull-left" style="margin-top: -7px"> -->
+					<!--                             <a href="../Master/Vehicle/VehicleType.html"><button type="button" class="btn btn-success btn-sm" >Manage</button></a>  -->
+					<!--                         </li> -->
+					<!--                         <li class="pull-left" style="margin-top: -7px"> -->
+					<!--                             <a href="../Vehicles/VehicleRegstration.html"><button type="button" class="btn btn-success btn-sm" ><i class="fa fa-plus p-r-xs"></i>Add Vehicle</button></a>  -->
+					<!--                         </li> -->
+					<li class="dropdown pull-left" style="margin-top: -2px"><a
+						class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+							class="fa fa-ellipsis-v f-md" data-toggle="tooltip"
+							data-placement="top" title="More Actions"></i>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+							<li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--Second Header End-->
+			<div class="col-md-12 col-xs-12">
+				<div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">
+                        <!--From Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Audit Id</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="auditId">
+                                        <option value="0">Select Audit Id</option>
+                                        <!--                                                                <option value="1">Fuel Filling</option>
+                                                                                                        <option value="2">Oxygen Filling</option>
+                                                                                                        <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--To Date-->
+
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">From Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="to_dateId" class="input-group date" data-date-format="dd-mm-yyyy" >
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+
+                                            <input class="form-control removespanError" placeholder="Select Date" type="text" id="formDateId" autocomplete="off"/>
+
+                                        </div>     
+                                        <small><span id="todate_errorId"></span></small>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--District-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">To Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="from_dateId" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+
+                                            <input class="form-control removespanError" placeholder="Select Date" type="text" id="toDateID" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--
+                    </div>
+                    <!--Ticket Id-->
+                    <div class="row m-t-b-sm"> 
+                    </div>                    
+
+                    <!-- Buttons-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm" onclick=" getAuditDetailsData()"><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="auditsearchresetbtn()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                            <span align="center"  id="auditDetailSearch_errorId"></span>
+                        </div>
+                    </div>   
+                  
+                    <!--Table-->
+
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive" id="audittable">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                    <div class="wrapper wrapper-content">
+                                            <div class="row">
+                                                <div class="col-md-12 col-xs-12">
+                                                    <div class="table-responsive" id="audittable">    
+                                                        <table id="audittable" class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>S.No</th>
+                                                                    <th>Audit Id</th>
+                                                                     <th>BaseLocation Name</th>                          
+                                                                    <th>Vehicle No</th>
+                                                                    <th>User Name</th>
+                                                                     <th>Audit date</th>
+                                                                    <th>View</th>                                                                                                                                                                              
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="audittableId">
+                                                                                                            <tr>
+                                                                                                                <td>1</td>
+                                                                                                                <td>20171217000397</td>
+                                                                                                                <td>Krishna</td>
+                                                                                                                <td>AP16TJ0661</td>
+                                                                                                                <td><a href="report.html"><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-eye"> View</i></button></a></td>                                                                              
+                                                                                                            </tr>   
+                                                                                                            <tr>
+                                                                                                                <td>2</td>
+                                                                                                                <td>20171217000397</td>
+                                                                                                                <td>Krishna</td>
+                                                                                                                <td>AP16TJ0661</td>
+                                                                                                              <td><a href="report.html"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-eye"> View</i></button></a></td>                                                                     
+                                                                                                            </tr>   
+                                                                                                            <tr>
+                                                                                                                <td>3</td>
+                                                                                                                <td>20171217000397</td>
+                                                                                                                <td>Krishna</td>
+                                                                                                                <td>AP16TJ0661</td>
+                                                                                                                <td><a href="report.html"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-eye"> View</i></button></a></td>                                                                              
+                                                                                                            </tr>   
+                                                                                                            <tr>
+                                                                                                                <td>4</td>
+                                                                                                                <td>20171217000397</td>
+                                                                                                                <td>Krishna</td>
+                                                                                                                <td>AP16TJ0661</td>
+                                                                                                               <td><a href="report.html"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-eye"> View</i></button></a></td>                                                                          
+                                                                                                            </tr>   
+                                                                                                            <tr>
+                                                                                                                <td>5</td>
+                                                                                                                <td>20171217000397</td>
+                                                                                                                <td>Krishna</td>
+                                                                                                                <td>AP16TJ0661</td>
+                                                                                                                <td><a href="report.html"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-eye"> View</i></button></a></td>                                                                              
+                                                                                                            </tr>  
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
+                </div>               
+            </div>
+            <!--Content End-->
+            <!--model bpx1-->
+            <div id="registration" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">          
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content" >
+                        <div class="modal-header" >
+                             <button type="button" class="close" data-dismiss="modal" >&times;</button>   
+                             <h6 class="modal-title1" style=" float:left;font-size:19px"> &nbsp;Audit ID: &nbsp;&nbsp; 
+                                 <span id="AuditIId" style="color: ghostwhite"></span> </h6>
+                                              
+                             <h4 class="modal-title2" style="margin-left: 454px;font-size: 24px;" > Audit Report &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                 <span  id="headerid" style="color: ghostwhite;font-size:19px"></span>
+                     </h4>
+                
+                        </div>
+                        <br>
+                        <form class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-1 col-xs-12"></div>
+                            <div class="col-md-5 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Section Name</label>
+                                    <div class="col-md-8 col-xs-12">
+                                        <select class="form-control" id="sectionNameId">
+                                            <option value="0">Select Section Name</option>
+                                          
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-3 col-xs-12"  >
+                                <div class="form-group"   id="availableId">
+                            <label class="control-label col-md-4 col-xs-12" id="availText">Available</label>
+                             <div class="col-md-8 col-xs-12" >
+                            <label class="switch">
+                                <input type="checkbox" checked  id="AvailableId" >
+                                <span class="slider round" ></span>
+                            </label>
+                             </div>
+                                </div>
+     
+                             </div>
+                             <div class="col-md-3 col-xs-12">
+                                <div class="form-group" id="functionalId">
+                            <label class="control-label col-md-4 col-xs-12"  id="functionalText">Functional</label>
+                              <div class="col-md-8 col-xs-12">
+                            <label class="switch">
+                                <input type="checkbox" checked id="FunctionalId">
+                                <span class="slider round"></span>
+                            </label>
+                                </div>
+                                </div>
+                             </div>
+<!--                         <div class="col-md-3 col-xs-12">
+                             <div class="form-group" id="functionalId">
+                                 <a href="#"><i class="fa fa-refresh retag" data-toggle="modal" data-target=""></i><i></a> 
+                                                             <i class="fa fa-refresh p-r-xs"></i>                                     
+
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="auditReportDetailsreset()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                      </div>
+                  </div>-->
+
+                        </div>
+                        
+                   
+                  
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+
+
+                    
+
+                        <div class="wrapper wrapper-content">
+                            <div class="container" style="width: 1086px">
+                                <div class="col-md-12 col-xs-12">
+                                    <a href="#"><i class="fa fa-refresh retag" data-toggle="modal" data-target=""  id="resetIconId" onclick="resetTable()"></i><i></a> 
+
+                           <div  id="example">
+                
+<!--                                     <table id="example" class="display" style="width:100%">-->
+
+                                    </div>
+                              
+                                </div>
+                        
+                            </div>
+                        </div>
+                          
+                        </form>
+                    </div>               
+                </div>
+            </div>
+
+
+</div>
+			<!--model bpx2
+            
+            
+            
+            
+            
+            <!--Footer-->
+
+			<!--Footer End-->
+		</div>
+		<div class="footer">
+			<small>Powdered by Procreate Techno systems Private Limited</small>
+		</div>
+		<script src="../../Scheduling/assets/js/jquery1.2.min.js"></script>
+		<script src="../../Scheduling/assets/js/jquery1.2.min.js"></script>
+		<script src="../../Scheduling/assets/js/moment.min.js"></script>
+		<script src="../../Scheduling/assets/js/bootstrap.min.js"></script>
+		<script src="../../Scheduling/assets/js/datatables.min.js"></script>
+		<!--<script src="../../Audit/pages/datatables.min.js"></script>-->
+		<script src="../../Scheduling/assets/js/bootstrap-datepicker.js"></script>
+		<script
+			src="../../Scheduling/assets/js/bootstrap-datetimepicker.min.js"></script>
+		<script src="../../Scheduling/assets/js/chosen.jquery.js"></script>
+		<script src="../../Scheduling/assets/serviceController/history.js"></script>
+		<script src="../../Scheduling/assets/utils/Service.js"></script>
+		<script>
+
+                                    $(function () {
+                                        //Date And Time picker in Modal Box
+                                        $('#datetimepicker1').datetimepicker({
+                                            sideBySide: true,
+                                            format: 'DD-MM-YYYY HH:mm:ss'
+                                        });
+                                    });
+
+                                    $(document).ready(function () {
+                                        $("#from_dateId").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true
+                                        }).datepicker();
+
+                                        $("#to_dateId").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true
+                                        }).datepicker();
+
+                                        $('select').chosen();                            //Chosen select
+                                        $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                                        //                                    $('#audittable').DataTable({// Data table
+                                        //                                         "aLengthMenu": [[5, 10, 15, 25, 50, 75, -1], [5, 10, 15, 25, 50, 75, "All"]],
+                                        //                                          "iDisplayLength": 5,
+                                        //                                        pageLength: 5,
+                                        //                                        responsive: true,
+                                        //                                        dom: '<"html5buttons"B>lTfgitp',
+                                        //                                        buttons: [
+                                        //                                            {extend: 'copy'},
+                                        //                                            {extend: 'csv'},
+                                        //                                            {extend: 'excel', title: 'ExampleFile'},
+                                        //                                            {extend: 'pdf', title: 'ExampleFile'},
+                                        //                                            {extend: 'print',
+                                        //                                                customize: function(win) {
+                                        //                                                    $(win.document.body).addClass('white-bg');
+                                        //                                                    $(win.document.body).css('font-size', '10px');
+                                        //
+                                        //                                                    $(win.document.body).find('table')
+                                        //                                                            .addClass('compact')
+                                        //                                                            .css('font-size', 'inherit');
+                                        //                                                }
+                                        //                                            }
+                                        //                                        ]
+                                        //
+                                        //                                    });
+                                    });
+
+                                    $(document).ready(function () {
+                                        var todayDate = new Date().getDate();
+                                        var maxDate = new Date(new Date().setDate(todayDate));
+                                        $('#fromdateID').datepicker({
+                                            todayBtn: "linked",
+                                            todayHighlight: true,
+                                            startDate: $('#fromdateID').val(),
+                                            endDate: maxDate,
+                                            keyboardNavigation: true,
+                                            forceParse: true,
+                                            calendarWeeks: true,
+                                            autoclose: true,
+                                            autoApply: true
+                                        }).on('changeDate', function () {
+                                            try {
+                                                $("#toDateId").datepicker("remove");
+                                                $('#toDateId').val("");
+                                            } catch (err) {
+                                                console.log(err);
+                                            }
+
+                                            $('#toDateId').datepicker({
+                                                todayBtn: "linked",
+                                                startDate: $('#fromdateID').val(),
+                                                keyboardNavigation: true,
+                                                forceParse: true,
+                                                calendarWeeks: true,
+                                                autoclose: true,
+                                                autoApply: true
+                                            });
+                                        });
+                                    });
+
+                                    // $(document).ready(function() {
+                                    //    var groupColumn = 2;
+                                    //    var table = $('#example').DataTable({
+                                    //        "columnDefs": [
+                                    //            { "visible": false, "targets": groupColumn }
+                                    //        ],
+                                    //        "order": [[ groupColumn, 'asc' ]],
+                                    //        "displayLength": 25,
+                                    //        "drawCallback": function ( settings ) {
+                                    //            var api = this.api();
+                                    //            var rows = api.rows( {page:'current'} ).nodes();
+                                    //            var last=null;
+                                    // 
+                                    //            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+                                    //                if ( last !== group ) {
+                                    //                    $(rows).eq( i ).before(
+                                    //                        '<tr class="group"><td colspan="5">'+group+'</td></tr>'
+                                    //                    );
+                                    // 
+                                    //                    last = group;
+                                    //                }
+                                    //            } );
+                                    //        }
+                                    //    } );
+                                    // 
+                                    //    // Order by the grouping
+                                    //    $('#example tbody').on( 'click', 'tr.group', function () {
+                                    //        var currentOrder = table.order()[0];
+                                    //        if ( currentOrder[0] === groupColumn && currentOrder[1] === 'asc' ) {
+                                    //            table.order( [ groupColumn, 'desc' ] ).draw();
+                                    //        }
+                                    //        else {
+                                    //            table.order( [ groupColumn, 'asc' ] ).draw();
+                                    //        }
+                                    //    } );
+                                    //} );
+                                    $(window).load(function () {
+                                        // Animate loader off screen
+                                        $(".se-pre-con").fadeOut(50);
+                                    });
+        </script>
+</body>
+</html>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<input type="hidden" id="reg_no">
+<input type="hidden" id="vehicleId">
+<!--Content End-->
+<!--Footer-->
+<div class="footer">
+	<small>Powered by Vsoft Pvt.Ltd</small>
+</div>
+<!--Footer End-->
+</div>
+
+<script src="../../../js/jquery1.2.min.js"></script>
+<script src="../../../js/moment.min.js"></script>
+<script src="../../../js/Ui.js"></script>
+<script src="../../../js/bootstrap.min.js"></script>
+<script src="../../../js/datatables.min.js"></script>
+
+<script src="../../../js/bootstrap-datepicker.js"></script>
+<script src="../../../js/bootstrap-datetimepicker.min.js"></script>
+<script src="../../../js/chosen.jquery.js"></script>
+<script src="../../../js/metisMenu.min.js"></script>
+<script src="../../../js/bootstrap-toggle.min.js"></script>
+<script src="../../../wizard/js/jquery.bootstrap.js"></script>
+<script src="../../../wizard/js/jquery.validate.min.js"></script>
+<script src="../../../wizard/js/material-bootstrap-wizard.js"></script>
+
+
+<!--user-->
+<!-- <script src="../../Audit/assets/js/jquery1.2.min.js"></script> -->
+<!-- <script src="../../Audit/assets/js/jquery1.2.min.js"></script> -->
+<!-- <script src="../../Audit/assets/js/moment.min.js"></script> -->
+<!-- <script src="../../Audit/assets/js/bootstrap.min.js"></script> -->
+<!-- <script src="../../Audit/assets/js/datatables.min.js"></script> -->
+<!--<script src="../../Audit/pages/datatables.min.js"></script>-->
+<!-- <script src="../../Audit/assets/js/bootstrap-datepicker.js"></script>  -->
+<!-- <script src="../../Audit/assets/js/bootstrap-datetimepicker.min.js"></script>        -->
+<script src="../../Audit/assets/js/chosen.jquery.js"></script>
+<script src="../../Audit/assets/serviceController/AuditController.js"></script>
+<script src="../../Audit/assets/utils/Service.js"></script>
+
+<!--         logout/login url -->
+<!--                <script src="../../../Common/serviceController/dashboard.js"></script> -->
+<!--         <script src="../../../Common/serviceController/ServiceUrl.js"></script>  -->
+<!--          <script src="../../../Common/serviceController/logout.js"></script> -->
+
+
+
+
+<script>
+                                $(function () {
+                                    //Date And Time picker in Modal Box
+                                    //Date Pickers
+                                  
+                                    $("#to_dateId").datepicker({
+                                        autoclose: true,
+                                        todayHighlight: true
+                                    }).datepicker();
+                                });
+
+
+                                $(document).ready(function () {
+                                	 $("#from_dateId").datepicker({
+                                         autoclose: true,
+                                         todayHighlight: true
+                                     }).datepicker();
+
+                                     $("#to_dateId").datepicker({
+                                         autoclose: true,
+                                         todayHighlight: true
+                                     }).datepicker();
+                                	//checkLoggedOrNot();
+                                    // $('#Searchdeleteid').hide();
+                                    //Side Menu
+                                    $("#menu-icon").click(function () {
+                                        $("#sidebar").toggleClass('active');
+                                        $("#content-wrap").toggleClass('active');
+                                    });
+
+                                    $('#metismenu').metisMenu();
+                                    $('[data-toggle="tooltip"]').tooltip();           // Tooltip
+                                    $('[data-toggle="popover"]').popover({
+                                        trigger: 'hover',
+                                        width: '200px;'
+                                    });
+                                    $('select').chosen(); 
+                                    var todayDate = new Date().getDate();
+                                    var maxDate = new Date(new Date().setDate(todayDate));
+                                    $('#fromdateID').datepicker({
+                                        todayBtn: "linked",
+                                        todayHighlight: true,
+                                        startDate: $('#fromdateID').val(),
+                                        endDate: maxDate,
+                                        keyboardNavigation: true,
+                                        forceParse: true,
+                                        calendarWeeks: true,
+                                        autoclose: true,
+                                        autoApply: true
+                                    }).on('changeDate', function () {
+                                        try {
+                                            $("#toDateId").datepicker("remove");
+                                            $('#toDateId').val("");
+                                        } catch (err) {
+                                            console.log(err);
+                                        }
+
+                                   
+                                        
+                                     
+
+                                      
+
+                                        $('select').chosen(); 
+                                    });
+                                    //$('select').chosen();                            //Chosen select             
+                                    $('#driverTable').DataTable({// Data table
+                                        pageLength: 10,
+                                        responsive: true,
+                                        dom: '<"html5buttons"B>lTfgitp',
+                                        buttons: [
+                                            {extend: 'copy'},
+                                            {extend: 'csv'},
+                                            {extend: 'excel', title: 'ExampleFile'},
+                                            {extend: 'pdf', title: 'ExampleFile'},
+                                            {extend: 'print',
+                                                customize: function (win) {
+                                                    $(win.document.body).addClass('white-bg');
+                                                    $(win.document.body).css('font-size', '10px');
+
+                                                    $(win.document.body).find('table')
+                                                            .addClass('compact')
+                                                            .css('font-size', 'inherit');
+                                                }
+                                            }
+                                        ]
+
+                                    });
+
+                                    $('#driverTable1').DataTable({// Data table
+                                        pageLength: 10,
+                                        responsive: true,
+                                        dom: '<"html5buttons"B>lTfgitp',
+                                        buttons: [
+                                            {extend: 'copy'},
+                                            {extend: 'csv'},
+                                            {extend: 'excel', title: 'ExampleFile'},
+                                            {extend: 'pdf', title: 'ExampleFile'},
+                                            {extend: 'print',
+                                                customize: function (win) {
+                                                    $(win.document.body).addClass('white-bg');
+                                                    $(win.document.body).css('font-size', '10px');
+
+                                                    $(win.document.body).find('table')
+                                                            .addClass('compact')
+                                                            .css('font-size', 'inherit');
+                                                }
+                                            }
+                                        ]
+
+                                    });
+
+                                    var today = new Date();
+
+
+                                    //Date Pickers
+                                    //                $("#strtDate").datepicker({
+                                    //                    autoclose: true,
+                                    //                    todayHighlight: true
+                                    //                }).datepicker();
+                                    //                $("#endDate").datepicker({
+                                    //                    autoclose: true,
+                                    //                    todayHighlight: true
+                                    //                }).datepicker();
+
+                                });
+                                
+                                
+                                $(document).ready(function () {
+                                	// checkLoggedOrNot();
+                                    var todayDate = new Date().getDate();
+                                    var maxDate = new Date(new Date().setDate(todayDate));
+                                    $('#fromdateID').datepicker({
+                                        todayBtn: "linked",
+                                        todayHighlight: true,
+                                        startDate: $('#fromdateID').val(),
+                                        endDate: maxDate,
+                                        keyboardNavigation: true,
+                                        forceParse: true,
+                                        calendarWeeks: true,
+                                        autoclose: true,
+                                        autoApply: true
+                                    }).on('changeDate', function () {
+                                        try {
+                                            $("#toDateId").datepicker("remove");
+                                            $('#toDateId').val("");
+                                        } catch (err) {
+                                            console.log(err);
+                                        }
+
+                                        $('#toDateId').datepicker({
+                                            todayBtn: "linked",
+                                            startDate: $('#fromdateID').val(),
+                                            keyboardNavigation: true,
+                                            forceParse: true,
+                                            calendarWeeks: true,
+                                            autoclose: true,
+                                            autoApply: true
+                                        });
+                                    });
+                                });
+                                //                                        Toggle Button
+                                $("#switch1").change(function () {
+                                    var ischecked = $(this).is(':checked');
+                                    if (ischecked == true) {
+                                        $('#secondaryInterval').css('display', 'block');
+                                    } else {
+                                        $('#secondaryInterval').css('display', 'none');
+                                    }
+                                });
+
+
+                                $(window).load(function () {
+                                    // Animate loader off screen
+                                    $(".se-pre-con").fadeOut(50);
+                                });
+
+    </script>
+
+
+</body>
+</html>
+
+

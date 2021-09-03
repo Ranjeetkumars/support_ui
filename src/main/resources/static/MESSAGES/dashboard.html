@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Messages Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../common_images/favicon.ico">
+        <link rel="stylesheet" href="../common_css/bootstrap.min.css">
+        <link rel="stylesheet" href="../common_css/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="../common_css/animate.min.css">
+        <link rel="stylesheet" href="../common_css/metisMenu.css" />
+        <link rel='stylesheet prefetch' href='CSS/reset.min.css'>
+        <link rel="stylesheet" href="CSS/chat.css">
+        <link rel="stylesheet" href="../common_css/style.css">
+        <style>
+            #content-wrap {
+                background: #8bc34a;
+            }
+            .card {
+                background: #fff;
+                box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0
+                    rgba(0, 0, 0, .12);
+                border-radius: 4px;
+                font-weight: 400;
+                margin-bottom: 26px;
+                min-height: 200px;
+                padding: 15px;
+            }
+
+            .text-gray {
+                color: #676a6c;
+            }
+
+            .text-blue {
+                color: #2196f3;
+            }
+
+            .info {
+                font-size: 13px;
+                color: #787878;
+                padding-left: 4px;
+            }
+
+            .p-t-sm {
+                padding-top: 10px;
+            }
+
+            .nav-second-level.active>li>a>span {
+                display: none;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Top Menu-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <!--Side MenuIcon-->
+                        <a class="navbar-brand cursor" id="sidemenu-icon"><i
+                                class="fas fa-bars" style="color: #414344"></i></a>
+                        <!--Logo-->
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+                                                              src="../common_images/pro-Logo.png" /></a>
+                        <!--Top MenuIcon-->
+                        <a class="navbar-brand cursor" id="topmenu-icon"><i
+                                class="fas fa-ellipsis-v" style="color: #414344"></i></a>
+
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a class="logintime">LogIn Time : 25-10-2019 11:29 AM</a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-question-circle"
+                                               data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a></li>
+                            <li class="dropdown"><a class="dropdown-toggle"
+                                                    data-toggle="dropdown" href="#"> <i class="fa fa-user"
+                                                                    data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu animated fadeInDown">
+                                    <li><a href="#"><i class="fas fa-user"></i>My Profile</a></li>
+                                    <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                                </ul></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Side Menu-->
+            <nav class="side-nav" id="sideNav">
+                <ul class="nav p-t-lg" id="metisMenu">
+                    <li><a href="#" class="has-arrow" aria-expanded="true"> <i
+                                class="fas fa-sitemap"></i> <span>Sites</span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="#"><i class="far fa-registered"></i><span>Site
+                                        Registration</span></a></li>
+                            <li><a href="#"><i class="fas fa-cogs"></i><span>Site
+                                        settings</span></a></li>
+                        </ul></li>
+                    <li><a href="#" class="has-arrow" aria-expanded="true"> <i
+                                class="fas fa-chart-bar"></i> <span>Reports</span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="#"><i class="fas fa-chart-line"></i><span>Daily
+                                        Reports</span></a></li>
+                            <li><a href="#"><i class="fas fa-chart-pie"></i><span>Weekly
+                                        Reports</span></a></li>
+                            <li><a href="#"><i class="fas fa-chart-area"></i><span>Monthly
+                                        Reports</span></a></li>
+                            <li><a href="#"><i class="fas fa-bezier-curve"></i><span>Quarterly
+                                        Reports</span></a></li>
+                        </ul></li>
+                    <li><a href="#"><i class="fas fa-user-plus"></i><span>User
+                                Creation</span></a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i><span>About
+                                Us</span></a></li>
+                    <li><a href="#"><i class="fas fa-address-book"></i><span>Contact
+                                Us</span></a></li>
+                </ul>
+            </nav>
+            <!--Content-->
+            <div id="content-wrap" class="main-content">
+                <div id="frame">
+                    <div id="sidepanel">
+                        <div id="profile">
+                            <div class="wrap">
+                                <img id="profile-img"
+                                     src="http://emilcarlsson.se/assets/mikeross.png" class="online"
+                                     alt="" />
+                                <p>Ranjeet Kr. Sinha</p>                                                             
+                            </div>
+                        </div>
+                        <div id="search">
+                            <label for=""><i class="fa fa-search" aria-hidden="true"></i></label>
+                            <input type="text" placeholder="Search contacts..." id="contacts" />
+                        </div>
+                        <div id="contacts">
+                            <ul id="myUL">
+                                <li class="contact" >
+                                    <div class="wrap">
+                                        <span class="contact-status online"></span> <img
+                                            src="http://emilcarlsson.se/assets/louislitt.png" alt="" />
+                                        <div class="meta">
+                                            <p class="name">9951441909</p>
+                                            <p class="preview"></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="contact active" onclick>
+                                    <div class="wrap">
+                                        <span class="contact-status busy"></span>
+                                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                                        <div class="meta">
+                                            <p class="name">9010322260</p>
+                                            <p class="preview"></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="contact">
+                                    <div class="wrap">
+                                        <span class="contact-status away"></span> <img
+                                            src="http://emilcarlsson.se/assets/rachelzane.png" alt="" />
+                                        <div class="meta">
+                                            <p class="name" >6304596061</p>
+                                            <p class="preview"></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="contact">
+                                    <div class="wrap">
+                                        <span class="contact-status online"></span> <img
+                                            src="http://emilcarlsson.se/assets/donnapaulsen.png" alt="" />
+                                        <div class="meta">
+                                            <p class="name" >7893690462</p>
+                                            <p class="preview"></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="contact">
+                                    <div class="wrap">
+                                        <span class="contact-status busy"></span> <img
+                                            src="http://emilcarlsson.se/assets/jessicapearson.png" alt="" />
+                                        <div class="meta">
+                                            <p class="name" >8500085263</p>
+                                            <p class="preview"></p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="contact">
+                                    <div class="wrap">
+                                        <span class="contact-status"></span> <img
+                                            src="http://emilcarlsson.se/assets/haroldgunderson.png" alt="" />
+                                        <div class="meta">
+                                            <p class="name" >5678903455</p>
+                                            <p class="preview"></p>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="contact-profile">
+                            <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" id="active_user_icon"/>
+                            <p id="active_mobile">Harvey Specter</p>
+                        </div>
+                        <div class="messages">
+                            <ul>
+                            </ul>
+                        </div>
+                        <div class="message-input">
+                            <div class="wrap">
+                                <input type="text" placeholder="Write your message..." /> 
+                                <i  class="fa fa-user" aria-hidden="true" onclick="openDisposition()"></i>
+                                <button class="submit">
+                                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by <a href="http://procreate.co.in/"
+                                      target="_blank">Procreate Techno systems Private Limited</a></small>
+            </div>
+            <!--Footer End-->
+        </div>
+        <script src="../common_js/jquery-3.3.1.min.js"></script>
+        <script src="../common_js/bootstrap.min.js"></script>
+        <script src="../js/metisMenu.min.js"></script>
+        <script src="JS/messages.js"></script>       
+    </body>
+</html>

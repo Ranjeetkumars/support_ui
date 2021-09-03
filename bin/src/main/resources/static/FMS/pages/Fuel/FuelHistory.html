@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fleet Management | Fuel History</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+         <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <!--<link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">-->
+        <link rel="stylesheet" href="../../css/metisMenu.css"/>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+           <!--Customized CSS-->
+       
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/fleet.css">
+        <style>
+            .second-nav {
+    background: #00467A;
+    width: 1437px;
+}
+   .se-pre-con {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+            }
+            .second-nav {
+    background: #00467A;
+}
+        </style>
+	  </head>
+   <body class="totalbody">
+    
+     <div class="se-pre-con">
+            <div class="content">
+                <div class="back-to-article">
+                    <p><a href="smallenvelop.com/blog/"></a></p>
+                </div>
+                <img src="http://smallenvelop.com/wp-content/uploads/2014/08/simple-pre-loader.jpg
+                     " style="visibility: hidden; width:100%; height: auto;">
+            </div>
+        </div>
+
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../images/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><i class="fa fa-home"></i> Home</a></li>
+                            <li><a href="../../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header End-->
+             
+             <!--Side Nav Bar-->
+            <nav id='sidebar' class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <h3 class="header">Fleet Management</h3>
+                    </div>
+                    <div class='sidebar-menu'>
+                        <ul class="metismenu" id="metismenu">
+                            <li>
+                                <a href='#'>
+                                    <i class='fa fa-tachometer'></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <!--Vehicles-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-cab'></i>
+                                    <span>Vehicles</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Vehicles/vehicleList.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle List</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Vehicles/VehicleRegstration.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Registration</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                        <a href="../addBaseLocation/addBaseLocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add BaseLocation</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                        <a href="../VehicleAssign_Deassign/VehicleMapWithBaselocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Mapping</span>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="../VehicleAssign_Deassign/EMT_PilotAssign_Deassign.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Emt/Pilot Assign/Deassign</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                    
+                                        <a href="../vehicles/watchedVehicles.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Watched Vehicles</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/meterHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Meter History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/expenseHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Expense History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/gpsIntegration.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>GPS Integration</span>
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                            <!--Inspections-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-building'></i>
+                                    <span>Inspections</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../inspections/inspectionHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Inspection History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../inspections/itemFailures.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Item Failures</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../inspections/schedule.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Schedules</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../inspections/forms.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Forms</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Issues-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-info-circle '></i>
+                                    <span>Issue</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Issues/addIssues.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add Isue</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Issues/Issueslist.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>IssueList</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Issues/recall.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Recalls</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <!--Remainders-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-clock-o '></i>
+                                    <span>Remainder</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Remainders/serviceremainders.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Service Remainder</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Remainders/VehicleRenewalReminder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Renewals</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../remainders/contactRenewal.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Contact Renewals</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Services-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-thumbs-o-up '></i>
+                                    <span>Services</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../service/serviceHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services History </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/workorder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Work Order</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/serviceTask.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services Tasks</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/shopdirectory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Shop Directory</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/integrations.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Integrations</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Fuels-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-filter '></i>
+                                    <span>Fuel</span>
+                                </a>
+                                <ul class="nav first-child">
+                                                 <li>
+                                        <a href="../Fuel/FuelHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>FuelHistory</span>
+                                        </a>
+                                    </li>
+ <li>
+                                        <a href="../Fuel/addnewFuel_latest.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add Fuel</span>
+                                        </a>
+                                    </li>                                 
+                                </ul>
+                            </li>
+                            <!--Contacts & Users-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-money '></i>
+                                    <span>Contacts & Users</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Contact_usrers/contactlist.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Contact List</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Contact_usrers/userManagement.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>User Management</span>
+                                        </a>
+                                    </li>  
+                                    <li>
+                                        <a href="../Contact_usrers/vendorlist.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vendor List</span>
+                                        </a>
+                                    </li> 
+                                </ul>
+                            </li>
+                            <!--Parts & Inventory-->                              
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-money '></i>
+                                    <span>Parts & Inventory</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../parts_inventory/partsList.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Parts List</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../parts_inventory/bulkmanageparts.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Bulk Manage Parts</span>
+                                        </a>
+                                    </li>  
+                                    <li>
+                                        <a href="../parts_inventory/purchaseorder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Purchase Order</span>
+                                        </a>
+                                    </li> 
+                                </ul>
+                            </li>
+                            <!--Places-->
+                            <li>
+                                <a  href="../places/places.html">
+                                    <i class='fa fa-money '></i>
+                                    <span>Places</span>
+                                </a>
+                            </li>
+                            <!--Reports-->
+                            <li>
+                                <a href="../reports/reports.html">
+                                    <i class='fa fa-money '></i>
+                                    <span>Reports</span>
+                                </a>
+                            </li> 
+
+                        </ul>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
+            <!--Side Nav Bar ENd-->
+            <!--Content-->
+            <div id="content-wrap">   
+                <!--Second Header-->
+                <div class="second-nav">
+                    <ul class="pull-left" style="display: inline-flex">
+                        <li>
+                            <a class="navbar-brand-1" id="menu-icon">
+                                <h4><i class="fa fa-bars"></i></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <h4  style="margin-top:5px">Fuel History</h4>
+                        </li>
+                    </ul>
+                    <ul class="pull-right searchbar">
+                        <li class="pull-left p-r-sm">
+                            <a href="#">
+                                <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                            </a>                    
+                        </li> 
+                        <li class="pull-left" style="margin-top: -7px">
+                            <a href="../Fuel/addnewFuel_latest.html"><button type="button" class="btn btn-success btn-sm" ><i class="fa fa-plus p-r-xs"></i>Add New Fuel</button></a> 
+                        </li>  
+                        <li class="dropdown pull-left" style="margin-top: -2px">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                                <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                                <li><a href="../Fuel/importfuelentities.html"><i class="fa fa-filter p-r-xs"></i>Import Fuel Entities</a></li>
+                                <li><a href="../Fuel/findDuplicates.html"><i class="fa fa-drupal p-r-xs"></i>Find Duplicates</a></li>
+                            </ul>
+                        </li>     
+                    </ul>
+                </div>
+                <!--Second Header End-->
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">
+                       
+                    </div>
+                    <!--Fuel Types-->
+                    <div class="row">
+                        <div class="col-md-3 col-xs-12">
+                            <div class='form-group'>
+                                <label class="control-label col-md-4 col-xs-12">Vehicle Types</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <input class="form-control" type="hidden" value="" />
+                                    <select multiple="multiple" class="select form-control" data-placeholder="vechicle Types" id="vehicleId">
+                                       <!--<option value="">Select One</option>
+                                          <option value="1">Active</option>
+                                        <option value="2">Demo vehicle</option>
+                                        <option value="3">Inactive</option>
+                                        <option value="4">In Shop</option>
+                                        <option value="5">Out of Service</option>
+                                        <option value="6">Sold</option>
+                                        -->
+                                        </select>  
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Reference-->                                          
+                       <!--  <div class="col-md-3 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Reference<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12"> 
+                                    <input type="text" class="form-control" placeholder="Enter Reference" id="referenceId">
+                                </div>
+                            </div>
+                        </div> -->
+                        
+                        <!--Start  Date-->
+                        <div class="col-md-3 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4"> Start Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="strtDate" class="input-group date" data-date-format="yyyy-mm-dd">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control"  placeholder="Select Date" type="text" id="start-date-id"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--End  Date-->
+                        <div class="col-md-3 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4"> End Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="endDate" class="input-group date" data-date-format="yyyy-mm-dd">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control"  placeholder="Select Date" type="text" id="end-date-id"/>
+                                          
+                                        </div>   
+                                          <span id="date-validation"  style="color:red"></span>                     
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--Filter statuses-->
+                       <!--  <div class="col-md-3 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Filter statuses</label>
+                                <div class="col-md-8">
+                                    <select multiple="multiple" class="select2 form-control" data-placeholder="Filter statuses">
+                                        <option value="">Select One</option>
+                                        <option value="1">Active</option>
+                                        <option value="2">Demo vehicle</option>
+                                        <option value="3">Inactive</option>
+                                        <option value="4">In Shop</option>
+                                        <option value="5">Out of Service</option>
+                                        <option value="6">Sold</option></select>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!--buttons-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm" onClick = "loadListAddFuelDetails();"><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onClick="resetFields()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                        </div>
+                    </div>   
+                    <hr>
+                    <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive">  
+<!--                                <div class="cursor delete" data-toggle="tooltip" >-->
+                        <i class="fa fa-trash"  data-toggle="modal" style="margin-left: 27px;" data-target="#delete" ><span></span></i>
+                                <span  style="color:red"  size="6" id="span-id-error-msg"></span>
+<!--                                    </div>-->
+                                    <table id="serviceRemainder" class="table table-bordered table-striped">
+                                             <thead>
+                                            <tr>
+                                                <th> <label class="check">                                                    
+                                                        <input type="checkbox"  name="checkedAll" id="checkedAll" value="4">
+                                                        <span class="checkmark"></span>
+                                                    </label></th>
+                                                <th>Vehicle</th>
+                                                <th>Time</th>     
+                                                <th>Usage</th>                           
+                                                <th>Volume</th>
+                                                <th>Total</th>
+                                                <th>Update</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                            
+                                        </thead> 
+                                       
+                                          <tbody id="addListOfFuelRecords"></tbody> 
+                                        <!--  <tr>
+                                                <td>
+                                                    <label class="check ">                                                    
+                                                        <input type="checkbox"  name="checkAll" class="checkSingle" value="1">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="https://www.w3schools.com/bootstrap/sanfran.jpg" class="img-thumbnail vehicle-img" alt="vehicle">
+                                                    <div class="text-left p-l-xxl">
+                                                         <h5 class="m-b-n">AP26TA1234 [ATP-26 | ALS]</h5>
+                                                         <p class="m-b-n"><i class="fa fa-circle p-r-xs text-green"></i>Active</p>
+                                                    </div>
+                                                </td>
+                                                <td>12:30PM</td>
+                                                <td>56362mi</td>
+                                                <td>19113</td>  
+                                                <td>200000</td>  
+                                               <td><a href="../Fuel/addnewfuel.html"><i class="fa fa-edit"></i></a></td> 
+                                                 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="delete">
+                                                        <i class="fa fa-trash" data-toggle="modal" data-target="#delete"></i>
+                                                    </div>
+                                                </td>
+                                            </tr> -->
+                                          
+                                          
+                                          
+                                          
+                                          
+                                            <!-- <tr>
+                                                <td>
+                                                    <label class="check ">                                                    
+                                                        <input type="checkbox" name="checkAll" class="checkSingle" value="2">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="https://www.w3schools.com/bootstrap/sanfran.jpg" class="img-thumbnail vehicle-img" alt="vehicle">
+                                                    <div class="text-left p-l-xxl">
+                                                        <h5 class="m-b-n">AP26TA1234 [ATP-26 | ALS]</h5>
+                                                        <p class="m-b-n"><i class="fa fa-circle p-r-xs text-danger"></i>Out of Service</p>
+                                                    </div>
+                                                </td>
+                                                <td>12:30PM</td>
+                                                <td>56362mi</td>
+                                                <td>19113</td>  
+                                                <td>200000</td>  
+                                               <td><a href="../Fuel/addnewfuel.html"><i class="fa fa-edit"></i></a></td>
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="delete">
+                                                        <i class="fa fa-trash" data-toggle="modal" data-target="#delete"></i>
+                                                    </div>
+                                                </td>                                         
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="check ">                                                    
+                                                        <input type="checkbox" name="checkAll" class="checkSingle" value="3">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <img src="https://www.w3schools.com/bootstrap/sanfran.jpg" class="img-thumbnail vehicle-img" alt="vehicle">
+                                                    <div class="text-left p-l-xxl">
+                                                        <h5 class="m-b-n">AP26TA1234 [ATP-26 | ALS]</h5>
+                                                        <p class="m-b-n"><i class="fa fa-circle p-r-xs text-danger"></i>Out of Service</p>
+                                                    </div>
+                                                </td>
+                                                <td>12:30PM</td>
+                                                <td>56362mi</td>
+                                                <td>19113</td>  
+                                                <td>200000</td>  
+                                               <td><a href="../Fuel/addnewfuel.html"><i class="fa fa-edit"></i></a></td>
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="delete">
+                                                        <i class="fa fa-trash" data-toggle="modal" data-target="#delete"></i>
+											</div>
+                                                </td>                                    
+                                            </tr>
+                                             </tbody>
+ -->                                        
+ 										</table>
+ 										 <center ><p id="data-not-available"></p></center> 
+								</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                         
+            </div>
+            <!--Content End-->
+<!--
+            Modal box for Update
+            <div id="edit" class="modal fade" role="dialog">          
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">Fuel Entry Details</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-horizontal">
+                                <div class="sub-title">
+                                    <h4>Fuel Entry Details</h4>
+                                </div>
+                                <div class="sub-body">
+                                    Vehicle
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Vehicle <span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control">
+                                                        <option value="0">Select Vehicle </option>
+                                                        <option value="1">car</option>
+                                                        <option value="2">van</option>
+                                                        <option value="3">Boat</option>
+                                                    </select>
+                                                </div>
+                                            </div>  
+                                        </div>
+
+                                        Date 
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">Date<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class="input-group input-group-sm" id='datetimepicker1'>
+                                                        <input type="text" class="form-control input-sm"  placeholder="Select Date"/>   
+                                                        <span class="input-group-addon calendar">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div> 
+                                            </div> 
+                                        </div>
+                                    </div>
+
+                                    Odo-meter
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">                                                    
+                                                <label class="control-label col-md-4 col-xs-12 ">Odo-meter<span class="star">*</span> </label>  
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class="input-group">                                                      
+                                                        <input  type="text" class="form-control"  placeholder="Enter Odo-meter ">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        Gallons
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">                                                    
+                                                <label class="control-label col-md-4 col-xs-12 ">Gallons(US)<span class="star">*</span> </label>  
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class="input-group">                                                      
+                                                        <input  type="text" class="form-control"  placeholder="Enter Gallons">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    Fuel Type/Grade
+                                    <div class="row">
+                                        Price/Unit
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">                                                    
+                                                <label class="control-label col-md-4 col-xs-12 ">Price/Unit</label>  
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">$</span> 
+                                                        <input  type="number" class="form-control"  placeholder="Enter Price/Unit">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        Fuel Type/Grade
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Fuel Type/Grade<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control">
+                                                        <option value="0">Select Fuel Type/Grade </option>
+                                                        <option value="1">car</option>
+                                                        <option value="2">van</option>
+                                                        <option value="3">Boat</option>
+                                                    </select>
+                                                </div>
+                                            </div>  
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                Additional Details                                
+                                <div class="sub-title">
+                                    <h4>Additional Details</h4> 
+                                </div>
+                                <div class="sub-body">
+                                    Vendor name  
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Vendor name
+                                                    <span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control">
+                                                        <option value="0">Select Vehicle </option>
+                                                        <option value="1">car</option>
+                                                        <option value="2">van</option>
+                                                        <option value="3">Boat</option>
+                                                    </select>
+                                                    <span>Select an existing vendor or enter the name of a new one</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        Reference  
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">                                                    
+                                                <label class="control-label col-md-4 col-xs-12 ">Reference<span class="star">*</span> </label>  
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class="input-group">                                                      
+                                                        <input  type="text" class="form-control"  placeholder="Reference ">
+                                                        <span>Optional (e.g. invoice number, transaction ID, etc.)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                                                                                                              
+                                </div>
+
+                                Settings  
+                                <div class="sub-title">
+                                    <h4>Settings</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            Partial fuel-up
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Partial fuel-up</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class="onoffswitch">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch1" checked>
+                                                        <label class="onoffswitch-label" for="switch1">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            Reset Usage
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Reset Usage</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class="onoffswitch">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch2" checked>
+                                                        <label class="onoffswitch-label" for="switch2">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                Photo  
+                                <div class="sub-title">
+                                    <h4>Photo & Documents</h4>
+                                </div>                               
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Photo</label>
+                                            <div class="col-md-8 col-xs-12 text">
+                                                <button type="button" class="btn btn-success">Pick File</button>                                                           
+                                                <div style="border: 1px dashed rgb(170, 170, 170);
+                                                     display: inline-block; margin: 0px 0px 0px 4px; border-radius: 3px;
+                                                     background-color: rgb(243, 243, 243); color: rgb(51, 51, 51); font-size: 14px;
+                                                     line-height: 22px; padding: 2px 4px; vertical-align: middle; cursor: pointer;
+                                                     overflow: hidden;" class="">Or drop files here</div><br>
+                                                <span>You can upload photos later as well</span>
+                                            </div>                                                                                                               
+                                        </div>                                                                                                   
+                                    </div>
+
+
+                                    <div class="col-md-6 col-xs-12">
+                                        Documents
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Documents</label>
+                                            <div class="col-md-8 col-xs-12 text">
+                                                <button type="button" class="btn btn-success">Pick File</button>                                                           
+                                                <div style="border: 1px dashed rgb(170, 170, 170);
+                                                     display: inline-block; margin: 0px 0px 0px 4px; border-radius: 3px;
+                                                     background-color: rgb(243, 243, 243); color: rgb(51, 51, 51); font-size: 14px;
+                                                     line-height: 22px; padding: 2px 4px; vertical-align: middle; cursor: pointer;
+                                                     overflow: hidden;" class="">Or drop files here</div><br>
+                                                <span>You can upload photos later as well</span>
+                                            </div>                                                                                                               
+                                        </div>                                                                                                   
+                                    </div>
+                                </div>
+                                Comments  
+                                <div class="sub-title">
+                                    <h4>Comments</h4>
+                                </div>
+                                <div class="sub-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12"></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <textarea class="form-control" placeholder="Enter Comments"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                  Save & Close Buttons Register page
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit p-r-xs"></i>Update</button>
+                                    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-floppy-o p-r-xs"></i>Save</button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+            <!--Model Box For delete--> 
+            <div id="delete" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                       
+                            <h4 class="modal-title">Conform Action</h4>
+                        </div> 
+                        <div class="modal-body">
+                            <!--Buttons-->
+                            <div class="text-center">
+                                <h5>Are you sure you want to delete this fuel entry?</h5>
+                                <button type="button" class="btn btn-primary btn-sm" onClick="deleteMultipleRecords();"><span class="glyphicon glyphicon-ok">OK</span></button>
+                                <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-refresh p-r-xs"></i>cancel</button>                                     
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/datatables.min.js"></script>
+         <script src="../../js/bootstrap-datepicker.js"></script> 
+        <script src="../../js/chosen.jquery.js"></script>
+        <script src="../../js/metisMenu.min.js"></script>
+       
+        <!--<script src="../../js/bootstrap-datetimepicker.min.js"></script>--> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>  
+        <script src="../../serviceController/FuelHistory.js"></script>  
+        <script src="../../utils/commonConstant.js"></script>   
+        <script src="../../js/FMS/FuelHistory.js"></script>   
+        <script src="../../js/FMS/validateAddNewFuel.js"></script>  
+        <script src="../../js/FMS/validateAddNewFuel"></script>  
+ <script src ="../../js/notify.min.js"></script>
+        <script src ="../../js/notify.js"></script>
+        <script>
+
+//                 $(function() {
+////Date And Time picker in Modal Box
+//                $('#datetimepicker').datetimepicker({
+//                    sideBySide: true,
+//                    format: 'DD-MM-YYYY HH:mm:ss',
+//                    endDate: new Date()
+//                });
+//                
+//                
+//                
+//                $('#datetimepicker1').datetimepicker({
+//                    sideBySide: true,
+//                    format: 'DD-MM-YYYY HH:mm:ss',
+//                    endDate: new Date(),
+//                });
+//            });
+//
+
+
+            $(document).ready(function() {
+//            	loadListAddFuelDetails();
+//            	loadFuelType();
+//            	loadVehicleTypeForFuelHistory();
+//            	loadListOfStation();
+//  
+//                                            Chosen Select
+                $('select').chosen();
+                //Side Menu
+                $("#menu-icon").click(function() {
+                    $("#sidebar").toggleClass('active');
+                    $("#content-wrap").toggleClass('active');
+                });
+
+                $('#metismenu').metisMenu();
+                
+                $('[data-toggle="tooltip"]').tooltip();           // Tooltip
+                $('[data-toggle="popover"]').popover({
+                    trigger: 'hover',
+                    width: '200px;'
+                });
+//              
+                
+                
+//Date Pickers
+			$("#strtDate").datepicker({
+				   
+                    autoclose: true,
+                    todayHighlight: true,
+                    
+                    endDate: new Date()
+                   
+                }).datepicker();
+                $("#endDate").datepicker({
+                	
+                	autoclose: true,
+                	
+                    endDate: new Date()
+                }).datepicker();
+                
+                $("#toendDate").datepicker({
+                	
+                 autoclose: true,
+                    todayHighlight: true
+                }).datepicker();
+
+
+           });
+//                                        Toggle Button
+            $("#switch1").change(function() {
+                var ischecked = $(this).is(':checked');
+                if (ischecked == true) {
+                    $('#secondaryInterval').css('display', 'block');
+                } else {
+                    $('#secondaryInterval').css('display', 'none');
+                }
+            });
+            $("#switch2").change(function() {
+                var ischecked = $(this).is(':checked');
+                if (ischecked == true) {
+                    $('#secondaryInterval').css('display', 'block');
+                } else {
+                    $('#secondaryInterval').css('display', 'none');
+                }
+            });
+
+ $(window).load(function () {
+                // Animate loader off screen
+                $(".se-pre-con").fadeOut(50);
+            });
+
+
+        </script>
+
+    </body>
+</html>
+

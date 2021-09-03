@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Help Request Form</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="img/favicon.ico">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-chosen.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<style>
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+
+.row {
+	margin: 0;
+}
+
+body {
+	font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	word-break: break-word;
+}
+
+.star {
+	color: #ff5656;
+	padding-left: 2px;
+}
+
+.form-control {
+	color: #000;
+}
+
+label, label>span {
+	font-weight: 600;
+	color: #232323;
+	font-size: 13px;
+}
+
+label.error {
+	font-weight: 600;
+	font-size: 12px;
+	color: #ed1c1c;
+	padding-left: 4px;
+}
+
+.loc-img {
+	height: 20px;
+	position: absolute;
+	top: 8px;
+	right: 22px;
+	cursor: pointer;
+}
+/*Check Boxes CSS*/
+.check {
+	display: block;
+	position: relative;
+	padding-left: 25px;
+	margin-bottom: 12px;
+	padding-right: 15px;
+	cursor: pointer;
+	font-size: 14px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin-left: 17px;
+}
+
+.check input[type=checkbox] {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.checkmark {
+	position: absolute;
+	top: 3px;
+	left: 0;
+	height: 18px;
+	width: 18px;
+	background-color: #fff;
+	border-color: #0096cc;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 3px;
+}
+
+.check input[type=checkbox]:checked ~ .checkmark {
+	background-color: #0096cc;
+}
+
+.checkmark:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+.check input[type=checkbox]:checked ~ .checkmark:after {
+	display: block;
+}
+
+.check .checkmark:after {
+	left: 5px;
+	top: 1px;
+	width: 5px;
+	height: 10px;
+	border: solid;
+	border-color: #fff;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.panel-primary>.panel-heading {
+	font-size: 21px;
+}
+
+@media screen and (min-width:1200px) {
+	.container {
+		width: 800px;
+	}
+}
+</style>
+</head>
+<body>
+
+	<div class="container">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading text-center">Dispatch Form</div>
+			<div class="panel-body">
+				<form autocomplete="off" class="form-horizontal"
+					id="helpRequestForm">
+					<div class="row">
+						<!--Caller Number-->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="callerNumber">Caller
+									Number<span class="star">*</span>
+								</label>
+								<div class="col-sm-8 col-xs-12">
+									<input type="text" class="form-control" name="callerNumber"
+										id="callerNumber" placeholder="Enter Caller Number">
+								</div>
+							</div>
+						</div>
+						<!--Caller Name-->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="callerName">Caller
+									Name<span class="star">*</span>
+								</label>
+								<div class="col-sm-8 col-xs-12">
+									<input type="text" class="form-control" id="callerName"
+										name="callerName" placeholder="Enter Caller Name">
+								</div>
+							</div>
+						</div>
+						<!--Email Id-->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="email">Email </label>
+								<div class="col-sm-8 col-xs-12">
+									<input type="email" class="form-control" id="email"
+										name="email" placeholder="Enter Email">
+								</div>
+							</div>
+						</div>
+						<!--Chief Complaint-->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12">Emergency Type<span
+									class="star">*</span></label>
+
+								<div style="display: inline-flex">
+									<label class="check"> <span>Medical</span> <input
+										type="checkbox" name="chiefComplaint" checked  id="medicalComplaintChkId" onchange="onCheckChange()" > <span
+										class="checkmark"></span>
+									</label> <label class="check"> <span>Police</span> <input
+										type="checkbox" name="chiefComplaint" id="policeComplaintChkId" onchange="onCheckChangeForPolice()"> <span
+										class="checkmark"></span>
+									</label> <label class="check"> <span>Fire</span> <input
+										type="checkbox" name="chiefComplaint" id="fireComplaintChkId" onchange="onCheckChangeForFire()"> <span
+										class="checkmark"></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<!--Victim Name-->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="victimName">Victim
+									Name<span class="star">*</span>
+								</label>
+								<div class="col-sm-8 col-xs-12">
+									<input type="text" class="form-control" id="victimName"
+										name="victimName" placeholder="Enter Victim Name">
+								</div>
+							</div>
+						</div>
+						<!--Age-->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="age">Age<span
+									class="star">*</span></label>
+								<div class="col-sm-8 col-xs-12">
+									<input type="text" class="form-control" name="age" id="age"
+										placeholder="Enter Age">
+								</div>
+							</div>
+						</div>
+						<!--Gender-->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="age">Gender<span
+									class="star">*</span></label>
+								<div class="col-sm-8 col-xs-12">
+									<select class="form-control" id="gender" name="gender">
+										<option value="0">Select One</option>
+										<option value="1">Male</option>
+										<option value="2">Female</option>
+										<option value="3">Others</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!--Chief Complaints-->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="age">Medical<span
+									class="star">*</span></label>
+								<div class="col-sm-8 col-xs-12">
+									<select class="form-control" id="medicalComplainTypeId" name="medicalComplainType">
+										<!-- <option value="0">Select One</option>
+										<option value="1">Male</option>
+										<option value="2">Female</option>
+										<option value="3">Others</option> -->
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="age">Police<span
+									class="star">*</span></label>
+								<div class="col-sm-8 col-xs-12">
+									<select class="form-control" id="policeComplainTypeId" name="policeComplainType">
+										<!-- <option value="0">Select One</option>
+										<option value="1">Male</option>
+										<option value="2">Female</option>
+										<option value="3">Others</option> -->
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="age">Fire<span
+									class="star">*</span></label>
+								<div class="col-sm-8 col-xs-12">
+									<select class="form-control" id="fireComplainTypeId" name="fireComplainTypeId">
+										<!-- <option value="0">Select One</option>
+										<option value="1">Male</option>
+										<option value="2">Female</option>
+										<option value="3">Others</option> -->
+									</select>
+								</div>
+							</div>
+						</div>
+						<!--Incident Address-->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="incidentAddress">Incident
+									Address<span class="star">*</span>
+								</label>
+								<div class="col-sm-8 col-xs-12">
+									<input type="text" class="form-control" id="incidentAddress"
+										name="incidentAddress" placeholder="Enter Incident Address">
+									<img
+										src="https://icon-library.net/images/current-location-icon-png/current-location-icon-png-24.jpg"
+										class="loc-img" alt="Current Location" id="currentLocation">
+										
+									<input type="hidden" class="form-control" id="location"
+										name="location" placeholder="Enter Location Details">
+								</div>
+							</div>
+						</div>
+						<!--Location-->
+						<!-- 	<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="location">Location
+									(Lat,lang)<span class="star">*</span>
+								</label>
+								<div class="col-sm-8 col-xs-12">
+									<input type="hidden" class="form-control" id="location"
+										name="location" placeholder="Enter Location Details">
+									<img
+										src="https://icon-library.net/images/current-location-icon-png/current-location-icon-png-24.jpg"
+										class="loc-img" alt="Current Location" id="currentLocation">
+								</div>
+							</div>
+						</div> -->
+						<div class="col-md-12 col-xs-12">
+							<div class="form-group">
+								<label class="col-sm-3 col-xs-12" for="location">Remarks
+									<span class="star">*</span>
+								</label>
+								<div class="col-sm-8 col-xs-12">
+									<textarea class="form-control" placeholder="Enter Remarks"></textarea>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row text-center">
+						<button type="button" class="btn btn-primary"
+							onclick="addPatient()">Submit</button>
+						<button type="reset" class="btn btn-danger" onclick="resetDispatchForm()">Reset</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<!-- <script
+		src="../js/jquery-3.3.1.min.js"></script>
+	<script
+		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcBNzbPOZLjPn3PIzjfYWRjRDEG3rVtSE&libraries=places"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/chosen.jquery.js"></script> -->
+	
+	
+	
+	
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcBNzbPOZLjPn3PIzjfYWRjRDEG3rVtSE&libraries=places"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/summernote.min.js"></script>
+	<script src="../js/bootstrap-tagsinput.js"></script>
+	<script src="../js/chosen.jquery.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+	<script src="../js/email.js"></script>
+	<script src="../js/dispatch.js"></script>
+	
+
+</body>
+</html>

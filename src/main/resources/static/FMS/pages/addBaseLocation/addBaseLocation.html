@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fleet Management | Vehicle List</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!--CSS Links-->
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../css/datatables.min.css">
+<link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../assets/css/metisMenu.css" />
+<link rel="stylesheet" href="../../css/datepicker.css">
+<!--<link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">-->
+
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/fleet.css">
+<style>
+ul.menus {
+	list-style: none;
+	padding-left: 0;
+	display: inline-flex;
+}
+
+ul.menus li {
+	padding: 0 13px;
+	font-size: 16px;
+}
+
+ul.menus li:hover {
+	cursor: pointer;
+	text-decoration: underline;
+	color: #31708f
+}
+
+.no-js #loader {
+	display: none;
+}
+
+.js #loader {
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+}
+
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background:
+		url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif)
+		center no-repeat #fff;
+}
+
+#page-container {
+	position: relative;
+	min-height: 93.5vh;
+}
+
+.card {
+	width: 99%;
+	margin-left: 11px;
+}
+
+.form-horizontal .control-label {
+	padding-left: 24px;
+}
+
+.labelscss {
+	padding-top: 10px;
+	padding-right: 21px;
+}
+
+.bg-info {
+	background: cadetblue;
+}
+
+.modal-header .modal-title {
+	background: #00467A;
+}
+
+.modal-header {
+	background: #00467A;
+}
+
+second-nav {
+    background: #00467A;
+}
+
+.table>thead>tr>th {
+	background: #00467A;
+}
+
+.form-horizontal .control-label {
+	padding-left: 20px;
+}
+/*   .form-horizontal .control-label {
+                padding-left: 21px;
+                }*/
+.form-horizontal .control-label {
+	padding-right: 9px;
+}
+
+.delete {
+	height: 30px;
+	padding-top: 3px;
+	left: 14%;
+	position: absolute;
+	display: inline-block;
+}
+  .se-pre-con {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+            }
+</style>
+
+</head>
+<body class="totalbody">
+        <div class="se-pre-con">
+            <div class="content">
+                <div class="back-to-article">
+                    <p><a href="smallenvelop.com/blog/"></a></p>
+                </div>
+                <img src="http://smallenvelop.com/wp-content/uploads/2014/08/simple-pre-loader.jpg
+                     " style="visibility: hidden; width:100%; height: auto;">
+            </div>
+        </div>
+
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+<!-- 					<a class="navbar-brand" href="#"><img alt="ProCreate Logo" -->
+<!-- 						src="../../images/pro-Logo.png" /></a> -->
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						 <li><a href="../../../dashBoard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../FleetIO_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a onclick="logout()" href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header End-->
+		<!--Side Nav Bar-->
+	                  <!--Main Header End-->
+        <nav id='sidebar' class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <h3 class="header">Fleet Management</h3>
+                    </div>
+                    <div class='sidebar-menu'>
+                        <ul class="metismenu" id="metismenu">
+                           <li>
+                                <a href='../FleetIO_Dashboard.html'>
+                                    <i class='fa fa-tachometer'></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <!--Vehicles-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-cab'></i>
+                                    <span>Vehicles</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Vehicles/vehicleList.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle List</span>
+                                        </a>
+                                    </li>
+                                 
+                                      <li>
+                                        <a href="../addBaseLocation/addBaseLocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add BaseLocation</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                        <a href="../VehicleAssign_Deassign/VehicleMapWithBaselocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Mapping</span>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="../VehicleAssign_Deassign/EMT_PilotAssign_Deassign.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Emt/Pilot Assign/Deassign</span>
+                                        </a>
+                                    </li>
+                                    
+<!--                                     <li> -->
+                    
+<!--                                         <a href="../vehicles/watchedVehicles.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Watched Vehicles</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/meterHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Meter History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/expenseHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Expense History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/gpsIntegration.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>GPS Integration</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+
+
+                                </ul>
+                            </li>
+
+                            <!--Inspections-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-building'></i>
+                                    <span>Inspections</span>
+                                </a>
+                                <ul class="nav first-child">
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/inspectionHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Inspection History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/itemFailures.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Item Failures</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                    <li>
+                                        <a href="../Scheduling/pages/Scheduling.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Schedules</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                     <a href="../Audit/pages/Auditreport_1.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Audit Report Status</span>
+                                        </a>
+                                         </li>
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/forms.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Forms</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            <!--Issues-->
+                          	<!--Issues-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-info-circle '></i> <span>Issue</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Issues/Issueslist.html"> <i
+										class="fa fa-circle-o"></i> <span>Issues List</span>
+								</a></li>
+<!-- 								<li><a href="../Issues/faults.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>Faults</span> -->
+<!-- 								</a></li> -->
+<!-- 								<li><a href="../Issues/recall.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>Recalls</span> -->
+<!-- 								</a></li> -->
+
+							</ul></li>
+
+                            <!--Remainders-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-clock-o '></i>
+                                    <span>Remainder</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Remainders/serviceremainders.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Service Remainder</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Remainders/VehicleRenewalReminder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Renewals</span>
+                                        </a>
+                                    </li>
+<!--                                     <li> -->
+<!--                                         <a href="../Remainders/contactRenewal.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Contact Renewals</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            <!--Services-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-thumbs-o-up '></i>
+                                    <span>Services</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../service/serviceHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services History </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/serviceTask.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services Task </span>
+                                        </a>
+                                    </li>
+                                 
+<!--                                     <li> -->
+<!--                                         <a href="../service/shopdirectory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Shop Directory</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../service/integrations.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Integrations</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            
+                                                    <!--Contacts & Users-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-user'></i> <span>Contacts & Users</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Contact&Users/contactlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact List</span>
+								</a></li>
+<!-- 								<li><a href="../Contact&Users/userManagement.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>User Management</span> -->
+<!-- 								</a></li> -->
+								<li><a href="../Contact&Users/vendorlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Vendor List</span>
+								</a></li>
+							</ul></li>
+                            <!--Fuels-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-filter '></i>
+                                    <span>Fuel</span>
+                                </a>
+                                <ul class="nav first-child">
+                                                 <li>
+                                        <a href="../Fuel/FuelHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>FuelHistory</span>
+                                    	</a></li>
+							</ul></li>
+                                    
+                                    
+                              <!--Places-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-road'></i>
+                                    <span>Places</span>
+                                </a>
+                              
+                            </li>
+                            <!--Reports-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-book'></i>
+                                    <span>Reports</span>
+                                </a>
+                            </li> 
+                            
+                              <li>
+                                <a href="#">
+                                    <i class='fa fa-money '></i>
+                                    <span>Integrations</span>
+                                </a>
+                            </li> 
+
+                                </ul>
+                            </li>
+
+                           
+
+
+
+                        </ul>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
+	
+		<!--Side Nav Bar ENd-->
+
+		<!--Content-->
+		<div id="content-wrap">
+
+			<!--Second Header-->
+			<div class="second-nav">
+				<ul class="pull-left" style="display: inline-flex">
+					<li><a class="navbar-brand-1" id="menu-icon">
+							<h4>
+								<i class="fa fa-bars"></i>
+							</h4>
+					</a></li>
+					
+					<li>
+						<h4 style="margin-top: 5px">Add BaseLocation</h4>
+					</li>
+				</ul>
+				<ul class="pull-right searchbar">
+					<li class="pull-left p-r-sm"><a href="#"> <input
+							type="text" class="form-control"
+							placeholder="What are you looking for?">
+					</a></li>
+					<li class="pull-left" style="margin-top: -7px">
+						<button type="button" class="btn btn-success btn-sm"
+							data-toggle="modal" data-target="#registration">
+							<i class="fa fa-plus p-r-xs"></i>Base Location Registration
+						</button>
+					</li>
+<!-- 					<li class="pull-left" style="margin-top: -7px"> -->
+<!-- 						<button type="button" class="btn btn-success btn-sm" -->
+<!-- 							data-toggle="modal" data-target="#registration1"> -->
+<!-- 							<i class="fa fa-plus p-r-xs"></i>Multiple Baselocation -->
+<!-- 							Registrations -->
+<!-- 						</button> -->
+<!-- 					</li> -->
+					<li class="dropdown pull-left" style="margin-top: -2px"><a
+						class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+							class="fa fa-ellipsis-v f-md" data-toggle="tooltip"
+							data-placement="top" title="More Actions"></i>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+							<li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--Second Header End-->
+			<div class="col-md-12 col-xs-12">
+				<div class="card">
+
+					<!--<Add Mandal/ Add City/Village/Add Locality/Add Landmark>-->
+
+					<div class="row">
+						<div class="col-md-4 col-xs-12">
+							<!--District-->
+							<div class="form-group">
+								<label class="control-label col-sm-3">District<span
+									class="star">*</span></label>
+								<div class="col-sm-9 col-xs-12">
+									<select class="form-control" name="district"
+										id="districtIdForSearch">
+										<option value="0">Select District</option>
+										<!--                                                    <option value="1">1</option>
+                                                                                                    <option value="2">2</option>
+                                                                                                    <option value="3">3</option>-->
+									</select>
+								</div>
+							</div>
+						</div>
+						<!--Mandal-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4 col-xs-12">Mandal<span
+									class="star">*</span></label>
+								<div class="col-sm-8 col-xs-12">
+									<select class="form-control" name="mandal"
+										id="mandalIdForSearch">
+										<option value="0">Select Mandal</option>
+										<!--                                                    <option value="1">1</option>
+                                                                                                    <option value="2">2</option>
+                                                                                                    <option value="3">3</option>-->
+									</select>
+								</div>
+							</div>
+						</div>
+						<!--Base Location Name-->
+						<div class="col-md-4 col-xs-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4">Base Location Name<span
+									class="star">*</span></label>
+								<div class="col-sm-8 col-xs-12">
+									<select class="form-control" name="city"
+										id="baselocationIdForSearch">
+										<option value="0">Select City</option>
+										<!--                                                    <option value="1">1</option>
+                                                                                                    <option value="2">2</option>
+                                                                                                    <option value="3">3</option>-->
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--Buttons-->
+					<div class="row m-t-b-sm">
+						<div class="col-md-12 col-xs-12 text-center m-t-sm">
+							<button type="button" class="btn btn-primary btn-sm"
+								onclick="BaselocationData()" id="SearchBaselocationDataId">
+								<i class="fa fa-search p-r-xs"></i>Search
+							</button>
+							<button type="button" class="btn btn-warning btn-sm"
+								onclick="resetsearchparameter()">
+								<i class="fa fa-refresh p-r-xs"></i>Reset
+							</button>
+							<!--<button type="button" class="btn btn-warning btn-sm" onclick="deleteAllBaselocations()" id="deleteid" style="height: 30px; padding-top: 3px;"><i class="fa fa-trash-o"></i> Delete</button>-->
+						</div>
+					</div>
+
+					<!--Table-->
+					<div class="wrapper wrapper-content">
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<button type="button" class="btn btn-danger btn-sm delete"
+									onclick="deleteAllBaselocations()" id="deleteid" hidden="">
+									<i class="fa fa-trash-o"></i> Delete All
+								</button>
+								<div id="driverTable"></div>
+							</div>
+						</div>
+					</div>
+
+					<!--                            <div class="row">
+                                                            <div class="col-md-12 col-xs-12 table-responsive">                           
+                                                                <table id="driverTable1" class="table table-bordered table-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>SNo</th>
+                                                                            <th>District</th>
+                                                                            <th>Mandal</th>
+                                                                            <th>City/Village</th>
+                                                                            <th>Locality</th>
+                                                                            <th>Landmark</th>
+                                                                            <th>Latitude</th>
+                                                                            <th>Longitude</th>
+                                                                            <th>Base Location</th>     
+                                                                            <th>Area Type</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>1</td>                                       
+                                                                            <td>Krishna</td>
+                                                                            <td>A.V.G</td>
+                                                                            <td>A.V.G</td>
+                                                                            <td>A.V.G</td>
+                                                                            <td>A.V.G</td>
+                                                                            <td>2</td>
+                                                                            <td>2</td> 
+                                                                            <td>A.V.G</td>
+                                                                        </tr>                                   
+                                                                    </tbody>
+                                                                    <tbody id="newbaselocationdetails">                                 
+                                                                    </tbody>                        
+                                                                </table>
+                                                            </div>
+                                                        </div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="registration" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Base Location Registration</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="col-xs-12 ">
+							<ul class="menus">
+								<li data-toggle="modal" data-target="#myModal1"><b>Add
+										Mandal</b></li>
+								<li data-toggle="modal" data-target="#myModal2"><b>Add
+										City/Village</b></li>
+								<li data-toggle="modal" data-target="#myModal3"><b>Add
+										Locality</b></li>
+								<li data-toggle="modal" data-target="#myModal4"><b>Add
+										Landmark</b></li>
+							</ul>
+						</div>
+						<br>
+						<br>
+						<div class="sub-body">
+							<!--District-->
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">District<span
+											class="star">*</span></label>
+										<div class="col-sm-8 col-xs-12">
+											<select class="form-control" name="district"
+												id="districtIdForBaselocation">
+												<option value="0">Select District</option>
+												<!--                                                    <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option value="3">3</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!--Mandal-->
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4 col-xs-12">Mandal<span
+											class="star">*</span></label>
+										<div class="col-sm-8 col-xs-12">
+											<select class="form-control" name="mandal"
+												id="mandalIdForBaselocation">
+												<option value="0">Select Mandal</option>
+												<!--                                                    <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option value="3">3</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--City/Village-->
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">City/Village<span
+											class="star">*</span></label>
+										<div class="col-sm-8 col-xs-12">
+											<select class="form-control" name="city"
+												id="cityIdForBaselocation">
+												<option value="0">Select City</option>
+												<!--                                                    <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option value="3">3</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!--Locality-->
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">Locality<span
+											class="star">*</span></label>
+										<div class="col-sm-8">
+											<select class="form-control" name="Locality"
+												id="localityIdForBaselocation">
+												<option value="0">Select Locality</option>
+												<!--                                                    <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option value="3">3</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--Landmark-->
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">Landmark<span
+											class="star">*</span></label>
+										<div class="col-sm-8">
+											<select class="form-control" name="landmark"
+												id="landmarkForBaselocation">
+												<option value="0">Select Landmark</option>
+												<!--                                                    <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option value="3">3</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!--Area Type-->
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">Area Type<span
+											class="star">*</span></label>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<select class="form-control" name="Areatype"
+													id="areaTypeIdForBaselocation">
+													<option value="0">Select Area Type</option>
+													<option value="1">Rural</option>
+													<option value="2">Urban</option>
+													<option value="3">Tribal</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<!--Latitude-->
+									<div class="form-group">
+										<label class="control-label col-sm-4">Latitude<span
+											class="star">*</span></label>
+										<div class="col-sm-8">
+											<input type="text" placeholder="Enter Latitude"
+												class="form-control" id="latitudeId" name="latitude" maxlength="8">
+<!-- 												onkeypress="javascript:return numarics(this, event);" -->
+<!-- 												maxlength="8"> -->
+										</div>
+									</div>
+								</div>
+
+								<!--Longitude-->
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4 col-xs-12">Longitude<span
+											class="star">*</span></label>
+										<div class="col-sm-8">
+											<input type="text" placeholder="Enter Longitude"
+												class="form-control" id="longitudeId" name="drticketid" maxlength="8">
+<!-- 												onkeypress="javascript:return numarics(this, event);" -->
+<!-- 												maxlength="8"> -->
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<!--Base Location Name-->
+									<div class="form-group">
+										<label class="control-label col-sm-4">Base Location
+											Name<span class="star">*</span>
+										</label>
+										<div class="col-sm-8">
+											<input type="text" placeholder="Enter Base Location Name"
+												class="form-control" id="baselocationNameID"
+												name="drticketid" maxlength="30">
+<!-- 											onkeypress="javascript:return numarics(this, event);" -->
+<!-- 												maxlength="30"> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<!--  Save & Close Buttons Register page-->
+						<div class="text-center">
+							<button type="button" class="btn btn-primary btn-sm"
+								onclick="baselocationRegistration()"
+								id="baselocationRegistrationId">
+								<i class="fa fa-floppy-o p-r-xs"></i>Save
+							</button>
+							<button type="button" class="btn btn-warning btn-sm"
+								onclick="addBaselocationReset()">
+								<i class="fa fa-refresh p-r-xs"></i>Reset
+							</button>
+							<button type="button" class="btn btn-warning btn-sm"
+								data-dismiss="modal">
+								<i class="fa fa-times p-r-xs"></i>Close
+							</button>
+						</div>
+						<br>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--MODAL FOR UPDATE -->
+	<div id="update" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Base Location Update</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+
+						<div class="sub-body">
+							<!--District-->
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">District<span
+											class="star">*</span></label>
+										<div class="col-sm-8 col-xs-12">
+											<select class="form-control" name="district"
+												id="up_districtIdForBaselocation">
+												<option value="0">Select District</option>
+												<!--                                                    <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option value="3">3</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!--Mandal-->
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4 col-xs-12">Mandal<span
+											class="star">*</span></label>
+										<div class="col-sm-8 col-xs-12">
+											<select class="form-control" name="mandal"
+												id="up_mandalIdForBaselocation">
+												<option value="0">Select Mandal</option>
+												<!--                                                    <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option value="3">3</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--City/Village-->
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">City/Village<span
+											class="star">*</span></label>
+										<div class="col-sm-8 col-xs-12">
+											<select class="form-control" name="city"
+												id="up_cityIdForBaselocation">
+												<option value="0">Select City</option>
+												<!--                                                    <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option value="3">3</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!--Locality-->
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">Locality<span
+											class="star">*</span></label>
+										<div class="col-sm-8">
+											<select class="form-control" name="Locality"
+												id="up_localityIdForBaselocation">
+												<option value="0">Select Locality</option>
+												<!--                                                    <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option value="3">3</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!--Landmark-->
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">Landmark<span
+											class="star">*</span></label>
+										<div class="col-sm-8">
+											<select class="form-control" name="landmark"
+												id="up_landmarkForBaselocation">
+												<option value="0">Select Landmark</option>
+												<!--                                                    <option value="1">1</option>
+                                                                                                            <option value="2">2</option>
+                                                                                                            <option value="3">3</option>-->
+											</select>
+										</div>
+									</div>
+								</div>
+
+								<!--Area Type-->
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4">Area Type<span
+											class="star">*</span></label>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<select class="form-control" name="Areatype"
+													id="up_areaTypeIdForBaselocation">
+													<option value="0">Select Area Type</option>
+													<option value="1">Rural</option>
+													<option value="2">Urban</option>
+													<option value="3">Tribal</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<!--Latitude-->
+									<div class="form-group">
+										<label class="control-label col-sm-4">Latitude<span
+											class="star">*</span></label>
+										<div class="col-sm-8">
+											<input type="text" placeholder="Enter Latitude"
+												class="form-control" id="up_latitudeId" name="latitude"
+												onkeypress="javascript:return numarics(this, event);"
+												maxlength="8">
+										</div>
+									</div>
+								</div>
+
+								<!--Longitude-->
+								<div class="col-md-6 col-xs-12">
+									<div class="form-group">
+										<label class="control-label col-sm-4 col-xs-12">Longitude<span
+											class="star">*</span></label>
+										<div class="col-sm-8">
+											<input type="text" placeholder="Enter Longitude"
+												class="form-control" id="up_longitudeId" name="drticketid"
+												onkeypress="javascript:return numarics(this, event);"
+												maxlength="8">
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-md-6 col-xs-12">
+									<!--Base Location Name-->
+									<div class="form-group">
+										<label class="control-label col-sm-4">Base Location
+											Name<span class="star">*</span>
+										</label>
+										<div class="col-sm-8">
+											<input type="text" placeholder="Enter Base Location Name"
+												class="form-control" id="up_baselocationNameID"
+												name="drticketid" maxlength="30">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<!--  Save & Close Buttons Register page-->
+						<div class="text-center">
+							<button type="button" class="btn btn-primary btn-sm"
+								id="up_baselocationId" onclick="baselocationUpdate()">
+								<i class="fa fa-floppy-o p-r-xs"></i>Update
+							</button>
+							<!--<button type="button" class="btn btn-warning btn-sm"><i class="fa fa-refresh p-r-xs"></i>Reset</button>-->
+							<button type="button" class="btn btn-warning btn-sm"
+								data-dismiss="modal">
+								<i class="fa fa-times p-r-xs"></i>Close
+							</button>
+						</div>
+						<br>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="myModal1" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Add Mandal-->
+			<div class="modal-content">
+				<div class="modal-header bg-info">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Add Mandal</h4>
+				</div>
+				<!-- District-->
+				<div class="modal-body">
+					<p class="errMsg" id="checkformandal"></p>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">District<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<select class="district form-control" id="districtId">
+									<option value="0">Please Select District</option>
+								</select>
+							</div>
+						</div>
+						<!-- Mandal-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">Mandal<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<input class="mandal form-control" placeholder="Enter Mandal"
+									id="mandalNameId" maxlength="30">
+							</div>
+						</div>
+					</form>
+					<br>
+					<!-- Buttons-->
+					<div class="text-center">
+						<button type="button" class="btn btn-primary btn-sm"
+							id="mandalRegId" onclick="mandalRegistration()">
+							<i class="fa fa-floppy-o p-r-xs"></i>Save
+						</button>
+						<button type="button" class="btn btn-warning btn-sm"
+							onclick="AddMandalreset()">
+							<i class="fa fa-refresh p-r-xs"></i>Reset
+						</button>
+						<button type="button" class="btn btn-warning btn-sm"
+							data-dismiss="modal">
+							<i class="fa fa-times p-r-xs"></i>Close
+						</button>
+					</div>
+					<br>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="myModal2" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Add City/Village-->
+			<div class="modal-content">
+				<div class="modal-header bg-info">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Add City/Village</h4>
+				</div>
+				<!-- District-->
+				<div class="modal-body">
+					<p class="errMsg" id="checkforcityvillage"></p>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">District<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<select class="district form-control" id="districtIdForaddCity">
+									<option value="0">Please Select District-</option>
+								</select>
+							</div>
+						</div>
+						<!-- Mandal-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">Mandal<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<select id="MandalIDForAddCity" class="form-control">
+									<option value="0">Please Select Mandal</option>
+								</select>
+							</div>
+						</div>
+						<!-- City/Village-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">City/Village<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<input class="village form-control"
+									placeholder="Enter City/Village" id="cityNameId" maxlength="30">
+							</div>
+						</div>
+					</form>
+					<br>
+					<!-- Buttons-->
+					<div class="text-center">
+						<button type="button" class="btn btn-primary btn-sm"
+							onclick="cityRegistration()" id="cityRegistrationID">
+							<i class="fa fa-floppy-o p-r-xs"></i>Save
+						</button>
+						<button type="button" class="btn btn-warning btn-sm"
+							onclick="addcityReset()">
+							<i class="fa fa-refresh p-r-xs"></i>Reset
+						</button>
+						<button type="button" class="btn btn-warning btn-sm"
+							data-dismiss="modal">
+							<i class="fa fa-times p-r-xs"></i>Close
+						</button>
+					</div>
+					<br>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div id="myModal3" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Add Locality-->
+			<div class="modal-content">
+				<div class="modal-header bg-info">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Add Locality</h4>
+				</div>
+				<!-- District-->
+				<div class="modal-body">
+					<p class="errMsg" id="checkforlocality"></p>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">District<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<select class="district form-control"
+									id="districtdIdforlocality">
+									<option value="0">Please Select District</option>
+								</select>
+							</div>
+						</div>
+						<!-- Mandal-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">Mandal<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<select class="form-control" id="mandalIdforlocality">
+									<option value="0">Please Select Mandal</option>
+								</select>
+							</div>
+						</div>
+						<!-- City/Village-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">City/Village<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<select class="form-control" id="cityIdforlocality">
+									<option value="0">Please Select City/Village</option>
+								</select>
+							</div>
+						</div>
+						<!-- Locality-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">Locality<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<input class="locality form-control"
+									placeholder="Enter Locality" id="localityNameId" maxlength="30">
+							</div>
+						</div>
+					</form>
+					<br>
+					<!-- Buttons-->
+					<div class="text-center">
+						<button type="button" class="btn btn-primary btn-sm"
+							onclick="localityRegistration()" id="localityregistrationId">
+							<i class="fa fa-floppy-o p-r-xs"></i>Save
+						</button>
+						<button type="button" class="btn btn-warning btn-sm"
+							onclick="addLocalityReset()">
+							<i class="fa fa-refresh p-r-xs"></i>Reset
+						</button>
+						<button type="button" class="btn btn-warning btn-sm"
+							data-dismiss="modal">
+							<i class="fa fa-times p-r-xs"></i>Close
+						</button>
+					</div>
+					<br>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div id="myModal4" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Add Landmark-->
+			<div class="modal-content">
+				<div class="modal-header bg-info">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title text-center">Add Landmark</h4>
+				</div>
+				<!-- District-->
+				<div class="modal-body">
+					<p class="errMsg" id="checkforlandmark"></p>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">District<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<select class="district form-control" id="districtIdforlandmark">
+									<option value="0">Please Select District</option>
+								</select>
+							</div>
+						</div>
+						<!-- Mandal-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">Mandal<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<select class="form-control" id="mandalIdforlandmark">
+									<!--                                         id="mandal3"-->
+									<option value="0">Please Select Mandal</option>
+								</select>
+							</div>
+						</div>
+						<!-- City/Village-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">City/Village<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<select class="form-control" id="cityIdforlandmark">
+									<!--id="village2"-->
+									<option value="0">Please Select City/Village</option>
+								</select>
+							</div>
+						</div>
+						<!-- Locality-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">Locality<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<select class="form-control" id="localityIdforlandmark">
+									<!--                                        id="locality1"-->
+									<option value="0">Please Select Locality</option>
+								</select>
+							</div>
+						</div>
+						<!-- Landmark-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">Landmark<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<input class="landmark form-control"
+									placeholder="Enter Landmark" id="landmarkNameId" maxlength="50">
+							</div>
+						</div>
+						<!-- Latitude-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">Latitude<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<input class="landmark form-control"
+									placeholder="Enter latitude" id="latitudeIdforlandmark"
+									maxlength="8">
+							</div>
+
+						</div>
+						<!-- Longitude-->
+						<div class="form-group">
+							<label class="col-md-3 col-xs-12 control-label">Longitude<span
+								class="star">*</span></label>
+							<div class="col-md-9 col-xs-12">
+								<input class="landmark form-control"
+									placeholder="Enter Longitude" id="longitudeIdforlandmark"
+									maxlength="8">
+							</div>
+
+						</div>
+					</form>
+					<br>
+					<!-- Buttons-->
+					<div class="text-center">
+						<button type="button" class="btn btn-primary btn-sm"
+							onclick="landMarkRegistration()" id="landmarkRegistrationID">
+							<i class="fa fa-floppy-o p-r-xs"></i>Save
+						</button>
+						<button type="button" class="btn btn-warning btn-sm"
+							onclick="addLandMarkReset()">
+							<i class="fa fa-refresh p-r-xs"></i>Reset
+						</button>
+						<button type="button" class="btn btn-warning btn-sm"
+							data-dismiss="modal">
+							<i class="fa fa-times p-r-xs"></i>Close
+						</button>
+					</div>
+					<br>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<div id="myModal5" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Add Mandal-->
+			<div class="modal-content">
+
+				<h4 class="modal-title text-center">Delete Baselocation</h4>
+
+				<h5 style="padding-left: 120px; color: red">Are You sure you
+					want to delete this baselocation ?</h5>
+				<br>
+				<div class="text-center">
+					<button type="button" class="btn btn-success btn-sm"
+						onclick=" baselocationsDeletion()">Yes</button>
+					<button type="button" class="btn btn-warning btn-sm"
+						data-dismiss="modal">No</button>
+				</div>
+				<br>
+			</div>
+
+		</div>
+	</div>
+	<div id="registration1" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Multiple Baselocation Registrations</h4>
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal">
+						<div class="sub-title">
+							<h4>Instructions to be followed</h4>
+						</div>
+						<div class="sub-body">
+							<p>1.Download the Excel Sheet template on click of download
+								button
+							<p>2.Fill the Data as per requirement
+							<p>3.UpLoad Excel template without changing file name
+							<div class="text-center">
+								<button type="button" class="btn btn-success btn-sm">
+									<i class="fa fa-download p-r-xs"></i>Download
+								</button>
+								<span style="color: blue">template</span>
+							</div>
+							<br>
+							<!-- file upload custom designs-->
+
+							<!--
+                                <div class="default-file-upload">
+                                <h1>
+                                 Default File Upload
+                                </h1>
+                                
+                                <input id="file-upload1" type="file"/>
+                                </div>
+                                
+                                <br><br>-->
+
+							<div class="col-md-12">
+								<div class="form-group">
+									<div class="input-group input-file" name="Fichier1">
+										<span class="input-group-btn">
+											<button class="btn btn-info btn-choose" type="button">Browse</button>
+										</span> <input type="text" class="form-control"
+											placeholder='Browse a file...' /> <span
+											class="input-group-btn">
+											<button class="btn btn-warning btn-reset" type="button">Reset</button>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br> <br> <br>
+						<!--  Save & Close Buttons Register page-->
+						<div class="text-center">
+							<button type="button" class="btn btn-primary btn-sm">
+								<i class="fa fa-edit"></i> Update
+							</button>
+							<button type="button" class="btn btn-outline-warning btn-sm"
+								data-dismiss="modal">
+								<i class="fa fa-times p-r-xs"></i> Close
+							</button>
+						</div>
+						<br>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	
+	
+	
+	
+	
+	
+	<!--Content End-->
+	<input type="hidden" id="selectall" name="selectall" value="3487">
+	<!--Content End-->
+	<!--Footer-->
+	<div class="footer">
+		<small>Powered  by Procreate Techno systems Private Limited</small>
+		
+	</div>
+	<!--Footer End-->
+	</div>
+
+<!--            <script src="../../../Common/serviceController/dashboard.js"></script> -->
+<!--         <script src="../../../Common/serviceController/ServiceUrl.js"></script>  -->
+<!--          <script src="../../../Common/serviceController/logout.js"></script> -->
+         
+         
+         
+ <script src="../../js/jquery1.2.min.js"></script>
+    <script src="../../js/moment.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/datatables.min.js"></script>
+    <script src="../../js/bootstrap-datepicker.js"></script> 
+    <script src="../../js/bootstrap-datetimepicker.min.js"></script>       
+    <script src="../../js/chosen.jquery.js"></script>
+     <script src="../../js/metisMenu.min.js"></script>
+    <Script src="../../js/FMS/ServiceURL.js"></script>
+    <script src="../../js/FMS/BaselocationRegistration.js"></script>
+     <script src ="../../js/notify.min.js"></script>
+        <script src ="../../js/notify.js"></script>
+<!--         logout/login url -->
+    
+
+
+
+
+	<script>
+		$(function() {
+			//Date And Time picker in Modal Box
+			//Date Pickers
+			$("#up_strtDate").datepicker({
+				autoclose : true,
+				todayHighlight : true,
+				endDate : "today",
+				maxDate : "today",
+			}).datepicker();
+			$("#strtDate").datepicker({
+				autoclose : true,
+				todayHighlight : true,
+				endDate : "today",
+				maxDate : "today",
+			}).datepicker();
+		});
+
+		$(document)
+				.ready(
+						function() {
+						 //checkLoggedOrNot();
+							// $('#Searchdeleteid').hide();
+							//Side Menu
+							$("#menu-icon").click(function() {
+								$("#sidebar").toggleClass('active');
+								$("#content-wrap").toggleClass('active');
+							});
+
+							$('#metismenu').metisMenu();
+							$('[data-toggle="tooltip"]').tooltip(); // Tooltip
+							$('[data-toggle="popover"]').popover({
+								trigger : 'hover',
+								width : '200px;'
+							});
+
+							//$('select').chosen();                            //Chosen select             
+// 							$('#driverTable')
+// 									.DataTable(
+// 											{// Data table
+// 												pageLength : 10,
+// 												responsive : true,
+// 												dom : '<"html5buttons"B>lTfgitp',
+// 												buttons : [
+// 														{
+// 															extend : 'copy'
+// 														},
+// 														{
+// 															extend : 'csv'
+// 														},
+// 														{
+// 															extend : 'excel',
+// 															title : 'ExampleFile'
+// 														},
+// 														{
+// 															extend : 'pdf',
+// 															title : 'ExampleFile'
+// 														},
+// 														{
+// 															extend : 'print',
+// 															customize : function(
+// 																	win) {
+// 																$(
+// 																		win.document.body)
+// 																		.addClass(
+// 																				'white-bg');
+// 																$(
+// 																		win.document.body)
+// 																		.css(
+// 																				'font-size',
+// 																				'10px');
+
+// 																$(
+// 																		win.document.body)
+// 																		.find(
+// 																				'table')
+// 																		.addClass(
+// 																				'compact')
+// 																		.css(
+// 																				'font-size',
+// 																				'inherit');
+// 															}
+// 														} ]
+
+// 											});
+
+// 							$('#driverTable1')
+// 									.DataTable(
+// 											{// Data table
+// 												pageLength : 10,
+// 												responsive : true,
+// 												dom : '<"html5buttons"B>lTfgitp',
+// 												buttons : [
+// 														{
+// 															extend : 'copy'
+// 														},
+// 														{
+// 															extend : 'csv'
+// 														},
+// 														{
+// 															extend : 'excel',
+// 															title : 'ExampleFile'
+// 														},
+// 														{
+// 															extend : 'pdf',
+// 															title : 'ExampleFile'
+// 														},
+// 														{
+// 															extend : 'print',
+// 															customize : function(
+// 																	win) {
+// 																$(
+// 																		win.document.body)
+// 																		.addClass(
+// 																				'white-bg');
+// 																$(
+// 																		win.document.body)
+// 																		.css(
+// 																				'font-size',
+// 																				'10px');
+
+// 																$(
+// 																		win.document.body)
+// 																		.find(
+// 																				'table')
+// 																		.addClass(
+// 																				'compact')
+// 																		.css(
+// 																				'font-size',
+// 																				'inherit');
+// 															}
+// 														} ]
+
+// 											});
+
+							var today = new Date();
+
+							//Date Pickers
+							//                $("#strtDate").datepicker({
+							//                    autoclose: true,
+							//                    todayHighlight: true
+							//                }).datepicker();
+							//                $("#endDate").datepicker({
+							//                    autoclose: true,
+							//                    todayHighlight: true
+							//                }).datepicker();
+
+						});
+		//                                        Toggle Button
+		$("#switch1").change(function() {
+			var ischecked = $(this).is(':checked');
+			if (ischecked == true) {
+				$('#secondaryInterval').css('display', 'block');
+			} else {
+				$('#secondaryInterval').css('display', 'none');
+			}
+		});
+
+		 $(window).load(function () {
+             // Animate loader off screen
+             $(".se-pre-con").fadeOut(50);
+         });
+	</script>
+
+
+</body>
+</html>
+
+

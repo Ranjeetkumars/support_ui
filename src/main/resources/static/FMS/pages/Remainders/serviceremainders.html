@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FMS | Service Reminders</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!--CSS Links-->
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../css/datatables.min.css">
+<link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../assets/css/metisMenu.css" />
+<link rel="stylesheet" href="../../css/datepicker.css">
+<!--<link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">-->
+
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../css/style.css">
+<link rel="stylesheet" href="../../css/fleet.css">
+<style>
+ul.menus {
+	list-style: none;
+	padding-left: 0;
+	display: inline-flex;
+}
+
+ul.menus li {
+	padding: 0 13px;
+	font-size: 16px;
+}
+
+ul.menus li:hover {
+	cursor: pointer;
+	text-decoration: underline;
+	color: #31708f
+}
+
+.no-js #loader {
+	display: none;
+}
+
+.js #loader {
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+}
+
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background:
+		url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif)
+		center no-repeat #fff;
+}
+
+#page-container {
+	position: relative;
+	min-height: 93.5vh;
+}
+
+.card {
+	width: 99%;
+	margin-left: 11px;
+}
+
+.form-horizontal .control-label {
+	padding-left: 24px;
+}
+
+.labelscss {
+	padding-top: 10px;
+	padding-right: 21px;
+}
+
+.bg-info {
+	background: cadetblue;
+}
+
+.modal-header .modal-title {
+	background: #00467A;
+}
+
+.modal-header {
+	background: #00467A;
+}
+
+second-nav {
+    background: #00467A;
+}
+
+.table>thead>tr>th {
+	background: #00467A;
+}
+
+.form-horizontal .control-label {
+	padding-left: 20px;
+}
+/*   .form-horizontal .control-label {
+                padding-left: 21px;
+                }*/
+.form-horizontal .control-label {
+	padding-right: 9px;
+}
+
+.delete {
+	height: 30px;
+	padding-top: 3px;
+	left: 14%;
+	position: absolute;
+	display: inline-block;
+}
+  .se-pre-con {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+            }
+                 .table>thead>tr>th {
+    background-color: #00467A;
+    color: #fff;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+             html, body {
+    overflow-x: hidden;
+}
+</style>
+
+</head>
+<body class="totalbody">
+        <div class="se-pre-con">
+            <div class="content">
+                <div class="back-to-article">
+                    <p><a href="smallenvelop.com/blog/"></a></p>
+                </div>
+                <img src="http://smallenvelop.com/wp-content/uploads/2014/08/simple-pre-loader.jpg
+                     " style="visibility: hidden; width:100%; height: auto;">
+            </div>
+        </div>
+
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+<!-- 					<a class="navbar-brand" href="#"><img alt="ProCreate Logo" -->
+<!-- 						src="../../images/pro-Logo.png" /></a> -->
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+				  <ul class="nav navbar-nav">                 
+                            <li><a href="../../../dashBoard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../FleetIO_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                      
+                        </ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a  onclick="logout()" href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header End-->
+		<!--Side Nav Bar-->
+	                     <!--Main Header End-->
+        <nav id='sidebar' class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <h3 class="header">Fleet Management</h3>
+                    </div>
+                    <div class='sidebar-menu'>
+                        <ul class="metismenu" id="metismenu">
+                       <li>
+                                <a href='../FleetIO_Dashboard.html'>
+                                    <i class='fa fa-tachometer'></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <!--Vehicles-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-cab'></i>
+                                    <span>Vehicles</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Vehicles/vehicleList.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle List</span>
+                                        </a>
+                                    </li>
+                                 
+                                      <li>
+                                        <a href="../addBaseLocation/addBaseLocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add BaseLocation</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                        <a href="../VehicleAssign_Deassign/VehicleMapWithBaselocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Mapping</span>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="../VehicleAssign_Deassign/EMT_PilotAssign_Deassign.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Emt/Pilot Assign/Deassign</span>
+                                        </a>
+                                    </li>
+                                    
+<!--                                     <li> -->
+                    
+<!--                                         <a href="../vehicles/watchedVehicles.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Watched Vehicles</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/meterHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Meter History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/expenseHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Expense History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/gpsIntegration.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>GPS Integration</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+
+
+                                </ul>
+                            </li>
+
+                            <!--Inspections-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-building'></i>
+                                    <span>Inspections</span>
+                                </a>
+                                <ul class="nav first-child">
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/inspectionHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Inspection History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/itemFailures.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Item Failures</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+                                        <a href="../Scheduling/pages/Scheduling.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Schedules</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                     <a href="../Audit/pages/Auditreport_1.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Audit Report Status</span>
+                                        </a>
+                                         </li>
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/forms.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Forms</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            <!--Issues-->
+                          	<!--Issues-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-info-circle '></i> <span>Issue</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Issues/Issueslist.html"> <i
+										class="fa fa-circle-o"></i> <span>Issues List</span>
+								</a></li>
+<!-- 								<li><a href="../Issues/faults.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>Faults</span> -->
+<!-- 								</a></li> -->
+<!-- 								<li><a href="../Issues/recall.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>Recalls</span> -->
+<!-- 								</a></li> -->
+
+							</ul></li>
+
+                            <!--Remainders-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-clock-o '></i>
+                                    <span>Remainder</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Remainders/serviceremainders.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Service Remainder</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Remainders/VehicleRenewalReminder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Renewals</span>
+                                        </a>
+                                    </li>
+<!--                                     <li> -->
+<!--                                         <a href="../Remainders/contactRenewal.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Contact Renewals</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            <!--Services-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-thumbs-o-up '></i>
+                                    <span>Services</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../service/serviceHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services History </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/serviceTask.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services Task </span>
+                                        </a>
+                                    </li>
+                                 
+<!--                                     <li> -->
+<!--                                         <a href="../service/shopdirectory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Shop Directory</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../service/integrations.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Integrations</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            
+                                                    <!--Contacts & Users-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-user'></i> <span>Contacts & Users</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Contact&Users/contactlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact List</span>
+								</a></li>
+<!-- 								<li><a href="../Contact&Users/userManagement.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>User Management</span> -->
+<!-- 								</a></li> -->
+								<li><a href="../Contact&Users/vendorlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Vendor List</span>
+								</a></li>
+							</ul></li>
+                            <!--Fuels-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-filter '></i>
+                                    <span>Fuel</span>
+                                </a>
+                                <ul class="nav first-child">
+                                                 <li>
+                                        <a href="../Fuel/FuelHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>FuelHistory</span>
+                                    	</a></li>
+							</ul></li>
+                                    
+                                    
+                              <!--Places-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-road'></i>
+                                    <span>Places</span>
+                                </a>
+                              
+                            </li>
+                            <!--Reports-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-book'></i>
+                                    <span>Reports</span>
+                                </a>
+                            </li> 
+                            
+                              <li>
+                                <a href="#">
+                                    <i class='fa fa-money '></i>
+                                    <span>Integrations</span>
+                                </a>
+                            </li> 
+
+                                </ul>
+                            </li>
+
+                           
+
+
+
+                        </ul>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
+		<!--Side Nav Bar ENd-->
+
+		<!--Content-->
+	                    <!--Content-->
+            <div id="content-wrap">   
+                <!--Second Header-->
+                <div class="second-nav">
+                    <ul class="pull-left" style="display: inline-flex">
+                        <li>
+                            <a class="navbar-brand-1" id="menu-icon">
+                                <h4><i class="fa fa-bars"></i></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <h4  style="margin-top:5px">Service Reminders</h4>
+                        </li>
+                    </ul>
+                    <ul class="pull-right searchbar">
+                        <li class="pull-left p-r-sm">
+                            <a href="#">
+                                <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                            </a>                    
+                        </li> 
+                        <li class="pull-left" style="margin-top: -7px">
+                            <a href="../Master/Vehicle/VehicleType.html"><button type="button" class="btn btn-success btn-sm" >Manage</button></a> 
+                        </li>
+                        <li class="pull-left" style="margin-top: -7px">
+                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editRemainder"><i class="fa fa-plus p-r-xs"></i>Add Remainder</button> 
+                        </li>
+                        <li class="dropdown pull-left" style="margin-top: -2px">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                                <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                            </ul>
+                        </li>     
+                    </ul>
+                </div>
+                <!--Second Header End-->
+                <div class="card">
+                    <form class="form-horizontal">
+                        <!--Error Message-->
+                        <div class="alert alert-danger" style='display: none;'>
+                            <h4>
+                                <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                            </h4>
+                            <ul class='m-l-md'>
+                                <li>District Can't be Empty</li>
+                            </ul>
+                        </div>
+                        <!--Title Heade End-->
+                        <div class="row">
+                            <!--District-->
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Reminder Status<span class="star">*</span></label>
+                                    <div class="col-md-8 col-xs-12">
+                                        <select class="form-control" id="reminderStatusId">
+                                            <option value="0">Select Vehicle Name</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Base Location-->
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Vehicle Name<span class="star">*</span></label>
+                                    <div class="col-md-8 col-xs-12">
+                                        <select class="form-control" id="vehicleNameId">
+                                            <option value="0">Select Vehicle Name</option>
+                                            <!--                                                                                <option value="1">Fuel Filling</option>
+                                                                                                                            <option value="2">Oxygen Filling</option>
+                                                                                                                            <option value="3">Tyre Life</option>-->-->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Resister Number<span class="star">*</span></label>
+                                    <div class="col-md-8 col-xs-12">
+                                        <select class="form-control" id="ResisterNumberId">
+                                            <option value="0">Select Resister Number</option>
+                                            <!--                                                                                <option value="1">Fuel Filling</option>
+                                                                                                                            <option value="2">Oxygen Filling</option>
+                                                                                                                            <option value="3">Tyre Life</option>-->-->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Ambulance-->
+                            <div class="col-md-4 col-xs-12">
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 col-xs-12">Service task<span class="star">*</span></label>
+                                    <div class="col-md-8 col-xs-12">
+                                        <select class="form-control" id="ser_serviceTaskId">
+                                            <option value="0">Select Service task</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Ticket ID-->
+                        <!--                    <div class="row m-t-b-sm">                        
+                                                <div class="col-md-4 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">Ticket #</label>
+                                                        <div class="col-md-9">
+                                                            <input type="text" placeholder="Enter Ticket ID" class="form-control" name="drticketid" onkeypress="javascript:return numarics(this, event);" maxlength="14">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                From Date
+                                                <div class="col-md-4 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">From Date</label>
+                                                        <div class="col-md-8">
+                                                            <div class="input-group">
+                                                                <div id="strtDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                                    <span class="input-group-addon">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </span>
+                                                                    <input class="form-control" placeholder="Select Date" type="text"/>
+                                                                </div>                        
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                To Date
+                                                <div class="col-md-4 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4">To Date</label>
+                                                        <div class="col-md-8">
+                                                            <div class="input-group">
+                                                                <div id="endDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                                    <span class="input-group-addon">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </span>
+                        
+                                                                    <input class="form-control" placeholder="Select Date" type="text"/>
+                                                                </div>                        
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>-->
+                        <!--buttons-->
+                        <div class="row m-t-b-sm">
+                            <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="getReminderList()"><i class="fa fa-search p-r-xs"></i>Search</button>
+                                <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetSearchReminder()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                            </div>
+                        </div>   
+
+                        <!--table-->
+                        <div class="wrapper wrapper-content">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-12" style="display: none" id="deleteButtonID2">
+                                    <button type="button" class="btn btn-danger btn-sm delete" onclick="deletechkReminder()" id="Searchdeleteid3"><i class="fa fa-trash-o"></i> Delete All</button>
+
+                                    <div  id="dataTableId">  
+
+
+                                        <!--                                    <table id="serviceRemainder" class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>Select</th>
+                                                                                        <th>Vehicle</th>
+                                                                                        <th>Reminders</th>     
+                                                                                        <th>Next Due</th>                           
+                                                                                        <th>Subscribers</th>
+                                                                                        <th>Action</th>
+                                                                                        <th>Actions</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <label class="check ">                                                    
+                                                                                                <input type="checkbox">
+                                                                                                <span class="checkmark"></span>
+                                                                                            </label>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <img src="https://www.w3schools.com/bootstrap/sanfran.jpg" class="img-thumbnail vehicle-img" alt="vehicle">
+                                                                                            <div class="text-left p-l-xxl">
+                                                                                                <h5 class="m-b-n">AP26TA1234 [ATP-26 | ALS]</h5>
+                                                                                                <p class="m-b-n"><i class="fa fa-circle p-r-xs text-green"></i>Active</p>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="label label-danger">Over Due</span>
+                                                                                            <span data-toggle="tooltip" data-placement="bottom" title="Update Remainder status">
+                                                                                                <i class="fa fa-pencil update-icon" data-toggle="modal" data-target="#updateRemainder"></i> 
+                                                                                            </span>
+                                                                                            <h4 class="m-b-n">Oil Change</h4>
+                                                                                            <p class="m-b-n">Every 4 month(s) or 7,500 miles</p>
+                                                                                        </td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>       
+                                                                                        <td>
+                                                                                            <div class="cursor" data-toggle="tooltip" title="Edit Remainders">
+                                                                                                <i  class="fa fa-edit" data-toggle="modal" data-target="#editRemainder"></i>
+                                                                                            </div>
+                                                                                        </td> 
+                                                                                        <td>  
+                                                                                            <ul>
+                                        --> 
+                                        <!--           
+                                        <ul>
+                                        <li class="dropdown" style=" list-style: none">
+                                                                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                                        <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                                                                                                    </a>
+                                                                                                    <ul class="dropdown-menu">
+                                                                                                        <li><a href="#"><i class="fa fa-wrench"></i>Enter Service</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-envelope"></i>Send Notifications</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-trash"></i>Delete</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-eye"></i>View Complains</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-history"></i>View Full History</a></li>
+                                                                                                    </ul>-->
+
+
+
+                                        <!--
+                                        </li> </ul>
+                                                                                            </div>
+                                        
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <label class="check ">                                                    
+                                                                                                <input type="checkbox">
+                                                                                                <span class="checkmark"></span>
+                                                                                            </label>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <img src="https://www.w3schools.com/bootstrap/sanfran.jpg" class="img-thumbnail vehicle-img" alt="vehicle">
+                                                                                            <div class="text-left p-l-xxl">
+                                                                                                <h5 class="m-b-n">AP26TA1234 [ATP-26 | ALS]</h5>
+                                                                                                <p class="m-b-n"><i class="fa fa-circle p-r-xs text-danger"></i>Out of Service</p>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="label label-warning">Due Soon</span>
+                                                                                            <span data-toggle="tooltip" data-placement="bottom" title="Update Remainder Status">
+                                                                                                <i class="fa fa-pencil update-icon" data-toggle="modal" data-target="#updateRemainder"></i> 
+                                                                                            </span>
+                                                                                            <h4 class="m-b-n">Oil Change</h4>
+                                                                                            <p class="m-b-n">Every 4 month(s) or 7,500 miles</p>
+                                                                                        </td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>
+                                                                                            <div class="cursor" data-toggle="tooltip" title="Edit Remainders">
+                                                                                                <i  class="fa fa-edit" data-toggle="modal" data-target="#editRemainder"></i>
+                                                                                            </div>
+                                                                                        </td> 
+                                                                                        <td>  
+                                                                                            <ul>
+                                                                                                <li class="dropdown" style=" list-style: none">
+                                                                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                                        <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                                                                                                    </a>
+                                                                                                    <ul class="dropdown-menu">
+                                                                                                        <li><a href="#"><i class="fa  fa-wrench"></i>Enter Service</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-envelope"></i>Send Notifications</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-trash"></i>Delete</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-eye"></i>View Complains</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-history"></i>View Full History</a></li>
+                                                                                                    </ul>
+                                                                                                </li> </ul>
+                                                                                            </div>
+                                        
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <label class="check ">                                                    
+                                                                                                <input type="checkbox">
+                                                                                                <span class="checkmark"></span>
+                                                                                            </label>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <img src="https://www.w3schools.com/bootstrap/sanfran.jpg" class="img-thumbnail vehicle-img" alt="vehicle">
+                                                                                            <div class="text-left p-l-xxl">
+                                                                                                <h5 class="m-b-n">AP26TA1234 [ATP-26 | ALS]</h5>
+                                                                                                <p class="m-b-n"><i class="fa fa-circle p-r-xs text-danger"></i>Out of Service</p>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <span class="label label-warning">Due Soon</span>
+                                                                                            <span data-toggle="tooltip" data-placement="bottom" title="Update Remainder Status">
+                                                                                                <i class="fa fa-pencil update-icon" data-toggle="modal" data-target="#updateRemainder"></i> 
+                                                                                            </span>
+                                                                                            <h4 class="m-b-n">Oil Change</h4>
+                                                                                            <p class="m-b-n">Every 4 month(s) or 7,500 miles</p>
+                                                                                        </td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>
+                                                                                            <div class="cursor" data-toggle="tooltip" title="Edit Remainders">
+                                                                                                <i  class="fa fa-edit" data-toggle="modal" data-target="#editRemainder"></i>
+                                                                                            </div>
+                                                                                        </td>  
+                                                                                        <td>  
+                                                                                            <ul>
+                                                                                                <li class="dropdown" style=" list-style: none">
+                                                                                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                                                                        <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                                                                                                    </a>
+                                                                                                    <ul class="dropdown-menu">
+                                                                                                        <li><a href="#"><i class="fa fa-wrench"></i> Enter Service</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-envelope"></i> Send Notifications</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-eye"></i> View Complains</a></li>
+                                                                                                        <li><a href="#"><i class="fa fa-history"></i> View Full History</a></li>
+                                                                                                    </ul>
+                                                                                                </li> </ul>
+                                                                                            </div>
+                                        
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>                         
+            </div>
+	</div>
+
+
+     <div id="myModal7" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Add Mandal-->
+                <div class="modal-content">
+
+                    <h4 class="modal-title text-center">Delete Vehicle</h4>
+
+                    <h5 style="padding-left:120px ">Are You sure you want to delete this Reminder ? </h5>
+                    <br>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-success btn-sm" onclick="deletecheckedReminder()" id="reminderDeleteId">Yes</button>
+                        <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">No</button>
+                    </div>
+                    <br>
+                </div>
+
+            </div>
+        </div>
+
+ 
+     <!--Modal box for Add-->
+        <div id="editRemainder" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Save Reminders</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal">
+                            <!--Heading-->
+                            <div class="sub-title">
+                                <h4> Vehicle Information</h4>
+                            </div>
+                            <div class="sub-body">
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <!--Zone-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Vehicle<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <select class="form-control" id="sav_vehicleId">
+                                                        <!--                                                            <option value="0">Select Zone</option>
+                                                                                                                    <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--District-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Service Task<span class="star">*</span></label>
+                                                <div class="col-md-8 col-xs-12">
+                                                    <select class="form-control" id="sav_ServiceTaskId">
+                                                        <!--                                                            <option value="0">Select District</option>
+                                                                                                                    <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>-->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Primary Meter Interval<span class="star">*</span></label>
+                                                <div class="col-md-8 labelscss"> 
+                                                    <input type="text"  maxlength="8" placeholder="Enter Primary Meter Interval" class="form-control textwidth" name="vehicleName"  id="primaryMeterIntervalId"  onkeypress="return  Validate2(event)"  autocomplete="off">
+
+
+                                                </div>                        
+                                            </div>
+                                        </div>
+
+                                        <!--Ambulance-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Secondary Meter Interval<span class="star">*</span></label>
+                                                <div class="col-md-8 labelscss"> 
+                                                    <input type="text"  maxlength="8" placeholder="Enter Secondary Meter Interval" class="form-control textwidth" name="vehicleName" id="secondaryIntervalId" onkeypress="return  Validate2(event)"   autocomplete="off">
+                                                </div>  
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--Heading-->
+                                <!--                                    <div class="sub-title">
+                                                                        <h4>"Remainder" Settings</h4>
+                                                                    </div> -->
+                                <!--                                    <div class="sub-body">-->
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Time Interval</label>                                        
+                                                <div class="col-md-6 col-xs-12">
+                                                    <input type="text" class="form-control" placeholder="Enter Time Interval" style=" width: 270px" id="timeIntervalId" onkeypress="return  Validate2(event)" autocomplete="off">                                                   
+                                                </div>
+
+                                                <div class="col-md-2 col-xs-12"  style=" width: 120px; margin-left: -30px"> 
+                                                    <select class="form-control" id="totaldaysForTimeIntervalId">                                                           
+                                                        <option value="1">Day(s)</option>
+                                                        <option value="2">Week(s)</option>
+                                                        <option value="3">Month(s)</option>
+                                                        <option value="4">Year(s)</option>
+
+                                                    </select>
+                                                    <!--                                                    <i class="fa fa-info-circle" title="Meter Interval Remainders" data-toggle="popover" data-placement="bottom" data-content="Repeat based on a time interval (e.g. Car Wash every 1 month). Leave blank if you don't want to use this option.
+                                                                                                           "></i>-->
+                                                </div>
+<!--                                                 <i class="fa fa-info-circle" title="Meter Interval Remainders" data-toggle="popover" data-placement="bottom" data-content="Repeat based on a time interval (e.g. Car Wash every 1 month). Leave blank if you don't want to use this option. -->
+<!--                                                    "></i> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Primary Meter Threshold<span class="star">*</span></label>
+                                                <div class="col-md-8 labelscss"> 
+                                                    <input type="text"  maxlength="8" placeholder="Enter Meter Threshold" class="form-control textwidth"  id="PrimaryMeterThresholdId"  onkeypress="return  Validate2(event)"  autocomplete="off">
+                                                </div>  
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!--                                                                                   
+                                <div class="col-md-12 col-xs-12" >
+                                <!--Meter Interval-->
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Secondary Meter Threshold<span class="star">*</span></label>
+                                                <div class="col-md-8 labelscss"> 
+                                                    <input type="text"  maxlength="8" placeholder="Enter Secorndary Meter Interval" class="form-control textwidth"   id="SecondaryMeterThresholdId" onkeypress="return  Validate2(event)"  autocomplete="off">
+
+
+                                                </div>                        
+                                            </div>
+                                        </div>
+                                        <!--                                           
+                                        <!--Time Interval-->
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Time Threshold</label>                                        
+                                                <div class="col-md-6 col-xs-12">
+                                                    <input type="text" class="form-control" placeholder="Enter Time Interval" style=" width: 270px" id="timeThresholdId" onkeypress="return  Validate2(event)" autocomplete="off">                                                   
+                                                </div>
+                                                <div class="col-md-2 col-xs-12"  style=" width: 120px; margin-left: -30px"> 
+                                                    <select class="form-control" id="daysForTimeThresholdId">                                                           
+                                                        <option value="1">Day(s)</option>
+                                                        <option value="2">Week(s)</option>
+                                                        <option value="3">Month(s)</option>
+                                                        <option value="4">Year(s)</option>
+
+                                                    </select>
+<!--                                                     <i class="fa fa-info-circle" title="Meter Interval Remainders" data-toggle="popover" data-placement="bottom" data-content="Repeat based on a time interval (e.g. Car Wash every 1 month). Leave blank if you don't want to use this option. -->
+<!--                                                        "></i> -->
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 col-xs-12">
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4 col-xs-12">Email Notification</label>
+                                                <div class="col-md-8 col-xs-12"> 
+                                                    <div class="onoffswitch">
+                                                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="switch1">
+                                                        <label class="onoffswitch-label" for="switch1">
+                                                            <span class="onoffswitch-inner"></span>
+                                                            <span class="onoffswitch-switch"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 col-xs-12">
+                                            <div class="form-group" id="subscribedUsers" >
+                                                <label class="control-label col-md-4 col-xs-12">Subscribed Users<span class="star">*</span></label>
+                                                <div class="col-md-8 labelscss"> 
+                                                    <input type="text"  maxlength="25" placeholder="Enter Subscribed Users" class="form-control textwidth"  autocomplete="off" id="subscribedUsersId" autocomplete="off">
+                                                </div>                        
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="center" style="  margin-left: 587px;">
+
+                                <!--button-->
+
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addServiceReminderDetails()" id="serviceReminderId"><i class="fa fa-floppy-o p-r-xs"></i>Save</button>
+                                <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetServiceReminderDetails()"><i class="fa fa-refresh p-r-xs"></i>Rest</button>
+
+                                <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="resetServiceReminderDetails()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                            </div> <br> </form>
+
+                    </div>
+
+
+
+                </div></div>
+        </div>
+
+	      <!--Modal box for Update remainders-->
+        <div id="updateRemainder" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Update Reminders Status</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4 col-xs-12">Reminder  Remarks</label>
+                                        <div class="col-md-8 col-xs-12"> 
+                                            <textarea class="form-control" placeholder="Enter Remainder Remarks"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-check p-r-xs"></i>Update & Close Reminder</button>
+                                        <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            	<div class="footer">
+		<small>Powered  by Procreate Techno systems Private Limited</small>
+	</div>
+        </div>
+<input type="hidden" id="serviceTaskId">
+
+
+
+
+
+
+
+
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/datatables.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.js"></script> 
+        <script src="../../js/bootstrap-datetimepicker.min.js"></script>       
+        <script src="../../js/chosen.jquery.js"></script>
+        <script src="../../js/metisMenu.min.js"></script>
+        <script src="../../js/FMS/ServiceReminders.js"></script>
+        <script src="../../js/FMS/ServiceURL.js"></script>
+        <script src="../../js/FMS/VehicleRegistrationController.js"></script>
+        <script src ="../../js/notify.min.js"></script>
+        <script src ="../../js/notify.js"></script>
+           <!--         logout/login url -->
+<!--                <script src="../../../Common/serviceController/dashboard.js"></script> -->
+<!--         <script src="../../../Common/serviceController/ServiceUrl.js"></script>  -->
+<!--          <script src="../../../Common/serviceController/logout.js"></script> -->
+
+        <script>
+
+                                
+
+                                    $(document).ready(function () {
+                                    //	checkLoggedOrNot();
+                                        $('select').chosen();
+                                        //Side Menu
+                                        $("#menu-icon").click(function () {
+                                            $("#sidebar").toggleClass('active');
+                                            $("#content-wrap").toggleClass('active');
+                                        });
+
+                                        $('#metismenu').metisMenu();
+                                        //                                            Chosen Select
+                                        //                                    $('#district').chosen();
+                                        //                                    $('#baseLocation').chosen();
+                                        //                                    $('#vehicle').chosen();
+                                        //                                    $('#zone').chosen();
+                                        //                                    //                                            Modalbox
+                                        //                                    $('#md-district').chosen();
+                                        //                                    $('#md-baseLocation').chosen();
+                                        //                                    $('#md-vehicle').chosen();
+                                        //                                    $('#remainderType').chosen();
+                                        //                                    $('#remainder').chosen();
+                                        //                                    $('#remainderType_1').chosen();
+                                        //                                    $('#remainder_1').chosen();
+
+                                        //                                            Chosen Select End
+
+                                        $('[data-toggle="tooltip"]').tooltip();           // Tooltip
+                                        $('[data-toggle="popover"]').popover({
+                                            trigger: 'hover',
+                                            width: '200px;'
+                                        });
+                                        //                                            Data tables
+                                        $('#serviceRemainder').DataTable({// Data table
+                                            "aLengthMenu": [[05, 10, 15, 25, -1], [05, 10, 15, 25, "All"]],
+                                            pageLength: 5,
+                                            responsive: true,
+                                            dom: '<"html5buttons"B>lTfgitp',
+                                            buttons: [
+                                                {extend: 'copy'},
+                                                {extend: 'csv'},
+                                                {extend: 'excel', title: 'ExampleFile'},
+                                                //                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                                {extend: 'print',
+                                                    customize: function (win) {
+                                                        $(win.document.body).addClass('white-bg');
+                                                        $(win.document.body).css('font-size', '10px');
+
+                                                        $(win.document.body).find('table')
+                                                                .addClass('compact')
+                                                                .css('font-size', 'inherit');
+                                                    }
+                                                }
+                                            ]
+
+                                        });
+                                        //Date Pickers
+                                        $("#strtDate").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true
+                                        }).datepicker();
+                                        $("#endDate").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true
+                                        }).datepicker();
+
+                                    });
+                                    //                                        Toggle Button
+                                    $("#switch1").change(function () {
+                                        var ischecked = $(this).is(':checked');
+                                        if (ischecked === true) {
+                                            $('#subscribedUsers').css('display', 'block');
+                                        } else {
+                                            $('#subscribedUsers').css('display', 'none');
+                                        }
+                                    });
+
+                                    $(function () {
+                                        //Date And Time picker in Modal Box
+                                        $('#datetimepicker1').datetimepicker({
+                                            sideBySide: true,
+                                            format: 'DD-MM-YYYY HH:mm:ss'
+                                        });
+                                    });
+                                    $(window).load(function () {
+                                        // Animate loader off screen
+                                        $(".se-pre-con").fadeOut(50);
+                                    });
+
+        </script>
+
+    </body>
+</html>
+
+

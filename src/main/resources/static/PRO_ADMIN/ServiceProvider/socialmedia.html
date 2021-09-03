@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Social Media</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
+        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="css/metisMenu.css"/>
+        <link rel='stylesheet' href="css/datatables.min.css">
+        <link rel="stylesheet" href="css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="css/datepicker.css">
+        <link rel="stylesheet" href="css/style.css">
+     
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Top Menu-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <!--Side MenuIcon-->
+                        <a class="navbar-brand cursor" id="sidemenu-icon"><i class="fas fa-bars" style="color:#414344"></i></a>
+                        <!--Logo-->
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="img/pro-Logo.png" /></a>
+                        <!--Top MenuIcon-->
+                        <a class="navbar-brand cursor" id="topmenu-icon"><i class="fas fa-ellipsis-v" style="color:#414344"></i></a>
+
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">  
+        <label id="siteLableId"> <span class="siteclass text-center" style="margin-left: 747px; color: mediumblue;" id="siteNameId"></span></label>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a class="logintime">LogIn Time : 25-10-2019 11:29 AM</a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu animated fadeInDown">
+                                    <li><a href="#"><i class="fas fa-user"></i>My Profile</a></li>
+                                    <li><a href="#"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Side Menu-->
+           <nav class="side-nav" id="sideNav">
+			<ul class="nav p-t-lg" id="metisMenu">
+				<li><a href="dashboard_1.html"><i
+						class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+				<li><a href="usersegregation.html"><i class="fas fa-user"></i><span>Module
+							License Distribution</span></a></li>
+				<li><a href="usercreation.html"><i class="fas fa-user-plus"></i><span>User
+							Creation</span></a></li>
+				<li><a href="allsiteusers.html"><i class="fa fa-users"></i><span>All
+							Site Users </span></a></li>
+
+				<li><a href="#" class="has-arrow" aria-expanded="true"> <i
+						class='fa fa-users'></i> <span>Team Leaders</span>
+				</a>
+					<ul class="nav nav-second-level">
+						<li><a href="teamleadcreation.html"><i
+								class="fas fa-user-plus"></i><span>Team Leader Creation</span></a></li>
+						<li><a href="teamleadagentmap.html"><i class='far fa-map'></i><span>Team
+									Leader Agent Map</span></a></li>
+					</ul></li>
+				<li><a href="#" class="has-arrow" aria-expanded="true"> <i
+						class='fa fa-users'></i> <span>Shift Managers</span>
+				</a>
+					<ul class="nav nav-second-level">
+						<li><a href="shiftmanagercreation.html"><i
+								class="fas fa-user-plus"></i><span>Shift Manager Creation</span></a></li>
+						<li><a href="shiftmanagermapping.html"><i
+								class='far fa-map'></i><span>Shift Manager Team Leader
+									Map</span></a></li>
+					</ul></li>
+				<li><a href="#" class="has-arrow" aria-expanded="true"> <i
+						class='fas fa-phone-volume'></i> <span>CTI</span>
+				</a>
+					<ul class="nav nav-second-level">
+						<li><a href="CTIusercreation.html"><i
+								class="fas fa-user-plus"></i><span>User Creation</span></a></li>
+						<li><a href="mapping.html"><i class='far fa-map'></i><span>Mapping</span></a></li>
+					</ul></li>
+					<li><a href="terminalMapping.html"><i class="fas fa-cog"></i><span>Terminal Mapping
+							</span></a></li>
+				<li><a href="modulemapping.html"><i class="fas fa-dice-d20"></i><span>Modules
+							Mapping</span></a></li>
+				<!--                    <li>
+                                            <a href="#"><i class="fas fa-user-tag"></i><span>Roles Creation</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-puzzle-piece"></i><span>Privileges Creation</span></a>
+                                        </li>-->
+				<li><a href="whitelisting.html"><i class='fas fa-list-alt'></i><span>White
+							Listing</span></a></li>
+				<li><a href="sitesettings.html"><i class="fas fa-cog"></i><span>Site
+							Settings</span></a></li>
+				<li><a href="sitejurisdiction.html"><i
+						class='fas fa-balance-scale'></i><span>Site jurisdiction</span></a></li>
+				<li><a href="vehicles.html"><i class='fas fa-ambulance'></i><span>Vehicles</span></a>
+				</li>
+				<li><a href="socialmedia.html"><i class='fas fa-wifi'></i><span>Social
+							Media</span></a></li>
+				<li><a href="billing.html"><i class='fab fa-cc-apple-pay'></i><span>Billing</span></a>
+				</li>
+				<li><a href="thirdpartyApI.html"><i class="fas fa-cogs"></i><span>Third
+							Party ApI's</span></a></li>
+				<li><a href="#" class="has-arrow" aria-expanded="true"> <i
+						class="fas fa-chart-bar"></i> <span>Reports</span>
+				</a>
+					<ul class="nav nav-second-level">
+						<li><a href="login_Report.html"><i
+								class="fas fa-chart-line"></i><span>Login Module Wise
+									Report</span></a></li>
+						<li><a href="#"><i class="fas fa-chart-line"></i><span>Daily
+									Reports</span></a></li>
+						<li><a href="#"><i class="fas fa-chart-pie"></i><span>Weekly
+									Reports</span></a></li>
+						<li><a href="#"><i class="fas fa-chart-area"></i><span>Monthly
+									Reports</span></a></li>
+						<li><a href="#"><i class="fas fa-bezier-curve"></i><span>Quarterly
+									Reports</span></a></li>
+					</ul></li>
+				<li><a href="aboutus.html"><i class="fas fa-info-circle"></i><span>About
+							Us</span></a></li>
+				<li><a href="contactus.html"><i class="fas fa-address-book"></i><span>Contact
+							Us</span></a></li>
+			</ul>
+		</nav>
+            <!--Content-->
+            <div id="content-wrap" class="main-content">
+                <form class="p-t-n">
+                    <h2>Social Media</h2>
+                    <!--Site registration Form-->
+                 
+                </form> 
+            </div>
+                    </div>
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by <a href="http://procreate.co.in/" target="_blank">Procreate Techno systems Private Limited</a></small>
+            </div>
+            <!--Footer End-->
+
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+        <script src="js/metisMenu.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/datatables.min.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/chosen.jquery.js"></script>
+		<script src="js/site_Common.js"></script>
+
+        <script>
+
+         
+            $(document).ready(function() {
+                $('#sidemenu-icon').click(function() {
+                    $('#sideNav').toggleClass('active');
+                    $('#content-wrap').toggleClass('active');
+                    $('.nav-second-level').toggleClass('active');
+
+                });
+
+//                Menu Open in Small devices
+                $('#topmenu-icon').click(function() {
+                    $('#top-navbar').toggleClass('in');
+
+                });
+
+//                Metis Menu
+                $('#metisMenu').metisMenu({
+                    toggle: true
+                });
+
+//                Tootip
+                $('[data-toggle="tooltip"]').tooltip();
+
+                $('select').chosen();
+                //                Table
+                $('#moduleWiseAgents').DataTable({
+                    pageLength: 10,
+                    responsive: true,
+//                    dom: '<"html5buttons"B>lTfgitp',
+                    buttons: [
+                        {extend: 'copy'},
+                        {extend: 'csv'},
+                        {extend: 'excel', title: 'ExampleFile'},
+                        {extend: 'pdf', title: 'ExampleFile'},
+                        {extend: 'print',
+                            customize: function(win) {
+                                $(win.document.body).addClass('white-bg');
+                                $(win.document.body).css('font-size', '10px');
+
+                                $(win.document.body).find('table')
+                                        .addClass('compact')
+                                        .css('font-size', 'inherit');
+                            }
+                        }
+                    ]
+
+                });
+
+            });
+            $('#addAgentsCOunt').click(function() {
+                count = $('#agentsCount').val();
+                count++;
+                $('#agentsCount').val(count);
+
+            });
+            $('#reduceAgentsCOunt').click(function() {
+                totCount = $('#agentsCount').val();
+                if (totCount >= 1) {
+                    totCount--;
+                    $('#agentsCount').val(totCount);
+                }
+            });
+
+                   </script>
+    </body>
+</html>

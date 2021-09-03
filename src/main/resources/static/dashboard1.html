@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ERS Support system | Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+
+
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="css/fontfamily/font-style.css">
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            .btn {
+                width: 200px;
+                height: 100px;
+                margin: 7px;
+            }
+            /*img{
+                height: 50px;
+                width: 50px;
+                color: white;
+            }*/
+/*            #page-container{
+                background-color: blanchedalmond;
+            }*/
+        </style>
+
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Navbar-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#">Procreate</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <!--                        <ul class="nav navbar-nav">                 
+                                                    <li><a href="../../dashboard.html">Home</a></li>
+                                                    <li><a href="../Op_Dashboard.html">Dashboard</a></li>                        
+                                                </ul>-->
+
+                        <ul class="nav navbar-nav navbar-right">
+
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Navbar End-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">ERS Dashboard</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                    <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li> 
+                    <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="left" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>     
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Main Content-->
+            <div id="content-wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-primary">               
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-12">                           
+                                        </div>
+                                        <div class="col-xs-12 col-md-12">
+                                            <a  href="AMS/AMS_dashboard.html" class="btn btn-danger btn" role="button">
+                                                <span><i class="fa fa-user" aria-hidden="true"></i>
+                                                </span><br/>Access<br> Management
+                                            </a>
+                                            <a href="FleetManagementSystems/" class="btn btn-warning btn" role="button">
+                                                <span class="glyphicon glyphicon-bookmark">                                 
+                                                </span><br/>Fleet<br> Management
+                                            </a>
+                                            <a href="WorkForceManagement/WFMS_Dashboard.html" class="btn btn-success btn" role="button">
+                                                <span class="glyphicon glyphicon-signal">                                 
+                                                </span> <br/>Work Force<br> Management
+                                            </a>
+                                            <a href="OPdesk/Op_Dashboard.html" class="btn btn-info btn" role="button">
+                                                <span class="glyphicon glyphicon-comment">                                 
+                                                </span><br/>Operational<br> Help Desk
+                                            </a>
+                                            <a href="#" class="btn btn-secondary btn" role="button">
+                                                <span class="glyphicon glyphicon-signal">                                 
+                                                </span><br/>Police
+                                            </a>
+                                            <br>
+                                            <a href="#" class="btn btn-primary btn" role="button">
+                                                <span><i class="fa fa-fire" aria-hidden="true"></i>
+                                                </span><br/>Fire
+                                            </a>
+
+                                            <a href="#" class="btn btn-secondary btn" role="button">
+                                                <span><i class="fa fa-hospital-o" aria-hidden="true"></i>
+                                                </span> <br/>Hospital
+                                            </a>
+                                            <a href="#" class="btn btn-info btn" role="button">
+                                                <span class="glyphicon glyphicon-file">                                 
+                                                </span><br/>Supply Chain<br> Management
+                                            </a>
+                                            <a href="#" class="btn btn-danger btn" role="button">
+                                                <span><i class="fa fa-sitemap" aria-hidden="true"></i>
+                                                </span> <br/>Asset<br> Management
+                                            </a>
+                                            <a href="#" class="btn btn-primary btn" role="button">
+                                                <span class="glyphicon glyphicon-tag">                                 
+                                                </span> <br/>It Help Desk
+                                            </a>
+                                            <br>
+                                            <a href="#" class="btn btn-primary btn" role="button">
+                                                <span class="glyphicon glyphicon-tag">                                 
+                                                </span> <br/>FleetIO
+                                            </a>
+                                                <a href="Operations/forceLogout/forceLogout.html" class="btn btn-success btn btn-block" role="button">
+                                                    <span class="glyphicon glyphicon-globe">                            
+                                                    </span><br> Operations
+                                                </a>
+                                             <a href="#" class="btn btn-primary btn" role="button">
+                                                <span class="glyphicon glyphicon-tag">                                 
+                                                </span> <br/>Feedback Management
+                                            </a>
+                                           
+                                        </div>
+                                    </div>                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+     <script src="common_js/jquery1.2.min.js"></script>
+	<script src="common_js/moment.min.js"></script>
+	<script src="common_js/bootstrap.min.js"></script>
+	<script src="common_js/datatables.min.js"></script>
+	<script src="common_js/chosen.jquery.js"></script>
+	<script src="common_js/metisMenu.min.js"></script>
+	<script src="common_js/bootstrap-datepicker.js"></script>
+	<script src="common_js/bootstrap-datetimepicker.min.js"></script>
+	<script src="common_js/notify.js/"></script>
+	<script src="common_js/notify.min.js/"></script><script src="../js/common_js/jquery-3.3.1.min.js"></script>
+        <script src="common_js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+
+
+        </script>
+    </body>
+</html>
+

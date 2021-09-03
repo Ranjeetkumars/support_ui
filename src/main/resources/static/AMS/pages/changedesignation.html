@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AMS| Change Designation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../common_images/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../common_css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../common_css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../common_css/datatables.min.css">
+        <link rel="stylesheet" href="../../common_css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../common_css/datepicker.css">
+        <link rel="stylesheet" href="../../common_css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../common_css/common_css.css">
+        <style>
+       
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../common_images/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../AMS_dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">                            
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">                                    
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+             <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">Change Designation</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                    <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li> 
+                   
+                    <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>     
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+<!--                    Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+<!--                    Title Heade End-->
+                    <div class="row">
+                        <div class="col-md-2 col-xs-12"></div>
+<!--                       Present Designation-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-xs-12">Present Designation<span class="star">*</span></label>
+                                <div class="col-md-9 col-xs-12">
+                                    <select class="form-control" name="dractityid">
+                                        <option value="0">Select Present Designation</option>
+                                        <option value="1">Fuel Filling</option>
+                                        <option value="2">Oxygen Filling</option>
+                                        <option value="3">Tyre Life</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+<!--                        Change Designation-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Change Designation<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control">
+                                        <option value="0">Select Change Designation</option>
+                                        <option value="1">Fuel Filling</option>
+                                        <option value="2">Oxygen Filling</option>
+                                        <option value="3">Tyre Life</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+<!--                    buttons-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                        </div>
+                    </div>   
+                    <hr>
+<!--                    table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="container">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive">    
+                                    <table id="driverTable" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>S.NO</th>
+                                                <th>User Name</th>
+                                                <th>Select </th>                           
+                                               
+                                                                         
+                                                                           
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>gajanan_puranik</td>                                               
+                                                <td>  <input type="checkbox" name="" > </td>
+                                                                                                                                              
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>dhana lakshmi</td>
+                                                 <td>  <input type="checkbox" name="" > </td>
+                                                                                                                                         
+                                            </tr>                                                                                    
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+            <!--Content End-->
+           
+            <!--Footer-->
+            <div class="footer">
+                <small>Powdered by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../../common_js/jquery1.2.min.js"></script>
+        <script src="../../common_js/moment.min.js"></script>
+        <script src="../../common_js/bootstrap.min.js"></script>
+        <script src="../../common_js/datatables.min.js"></script>
+        <script src="../../common_js/bootstrap-datepicker.js"></script> 
+        <script src="../../common_js/bootstrap-datetimepicker.min.js"></script>       
+        <script src="../../common_js/chosen.jquery.js"></script>
+        <script>
+
+                                        $(function() {
+//Date And Time picker in Modal Box
+                                            $('#datetimepicker1').datetimepicker({
+                                                sideBySide: true,
+                                                format: 'DD-MM-YYYY HH:mm:ss'
+                                            });
+                                        });
+
+                                        $(document).ready(function() {
+                                            $('select').chosen();                            //Chosen select
+                                            $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                                            $('#driverTable').DataTable({// Data table
+                                                pageLength: 10,
+                                                responsive: true,
+                                                dom: '<"html5buttons"B>lTfgitp',
+                                                buttons: [
+                                                    {extend: 'copy'},
+                                                    {extend: 'csv'},
+                                                    {extend: 'excel', title: 'ExampleFile'},
+                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                                    {extend: 'print',
+                                                        customize: function(win) {
+                                                            $(win.document.body).addClass('white-bg');
+                                                            $(win.document.body).css('font-size', '10px');
+
+                                                            $(win.document.body).find('table')
+                                                                    .addClass('compact')
+                                                                    .css('font-size', 'inherit');
+                                                        }
+                                                    }
+                                                ]
+
+                                            });
+                                             $('#driverTable1').DataTable({// Data table
+                                                pageLength: 10,
+                                                responsive: true,
+                                                dom: '<"html5buttons"B>lTfgitp',
+                                                buttons: [
+                                                    {extend: 'copy'},
+                                                    {extend: 'csv'},
+                                                    {extend: 'excel', title: 'ExampleFile'},
+                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                                    {extend: 'print',
+                                                        customize: function(win) {
+                                                            $(win.document.body).addClass('white-bg');
+                                                            $(win.document.body).css('font-size', '10px');
+
+                                                            $(win.document.body).find('table')
+                                                                    .addClass('compact')
+                                                                    .css('font-size', 'inherit');
+                                                        }
+                                                    }
+                                                ]
+
+                                            });
+//Date Pickers
+                                            $("#strtDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+                                            $("#endDate").datepicker({
+                                                autoclose: true,
+                                                todayHighlight: true
+                                            }).datepicker();
+
+                                        });
+
+
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('.dropdown-submenu a.test').on("click", function(e) {
+                    $(this).next('ul').toggle();
+                    e.stopPropagation();
+                    e.preventDefault();
+                });
+            });
+        </script>
+
+    </body>
+</html>
+
+

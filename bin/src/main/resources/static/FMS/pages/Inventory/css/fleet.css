@@ -1,0 +1,188 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 3, 2019, 12:35:23 PM
+    Author     : Usha Rani
+*/
+
+            /* Toggle Active Classes */
+            .sidebar.active {                
+                left: -250px;
+            }
+
+            #content-wrap.active {
+                margin-left: 0px;               
+            }
+
+            .table>thead>tr>th:first-child{
+                width: 37px !important;
+            }
+            .vehicle-img{
+                height: 50px;
+                float: left;
+            }
+            .p-l-xxl{
+                padding-left:74px;
+            }
+
+            .text-green{
+                color:#18cc6c;
+            }
+            .fa-circle{
+                font-size:10px;
+            }
+            .update-icon{
+                border: 1px solid #7f863c;
+                padding: 2px;
+                border-radius: 4px;
+                margin-left: 6px;
+                cursor: pointer;
+            }
+            .cursor{
+                cursor: pointer;
+            }
+
+            label,.form-control,.chosen-container-single .chosen-single span,.popover-title,.popover-content {
+                font-weight: normal;
+                font-size: 13px;
+                color: #262C2D;
+                font-family: -apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            }
+            
+     /*Added By Usha*/
+  /*Toggle Button Css*/
+            .onoffswitch {
+                position: relative;
+                width: 120px;
+                -webkit-user-select:none;
+                -moz-user-select:none;
+                -ms-user-select: none;
+            }
+
+            .onoffswitch-checkbox {
+                display: none;
+            }
+
+            .onoffswitch-label {
+                display: block;
+                overflow: hidden;
+                cursor: pointer;
+                border: 2px solid #27A1CA
+                    ; border-radius: 0px;
+            }
+
+            .onoffswitch-inner {
+                display: block; width: 400%; margin-left: -100%;
+                -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+                -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+            }
+
+            .onoffswitch-inner:before, .onoffswitch-inner:after {
+                display: block; float: left; width: 25%; height: 22px; padding: 0; line-height: 20px;
+                font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+                -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+                border: 2px solid transparent;
+                background-clip: padding-box;
+            }
+
+            .onoffswitch-inner:before {
+                content: 'ON';
+                padding-left: 10px;
+                background-color: #FFFFFF; color: #27A1CA;
+            }
+
+            .onoffswitch-inner:after {
+                content: 'OFF';
+                padding-right: 16px;
+                background-color: #FFFFFF; color: #666666;
+                text-align: right;               
+            }
+
+            .onoffswitch-switch {
+                display: block; width: 25px; margin: 0px;
+                background: #27A1CA;
+                position: absolute; top: 0; bottom: 0; right: 93px;
+                -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+                -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+            }
+
+            .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+                margin-left: 0;
+            }
+
+            .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+                right: 0px; 
+            }
+
+/*side nav bar (fa-bars) minimise and maximise working by using this css start*/
+              #content-wrap {
+                margin-left: 250px;
+                transition: all 0.5s;
+            }
+              .navbar-brand-1{
+                float: left;
+                padding-right: 15px;
+                font-size: 18px;
+                margin-top: -5px;
+                cursor: pointer;
+            }
+           
+            /* Toggle Active Classes */
+            .sidebar.active {                
+                left: -250px;
+            }
+
+            #content-wrap.active {
+                margin-left: 0px;               
+            }
+        .table>thead>tr>th:first-child{
+                width: 37px !important;
+            }
+            
+             /*side nav bar (fa-bars) minimise and maximise working by using this css end*/
+               .sidebar-content {
+                max-height: calc(100% - 30px);
+                height: calc(100% - 30px);
+                overflow-y: auto;
+                position: relative;
+                background: darkcyan;
+            }
+            .sidebar-menu > ul> li> a:hover, .sidebar-menu > ul> li> a:focus {
+                /* background: #3b455d; */
+                background: darkcyan;
+                outline: none;
+            }
+            
+            .bg-info {
+                background: cadetblue;
+            }
+            .modal-header .modal-title {
+                background: darkcyan;
+            }
+            .modal-header{
+                background: darkcyan;
+            }
+            .second-nav{
+                background: darkcyan;
+            }
+            .table>thead>tr>th{
+                background: darkcyan;
+            }
+           
+            .modal-title {
+
+                line-height: 2.428571;
+            }
+            .modal-body {
+                padding: 30px;
+            }
+            .delete{
+                height: 30px; 
+                padding-top: 3px;
+                left: 14%;
+                position: absolute;
+                display:inline-block;
+            }

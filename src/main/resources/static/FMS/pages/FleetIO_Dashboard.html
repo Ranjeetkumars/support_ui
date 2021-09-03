@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <title>Fleet IO| Dashboard</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css">
+
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../css/fontfamily/font-style.css">
+        <link rel="stylesheet" href="../css/style.css">
+        
+        <style>
+:root {
+  touch-action: pan-x pan-y;
+  height: 100% 
+}
+            .p-n{
+                padding:0;
+            }
+
+            h5{
+                color: #31708f;
+                font-size: 15px;
+                margin-top: 0;
+                font-weight: 600;
+            }
+            .row{
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .bg-title{
+                background: #33b5e5;
+                padding: 6px 6px;
+                border-radius: 0;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+            }
+        .bg-title h4{
+                color:#fff;
+                margin:0;
+            }
+/*             //style="font-size : 20px; width: 100%; height: 100px;" */
+.btn {
+    width: 317px;
+    height: 171px;
+    margin: 8px;
+    font-size : 20px;
+    
+}
+.second-nav {
+    background: #00467A;
+    border-bottom: 1px solid #d3d9db;
+    margin-bottom: 20px;
+    /* border-top: 1px solid #d3d9db; */
+    margin-top: 52px;
+    padding: 10px 16px;
+    min-height: 50px;
+    line-height: 2.7;
+    width: 151%;
+}
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Navbar-->
+                <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+<!--                         <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../images/pro-Logo.png"" /></a> -->
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                         <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashBoard.html"><span class="fa fa-home"></span> Home</a></li>
+                            <li><a href="../../dashBoard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                      
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class=""> </i>Help
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Navbar End-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">FMS Dashboard</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                    <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li> 
+                    <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="left" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>     
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Main Content-->
+            <div id="content-wrap">
+                <!--Content-->
+
+ <div class="container" style="margin-top:0%;">
+    <div class="row">
+<!--         <div class="col-md-12"> -->
+            <div class="panel panel-primary" style="width: 150%;height:120%; position: absolute;margin-left:1%;">               
+                <div class="panel-body">
+                    
+                    
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                            
+<!--                            <div class="bg-title">
+                        <h4>Favorites</h4>
+                    </div>-->
+                             <div class="bg-title">
+                        <h4>User Dashboard</h4>
+                    </div>
+                    
+                    <div class="row">
+<!--                     <div class="col-sm-3"> -->
+<!--                      <a  href="Vehicles/VehicleRegstration.html" class="btn btn-danger btn" role="button" style="background-color: #0ee0ea;border-color: #0ee0ea;"> -->
+<!--                                 <span><i class="fa fa-cab" aria-hidden="true"></i> -->
+<!--                                 </span><br/>Vehicles -->
+<!--                             </a> -->
+<!--                             </div> -->
+                            
+                            
+                                                <div class="col-md-3 col-xs-12">
+                    <a href="Vehicles/VehicleRegstration.html" style="background-color:#f5b540;border-color: #f5b540;">
+                        <div class="cards" >
+                            <div class="view">
+                                <div class="review">
+                                    <img src="../images/ambulance.png" style="height: 22px; class="center" alt="" class="img-responsive">                              
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                            <div class="card-body" style="background-color: #0be845;border-color: #0be845;">
+                                <h4 class="card-title" style="color: white;" >Vehicles</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                
+                                                 <div class="col-md-3 col-xs-12">
+                    <a href="VehicleAssign_Deassign/VehicleMapWithBaselocation.html" style="background-color:#f5b540;border-color: #f5b540;">
+                        <div class="cards" >
+                            <div class="view">
+                                <div class="review">
+                                    <img src="../images/vehicleAssign.png" style="height: 22px; class="center" alt="" class="img-responsive">                              
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                            <div class="card-body" style="background-color:#316906;border-color: #316906;">
+                                <h4 class="card-title" style="color: white;" >VehicleAssign-Deassign</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+<!--                             <div class="col-sm-3"> -->
+<!--                             <a  href="VehicleAssign_Deassign/VehicleMapWithBaselocation.html" class="btn btn-danger btn" role="button" style="background-color: #27c13a;border-color: #27c13a;"> -->
+<!--                                 <span><i class="fa fa-cab" aria-hidden="true"></i> -->
+<!--                                 </span><br/>VehicleAssign-Deassign -->
+<!--                             </a> -->
+<!--                             </div> -->
+<!--                             <div class="col-sm-3"> -->
+<!--                             <a href="Scheduling/pages/Scheduling.html" class="btn btn-warning btn" role="button" style="background-color: #ab4731;border-color: #ab4731;"> -->
+<!--                               <span class="fa fa-building">                                  -->
+<!--                               </span><br/>Inspections -->
+<!--                           </a> -->
+<!--                     </div> -->
+                                 <div class="col-md-3 col-xs-12">
+                    <a href="Scheduling/pages/Scheduling.html" style="background-color:#f5b540;border-color: #f5b540;">
+                        <div class="cards" >
+                            <div class="view">
+                                <div class="review">
+                                    <img src="../images/inspection.png" style="height: 22px; class="center" alt="" class="img-responsive">                              
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                            <div class="card-body" style="background-color: #1348dc;border-color: #1348dc;">
+                                <h4 class="card-title" style="color: white;" >Inspections</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                      
+<!--                      <div class="col-sm-3"> -->
+<!--                             <a href="Issues/addIssues.html" class="btn btn-primary btn" role="button"> -->
+<!--                               <span class="fa fa-info-circle">                                  -->
+<!--                               </span> <br/>Issues -->
+<!--                           </a> -->
+<!--                     </div> -->
+                     
+                           <div class="col-md-3 col-xs-12">
+                    <a href="Issues/addIssues.html" style="background-color:#f5b540;border-color: #f5b540;">
+                        <div class="cards" >
+                            <div class="view">
+                                <div class="review">
+                                    <img src="../images/issue.png" style="height: 22px;margin-right: 33px;" class="center" alt="" class="img-responsive">                              
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                            <div class="card-body" style="background-color:#ab4731;border-color: #ab4731;">
+                                <h4 class="card-title" style="color: white;">Issues</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                    </div>
+                 <div class="row">
+<!--                       <div class="col-sm-3"> -->
+                        
+<!--                             <a href="Remainders/serviceremainders.html" class="btn btn-info btn" role="button" style="background-color:#988aad;border-color: #988aad;"> -->
+<!--                               <span class="fa fa-clock-o">                                  -->
+<!--                               </span><br/>Remainders -->
+<!--                           </a> -->
+<!--                       </div> -->
+                      <div class="col-md-3 col-xs-12">
+                    <a href="service/AddServiceTasks.html" style="background-color:#f5b540;border-color: #f5b540;">
+                        <div class="cards" >
+                            <div class="view">
+                                <div class="review">
+                                    <img src="../images/reminder.png" class="center" style="height:100px;"  alt="" class="img-responsive">                              
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                            <div class="card-body" style="background-color:#8f0fc3;border-color: #8f0fc3;">
+                                <h4 class="card-title" style="color: white;">Remainders</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                        
+<!--                        <div class="col-sm-3"> -->
+<!--                          <a href="service/AddServiceTasks.html" class="btn btn-danger btn" role="button"> -->
+<!--                               <span class="fa fa-thumbs-o-up">                                  -->
+<!--                               </span><br/>Services -->
+<!--                           </a> -->
+<!--                       </div> -->
+
+
+
+ <div class="col-md-3 col-xs-12">
+                    <a href="service/AddServiceTasks.html" style="background-color:#f5b540;border-color: #f5b540;">
+                        <div class="cards">
+                            <div class="view">
+                                <div class="review">
+                                    <img src="../images/vehicleService.jpg" alt="" class="img-responsive">                              
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                            <div class="card-body" style="background-color:#93ab0e;border-color: #93ab0e;">
+                                <h4 class="card-title" style="color: white;">Service</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                     
+<!--                        <div class="col-sm-3"> -->
+<!--                         <a href="Fuel/addnewFuel_latest.html" class="btn btn-primary btn" role="button" style="background-color:#f5b540;border-color: #f5b540;"> -->
+<!-- <!--                               <span><i class="fa fa-fire" aria-hidden="true"></i> -->
+                              
+<!-- <!--                               <span><i class="fa fa-fire" aria-hidden="true"></i> --> 
+<!-- <!--                               <img alt="ProCreate Logo" src="../images/fuel.jpg"" /> --> 
+<!-- <!--                                </span><br/>Fuel --> 
+                               
+                               
+                               
+<!--                                  <div class="cards"> -->
+<!--                             <div class="view"> -->
+<!--                                 <div class="review"> -->
+<!--                                     <img src="../images/fuel.jpg" alt="" class="img-responsive">                               -->
+<!--                                     <div class="mask"></div> -->
+<!--                                 </div> -->
+<!--                             </div> -->
+<!--                             <div class="card-body"> -->
+<!--                                 <h4 class="card-title">Fuel</h4> -->
+<!--                             </div> -->
+<!--                         </div>  -->
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+<!--                            </a> -->
+<!--                       </div> -->
+
+
+     <div class="col-md-3 col-xs-12">
+                    <a href="Fuel/addnewFuel_latest.html" style="background-color:#f5b540;border-color: #f5b540;">
+                        <div class="cards" >
+                            <div class="view">
+                                <div class="review">
+                                    <img src="../images/fuel.jpg" style="height: 22px; alt="" class="img-responsive">                              
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                            <div class="card-body" style="background-color:#7a0d7b;border-color: #7a0d7b;">
+                                <h4 class="card-title" style="color: white;">Fuel</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+<!--                        <div class="col-sm-3"> -->
+<!--                          <a href="Contact&Users/contactlist.html" class="btn btn-info btn" role="button" style="background-color:#4af703;border-color: #4af703;"> -->
+<!--                                <span><i class="fa fa-user" aria-hidden="true"></i> -->
+<!--                                </span> <br/>Contact&Users -->
+<!--                            </a> -->
+<!--                       </div> -->
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                     <div class="col-md-3 col-xs-12">
+                    <a href="service/AddServiceTasks.html" style="background-color:#f5b540;border-color: #f5b540;">
+                        <div class="cards" >
+                            <div class="view">
+                                <div class="review">
+                                    <img src="../images/Contact.PNG" class="center" style="height: 22px;"  alt="" class="img-responsive">                              
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                            <div class="card-body" style="background-color:#0aec06;border-color: #0aec06;">
+                                <h4 class="card-title" style="color: white;">Contact&Users</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                    
+                    
+                    
+                    </div>
+                    <div class="row">
+                  
+<!--                     <div class="col-sm-3"> -->
+<!--                        <a href="Inventory/pages/Inventor_Report.html" class="btn btn-success btn" role="button" style="background-color:  #9009a9;border-color:   #9009a9;"> -->
+<!--                                <span><i class="fa fa-money" aria-hidden="true"></i> -->
+<!--                                </span> <br/>Parts&Inventory -->
+<!--                            </a> -->
+<!--                     </div> -->
+
+       <div class="col-md-3 col-xs-12">
+                    <a href="Inventory/pages/Inventor_Report.html" style="background-color:#f5b540;border-color: #f5b540;">
+                        <div class="cards"    >
+                            <div class="view">
+                                <div class="review">
+                                    <img src="../images/images.jpg" class="center"  alt="" class="img-responsive">                              
+                                    <div class="mask"></div>
+                                </div>
+                            </div>
+                            <div class="card-body" style="background-color:#f5b540;border-color: #f5b540;">
+                                <h4 class="card-title" style="color: white;">Parts&Inventory</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+
+<!--                       <div class="col-sm-3"> -->
+<!--                       <a href="Places/places.html" class="btn btn-success btn" role="button" style="background-color:#9ea015;border-color:#9ea015;"> -->
+<!--                                <span><i class="fa fa-road" aria-hidden="true"></i> -->
+<!--                                </span> <br/>Places -->
+<!--                            </a> -->
+<!--                     </div> -->
+<!--                       <div class="col-sm-3"> -->
+                        
+                           
+<!--                            <a href="Reports/reports.html" class="btn btn-success btn" role="button" style="background-color:#484738;border-color:#484738;"> -->
+<!--                                <span><i class="fa fa-book" aria-hidden="true"></i> -->
+<!--                                </span> <br/>Reports -->
+<!--                            </a> -->
+<!--                     </div> -->
+                    
+                    </div>
+                    
+                         
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+<!--         </div> -->
+    </div>
+</div>
+                     
+                    <!--Admin Modules-->
+             
+                <!--Content End-->
+            </div>
+            <!--Main Content End-->
+            <!--Footer-->
+            <div class="footer">
+                <small>Powered by Vsoft Pvt.Ltd</small>
+            </div>
+            <!--Footer End-->
+        </div>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+
+//            Accordian Form
+
+         
+        </script>
+    </body>
+</html>

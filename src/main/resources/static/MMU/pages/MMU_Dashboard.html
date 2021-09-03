@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MMU| Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title Icon-->
+<!--CSS Links-->
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../assets/css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../assets/css/datatables.min.css">
+<link rel="stylesheet" href="../assets/css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../assets/css/metisMenu.css" />
+<link rel="stylesheet" href="../assets/css/datepicker.css">
+<link rel="stylesheet"
+	href="../assets/css/bootstrap-datetimepicker.min.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/fleet.css">
+<style>
+.p-n {
+	padding: 0;
+}
+
+h5 {
+	color: #31708f;
+	font-size: 15px;
+	margin-top: 0;
+	font-weight: 600;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.bg-title {
+	background: #33b5e5;
+	padding: 6px 6px;
+	border-radius: 0;
+	margin-bottom: 10px;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0
+		rgba(0, 0, 0, .12);
+}
+
+.bg-title h4 {
+	color: #fff;
+	margin: 0;
+}
+
+.card {
+	margin-left: -130px;;
+	width: 100%;
+}
+</style>
+</head>
+<body>
+	<div id="page-container">
+		<!--Navbar-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+					<a class="navbar-brand" href="#"><img alt="ProCreate Logo"
+						src="../images/pro-Logo.png" /></a>
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+					<ul class="nav navbar-nav">
+						<li><a href="MMU_Dashboard.html"><span
+								class="glyphicon glyphicon-home"></span> Home</a></li>
+						<li><a href="MMU_Dashboard.html"><i
+								class="fa fa-th-large"></i> Dashboard</a></li>
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class=""> </i>Help </a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a  onclick="logout()" href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Navbar End-->
+		<!--Second Header-->
+		<div class="second-nav">
+			<ul class="pull-left">
+				<li>
+					<h4 style="margin-top: 6px">MMU Dashboard</h4>
+				</li>
+			</ul>
+		</div>
+		<!--Second Header End-->
+		<!--Main Content-->
+		<div id="content-wrap">
+			<!--Content-->
+			<div class="container">
+				<div class="card">
+					<div class="bg-title">
+						<h4>MMU Dashboard</h4>
+					</div>
+					<div class="row">
+						<!--Service Point Registation-->
+						<div class="col-md-4 col-xs-12">
+							<a href="MMUs/service_point_registation.html">
+								<div class="cards">
+									<div class="view">
+										<div class="review">
+											<img src="../images/Service-point-reg.png" alt=""
+												class="img-responsive">
+											<div class="mask"></div>
+										</div>
+									</div>
+									<div class="card-body">
+									<h4 class="card-title">Service Point Registation</h4>
+								</div>
+								</div>	
+								</a>						
+						</div>
+						<!--Vehicle to District Mapping-->
+
+						<div class="col-md-4 col-xs-12">
+							<a href="MMUs/vehicle_to_district_mapping.html">
+							<div class="cards">
+								<div class="view">
+									<div class="review">
+										<img src="../images/Medical_district.png" alt=""
+											class="img-responsive">
+										<div class="mask"></div>
+									</div>
+								</div>
+								<div class="card-body">
+									<h4 class="card-title">Vehicle to District Mapping</h4>
+								</div>
+							</div>
+							</a>
+						</div>
+						<!--Vehicle to Service Point Scheduling-->
+						<div class="col-md-4 col-xs-12">
+							<a href="MMUs/vehicle_to_service_point_schdule.html">
+							<div class="cards">
+								<div class="view">
+									<div class="review">
+										<img src="../images/service-point.png" alt=""
+											class="img-responsive">
+										<div class="mask"></div>
+									</div>
+								</div>
+								<div class="card-body">
+									<h4 class="card-title">Vehicle to Service Point Scheduling</h4>
+								</div>
+							</div>
+							 </a>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<!--Content End-->
+		</div>
+		<!--Main Content End-->
+		<!--Footer-->
+		<div class="footer">
+			<small>Powdered by Procreate Techno systems Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.2.3/jquery.min.js"></script>
+	<script src="../assets/js/jquery1.2.min.js"></script>
+	<script src="../assets/js/moment.min.js"></script>
+	<script src="../assets/js/bootstrap.min.js"></script>
+	<script src="../assets/js/datatables.min.js"></script>
+	<script src="../assets/js/chosen.jquery.js"></script>
+	<script src="../assets/js/metisMenu.min.js"></script>
+	<script src="../assets/js/bootstrap-datepicker.js"></script>
+	<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../assets/js/notify.js/"></script>
+	<script src="../assets/js/notify.min.js/"></script>
+	
+	    <!--         logout/login url -->
+               <script src="../../Common/serviceController/dashboard.js"></script>
+        <script src="../../Common/serviceController/ServiceUrl.js"></script> 
+         <script src="../../Common/serviceController/logout.js"></script>
+	<script>
+		$(document).ready(function() {
+			 checkLoggedOrNot();
+			$('[data-toggle="tooltip"]').tooltip();
+		});
+
+		//            Accordian Form
+
+		var selectIds = $('#collapseOne,#collapseTwo');
+		$(function($) {
+			selectIds.on('show.bs.collapse hidden.bs.collapse', function() {
+				$(this).prev().find('.fa').toggleClass('fa-plus fa-minus');
+			});
+		});
+	</script>
+</body>
+</html>

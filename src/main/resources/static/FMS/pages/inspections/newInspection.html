@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fleet Management | Inspection History</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/metisMenu.css"/>
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/fleet.css">
+        <style>
+            .badge-danger{
+                background-color: red;
+            } 
+            .redirect{
+                color : white;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header End-->
+            <!--Side Nav Bar-->
+                       <!--Main Header End-->
+        <nav id='sidebar' class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <h3 class="header">Fleet Management</h3>
+                    </div>
+                    <div class='sidebar-menu'>
+                        <ul class="metismenu" id="metismenu">
+                            <li>
+                                <a href='../FleetIO_Dashboard.html'>
+                                    <i class='fa fa-tachometer'></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <!--Vehicles-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-cab'></i>
+                                    <span>Vehicles</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Vehicles/vehicleList.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle List</span>
+                                        </a>
+                                    </li>
+                                 
+                                      <li>
+                                        <a href="../addBaseLocation/addBaseLocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add BaseLocation</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                        <a href="../VehicleAssign_Deassign/VehicleMapWithBaselocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Mapping</span>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="../VehicleAssign_Deassign/EMT_PilotAssign_Deassign.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Emt/Pilot Assign/Deassign</span>
+                                        </a>
+                                    </li>
+                                    
+                                    <li>
+                    
+                                        <a href="../vehicles/watchedVehicles.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Watched Vehicles</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/meterHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Meter History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/expenseHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Expense History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../vehicles/gpsIntegration.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>GPS Integration</span>
+                                        </a>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                            <!--Inspections-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-building'></i>
+                                    <span>Inspections</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../inspections/inspectionHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Inspection History</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../inspections/itemFailures.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Item Failures</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Scheduling/pages/Scheduling.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Schedules</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../inspections/forms.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Forms</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Issues-->
+                          	<!--Issues-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-info-circle '></i> <span>Issue</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Issues/Issueslist.html"> <i
+										class="fa fa-circle-o"></i> <span>Issues List</span>
+								</a></li>
+								<li><a href="../Issues/faults.html"> <i
+										class="fa fa-circle-o"></i> <span>Faults</span>
+								</a></li>
+								<li><a href="../Issues/recall.html"> <i
+										class="fa fa-circle-o"></i> <span>Recalls</span>
+								</a></li>
+
+							</ul></li>
+
+                            <!--Remainders-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-clock-o '></i>
+                                    <span>Remainder</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Remainders/serviceremainders.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Service Remainder</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Remainders/VehicleRenewalReminder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Renewals</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Remainders/contactRenewal.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Contact Renewals</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--Services-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-thumbs-o-up '></i>
+                                    <span>Services</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../service/serviceHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services History </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/serviceTask.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services Task </span>
+                                        </a>
+                                    </li>
+                                 
+                                    <li>
+                                        <a href="../service/shopdirectory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Shop Directory</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/integrations.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Integrations</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                                                    <!--Contacts & Users-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-user'></i> <span>Contacts & Users</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Contact&Users/contactlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact List</span>
+								</a></li>
+								<li><a href="../Contact&Users/userManagement.html"> <i
+										class="fa fa-circle-o"></i> <span>User Management</span>
+								</a></li>
+								<li><a href="../Contact&Users/vendorlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Vendor List</span>
+								</a></li>
+							</ul></li>
+                            <!--Fuels-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-filter '></i>
+                                    <span>Fuel</span>
+                                </a>
+                                <ul class="nav first-child">
+                                                 <li>
+                                        <a href="../Fuel/FuelHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>FuelHistory</span>
+                                    	</a></li>
+							</ul></li>
+                                    
+                                    
+                              <!--Places-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-road'></i>
+                                    <span>Places</span>
+                                </a>
+                              
+                            </li>
+                            <!--Reports-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-book'></i>
+                                    <span>Reports</span>
+                                </a>
+                            </li> 
+                            
+                              <li>
+                                <a href="../reports/reports.html">
+                                    <i class='fa fa-money '></i>
+                                    <span>Integrations</span>
+                                </a>
+                            </li> 
+
+                                </ul>
+                            </li>
+
+                           
+
+
+
+                        </ul>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
+            <!--Side Nav Bar ENd-->
+
+            <!--Content-->
+            <div id="content-wrap">   
+                <!--Second Header-->
+                <div class="second-nav">
+                    <ul class="pull-left" style="display: inline-flex">
+                        <li>
+                            <a class="navbar-brand-1" id="menu-icon">
+                                <h4><i class="fa fa-bars"></i></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <h4  style="margin-top:5px"><a class="redirect" href="../inspections/inspectionHistory.html">Inspection History</a> / New Inspections</h4>
+                        </li>
+                    </ul>
+                    <ul class="pull-right searchbar">
+                        <li class="pull-left p-r-sm">
+                            <a href="#">
+                                <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                            </a>                    
+                        </li> 
+                        <!--                        <li class="pull-left" style="margin-top: -7px">
+                                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i>New Inspection</button> 
+                                                </li>  -->
+                        <li class="dropdown pull-left" style="margin-top: -2px">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                                <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                                <li><a href="../inspections/addinspectionform.html"><i class="fa fa-filter p-r-xs"></i>Add New Inspections</a></li>
+                                <li><a href="#"><i class="fa fa-drupal p-r-xs"></i>Export CSV</a></li>
+                            </ul>
+                        </li>     
+                    </ul>
+                </div>
+                <!--Second Header End-->
+                <div class="container">
+                    <h4>Inspection Details</h4>
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="panel panel-default">    				
+                        <div class="panel-body">                      
+                            <fieldset class="col-md-12">   
+                                <div class="col-md-2 col-xs-12"></div>
+                                <div class="col-md-8 col-xs-12">    
+                                    <form class="form-horizontal" >    
+                                        <!--Vehicle-->
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Vehicle <span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <select class="form-control"  id="VehicleId">
+                                                    <!--                                                    <option value="0">Select Vehicle </option>
+                                                                                                        <option value="1">car</option>
+                                                                                                        <option value="2">van</option>
+                                                                                                     <option value="3">Boat</option>-->
+                                                </select>
+                                            </div>
+                                        </div> 
+                                    </form>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <!-- Inspection Items-->                                
+                    <div class="sub-title">
+                        <h4> Inspection Items </h4> 
+                    </div>
+                    <div class="panel panel-default">    				
+                        <div class="panel-body">
+                            <fieldset class="col-md-12">   
+                                <div class="col-md-2 col-xs-12"></div>
+                                <div class="col-md-8 col-xs-12">    
+                                    <form class="form-horizontal" >    
+                                        <!--Odo-meter Reading-->  
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Odo-meter Reading 
+                                                <span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <input  type="text" maxlength="10" name="currentOdoMeter"   class="form-control textwidth"  placeholder="Enter Current Reading" id="odometerReadingId" autocomplete="off">  
+                                                <span> <li class="dropdown pull-left" style=" list-style: none">
+                                                        <a class="dropdown" data-toggle="dropdown" href="#">
+                                                            +Add Remark
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#" id="showcomments"><i class="fa fa-comment p-r-xs"></i>Add Comment</a></li>                                                                
+                                                            <li><a href="#" id="showImage"><i class="fa fa-picture-o p-r-xs"></i>Photo</a></li>                             
+                                                        </ul>
+                                                    </li>
+                                                </span>                                                   
+                                            </div>
+                                        </div>
+                                        <!--Comment-->
+                                        <div class="form-group" id="hidecomments">
+                                            <label class="control-label col-md-4 col-xs-12 ">Comment<span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <textarea class="form-control" placeholder="Enter Comments"></textarea>
+                                            </div>
+                                        </div>
+                                        <!--Photo-->
+                                        <div class="form-group" id="photohide">
+                                            <label class="control-label col-md-4 col-xs-12">Photo</label>
+                                            <div class="col-md-8 col-xs-12 text">
+                                                <button type="button" class="btn btn-success">Pick File</button>                                                           
+                                                <div style="border: 1px dashed rgb(170, 170, 170);
+                                                     display: inline-block; margin: 0px 0px 0px 4px; border-radius: 3px;
+                                                     background-color: rgb(243, 243, 243); color: rgb(51, 51, 51); font-size: 14px;
+                                                     line-height: 22px; padding: 2px 4px; vertical-align: middle; cursor: pointer;
+                                                     overflow: hidden;" class="">Or drop files here</div><br>
+                                                <span>You can upload photos later as well</span>
+                                            </div>                                                                                                               
+                                        </div>  
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">Inspection Start Date<span class="star">*</span></label>
+                                            <div class="col-md-8">
+                                                <div class="input-group date" data-date-format="yyyy-mm-dd">
+                                                    <span class="input-group-addon">
+                                                        <i class="fa fa-calendar"></i>
+                                                    </span>
+                                                    <input class="form-control" placeholder="Select Date" type="text" id="inspectionDateId"/>                                                             
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <!--Item Check List-->  
+                    <div class="sub-title">
+                        <h4>Inspection Check List</h4>
+                    </div>
+                    <hr>
+                    <div class="panel panel-default">    				
+                        <div class="panel-body">
+                            <fieldset class="col-md-12">   
+                                <div class="col-md-2 col-xs-12"></div>
+                                <div class="col-md-8 col-xs-12">    
+                                    <form class="form-horizontal" >    
+                                        <!--Engine-->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Engine <span class="star">*</span></label>
+                                            <div class="col-sm-8" id="engineId">
+                                                <div class="col-sm-4" >
+                                                    <!--                                                    <label class="check "><span style=" color: white">Pass</span> <input type="checkbox">  <span class="checkmark"></span>-->
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox"  name="group1[]" id="enginepassId" value="pass" ><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4" >
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox"  name="group1[]" value="Fail" ><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>               
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 ">Oil life left<span class="star">*</span></label>                                                                                                                   
+                                            <div class="col-md-8 col-xs-12">             
+                                                <input  type="text" maxlength="10" name="OillifeleftID" class="form-control textwidth"  placeholder="Enter Current Reading" id="OillifeleftId"  autocomplete="off">  
+                                            </div>               
+                                        </div>                        
+                                        <hr>               
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4">Fuel level<span class="star">*</span></label> 
+                                            <div class="col-md-8 col-xs-12">
+                                                <select class="form-control meterUnitId"  id="fuelLevelId">
+                                                </select>
+                                            </div>             
+                                        </div>                 
+                                        <hr>
+                                        <!--Transmission -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Transmission  <span class="star">*</span></label>
+                                            <div class="col-sm-8" id="transmissionId">
+                                                <div class="col-sm-4" id="transmissionPassId">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group2[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4" id="transmissionFailId">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group2[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Clutch -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Clutch  <span class="star">*</span></label>
+                                            <div class="col-sm-8" id="clutchId">
+                                                <div class="col-sm-4" id="clutchPassId">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group3[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4" id="clutchFailId">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group3[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Steering Mechanism -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Steering Mechanism  <span class="star">*</span></label>
+                                            <div class="col-sm-8" id="steeringMechanismId">
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group4[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group4[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+
+                                        </div>
+                                        <hr>
+                                        <!--Horn -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Horn<span class="star">*</span></label>
+                                            <div class="col-sm-8" id="hornId">
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group5[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group5[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Windshield and Wipers/Washers -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Windshield and Wipers/Washers<span class="star">*</span></label>
+                                            <div class="col-sm-8" id="windshieldId">
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group6[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group6[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Rear Vision Mirrors  -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Rear Vision Mirrors <span class="star">*</span></label>
+                                            <div class="col-sm-8" id="rearVisionMirrorsId">
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group7[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group7[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Lighting Devices and Reflectors-->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Lighting Devices and Reflectors<span class="star" >*</span></label>
+                                            <div class="col-sm-8" id="lightingDevicesId">
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group8[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group8[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Parking Brake -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Parking Brake<span class="star">*</span></label>
+                                            <div class="col-sm-8" id="parkingBrakeId">
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group9[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group9[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Service Brakes -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Service Brakes<span class="star">*</span></label>
+                                            <div class="col-sm-8" id="serviceBrakesId">
+                                                <div class="col-sm-4" >
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group10[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group10[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Air Lines/Light Lines -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Air Lines/Light Lines<span class="star">*</span></label>
+                                            <div class="col-sm-8" id="airLinesID">
+                                                <div class="col-sm-4" >
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group11[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group11[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Coupling Devices -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Coupling Devices<span class="star">*</span></label>
+                                            <div class="col-sm-8" id="couplingDevicesId">
+                                                <div class="col-sm-4" id="couplingDeviceId">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group12[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group12[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Tires -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Tires<span class="star">*</span></label>
+                                            <div class="col-sm-8" id="tiresId">
+                                                <div class="col-sm-4" id="tireId">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group13[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group13[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Wheels and Rims -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Wheels and Rims<span class="star">*</span></label>
+                                            <div class="col-sm-8" id="wheelsId">
+                                                <div class="col-sm-4" id="wheelandRimsId">
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group15[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group15[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                        <hr>
+                                        <!--Emergency Equipment -->
+                                        <div class="form-group">                                                             
+                                            <label class="col-sm-4 control-label" id="gender">Emergency Equipment<span class="star">*</span></label>
+                                            <div class="col-sm-8" id="emergencyEquipmentId">
+                                                <div class="col-sm-4" >
+                                                    <label class="check" ><span class="name">Pass</span><input type="checkbox" name="group16[]" value="Pass"><span class="checkmark"></span></label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="check" ><span class="name">Fail</span><input type="checkbox" name="group16[]" value="Fail"><span class="checkmark"></span></label>
+                                                </div><br>                                                     
+                                            </div>
+                                        </div> 
+                                    </form>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <!--Sign-Off-->  
+                    <div class="sub-title">
+                        <h4>Sign-Off</h4>
+                    </div>  
+                    <hr>
+                    <div class="panel panel-default">    				
+                        <div class="panel-body">
+
+                            <fieldset class="col-md-12">   
+
+                                <div class="col-md-8 col-xs-12">    
+                                    <form class="form-horizontal" >    
+                                        <!--Vehicle condition OK -->
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Vehicle condition OK <span class="star">*</span></label>
+                                            <div class="col-md-8 col-xs-12"> 
+                                                <select class="form-control"  id="vehicleConditionID">
+                                                    <!--                                                    <option value="0">Select Vehicle </option>
+                                                                                                        <option value="1">car</option>
+                                                                                                        <option value="2">van</option>
+                                                                                                     <option value="3">Boat</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <hr>
+                                        <!--                                                   
+                             </div>
+                                        <!--Reviewing Driver's Signature-->
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-4 col-xs-12">Reviewing Inspector Signature</label>
+                                            <div class="col-md-8 col-xs-12 text">                                                                                                               
+                                                <div style="border: 1px dashed rgb(170, 170, 170);
+                                                     display: inline-block; margin: 0px 0px 0px 4px; border-radius: 3px;
+                                                     background-color: rgb(243, 243, 243); color: rgb(51, 51, 51); font-size: 14px;
+                                                     line-height: 22px; padding: 12px 100px; vertical-align: middle; cursor: pointer;
+                                                     overflow: hidden;" class="">
+                                                    <label class="col-sm-10 col-xs-12">Digital Signature</label>
+                                                    <div class="col-sm-12 col-xs-12"> 
+                                                        <input type="text" class="form-control" placeholder="Enter Sign" id="digitalSignatureId"  autocomplete="off">
+                                                    </div></div><br>                                                      
+                                            </div>                                                                                                               
+                                        </div>  
+                                    </form>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                    </div>
+                    <!--  Save & Close Buttons Register page-->
+                    <div class="text-center">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="saveInspectionReport()" id="saveReportId"><i class="fa fa-floppy-o p-r-xs"></i>Save</button>
+                        <!--                        <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal"><i class="fa fa-times p-r-xs"></i>Close</button>-->
+                        <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="resetInspectionReport()"><i class="fa fa-refresh p-r-xs" ></i>Reset</button>
+
+
+                    </div>
+                    <br>
+
+
+                </div>                         
+            </div>
+
+            <!--Footer-->
+            <div class="footer">
+                <small>Powered  by Procreate Techno systems Private Limited</small>
+            </div>
+            <!--Footer End-->
+        </div>
+
+        <script src="../../js/jquery1.2.min.js"></script>
+        <script src="../../js/moment.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/datatables.min.js"></script>
+        <script src="../../js/chosen.jquery.js"></script>
+        <script src="../../js/metisMenu.min.js"></script>
+        <script src="../../js/bootstrap-datepicker.js"></script> 
+        <script src="../../js/bootstrap-datetimepicker.min.js"></script>   
+        <script src="../../js/FMS/AddNewInspection.js"></script>
+        <script src="../../js/FMS/InspectionController.js"></script>
+        <script src="../../js/FMS/ServiceURL.js"></script>
+        <script src ="../../js/notify.min.js"></script>
+        <script src ="../../js/notify.js"></script>
+
+        <script>
+
+                            $(function () {
+                                //Date And Time picker in Modal Box
+                                $('#datetimepicker').datetimepicker({
+                                    sideBySide: true,
+                                    format: 'DD-MM-YYYY HH:mm:ss'
+                                });
+                                $('#datetimepicker1').datetimepicker({
+                                    sideBySide: true,
+                                    format: 'DD-MM-YYYY HH:mm:ss'
+                                });
+                                $('#datetimepicker1').datetimepicker({
+                                    sideBySide: true,
+                                    format: 'DD-MM-YYYY HH:mm:ss'
+                                });
+                            });
+
+
+
+                            $(document).ready(function () {
+                                $("#hidecomments").hide();
+                                $("#photohide").hide();
+                                $("#menu-icon").click(function () {
+                                    $("#sidebar").toggleClass('active');
+                                    $("#content-wrap").toggleClass('active');
+                                });
+
+                                $('#metismenu').metisMenu();
+                                //                                            Chosen Select
+                                $('select').chosen();
+                                $('[data-toggle="tooltip"]').tooltip();           // Tooltip
+                                $('[data-toggle="popover"]').popover({
+                                    trigger: 'hover',
+                                    width: '200px;'
+                                });
+                                //                                            Data tables
+                                $('#serviceRemainder').DataTable({// Data table
+                                    "aLengthMenu": [[05, 10, 15, 25, -1], [05, 10, 15, 25, "All"]],
+                                    pageLength: 5,
+                                    responsive: true,
+                                    dom: '<"html5buttons"B>lTfgitp',
+                                    buttons: [
+                                        {extend: 'copy'},
+                                        {extend: 'csv'},
+                                        {extend: 'excel', title: 'ExampleFile'},
+                                        //                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                        {extend: 'print',
+                                            customize: function (win) {
+                                                $(win.document.body).addClass('white-bg');
+                                                $(win.document.body).css('font-size', '10px');
+
+                                                $(win.document.body).find('table')
+                                                        .addClass('compact')
+                                                        .css('font-size', 'inherit');
+                                            }
+                                        }
+                                    ]
+
+                                });
+                                //Date Pickers
+                                $("#strtDate").datepicker({
+                                    autoclose: true,
+                                    todayHighlight: true
+                                }).datepicker();
+                                $("#endDate").datepicker({
+                                    autoclose: true,
+                                    todayHighlight: true
+                                }).datepicker();
+                                $("#toendDate").datepicker({
+                                    autoclose: true,
+                                    todayHighlight: true
+                                }).datepicker();
+                                $("#inspectionDateId").datepicker({
+                                    autoclose: true,
+                                    todayHighlight: true
+                                }).datepicker();
+
+
+                            });
+                            //                                        Toggle Button
+                            $("#switch1").change(function () {
+                                var ischecked = $(this).is(':checked');
+                                if (ischecked == true) {
+                                    $('#secondaryInterval').css('display', 'block');
+                                } else {
+                                    $('#secondaryInterval').css('display', 'none');
+                                }
+                            });
+                            $("#switch2").change(function () {
+                                var ischecked = $(this).is(':checked');
+                                if (ischecked == true) {
+                                    $('#secondaryInterval').css('display', 'block');
+                                } else {
+                                    $('#secondaryInterval').css('display', 'none');
+                                }
+                            });
+                            //hidding purpose adding this code
+                            function hidePaymentMode() {
+                                var storeOnchangeValue = $("#PaymentMode").val();
+
+                                if (storeOnchangeValue == 1) {
+
+                                    $("#hideSelect").show();
+                                    $("#hidevoucherNo").hide();
+                                }
+                                else {
+                                    $("#hideSelect").hide();
+                                    $("#hidevoucherNo").show();
+                                }
+                            }
+
+
+        </script>
+
+    </body>
+</html>
+

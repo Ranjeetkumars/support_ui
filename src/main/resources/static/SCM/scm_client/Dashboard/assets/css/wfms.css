@@ -1,0 +1,111 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 13, 2019, 2:14:31 PM
+    Author     : Usha Rani
+*/
+/*Top Dropdowns*/
+.dm{   
+    min-width: 220px;   
+}
+.second-nav .dm {
+    right: auto;   
+}
+/*dropdowns gap*/
+.pull-left>li>a, .dropdown>a{  
+    color: white;
+    padding-left: 40px;
+    font-size: 15px;
+}
+.t1{
+    padding: 4px 16px;
+}
+/*searchbar*/
+.searchbar>li>a .form-control {
+    margin-top: -35px;
+}
+/*Heading/Title*/
+a{                        
+    color: #000;
+    font-weight: 600;
+    font-size: 13px;
+    padding-left: 15px;
+}
+/*Sub Tiltles Heading Background colors*/
+.bg-title{
+    background: #33b5e5;
+    padding: 6px 6px;
+    border-radius: 0;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+.bg-title h4{
+    color:#fff;
+    margin:0;
+}
+ /*Customised RadioBuutuns added by Usha*/
+            .ainer {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.ch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .ch {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .ch {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.ch:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .ch:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .ch:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}

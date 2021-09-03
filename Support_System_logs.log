@@ -1,0 +1,42 @@
+2021-09-01 22:01:26.360  INFO [,,,] 9428 --- [restartedMain] c.p.s.s.SocialMediaAgentApplication      : No active profile set, falling back to default profiles: default
+2021-09-01 22:01:28.149  INFO [,,,] 9428 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b0fafd41-0968-3be5-aad7-1688a682b63f
+2021-09-01 22:01:29.177  INFO [,,,] 9428 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9034 (http)
+2021-09-01 22:01:29.189  INFO [,,,] 9428 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-01 22:01:29.190  INFO [,,,] 9428 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-09-01 22:01:29.354  INFO [,,,] 9428 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-01 22:01:31.537  INFO [,,,] 9428 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-09-01 22:01:31.693  INFO [,,,] 9428 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-09-01 22:01:31.918  WARN [,,,] 9428 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-09-01 22:01:32.441  INFO [,,,] 9428 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: fd93843f-24fa-4957-bbfd-a2127e6cb312
+
+2021-09-01 22:01:32.677  INFO [,,,] 9428 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-09-01 22:01:34.561  INFO [,,,] 9428 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-09-01 22:01:34.583  INFO [,,,] 9428 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-09-01 22:01:34.637  INFO [,,,] 9428 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-09-01 22:01:34.718  INFO [,,,] 9428 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9034 (http) with context path ''
+2021-09-01 22:01:35.044  INFO [,,,] 9428 --- [restartedMain] c.p.s.s.SocialMediaAgentApplication      : Started SocialMediaAgentApplication in 10.413 seconds (JVM running for 11.463)
+2021-09-01 22:02:42.520  INFO [,,,] 9428 --- [http-nio-9034-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-09-01 22:25:04.366  INFO [,,,] 9428 --- [Thread-2] o.s.s.c.ThreadPoolTaskScheduler          : Shutting down ExecutorService 'taskScheduler'
+2021-09-01 22:25:05.500  INFO [,,,] 9428 --- [restartedMain] c.p.s.s.SocialMediaAgentApplication      : No active profile set, falling back to default profiles: default
+2021-09-01 22:25:06.218  INFO [,,,] 9428 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b0fafd41-0968-3be5-aad7-1688a682b63f
+2021-09-01 22:25:06.507  INFO [,,,] 9428 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9034 (http)
+2021-09-01 22:25:06.509  INFO [,,,] 9428 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-09-01 22:25:06.509  INFO [,,,] 9428 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.31]
+2021-09-01 22:25:06.534  INFO [,,,] 9428 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-09-01 22:25:07.427  INFO [,,,] 9428 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-09-01 22:25:07.532  INFO [,,,] 9428 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-09-01 22:25:07.632  WARN [,,,] 9428 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2021-09-01 22:25:07.997  INFO [,,,] 9428 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e2ae2c11-a63a-47a3-a145-84f14857bd32
+
+2021-09-01 22:25:08.095  INFO [,,,] 9428 --- [restartedMain] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2021-09-01 22:25:09.214  INFO [,,,] 9428 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-09-01 22:25:09.216  INFO [,,,] 9428 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-09-01 22:25:09.224  INFO [,,,] 9428 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-09-01 22:25:09.241  INFO [,,,] 9428 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9034 (http) with context path ''
+2021-09-01 22:25:09.570  INFO [,,,] 9428 --- [restartedMain] c.p.s.s.SocialMediaAgentApplication      : Started SocialMediaAgentApplication in 4.806 seconds (JVM running for 1425.99)
+2021-09-01 22:25:09.573  INFO [,,,] 9428 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-09-01 22:26:29.206  INFO [,,,] 9428 --- [http-nio-9034-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'

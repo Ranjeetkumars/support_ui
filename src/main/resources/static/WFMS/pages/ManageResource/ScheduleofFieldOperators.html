@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+    <head>
+           <title>Work Force Management| Pattern-Operator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <!-- <link rel="shortcut icon" href="../../assets/img/favicon.ico"> -->
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../assets/css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../assets/css/datatables.min.css">
+        <link rel="stylesheet" href="../../assets/css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../assets/css/datepicker.css">
+        <link rel="stylesheet" href="../../assets/css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <link rel="stylesheet" href="../../assets/css/style4.css">
+        <link rel="stylesheet" href="../../assets/css/wfms.css">
+        <style>
+
+.chosen-container-single .chosen-single span {
+    display: block;
+    margin-right: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 2.2;
+    font-size: 13px;
+}
+
+ select[multiple], select[size] {
+    height: 124px;
+    width: 146px;
+}
+.footer {
+    bottom: -28px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    color: #fff;
+    padding: 6px 10px;
+    text-align: right;
+    background: linear-gradient(87deg,#11cdef 0,#1171ef 100%)!important;
+}
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+                        <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta"  data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn" id="bluecta"></div>
+                        </div>
+<!--                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../assets/img/pro-Logo.png" /></a>-->
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+<!--                             <li><a href="../../assets/dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+ -->                            <li><a href="../WFMS_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                       <li><a href="#" style="color:red" onclick="wfms_Logout()"><i class="fa fa-power-off"></i> Logout</a></li>
+                           <!--  <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>    -->            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+             <!--Main Header-->
+            <!--Second Header-->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#navbar1">
+                            <div class="toggle-btn bg-white"></div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../WFMS_Dashboard.html">Home</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="myProfile_HideId">My Profile <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Myprofile/MySchedule.html">My Schedule</a></li>
+                                    <li><a href="../Myprofile/LeaveApply.html">Leave Approval</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="manageResource_HideId">Manage Resources <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../ManageResource/PatternERC.html">Patterns - ERC</a></li>                        
+                                    <li><a href="../ManageResource/PatternOperator.html">Patterns - Operators</a></li>
+                                    <li><a href="../ManageResource/ResourceProfiles.html">Resource Profiles</a></li>
+                                    <li><a href="../ManageResource/EmployeeAvailabilityERC.html">Employees Availability-ERC</a></li>
+                                    <li><a href="../ManageResource/EmployeesAvailability-Operators.html">Employees Availability-Operators</a></li>
+                                    <li><a href="../ManageResource/LeaveApprove-Reject.html">Leave Approve/Reject</a></li>
+                                    <li><a href="../ManageResource/ScheduleofFieldOperators.html">Schedule of Field Operators</a></li>
+                                    <li><a href="../ManageResource/ScheduleofERC.html">Schedule of ERC</a></li>
+                                    <li><a href="../ManageResource/LeaveHistory.html">Leave History</a> 
+                                </ul>
+                            </li>
+                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="ManagerMapping_HideId">Master Mapping <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../MasterMapping/ManagerMapping.html">Manager Mapping</a></li>                          
+                                    
+                                </ul>
+                            </li>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="zone_HideId">Zone <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Zone/addzone.html">Add Zone</a></li>                          
+                                    <li><a href="../Zone/addbaselocation.html">Base Location</a></li>
+                                    <li><a href="../Zone/DistricttoManager.html">Zone to District Manager</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="assign_HideId">Assign <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Assign/DrivertoZone.html">Driver to Zone</a></li>                          
+                                    <li><a href="../Assign/DrivertoVehicle.html">Driver to Vehicle</a></li>
+                                    <li><a href="../Assign/EMTtoZone.html">EMT to Zone</a></li>
+                                    <li><a href="../Assign/EMTtoVehicle.html">EMT to Vehicle</a></li>                           
+                                    <li><a href="../Assign/VehicletoBaseLocation.html">Vehicle to Base Location</a></li> 
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="reports_HideId">Reports <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Reports/myworkreport.html">My Work Report</a> </li>                          
+                                    <li><a href="../Reports/summary.html">Summary</a> </li>
+                                    <li><a href="../Reports/departmentwiseemployees.html">Department Wise Employees</a> </li>
+                                    <li><a href="../Reports/zonewiseemployees.html">Zone Wise Employees</a> </li>
+                                    <li><a href="../Reports/shiftwiseemployees.html">Shift Wise Employees</a> </li>
+                                    <li><a href="../Reports/rosternotes.html">Roster Notes</a> </li>
+                                    <li><a href="../Reports/extraallowance.html">Extra Allowance</a> </li>
+                                    <li><a href="../Reports/trainingwise.html">Training Wise</a> </li>
+                                    <li><a href="../Reports/payrollreport.html">Pay Roll Report</a> </li>
+                                </ul>
+                            </li>
+
+                            <li><a href="../Search/search.html" id="search_HideId">Search</a></li>
+                            <li> <a href="../resorceforcasting/resorceforcasting.html" id="resource_HideId">Resource Forecasting</a></li>                    
+                            <li> <a href="../holiday/holiday.html" id="holiday_HideId">Holiday</a></li>
+                            <li>  <a href="../allowances/allowances.html" id="allowances_HideId">Allowances</a></li>
+                            <li>  <a href="../MMU/vehicle_team_mapping.html" id="mmu_HideId">MMU Vehicle Team Mapping</a></li>
+
+                        </ul>
+                      
+                    </div>
+                </div>
+            </nav>
+            <!--Second Header End-->
+            <!--Title Heade--> 
+            <h4  style=" padding-left: 15px">Assign Schedule - Operators </h4>
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--bg-title--> 
+                    <div class="bg-title">
+                        <h4>Zone And Employee</h4>
+                    </div>
+                    <div class="row "> 
+                        <!--Zone-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Zone <span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="zone__id">
+                                        <option value="0">Select Zone  </option> 
+                                        <!-- <option value="1">0</option>
+                                        <option value="2">1</option>
+                                        <option value="3">2</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div> 
+                        <!-- Base Location-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group" id="basloc">
+                                <label class="control-label col-md-4 col-xs-12"> Base Location  <span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="baseloc_id">
+                                         <option value="0">Select  Base Location   </option>
+                                 <!--        <option value="1">0</option>
+                                        <option value="2">1</option>
+                                        <option value="3">2</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div> 
+                        <!--Department-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Department<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="departmentid">
+                                      <!--   <option value="0">Select  Department</option> -->
+                                       <!--  <option value="1">0</option>
+                                        <option value="2">1</option>
+                                        <option value="3">2</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>                         
+                    </div>  <br>                     
+                    <!--bg-title-->
+                    <div class="bg-title">
+                        <h4> Employee</h4>
+                    </div>                    
+                    <!--Multi Dropdowns Drag &Drop-->
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12">
+                            <div class="col-md-8" style="margin-left: 405px">                                                            
+                                <!--Content-->
+                                <div class="col-md-3">  
+                                 <h5 style="font-size: 14px;">Un Assigned Employee</h5>           
+                                    <div class='form-group'>
+                                        <div class='col-md-8'>
+                                            <select multiple class='text-center' id='sheduleErc_AssignId'>
+                                                    <option value="0" disabled="disabled">Select One</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div> 
+                                <!--Buttons-->
+                                <div class="col-md-2" style=" margin-top: 5px;margin-left:-12px;">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="assign()">Assign<span class="glyphicon glyphicon-chevron-right" id="assignbtn"></span>  <span class="glyphicon glyphicon-chevron-right"></span></button>
+                                    <button type="button" class="btn btn-outline-warning btn-sm" onclick="de_Assign('sheduleErcDeAssignId')" style=" margin-top: 10px">  <span class="glyphicon glyphicon-chevron-left"></span>  <span class="glyphicon glyphicon-chevron-left"></span>DeAssign</button>  
+                               <span id="error_message"></span>
+                                </div>
+                                <!--Multiple Dropdown-->  
+                                  <div>
+                                  
+                                 </div>                       
+                                <div class="col-md-3">   
+                                <h5 style="font-size: 14px;">Assigned Employee</h5>                                                                   
+                                    <div class='form-group'>
+                                        <div class='col-md-8'>
+                                            <select multiple  id='sheduleErcDeAssignId'>
+                                             <option value="">Select One</option>
+                                           <!--<option value="1">ATV</option>
+                                                <option value="2">Boat</option>
+                                                <option value="3">Bus</option>
+                                                <option value="4">Car</option>
+                                                <option value="5">Forklift</option>
+                                                <option value="6">Generator</option>
+                                                <option value="7">Loader</option>
+                                                <option value="8">Motorcycle</option>
+                                                <option value="9">Mower</option>
+                                                <option value="10"></option>
+                                                <option value="11">Pickup Truck</option>
+                                                <option value="12">Semi Truck</option>
+                                                <option value="13">SUV</option>
+                                                <option value="14">Trailer</option>
+                                                <option value="15">Van</option>-->
+                                            </select>                                            
+                                        </div>
+                                    </div>
+                                </div> 
+                         </div>            
+                        </div>
+                    </div>
+                    <br>
+                    <!--bg-title-->
+                    <div class="bg-title">
+                        <h4> Date Range and Shift Pattern</h4>
+                    </div>
+                    <!--Start Date-->
+                    <div class="row">                                                              
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Start Date<span class="star">*</span></label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="strtDate" class="input-group date" data-date-format="yyyy-mm-dd">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                           <input class="form-control" id="sheduleErc_StartDate" placeholder="Select Date" type="text" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>             
+                        <!--End Date-->                        
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">End Date<span class="star">*</span></label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="endDate" class="input-group date" data-date-format="yyyy-mm-dd" id="end_date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+
+                                            <input class="form-control" id="sheduleErc_endDate" placeholder="Select Date" type="text" autocomplete="off"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--Shift Pattern-->
+                        <div class="col-md-4 col-xs-12">
+                             <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12"> Shift Pattern<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="shiftid">
+                                        <option value="0">Select  Shift Pattern </option>
+                                        <option value="1">0</option>
+                                        <option value="2">1</option>
+                                        <option value="3">2</option>
+                                    </select>
+                                </div>
+                            </div> 
+                        </div> 
+                    </div>
+                    <!--Pattern Left Align in Days -->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Pattern Left Align in Days</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="patternid">
+                                        <option value="0">Select Pattern Left Align in Days</option>
+                                    <!--     <option value="1">0</option>
+                                        <option value="2">1</option>
+                                        <option value="3">2</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>  
+                        <!--Buttons-->
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="saveScheduleDetails()" id="submitbtn"><span class="glyphicon glyphicon-ok"></span>&nbsp;Submit</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="resetData()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                        </div>
+                    </div>
+                   <!--Shift Pattern Background Colors-->
+<!--                     <table class="drContent" style="width:100%; border-bottom:rgb(0,0,0) 1pt solid;
+                           border-top:rgb(0,0,0) 1pt solid;border-left:rgb(0,0,0) 1pt solid;
+                           border-right:rgb(0,0,0) 1pt solid;" cellspacing="0" cellpadding="0" border="0">
+                        <tbody><tr><td class="drContent" width="1%" height="20px" align="center">
+                                    <font color="red">Legends</font></td>
+                                <td class="drContent" title="7AM - 7PM" width="2%" bgcolor="#EEE8AA"
+                                    align="center">D1-FieldEmp-DayShift(7AM-7PM)</td>
+                                <td class="drContent" title="8AM - 8PM" width="2%" 
+                                    bgcolor="#D6D199" align="center">D2-FieldEmp-DayShift(8AM-8PM)</td>
+                                <td class="drContent" title="7PM - 7AM" width="2%"
+                                    bgcolor="#DEB887" align="center">N1-FieldEmp-NightShift(7PM-7AM)</td>
+                                <td class="drContent" title="8PM - 8AM" width="2%" bgcolor="#C8A67A"
+                                    align="center">N2-FieldEmp-NightShift(8PM-8AM)</td>
+                                <td class="drContent" title="Compensatory Off" width="2%" 
+                                    bgcolor="#8FBC8F" align="center">CO-Compensatory Off</td>
+                                <td class="drContent" title="Roster Off" width="2%" 
+                                    bgcolor="#669999" align="center">RO-Roster Off</td></tr>
+                            <tr><td class="drContent" title="Leave without pay" width="2%" height="20px" 
+                                    bgcolor="#CD5C5C" align="center">LOP-Leave Without Pay</td>
+                                <td class="drContent" title="Sick Leave" width="2%" height="20px" bgcolor="#87CEFA"
+                                    align="center">SL-Sick Leave</td>
+                                <td class="drContent" title="Extra Shift" width="2%" bgcolor="#BFFF80" 
+                                    align="center">ES-Over 12 Hour Shift (Extra Shift)</td>
+                                <td class="drContent" title="Casual Leave" width="2%" bgcolor="#40E0D0" 
+                                    align="center">CL-Casual Leave</td>
+                                <td class="drContent" title="Un-Assigned" width="2%" bgcolor="#ADD8E6" 
+                                    align="center">U-Un-Assigned</td>
+                                <td class="drContent" title="Leave Status" width="2%" bgcolor="#94DBFF" 
+                                    align="center">Shift-LS: Leave Status</td></tr></tbody></table> 
+ -->                </div>
+            </div>
+        </div>
+        <!--Content End-->  
+              <input type="hidden" id="userid">  
+              <input type="hidden" id="hidden_StartTime">  
+                <input type="hidden" id="hidden_EndTime">  
+                  <input type="hidden" id="hidden_shedule_Allocated_Id"> 
+        <!--Footer-->
+        <div class="footer">
+                <small>Powered by Vsoft Private Limited</small>
+        </div>
+        <!--Footer End-->
+    
+     <script src="../../assets/js/jquery1.2.min.js"></script>
+        <script src="../../assets/js/moment.min.js"></script>
+        <script src="../../assets/js/bootstrap.min.js"></script>
+        <script src="../../assets/js/datatables.min.js"></script>
+        <script src="../../assets/js/bootstrap-datepicker.js"></script> 
+        <script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>       
+        <script src="../../assets/js/chosen.jquery.js"></script>
+        <script src="../../assets/js/notify.js"></script>
+        <script src="../../assets/js/notify.min.js"></script>
+        <script src="../../assets/serviceController/wfms/Common_Constants/Menu_Hide_Show.js"></script>
+        <script src="../../assets/serviceController/wfms/Common_Constants/Wfms_Logout.js"></script>
+        <script src="../../assets/serviceController/wfms/ServiceURLS.js"></script>
+        <script src="../../assets/serviceController/wfms/Manage_Resource/schdule_field_operators.js"></script>
+    <script> 
+        $(document).ready(function() {
+            $('#zone').chosen();   //Chosen select
+            //$('#baselocation_id').chosen();
+            $('#departmentid').chosen();
+            $('#shiftid').chosen();
+            $('#patternid').chosen();
+            $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+            $('#driverTable').DataTable({// Data table
+                pageLength: 10,
+                responsive: true,
+                dom: '<"html5buttons"B>lTfgitp',
+                buttons: [
+                    {extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel', title: 'ExampleFile'},
+                    {extend: 'pdf', title: 'ExampleFile'},
+                    {extend: 'print',
+                        customize: function(win) {
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
+
+                            $(win.document.body).find('table')
+                                    .addClass('compact')
+                                    .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+
+            });
+            //Date Pickers
+            $("#strtDate").datepicker({
+                autoclose: true,
+                todayHighlight: true
+            }).datepicker();
+            $("#endDate").datepicker({
+                autoclose: true,
+                todayHighlight: true
+            }).datepicker();
+
+        });
+
+    </script>
+</body>
+</html>
+

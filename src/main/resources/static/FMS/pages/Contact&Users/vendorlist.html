@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fleet Management | Contacts & Users</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="../../img/favicon.ico">
+
+<!--CSS Links-->
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../assets/css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../assets/css/datatables.min.css">
+<link rel="stylesheet" href="../../assets/css/bootstrap-chosen.css">
+<link rel="stylesheet" href="../../assets/css/metisMenu.css" />
+<link rel="stylesheet" href="../../assets/css/datepicker.css">
+<link rel="stylesheet"
+	href="../../assets/css/bootstrap-datetimepicker.min.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/fleet.css">
+<style>
+.badge-danger {
+	background-color: red;
+}
+
+.delete {
+	height: 30px;
+	padding-top: 3px;
+	left: 11.5%;
+	position: absolute;
+	display: inline-block;
+}
+.second-nav {
+    background: #002e88;
+    border-bottom: 1px solid #d3d9db;
+    margin-bottom: 20px;
+    /* border-top: 1px solid #d3d9db; */
+    margin-top: 52px;
+    padding: 10px 16px;
+    min-height: 50px;
+    line-height: 2.7;
+}
+.footer {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    color: #fff;
+    padding: 6px 10px;
+    text-align: right;
+    background: linear-gradient(87deg,#083571 0,#083571 100%)!important;
+}
+.table>thead>tr>th {
+    background-color: #083571;
+    color: #fff;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+       .no-js #loader { display: none;  }
+            .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+            .se-pre-con {
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 9999;
+                background: url(https://j2n9a3i8.stackpathcdn.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+            }
+            html, body {
+    overflow-x: hidden;
+}
+</style>
+
+</head>
+ <body >
+   
+  <div class="se-pre-con">
+            <div class="content">
+                <div class="back-to-article">
+                    <p><a href="smallenvelop.com/blog/"></a></p>
+                </div>
+                <img src="http://smallenvelop.com/wp-content/uploads/2014/08/simple-pre-loader.jpg
+                     " style="visibility: hidden; width:100%; height: auto;">
+            </div>
+        </div>
+	<div id="page-container">
+		<!--Main Header-->
+		<nav class="navbar navbar-secondary navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<div class="cta" data-toggle="collapse" data-target="#top-navbar">
+						<div class="toggle-btn"></div>
+					</div>
+<!-- 					<a class="navbar-brand" href="#"><img alt="ProCreate Logo" -->
+<!-- 						src="../../images/pro-Logo.png" /></a> -->
+				</div>
+				<div class="collapse navbar-collapse" id="top-navbar">
+				  <ul class="nav navbar-nav">                 
+                            <li><a href="../../../dashBoard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../FleetIO_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                      
+                        </ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><i class="fa fa-bell"></i><span
+								class="label label-primary">8</span> </a></li>
+						<li><a href="#"><i class="fa fa-question-circle"
+								data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+						</a></li>
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#"> <i class="fa fa-user"
+								data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+								<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+								<li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!--Main Header End-->
+		<!--Side Nav Bar-->
+		               <!--Main Header End-->
+        <nav id='sidebar' class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <h3 class="header">Fleet Management</h3>
+                    </div>
+                    <div class='sidebar-menu'>
+                        <ul class="metismenu" id="metismenu">
+                          <li>
+                                <a href='../FleetIO_Dashboard.html'>
+                                    <i class='fa fa-tachometer'></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <!--Vehicles-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-cab'></i>
+                                    <span>Vehicles</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Vehicles/vehicleList.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle List</span>
+                                        </a>
+                                    </li>
+                                 
+                                      <li>
+                                        <a href="../addBaseLocation/addBaseLocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Add BaseLocation</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                        <a href="../VehicleAssign_Deassign/VehicleMapWithBaselocation.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Mapping</span>
+                                        </a>
+                                    </li>
+                                     <li>
+                                        <a href="../VehicleAssign_Deassign/EMT_PilotAssign_Deassign.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Emt/Pilot Assign/Deassign</span>
+                                        </a>
+                                    </li>
+                                    
+<!--                                     <li> -->
+                    
+<!--                                         <a href="../vehicles/watchedVehicles.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Watched Vehicles</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/meterHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Meter History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/expenseHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Expense History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../vehicles/gpsIntegration.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>GPS Integration</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+
+
+                                </ul>
+                            </li>
+
+                            <!--Inspections-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-building'></i>
+                                    <span>Inspections</span>
+                                </a>
+                                <ul class="nav first-child">
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/inspectionHistory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Inspection History</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/itemFailures.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Item Failures</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                    <li>
+                                        <a href="../Scheduling/pages/Scheduling.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Schedules</span>
+                                        </a>
+                                    </li>
+                                      <li>
+                                     <a href="../Audit/pages/Auditreport_1.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Audit Report Status</span>
+                                        </a>
+                                         </li>
+<!--                                     <li> -->
+<!--                                         <a href="../inspections/forms.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Forms</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            <!--Issues-->
+                          	<!--Issues-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-info-circle '></i> <span>Issue</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Issues/Issueslist.html"> <i
+										class="fa fa-circle-o"></i> <span>Issues List</span>
+								</a></li>
+<!-- 								<li><a href="../Issues/faults.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>Faults</span> -->
+<!-- 								</a></li> -->
+<!-- 								<li><a href="../Issues/recall.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>Recalls</span> -->
+<!-- 								</a></li> -->
+
+							</ul></li>
+
+                            <!--Remainders-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-clock-o '></i>
+                                    <span>Remainder</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../Remainders/serviceremainders.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Service Remainder</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../Remainders/VehicleRenewalReminder.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Vehicle Renewals</span>
+                                        </a>
+                                    </li>
+<!--                                     <li> -->
+<!--                                         <a href="../Remainders/contactRenewal.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Contact Renewals</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            <!--Services-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-thumbs-o-up '></i>
+                                    <span>Services</span>
+                                </a>
+                                <ul class="nav first-child">
+                                    <li>
+                                        <a href="../service/serviceHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services History </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="../service/serviceTask.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>Services Task </span>
+                                        </a>
+                                    </li>
+                                 
+<!--                                     <li> -->
+<!--                                         <a href="../service/shopdirectory.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Shop Directory</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+<!--                                     <li> -->
+<!--                                         <a href="../service/integrations.html"> -->
+<!--                                             <i class="fa fa-circle-o"></i> -->
+<!--                                             <span>Integrations</span> -->
+<!--                                         </a> -->
+<!--                                     </li> -->
+                                </ul>
+                            </li>
+                            
+                                                    <!--Contacts & Users-->
+						<li><a class="nav has-arrow" href="#"> <i
+								class='fa fa-user'></i> <span>Contacts & Users</span>
+						</a>
+							<ul class="nav first-child">
+								<li><a href="../Contact&Users/contactlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Contact List</span>
+								</a></li>
+<!-- 								<li><a href="../Contact&Users/userManagement.html"> <i -->
+<!-- 										class="fa fa-circle-o"></i> <span>User Management</span> -->
+<!-- 								</a></li> -->
+								<li><a href="../Contact&Users/vendorlist.html"> <i
+										class="fa fa-circle-o"></i> <span>Vendor List</span>
+								</a></li>
+							</ul></li>
+                            <!--Fuels-->
+                            <li>
+                                <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-filter '></i>
+                                    <span>Fuel</span>
+                                </a>
+                                <ul class="nav first-child">
+                                                 <li>
+                                        <a href="../Fuel/FuelHistory.html">
+                                            <i class="fa fa-circle-o"></i>
+                                            <span>FuelHistory</span>
+                                    	</a></li>
+							</ul></li>
+                                    
+                                    
+                              <!--Places-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-road'></i>
+                                    <span>Places</span>
+                                </a>
+                              
+                            </li>
+                            <!--Reports-->
+                            <li>
+                             <a class="nav has-arrow" href="#">
+                                    <i class='fa fa-book'></i>
+                                    <span>Reports</span>
+                                </a>
+                            </li> 
+                            
+                              <li>
+                                <a href="#">
+                                    <i class='fa fa-money '></i>
+                                    <span>Integrations</span>
+                                </a>
+                            </li> 
+
+                                </ul>
+                            </li>
+
+                           
+
+
+
+                        </ul>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> 
+		<!--Side Nav Bar ENd-->
+
+		<!--Content-->
+		<div id="content-wrap">
+			<!--Second Header-->
+			<div class="second-nav">
+				<ul class="pull-left" style="display: inline-flex">
+					<li><a class="navbar-brand-1" id="menu-icon">
+							<h4>
+								<i class="fa fa-bars"></i>
+							</h4>
+					</a></li>
+					<li>
+						<h4 style="margin-top: 5px">Vendor List</h4>
+					</li>
+				</ul>
+
+				<ul class="pull-right searchbar">
+					<li class="pull-left p-r-sm"><a href="#"> <input
+							type="text" class="form-control"
+							placeholder="What are you looking for?">
+					</a></li>
+					<li class="pull-left" style="margin-top: -7px">
+                            <a href="../Master/Vehicle/VehicleType.html"><button type="button" class="btn btn-success btn-sm" >Manage</button></a> 
+                        </li>
+					<li class="pull-left" style="margin-top: -7px"><a
+						href="../Contact&Users/addVendor.html"><button type="button"
+								class="btn btn-success btn-sm">
+								<i class="fa fa-plus p-r-xs"></i>Add Vendor
+							</button></a></li>
+
+					<li class="dropdown pull-left" style="margin-top: -2px"><a
+						class="dropdown-toggle" data-toggle="dropdown" href="#"> <i
+							class="fa fa-ellipsis-v f-md" data-toggle="tooltip"
+							data-placement="top" title="More Actions"></i>
+					</a>
+						<ul class="dropdown-menu">
+							<li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+							<li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+							<li><a href="../Contact_usrers/importvendors.html"> <span
+									class="glyphicon glyphicon-open"></span>Import Vendor
+							</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--Second Header End-->
+			<div class="card">
+				<!--Error Message-->
+				<div class="alert alert-danger" style='display: none;'>
+					<h4>
+						<i class="fa fa-warning p-r-xs"></i>Please fix the following
+						errors:
+					</h4>
+					<ul class='m-l-md'>
+						<li>District Can't be Empty</li>
+					</ul>
+				</div>
+				<!--Tabs-->
+				<!--      <div class="main-pills">
+                        <ul class="nav nav-pills">                                                           
+                            <li class="active"><a href="../Contact_usrers/vendorlist.html">All</a> </li>
+                            <li class=""><a href="../Contact_usrers/fuelvendor.html">Fuel</a> </li>
+                            <li class=""><a href="../Contact_usrers/servicevendor.html">Service</a> </li>
+                            <li class=""><a href="../Contact_usrers/partsvendor.html">Parts</a></li>
+                            <li class=""><a href="../Contact_usrers/vehiclevendor.html">Vehicle</a></li>
+                            <li class=""><a href="../Contact_usrers/archivevendor.html">Archived</a></li>
+
+                        </ul>
+                    </div>  -->
+				<br> <br>
+				<div class="row">
+					<div class="col-md-3 col-xs-12"></div>
+					<!--Vehicle Search-->
+					<div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4 col-xs-12">Vendor
+								Type<span class="star">*</span>
+							</label>
+							<div class="col-md-8 col-xs-12">
+								<select class="form-control" name="dractityid" id="vendortypeid">
+									<option value="0">Please Select Vendor Type</option>
+									<!--<option value="1">Fuel Filling</option
+                                                <option value="2">Oxygen Filling</option>
+                                                <option value="4">Tyre Life</option>-->
+								</select>
+							</div>
+						</div>
+					</div>
+					<!--Email-->
+					<div class="col-md-3 col-xs-12">
+						<div class="form-group">
+							<label class="control-label col-md-4 col-xs-12">Vendor
+								Name<span class="star">*</span>
+							</label>
+							<div class="col-md-8 col-xs-12">
+								<input type="text" class="form-control"
+									placeholder="Enter Vendor Name" id="vendorNameId">
+							</div>
+						</div>
+					</div>
+					<!--Web Site-->
+					<!--          <div class="col-md-3 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Web Site<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12"> 
+                                    <input type="text" class="form-control" placeholder="Enter WbSite">
+                                </div>
+                            </div>
+                        </div> 
+                        Mobile number
+                        <div class="col-md-3 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Mobile number<span class="star">*</span></label>
+                                <div class="col-md-8 col-xs-12"> 
+                                    <input type="text" class="form-control" placeholder="Enter Mobile number">
+                                </div>
+                            </div>
+                        </div>  -->
+				</div>
+
+				<!--buttons-->
+				<div class="row m-t-b-sm">
+					<div class="col-md-12 col-xs-12 text-center m-t-sm">
+						<button type="button" class="btn btn-primary btn-sm"
+							onclick="searchVendorDetails1()" id="searchid">
+							<i class="fa fa-search p-r-xs"></i>Search
+						</button>
+						<button type="button" class="btn btn-outline-warning btn-sm"
+							onclick="resetsearchVendorDetails()">
+							<i class="fa fa-refresh p-r-xs"></i>Reset
+						</button>
+					</div>
+				</div>
+				<hr>
+				<!--table-->
+				<div class="wrapper wrapper-content">
+					<div class="row">
+						<div class="col-md-12 col-xs-12">
+							<div id="deleteButtonID" style="display: none">
+								<button type="button" class="btn btn-danger btn-sm delete"
+									onclick="deleteMultipleVendorContactDetails()"
+									id="Searchdeleteid">
+									<i class="fa fa-trash-o"></i> Delete All
+								</button>
+							</div>
+							<div class="table-responsive" id="vehicleList_Id">
+								<!--  <table id="serviceRemainder" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th><label class="check ">  
+                                                        <span style=" color: white">Select</span>
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label></th>
+                                                <th>Vendor Name</th>
+                                                <th>Phone</th>     
+                                                <th>Web site</th>                           
+                                                <th>Contact Name</th>
+                                                <th>Email</th>
+                                                <th>Edit</th>
+                                                <th>Archive</th>
+                                                <th>Merge</th>
+                                            </tr>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label class="check ">                                                    
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    Chevron <span class="badge">Sample</span><br>
+                                                    4340 Fulton Industrial Blvd SW, Atlanta, GA, 30336 
+
+                                                </td>
+                                                <td>404-691-4875</td>
+                                                <td></td>                                              
+                                                <td>Jose Valdespino </td>
+                                                <td></td>
+                                                <td><i class="fa fa-edit"  data-toggle="modal" data-target="#edit"></i></td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="archive">
+                                                        <i class="fa fa-archive" data-toggle="modal" data-target="#archive" ></i>
+                                                    </div>
+                                                </td>                                               
+
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="merge">
+                                                        <span class="glyphicon glyphicon-expand" data-toggle="modal" data-target="#merge" ></span>
+                                                    </div>
+                                                </td>                                               
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label class="check ">                                                    
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    Chevron <span class="badge">Sample</span><br>
+                                                    4340 Fulton Industrial Blvd SW, Atlanta, GA, 30336 
+
+                                                </td>
+                                                <td>404-691-4875</td>
+                                                <td></td>                                              
+                                                <td>Jose Valdespino </td>
+                                                <td></td>
+                                                <td><i class="fa fa-edit" data-toggle="modal" data-target="#edit"></i></td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="archive">
+                                                        <i class="fa fa-archive" data-toggle="modal" data-target="#archive" ></i>
+                                                    </div>
+                                                </td>                                               
+
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="merge">
+                                                        <span class="glyphicon glyphicon-expand" data-toggle="modal" data-target="#merge" ></span>
+                                                    </div>
+                                                </td>                                               
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <label class="check ">                                                    
+                                                        <input type="checkbox">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    Chevron <span class="badge">Sample</span><br>
+                                                    4340 Fulton Industrial Blvd SW, Atlanta, GA, 30336 
+
+                                                </td>
+                                                <td>404-691-4875</td>
+                                                <td></td>                                              
+                                                <td>Jose Valdespino </td>
+                                                <td></td>
+                                                <td><i class="fa fa-edit" data-toggle="modal" data-target="#edit"></i></td> 
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="archive">
+                                                        <i class="fa fa-archive" data-toggle="modal" data-target="#archive" ></i>
+                                                    </div>
+                                                </td>                                               
+
+                                                <td>
+                                                    <div class="cursor" data-toggle="tooltip" title="merge">
+                                                        <span class="glyphicon glyphicon-expand" data-toggle="modal" data-target="#merge" ></span>
+                                                    </div>
+                                                </td>                                               
+                                            </tr>
+
+                                        </tbody>
+                                    </table> -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Content End-->
+
+
+		<!--Modal box for Edit-->
+		<div id="edit" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Update Vendor</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal">
+							<!--Heading-->
+							<div class="sub-title">
+								<h4>Add Vendor</h4>
+							</div>
+							<div class="sub-body">
+
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Vendor Name<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Vendor Name"
+													id="vendor_name" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Phone Number<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="number"
+													onKeyPress="if(this.value.length==10) return false;"
+													placeholder="Enter Phone Number" id="phone_number"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Web site<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Web site"
+													id="web_site" class="form-control">
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Address<span
+												class="star">*</span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Address"
+													id="address_id" class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Country<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="country_id"
+													data-mini="true" name="country_id">
+													<option value="0">Please Select Country</option>
+													<!-- <option value="1">Fuel Filling</option>
+                                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="4">Tyre Life</option>  -->
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">State<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="state_id" data-mini="true"
+													name="state_id">
+													<option value="0">Please Select State</option>
+													<!-- <option value="1">Fuel Filling</option>
+                                                                        <option value="2">Oxygen Filling</option>
+                                                        <option value="4">Tyre Life</option>  -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">District<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="district_id"
+													data-mini="true" name="district_id">
+													<option value="0">Please Select District</option>
+													<!-- <option value="1">Fuel Filling</option>
+                                                                        <option value="2">Oxygen Filling</option>
+                                                                    <option value="4">Tyre Life</option>  -->
+												</select>
+											</div>
+
+										</div>
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Mandal<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="mandal_id" data-mini="true"
+													name="mandal_id">
+													<option value="0">Please Select Mandal</option>
+													<!-- <option value="1">Fuel Filling</option>
+                                                                        <option value="2">Oxygen Filling</option>
+                                                                    <option value="4">Tyre Life</option>  -->
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">City<span
+												class="star">*</span></label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="city_id" data-mini="true"
+													name="vendor_type">
+													<option value="0">Please Select City</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Pin code</label>
+											<div class="col-md-8">
+												<input type="number"
+													onKeyPress="if(this.value.length==6) return false;"
+													placeholder="Enter Pin code" id="pincode_no"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4 col-xs-12">Vendor
+												Type<span class="star">*</span>
+											</label>
+											<div class="col-md-8 col-xs-12">
+												<select class="form-control" id="vendor_type"
+													data-mini="true" name="vendor_type">
+													<option value="0">Please Select Vendor Type</option>
+													<option value="1">Fuel Filling</option>
+													<option value="2">Oxygen Filling</option>
+													<option value="4">Tyre Life</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="sub-title">
+								<h4>Contact Vendor</h4>
+							</div>
+
+							<div class="sub-body">
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Contact Name<span
+												class="star"></span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Contact Name"
+													id="pr_contact_name" class="form-control">
+											</div>
+										</div>
+									</div>
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">EMail Id<span
+												class="star"></span></label>
+											<div class="col-md-8">
+												<input type="text" placeholder="Enter Email Id"
+													id="email_id" class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 col-xs-12">
+										<div class="form-group">
+											<label class="control-label col-md-4">Phone No.<span
+												class="star"></span></label>
+											<div class="col-md-8">
+												<input type="number"
+													onKeyPress="if(this.value.length==10) return false;"
+													placeholder="Enter Phone No." id="phone_no"
+													class="form-control">
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 					<div class="row">
+                                                                                <div class="col-md-4 col-xs-12">
+                                                                                        <div class="form-group">
+                                                                                                <label class="control-label col-md-4">Contact Name<span
+                                                                                                        class="star">*</span></label>
+                                                                                                <div class="col-md-8">
+                                                                                                        <input type="text" placeholder="Enter Contact Name"
+                                                                                                                class="form-control">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                                <div class="col-md-4 col-xs-12">
+                                                                                        <div class="form-group">
+                                                                                                <label class="control-label col-md-4">E-mailID<span
+                                                                                                        class="star">*</span></label>
+                                                                                                <div class="col-md-8">
+                                                                                                        <input type="text" placeholder="Enter E-mailID"
+                                                                                                                class="form-control" name="">
+                                                                                                </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div> -->
+								<!--                    buttons-->
+							</div>
+
+
+							<!--button-->
+							<div class="text-center">
+								<button type="button" class="btn btn-primary btn-sm"
+									onclick="updateVendorDetails()" id="update_vendor_id">
+									<i class="fa fa-floppy-o p-r-xs"></i>Submit
+								</button>
+								<!--                                    <button type="button" class="btn btn-success btn-sm"><i class="fa fa-floppy-o p-r-xs"></i>Update</button>-->
+								<button type="button" class="btn btn-outline-warning btn-sm"
+									data-dismiss="modal">
+									<i class="fa fa-times p-r-xs"></i>Close
+								</button>
+								<button type="button" class="btn btn-outline-warning btn-sm"
+									onclick="resetUpdateVendorDetails()">
+									<i class="fa fa-refresh p-r-xs"></i>Reset
+								</button>
+							</div>
+						</form>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Model Box For archive-->
+		<div id="delete" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-body">
+						<div class="text-center">
+							<h5>Are you sure want to delete</h5>
+							<button type="button" class="btn btn-primary btn-sm"
+								onclick="deleteVendor()">
+								<span class="glyphicon glyphicon-ok">OK</span>
+							</button>
+							<button type="button" class="btn btn-outline-warning btn-sm"
+								data-dismiss="modal">
+								<i class="fa fa-times p-r-xs"></i>cancel
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Model Box For merge-->
+		<div id="merge" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-md">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Conform Action</h4>
+					</div>
+					<div class="modal-body">
+						<!--Time Frame-->
+						<div class="form-group">
+							<label class="control-label col-md-4">Time Frame</label>
+							<div class="col-md-8">
+								<select class="select form-control">
+									<option value="">Select One</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>
+							</div>
+						</div>
+						<p>Select the vendor which this record will be merged into.
+							All vendor details, comments, and historical service, fuel, and
+							purchase records will be merged into the selected vendor. The
+							destination vendor's value will be used if both vendors have a
+							value for the same vendor details field. Once the merge is
+							complete, the original vendor will be archived.</p>
+						<div class="text-center">
+							<button type="button" class="btn btn-primary btn-sm">
+								<i class="fa fa-adjust"> Merge</i>
+							</button>
+							<button type="button" class="btn btn-outline-warning btn-sm"
+								data-dismiss="modal">
+								<i class="fa fa-times p-r-xs"></i> Cancel
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" id="serical_ID"> 
+		<input type="hidden"
+			id="reg_num">
+			<input type="hidden" id="sericalID">
+		<!--Footer-->
+		<div class="footer">
+			<small>Powered  by Procreate Techno systems Private Limited</small>
+		</div>
+		<!--Footer End-->
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="../../assets/js/jquery1.2.min.js"></script>
+	<script src="../../assets/js/moment.min.js"></script>
+	<script src="../../assets/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/datatables.min.js"></script>
+	<script src="../../assets/js/chosen.jquery.js"></script>
+	<script src="../../assets/js/metisMenu.min.js"></script>
+	<script src="../../assets/js/bootstrap-datepicker.js"></script>
+	<script src="../../assets/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../../assets/js/notify.js/"></script>
+	<script src="../../assets/js/notify.min.js/"></script>
+	<script src="../../assets/serviceController/ServiceURL.js"></script>
+	<script src="../../assets/serviceController/Vendor.js"></script>
+	<script src="../../assets/serviceController/masterData.js"></script>
+	<script>
+
+                                                                            $(function() {
+                                                                            	getVendorDetails();
+                                                                            	getVendorTypeforSearch();
+                                                                            	getVendorTypeForUpdate()
+        //Date And Time picker in Modal Box
+                                                                           
+                                                                            });
+
+
+
+                                                                            $(document).ready(function() {
+        //Side Menu
+                                                                                $("#menu-icon").click(function() {
+                                                                                    $("#sidebar").toggleClass('active');
+                                                                                    $("#content-wrap").toggleClass('active');
+                                                                                });
+
+                                                                                $('#metismenu').metisMenu();
+        //                                            Chosen Select
+                                                                                $('select').chosen();
+                                                                                $('[data-toggle="tooltip"]').tooltip();           // Tooltip
+                                                                                $('[data-toggle="popover"]').popover({
+                                                                                    trigger: 'hover',
+                                                                                    width: '200px;'
+                                                                                });
+        //                                            Data tables
+                                                                                $('#serviceRemainder').DataTable({// Data table
+                                                                                    "aLengthMenu": [[05, 10, 15, 25, -1], [05, 10, 15, 25, "All"]],
+                                                                                    pageLength: 5,
+                                                                                    responsive: true,
+                                                                                    dom: '<"html5buttons"B>lTfgitp',
+                                                                                    buttons: [
+                                                                                        {extend: 'copy'},
+                                                                                        {extend: 'csv'},
+                                                                                        {extend: 'excel', title: 'ExampleFile'},
+        //                                                    {extend: 'pdf', title: 'ExampleFile'},
+                                                                                        {extend: 'print',
+                                                                                            customize: function(win) {
+                                                                                                $(win.document.body).addClass('white-bg');
+                                                                                                $(win.document.body).css('font-size', '10px');
+
+                                                                                                $(win.document.body).find('table')
+                                                                                                        .addClass('compact')
+                                                                                                        .css('font-size', 'inherit');
+                                                                                            }
+                                                                                        }
+                                                                                    ]
+
+                                                                                });
+        //Date Pickers
+                                                                                $("#strtDate").datepicker({
+                                                                                    autoclose: true,
+                                                                                    todayHighlight: true
+                                                                                }).datepicker();
+                                                                                $("#endDate").datepicker({
+                                                                                    autoclose: true,
+                                                                                    todayHighlight: true
+                                                                                }).datepicker();
+                                                                                $("#toendDate").datepicker({
+                                                                                    autoclose: true,
+                                                                                    todayHighlight: true
+                                                                                }).datepicker();
+
+
+                                                                                     });
+                                                                            $(window).load(function () {
+                                                                                // Animate loader off screen
+                                                                                $(".se-pre-con").fadeOut(50);
+                                                                            });
+                                                                            $('#datetimepicker').datetimepicker({
+                                                                                sideBySide: true,
+                                                                                format: 'DD-MM-YYYY HH:mm:ss'
+                                                                            });
+                                                                            $('#datetimepicker1').datetimepicker({
+                                                                                sideBySide: true,
+                                                                                format: 'DD-MM-YYYY HH:mm:ss'
+                                                                            });
+                                                                            </script>
+
+
+                                                                		    </body>
+                                                                		    </html>
+
+

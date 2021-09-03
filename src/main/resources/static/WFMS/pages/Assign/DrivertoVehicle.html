@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Work Force Management|Driver to Vehicle</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--Title Icon-->
+<link rel="shortcut icon" href="../../assets/img/favicon.ico">
+<!--CSS Links-->
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="../../assets/css/font-awesome/css/font-awesome.css">
+<link rel='stylesheet' href="../../assets/css/datatables.min.css">
+<link rel="stylesheet" href="../../assets/css/bootstrap-chosen.css">
+<!--Customized CSS-->
+<link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="stylesheet" href="../../assets/css/wfms.css">
+<style>
+.check {
+	display: initial;
+}
+
+#v_Driver_UnAssign_Id {
+	width: 500px;
+}
+
+#v_driver_Assign_Id {
+	width: 500px;
+}
+
+.assignbox {
+	width: 450px;
+}
+</style>
+</head>
+<body>
+	<div id="page-container">
+		<!--Main Header-->
+		            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta"  data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn" id="bluecta"></div>
+                        </div>
+<!--                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../assets/img/pro-Logo.png" /></a>-->
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+<!--                             <li><a href="../../assets/dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+ -->                            <li><a href="../WFMS_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                         <li><a href="#" style="color:red" onclick="wfms_Logout()"><i class="fa fa-power-off"></i> Logout</a></li>
+                           <!--  <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>    -->            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+		 <!--Main Header-->
+            <!--Second Header-->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#navbar1">
+                            <div class="toggle-btn bg-white"></div>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbar1">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="../WFMS_Dashboard.html">Home</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="myProfile_HideId">My Profile <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Myprofile/MySchedule.html">My Schedule</a></li>
+                                    <li><a href="../Myprofile/LeaveApply.html">Leave Approval</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="manageResource_HideId">Manage Resources <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../ManageResource/PatternERC.html">Patterns - ERC</a></li>                        
+                                    <li><a href="../ManageResource/PatternOperator.html">Patterns - Operators</a></li>
+                                    <li><a href="../ManageResource/ResourceProfiles.html">Resource Profiles</a></li>
+                                    <li><a href="../ManageResource/EmployeeAvailabilityERC.html">Employees Availability-ERC</a></li>
+                                    <li><a href="../ManageResource/EmployeesAvailability-Operators.html">Employees Availability-Operators</a></li>
+                                    <li><a href="../ManageResource/LeaveApprove-Reject.html">Leave Approve/Reject</a></li>
+                                    <li><a href="../ManageResource/ScheduleofFieldOperators.html">Schedule of Field Operators</a></li>
+                                    <li><a href="../ManageResource/ScheduleofERC.html">Schedule of ERC</a></li>
+                                    <li><a href="../ManageResource/LeaveHistory.html">Leave History</a> 
+                                </ul>
+                            </li>
+                             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="ManagerMapping_HideId">Master Mapping <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../MasterMapping/ManagerMapping.html">Manager Mapping</a></li>                          
+                                    
+                                </ul>
+                            </li>
+                       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="zone_HideId">Zone <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Zone/addzone.html">Add Zone</a></li>                          
+                                    <li><a href="../Zone/addbaselocation.html">Base Location</a></li>
+                                    <li><a href="../Zone/DistricttoManager.html">Zone to District Manager</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="assign_HideId">Assign <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Assign/DrivertoZone.html">Driver to Zone</a></li>                          
+                                    <li><a href="../Assign/DrivertoVehicle.html">Driver to Vehicle</a></li>
+                                    <li><a href="../Assign/EMTtoZone.html">EMT to Zone</a></li>
+                                    <li><a href="../Assign/EMTtoVehicle.html">EMT to Vehicle</a></li>                           
+                                    <li><a href="../Assign/VehicletoBaseLocation.html">Vehicle to Base Location</a></li> 
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="reports_HideId">Reports <span class="fa fa-angle-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Reports/myworkreport.html">My Work Report</a> </li>                          
+                                    <li><a href="../Reports/summary.html">Summary</a> </li>
+                                    <li><a href="../Reports/departmentwiseemployees.html">Department Wise Employees</a> </li>
+                                    <li><a href="../Reports/zonewiseemployees.html">Zone Wise Employees</a> </li>
+                                    <li><a href="../Reports/shiftwiseemployees.html">Shift Wise Employees</a> </li>
+                                    <li><a href="../Reports/rosternotes.html">Roster Notes</a> </li>
+                                    <li><a href="../Reports/extraallowance.html">Extra Allowance</a> </li>
+                                    <li><a href="../Reports/trainingwise.html">Training Wise</a> </li>
+                                    <li><a href="../Reports/payrollreport.html">Pay Roll Report</a> </li>
+                                </ul>
+                            </li>
+
+                            <li><a href="../Search/search.html" id="search_HideId">Search</a></li>
+                            <li> <a href="../resorceforcasting/resorceforcasting.html" id="resource_HideId">Resource Forecasting</a></li>                    
+                            <li> <a href="../holiday/holiday.html" id="holiday_HideId">Holiday</a></li>
+                            <li>  <a href="../allowances/allowances.html" id="allowances_HideId">Allowances</a></li>
+                            <li>  <a href="../MMU/vehicle_team_mapping.html" id="mmu_HideId">MMU Vehicle Team Mapping</a></li>
+
+                        </ul>
+                      
+                    </div>
+                </div>
+            </nav>
+            <!--Second Header End-->
+		<!--Title Heade-->
+		<h4 style="padding-left: 15px">Assign/Deassign Driver to Vehicle
+			Details</h4>
+		<!--Content-->
+		<div id="content-wrap">
+			<div class="card">
+				<!--Error Message-->
+				<div class="alert alert-danger" style='display: none;'>
+					<h4>
+						<i class="fa fa-warning p-r-xs"></i>Please fix the following
+						errors:
+					</h4>
+					<ul class='m-l-md'>
+						<li>District Can't be Empty</li>
+					</ul>
+				</div>
+
+				<div class="row ">
+					<div class="col-md-12 col-xs-12">
+						<div class="col-md-1 col-xs-12"></div>
+						<!--Zone-->
+						<div class="col-md-3 col-xs-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4 col-xs-12">Zone <span
+									class="star">*</span></label>
+								<div class="col-sm-8 col-xs-12">
+									<select class="form-control" id="v_ZoneId">
+										<option value="0">Select Zone</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!--Base Location -->
+						<div class="col-md-3 col-xs-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4 col-xs-12">Base
+									Location <span class="star">*</span>
+								</label>
+								<div class="col-sm-8 col-xs-12">
+									<select class="form-control" id="v_BaseLocationId">
+										<option value="0">Select Base Location</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!--Vehicle-->
+						<div class="col-md-3 col-xs-12">
+							<div class="form-group">
+								<label class="control-label col-sm-4 col-xs-12">Vehicle
+									<span class="star">*</span>
+								</label>
+								<div class="col-sm-8 col-xs-12">
+									<select class="form-control" id="v_VehicleId">
+										<option value="0">Select Vehicle</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br> <span
+					style="font-weight: bold; font-size: 18px; color: red"
+					id="driverToVehicleId">Select the zone, will get the
+					unassigned Driver(s)</span>
+				<hr>
+				<!-- Heading-->
+				<!--Drag & Drops-->
+				<div id="hide_Box">
+					<h4 class="text-center">Unassigned/Assigned View</h4>
+					<br> <b><span
+						style="font-weight: bold; margin-left: 100px; font-size: 18px">View
+							Unassigned Driver(s) List :</span> <span
+						style="color: red; font-size: 18px; font-weight: bold"
+						id="v_location_Name"> </span></b> <b><span
+						style="font-weight: bold; margin-left: 410px; font-size: 18px">View
+							Assigned Driver(s) For Vehicle :</span> <span
+						style="color: red; font-size: 18px; font-weight: bold"
+						id="v_Vehicle_Name"> </span></b>
+					<!--Drag & Drops-->
+					<div class="box">
+						<br>
+						<div class="row">
+							<div class="col-md-12 col-xs-12">
+								<div class="col-md-1"></div>
+								<!--Multi-Dropdowns-->
+								<div class="col-md-11 empbox">
+									<div class="col-md-4 assignbox">
+										<div class="panel-group" >
+											<div class="panel panel-default">
+												<div class="panel-heading" >
+													<label  style="display:flex"><span style="font-weight: 800">Select</span>
+														<span style="font-weight: 800; margin-left: 30px;width:250px">UnAssigned
+															Driver(s) List</span>
+															 <span id="assigns">Assign Date</span></label>
+												</div>
+
+												<div class="panel-body" style="overflow: auto">
+													<label class="check " style="font-weight: bold;display:flex"><b>
+													<span class="name" style="width:280px">select all/unselect all</span></b>
+													<span id="v_DeAssign_Date" style="margin-left: 60px;"></span>
+													<input type="checkbox" id="v_UnAssigned_checkAll"><span
+														class="checkmark"></span></label>
+													<hr id="hrline">
+													<div class="col-md-9 details" id="v_driver_Assign_Id">
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+									<!--  Buttons -->
+									<div class="col-md-2  text-center" style="margin-top: 200px;margin-right: 20px">
+										<button type="button" class="btn btn-primary btn-sm"
+											value="v_UnAssigned"
+											onclick="unAssigned_Drivers_To_Vehicle()">
+											Assign&nbsp;&nbsp;<span class="glyphicon glyphicon-log-in"></span>
+										</button>
+										<br>
+										<button type="button" class="btn btn-outline-warning btn-sm"
+											style="margin-top: 10px" value="v_Assigned"
+											onclick="assigned_Drivers_To_Vehicle()">
+											<span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;DeAssign
+										</button>
+										<span id="error_message"></span>
+
+									</div>
+
+									<!--Multi-Dropdowns-->
+									<div class="col-md-4 assignbox"
+										style="margin-top: -578px; margin-left: 620px">
+										<div class="panel-group">
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<label style="display:flex"><span style="font-weight: 800">Select</span>
+														<span style="font-weight: 800; margin-left: 30px">Assigned Driver(s) List</span>
+															 <span id="assigns" style=" margin-left: 33px">DeAssign Date</span></label>
+												</div>
+												<div class="panel-body" style="overflow: auto">
+													<label class="check " style="display:flex">
+													<b><span class="name" style="width:280px">select all/unselect all</span></b>
+													<span id="v_Assigned_Date" style="margin-left: 60px;"></span>
+													<input type="checkbox" name="checkbox_name" id="v_Assigned_checkAll">
+													<span class="checkmark"></span></label>
+													<hr id="hrline">
+													<div class="col-md-9 details" id="v_Driver_UnAssign_Id">
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<input type="hidden" id="hidden_VehicleNo"> <input
+			type="hidden" id="hidden_ZoneName"> <input type="hidden"
+			id="hidden_baselocation">
+		<!--Content End-->
+		<!--Footer-->
+		<div class="footer">
+			<!--                <small>Powdered by Procreate Techno systems Private Limited</small>-->
+		</div>
+		<!--Footer End-->
+	</div>
+
+	<script src="../../assets/js/jquery1.2.min.js"></script>
+	<script src="../../assets/js/moment.min.js"></script>
+	<script src="../../assets/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/datatables.min.js"></script>
+	<script src="../../assets/js/chosen.jquery.js"></script>
+	<script src="../../assets/js/notify.js"></script>
+	<script src="../../assets/js/notify.min.js"></script>
+	 <script src="../../assets/serviceController/wfms/Common_Constants/Menu_Hide_Show.js"></script>
+	 <script src="../../assets/serviceController/wfms/Common_Constants/Wfms_Logout.js"></script>
+	<script src="../../assets/serviceController/wfms/ServiceURLS.js"></script>
+	<!--        Page Related Scripts-->
+	<script
+		src="../../assets/serviceController/wfms/Assign/driverToVehicle.js"></script>
+	<script>
+		$(document)
+				.ready(
+						function() {
+							//                $('select').chosen();                            //Chosen select
+							$('[data-toggle="tooltip"]').tooltip(); // Tooltip
+							$('#driverTable')
+									.DataTable(
+											{// Data table
+												pageLength : 10,
+												responsive : true,
+												dom : '<"html5buttons"B>lTfgitp',
+												buttons : [
+														{
+															extend : 'copy'
+														},
+														{
+															extend : 'csv'
+														},
+														{
+															extend : 'excel',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'pdf',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'print',
+															customize : function(
+																	win) {
+																$(
+																		win.document.body)
+																		.addClass(
+																				'white-bg');
+																$(
+																		win.document.body)
+																		.css(
+																				'font-size',
+																				'10px');
+
+																$(
+																		win.document.body)
+																		.find(
+																				'table')
+																		.addClass(
+																				'compact')
+																		.css(
+																				'font-size',
+																				'inherit');
+															}
+														} ]
+
+											});
+							$('#driverTable1')
+									.DataTable(
+											{// Data table
+												pageLength : 10,
+												responsive : true,
+												dom : '<"html5buttons"B>lTfgitp',
+												buttons : [
+														{
+															extend : 'copy'
+														},
+														{
+															extend : 'csv'
+														},
+														{
+															extend : 'excel',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'pdf',
+															title : 'ExampleFile'
+														},
+														{
+															extend : 'print',
+															customize : function(
+																	win) {
+																$(
+																		win.document.body)
+																		.addClass(
+																				'white-bg');
+																$(
+																		win.document.body)
+																		.css(
+																				'font-size',
+																				'10px');
+
+																$(
+																		win.document.body)
+																		.find(
+																				'table')
+																		.addClass(
+																				'compact')
+																		.css(
+																				'font-size',
+																				'inherit');
+															}
+														} ]
+
+											});
+						});
+	</script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,717 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 7, 2020, 11:45:09 AM
+    Author     : Usha Rani
+*/
+
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,600,700');
+
+
+
+/*Body*/
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    text-transform: none;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+body{
+    font-family: -apple-system,BlinkMacSystemFont,"Avenir Next",Avenir,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    /*font-family: 'Circular Std Book';*/
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    color: #040405;
+    background: #f5f5f5;
+}
+
+/*Wrapper*/
+#page-container {
+    position: relative;
+    min-height: 94.6vh;
+}
+/*#page-container {
+    position: relative;
+    min-height: 90.6vh;
+    width: 99%;
+}*/
+#content-wrap {
+    padding-bottom: 2.5rem;
+}
+/*Wrapper End*/
+
+
+/*Navbar CSS*/
+.navbar-secondary{    
+    background: #fff;
+    /*background: linear-gradient(-87deg,#11cdef 0,#1171ef 100%)!important;*/
+    border: none;
+}
+.navbar-secondary .navbar-nav>li>a {
+    color: #000;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.navbar-secondary .navbar-brand {
+    color: #fff;
+}
+
+.nav>li>a:hover,.nav>li>a:focus {
+    text-decoration: none;
+    background-color: transparent;
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: transparent;
+    border-color: transparent;
+}
+.navbar-nav>li>.dropdown-menu{
+    border-radius: 4px;
+    top: 100%;
+    border:none;
+}
+.navbar-nav>li>.dropdown-menu>li{
+    padding:4px 8px;
+}
+.navbar-nav>li>.dropdown-menu>li>a{
+    padding: 6px 20px;
+}
+.navbar-nav>li>.dropdown-menu>li>a:focus,.navbar-nav>li>.dropdown-menu>li>a:hover {
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(to right, #296886, #88c8e6);
+    -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+    border-radius: 2px;
+}
+.navbar-brand>img {
+    display: block;
+    margin-top: -14px;
+}
+/*Navbar CSS End*/
+
+
+/*Second Nav*/
+.second-nav{
+    background: #296886;
+    border-bottom: 1px solid #d3d9db;
+    margin-bottom: 20px;
+    /*border-top: 1px solid #d3d9db;*/
+    margin-top: 52px;
+    padding:10px 16px;
+    min-height: 50px;
+    line-height: 2.7;
+
+}
+.second-nav a i.fa-ellipsis-v{                       
+    padding: 0 6px;
+    /*color:#172b4d;*/
+    color:#fff;
+}
+.second-nav h4,h4.card-title{
+    font-weight: 400;
+}
+.f-md{
+    font-size: 22px;       
+}
+
+.second-nav .dropdown-menu{
+    right:0;
+    left: auto;
+}
+.second-nav ul {
+    list-style: none;              
+}
+.second-nav >ul>li h4{
+    color:#fff;
+}
+.dropdown-menu>li>a{
+    padding: 5px 20px;  
+}
+/*Second Nav End*/
+
+/*Error Messages*/
+.errorMsg{
+    margin-bottom: 0;
+    font-size: 12px;
+    color: #ff5a4d;
+}
+
+.has-error{
+    color: #ff5a4d;
+}
+.star {
+    font-size: 16px;
+    color: red;
+}
+
+/*Alerts*/
+.alert-danger {
+    background-color: #ff5a4d;
+    border-color: #ff5a4d;
+    color:#fff;
+}
+
+.alert-danger h4{
+    font-size:15px;
+    font-family: inherit;
+}
+/*Alerts End*/
+
+.card{
+    padding:10px;
+    background:#fff;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12) !important;    
+    border-radius:6px;
+    margin:0px 5px 20px;
+}
+.review{
+    cursor: pointer;
+}
+
+/*Labels*/
+.control-label{
+    font-weight: 500;
+    color:#3e3c3c;
+
+}
+.sub-title h4{
+    font-size: 16px;
+    color: #000;
+} 
+
+/*Tooltips*/
+.tooltip-inner {
+    min-width: 100px !important;
+
+}
+
+/*Footer*/
+
+.footer {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    color:#fff;
+    padding: 6px 10px;
+    text-align:right;
+    background:linear-gradient(to right, #296886, #88c8e6)!important;
+}
+
+
+.title{
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    background: #117cef;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+
+/*Typhography*/
+h1,h2,h3,h4,h5,h6{
+    font-family: inherit;
+    font-weight: 500;
+}
+
+
+/*Dashboard Cards*/
+.cards{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+    border: 0;
+    font-weight: 400;
+    margin-bottom: 26px;
+    transition: transform .5s ease-in-out;
+    transition: transform .5s ease-in-out,-webkit-transform .5s ease-in-out;
+}
+.cards:hover {
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+.view{
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+}
+.review{
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+    cursor: pointer;
+}
+.view img{
+    position: relative;
+    display: block;
+    min-height: 191px;
+    transition: transform .5s ease-in-out;
+    transition: transform .5s ease-in-out,-webkit-transform .5s ease-in-out;
+
+}
+.view:hover img{
+    -webkit-transform: scale(1.03);
+    transform: scale(1.3)
+}
+.view .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background: #000;
+    opacity: 0.3;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 16px;
+    text-align: center;
+    background: #fff;
+}
+a:hover,a:focus{
+    text-decoration: none;
+}
+
+/*Data Table CSS*/
+
+/*Table CSS*/
+.dataTables_length{
+    float: left;
+}
+.html5buttons {
+    float: right;
+}
+.html5buttons .dt-buttons.btn-group .btn{
+    box-shadow: none;
+    margin-right: 0;
+    font-size: 11px;
+}
+.html5buttons .dt-buttons.btn-group .btn:hover,.html5buttons .dt-buttons.btn-group .btn:focus{
+    box-shadow: none;
+    margin-right: 0;
+    transform: unset;
+}
+.dataTables_filter label {
+    margin-right: 5px;
+}
+.html5buttons a{
+    border: 1px solid #e7eaec;
+    background: #fff;
+    color: #040405;
+    box-shadow: none;
+    padding: 6px;
+    font-size: 12px;
+}
+.dataTables_info{
+    position: absolute;
+    bottom: 28px;
+}
+/*Data Table CSS End*/
+
+
+
+
+/*Buttons*/
+.btn:focus,.btn:active,.btn:visited,.btn:focus-within{
+    outline: none;
+}
+.btn-blue{
+    background: linear-gradient(135deg, #296886, #a777e3);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    border: none;
+    color: #fff;
+}
+.btn-blue:hover,.btn-blue:focus{
+    background: linear-gradient(-135deg, #6e8efb, #a777e3);
+    color: #fff;
+    outline: none;
+}
+
+.btn-warning{
+    background-image: linear-gradient(to right, #fc6076, #ff9a44);
+    box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+    color:#fff;
+    border: none;
+}
+.btn-warning:hover,.btn-warning:focus,.btn-warning:visited{
+    background-image: linear-gradient(to left, #fc6076, #ff9a44);
+    outline: none;
+    color:#fff;
+
+}
+.w-100 {
+    min-width: 100px;
+}
+h4 {
+    margin: 5px 0;
+    text-transform: uppercase;
+}
+/*Tables*/
+.table-container{
+    width:1300px;
+    margin:auto;
+    background: #fff;
+    padding:10px 15px;;
+}
+.input-group{
+    width:100%;
+}
+
+
+.table>thead>tr>th{
+    background-color: #296886;
+    color:#fff;
+    vertical-align: middle;
+    font-size: 16px;
+    font-weight:500;
+    text-align: center;
+}
+
+.table > thead> tr> th{
+    font-size:13px;
+    font-weight:500;  
+
+}
+.table > tbody> tr> td{
+    vertical-align: middle;
+    font-size:13px;
+    color:#000;
+    text-align: center;
+    font-weight:400;
+}
+
+.table >tbody> tr> td:nth-child(2),.table >thead> tr> th:nth-child(2){
+    text-align:center;
+
+}
+.m-t-b-sm{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.m-t-md{
+    margin-top:20px;
+}
+
+/*SCroll Bar*/
+.scrollbar
+{
+    height: 400px;
+    background: #fff;
+    overflow: auto;
+    margin-bottom: 25px;
+}
+/*Modal Box CSS*/
+
+.modal-header{
+    background: #296886;
+    color:#fff;
+
+}
+.modal-header .modal-title{
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif; 
+    text-align: center
+}
+.modal-header .close{
+    opacity: 0.8;
+    color:#fff;
+}
+.modal-body form .panel,.modal-body form .panel-body{
+    border:none !important;
+    box-shadow: none !important;
+}
+.modal-body form .panel-default,.panel-info{
+    border-color: #fff;
+}
+
+.modal-body form .panel-title,.panel-info .panel-title{
+    color: #fff;
+    padding: 4px 10px;   
+    font-size: 16px;
+
+}
+
+.icon{
+    float: right;
+    padding-top: 4px;
+}
+
+.form-horizontal .control-label{
+    text-align:left;
+}
+.form-group {
+    margin-bottom: 7px;
+}
+
+/*Check Boxes CSS*/
+.check {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    padding-right: 15px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left:17px;
+}
+.check input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkmark {
+    position: absolute;
+    /*top: 3px;*/
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff ;
+    border-color:#0096cc;
+    border-style:solid;
+    border-width:2px;
+    border-radius:3px;
+margin-left: 50px;
+}
+.check input[type=checkbox]:checked ~ .checkmark {
+    background-color: #0096cc  ;
+}
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+.check input[type=checkbox]:checked ~ .checkmark:after {
+    display: block;
+}
+.check .checkmark:after {
+    left: 5px;
+    top: 1px;
+    width: 5px;
+    height: 10px;
+    border: solid ;
+    border-color:#fff;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/*Check Boxes*/
+
+
+
+/*Media Queries*/
+@media (min-width: 768px){
+    .navbar {
+        border-radius: 0; 
+        -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+        font-weight: 300;
+
+
+    }
+
+}
+@media screen and (max-width:772px){
+    .navbar-brand{
+        display:block;
+    }
+    .cta {
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        position: relative;
+        float: right;
+        padding: 9px 10px;
+        margin-top: 8px;
+        margin-right: 15px;
+        margin-bottom: 8pxs
+    }
+    .toggle-btn {
+        height: 2px;
+        width: 20px;
+        background-color: #fff;
+        position: relative;
+        top: 50%;
+        left: 0;
+        margin: auto;
+        transition: all 0.3s ease-in-out;
+    }
+    .toggle-btn:before {
+        content: "";
+        height: 2px;
+        width: 20px;
+        box-shadow: 0 -10px 0 0 #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.3s ease-in-out;
+    }
+    .toggle-btn:after {
+        content: "";
+        height: 2px;
+        width: 20px;
+        box-shadow: 0 10px 0 0 #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.3s ease-in-out;
+    } 
+}
+/*@media screen and (max-width:1400px){
+    .navbar-brand{
+        display:none;
+    }
+}*/
+@media screen and (max-width:891px){
+    .header li:nth-child(1),.header li:nth-child(2),.header li:nth-child(3){
+        width:auto;
+    }
+    .header li h1{
+        font-size: 28px;
+    }
+}
+@media screen and (max-width:772px){
+    .navbar-brand{
+        display:block;
+    }
+    .cta {
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        position: relative;
+        float: right;
+        padding: 9px 10px;
+        margin-top: 8px;
+        margin-right: 15px;
+        margin-bottom: 8px;
+    }
+    .toggle-btn {
+        height: 2px;
+        width: 25px;
+        background-color: #4b7ee3;
+        position: relative;
+        top: 50%;
+        left: 0;
+        margin: auto;
+        transition: all 0.3s ease-in-out;
+    }
+    .toggle-btn:before {
+        content: "";
+        height: 2px;
+        width: 25px;
+        box-shadow: 0 -10px 0 0 #4b7ee3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.3s ease-in-out;
+    }
+    .toggle-btn:after {
+        content: "";
+        height: 2px;
+        width: 25px;
+        box-shadow: 0 10px 0 0 #4b7ee3;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.3s ease-in-out;
+    } 
+}
+@media (min-width: 1250px){
+    .modal-lg {
+        width: 1150px;
+    }
+}
+@media (min-width: 1300px){
+    .modal-lg {
+        width: 1250px;
+    }
+}
+/*Add By Usha*/
+
+/*model box size */
+.modal-header {
+    padding: 5px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/*dash board panel heading colors*/
+.panel-info>.panel-heading {
+    color: #33b5e5;
+    background-color: #33b5e5;
+    border-color: #33b5e5;
+}
+/*fa-bell top button*/
+.navbar-right .label {
+    line-height: 12px;
+    padding: 2px 5px;
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    background-color: red;
+    color: white;
+}
+
+
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+    #sidebar-wrapper {
+        width: 350px;
+        height: 500%;
+    }
+} 
+
+ .form-container::after {
+    display: block;
+    width: 186px;
+    left: 50%;
+    margin-left: -93px;
+    content: "";
+    background: url(img/form_bg2.png) no-repeat 0 0;
+    position: absolute;
+    bottom: -18px;
+    height: 35px;
+    z-index: 999;
+}
+.form-container:last-child {
+    margin-bottom: 15px;
+}
+.form-container:last-child::after {
+    background: none;
+}
+.form-container {
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    clear: both;
+    display: block;
+    position: relative;
+    background: #fff;
+}
+
+

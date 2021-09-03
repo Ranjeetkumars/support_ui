@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>OP Desk | Suggestions</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Title Icon-->
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <!--CSS Links-->
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.css">
+        <link rel='stylesheet' href="../../css/datatables.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap-chosen.css">
+        <link rel="stylesheet" href="../../css/datepicker.css">
+        <link rel="stylesheet" href="../../css/bootstrap-datetimepicker.min.css">
+        <!--Customized CSS-->
+        <!--<link rel="stylesheet" href="../../css/fontfamily/font-style.css">-->
+        <link rel="stylesheet" href="../../css/style.css">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <div id="page-container">
+            <!--Main Header-->
+            <nav class="navbar navbar-secondary navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="cta" data-toggle="collapse" data-target="#top-navbar">
+                            <div class="toggle-btn"></div>
+                        </div>
+                        <a class="navbar-brand" href="#"><img alt="ProCreate Logo" src="../../img/pro-Logo.png" /></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="top-navbar">
+                        <ul class="nav navbar-nav">                 
+                            <li><a href="../../dashboard.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                            <li><a href="../Op_Dashboard.html"><i class="fa fa-th-large"></i> Dashboard</a></li>                        
+                        </ul>
+
+                       <!--  <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#"><i class="fa fa-bell"></i><span class="label label-primary">8</span>
+                                </a>
+                            </li>  
+                            <li>
+                                <a href="#"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="bottom" title="Need Help?"></i>
+                                </a>
+                            </li> 
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-user" data-toggle="tooltip" data-placement="bottom" title="Profile"></i>
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-user"></i> My Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </li>               
+                        </ul> -->
+                    </div>
+                </div>
+            </nav>
+            <!--Main Header-->
+            <!--Second Header-->
+            <div class="second-nav">
+                <ul class="pull-left">
+                    <li>
+                        <h4  style="margin-top:6px">Suggestions</h4>
+                    </li>
+                </ul>
+                <ul class="pull-right searchbar">
+                    <!-- <li class="pull-left p-r-sm">
+                        <a href="#">
+                            <input type="text" class="form-control" placeholder="What are you looking for?">                          
+                        </a>                    
+                    </li>  -->
+                    <li class="pull-left" style="margin-top: -7px">
+                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#registration"><i class="fa fa-plus p-r-xs"></i>Suggestions</button> 
+                    </li>
+                    <!-- <li class="dropdown pull-left" style="margin-top: -2px">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-ellipsis-v f-md" data-toggle="tooltip" data-placement="top" title="More Actions"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-history p-r-xs"></i>History</a></li>
+                            <li><a href="#"><i class="fa fa-bar-chart p-r-xs"></i>Reports</a></li>
+                        </ul>
+                    </li>      -->
+                </ul>
+            </div>
+            <!--Second Header End-->
+            <!--Content-->
+            <div id="content-wrap">               
+                <div class="card">
+                    <!--Error Message-->
+                    <div class="alert alert-danger" style='display: none;'>
+                        <h4>
+                            <i class="fa fa-warning p-r-xs"></i>Please fix the following errors:
+                        </h4>
+                        <ul class='m-l-md'>
+                            <li>District Can't be Empty</li>
+                        </ul>
+                    </div>
+                    <!--Title Heade End-->
+                    <div class="row">
+                        <!--District-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-xs-12">District<span class="star"></span></label>
+                                <div class="col-md-9 col-xs-12">
+                                    <select class="form-control" name="dractityid" id="districs_id">
+                                        <option value="0">Select District</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Base Location-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-xs-12">Base Location<span class="star"></span></label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" id="baselocation_id">
+                                        <option value="0">Select Base Location</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Ambulance-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Ambulance No</label>
+                                <div class="col-md-8 col-xs-12">
+                                    <select class="form-control" name="dractityid" id="Ambulance_Id">
+                                        <option value="0">Select Ambulance</option>
+                                        <!--                                        <option value="1">Fuel Filling</option>
+                                                                                <option value="2">Oxygen Filling</option>
+                                                                                <option value="3">Tyre Life</option>-->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Ticket ID-->
+                    <div class="row m-t-b-sm">                        
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Ticket Id</label>
+                                <div class="col-md-9">
+                                    <input type="number" onKeyPress="if(this.value.length==15) return false;" placeholder="Enter Ticket ID" class="form-control" name="drticketid" id="ticketId" onkeypress="javascript:return numarics(this, event);" maxlength="14">
+                                </div>
+                            </div>
+                        </div>
+                        <!--Resolution Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Resolution Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="strtDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date" type="text" id="resolutionDate_id"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                        <!--From Date-->
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">From Date</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <div id="strtDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                            <input class="form-control" placeholder="Select Date" type="text" id="fromDate_id"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--To Date-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-4 col-xs-12">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">To Date</label>
+                                <div class="col-md-9">
+                                    <div class="input-group">
+                                        <div id="endDate" class="input-group date" data-date-format="dd-mm-yyyy">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+
+                                            <input class="form-control" placeholder="Select Date" type="text" id="toDate_id"/>
+                                        </div>                        
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--button-->
+                    <div class="row m-t-b-sm">
+                        <div class="col-md-12 col-xs-12 text-center m-t-sm">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="suggestion_Search()"><i class="fa fa-search p-r-xs"></i>Search</button>
+                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="reset_search_suggestion()" onclick="reset_search_suggestion()"><i class="fa fa-refresh p-r-xs"></i>Reset</button>                                      
+                        </div>
+                    </div>   
+                    <hr>
+                    <!--table-->
+                    <div class="wrapper wrapper-content">
+                        <div class="row">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="table-responsive">   
+                                    <div class="col-md-12 col-xs-12 table-responsive" id="suggestion_id">     
+                                        <!--                                    <table id="driverTable" class="table table-bordered table-striped">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th>S.NO</th>
+                                                                                        <th>Ticket #</th>
+                                                                                        <th>District</th>                           
+                                                                                        <th>Base Location</th>
+                                                                                        <th>Ambulance #</th>                                      
+                                                                                        <th>Suggestion Type</th>
+                                                                                        <th>Suggestion  </th>                                                                                         
+                                                                                        <th>Resolution Date</th>                                                                                  
+                                                                                        <th>Status</th>                           
+                                                                                        <th>Update  </th>                                                                                          
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>20171217000397</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>Work Related</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>2018-04-02 15:01:00</td>                                   
+                                                                                        <td>In Progress</td>
+                                                                                        <td><button type="button" class="btn btn-primary btn-sm">Update</button></td>                                       
+                                                                                    </tr>   
+                                                                                    <tr>
+                                                                                        <td>1</td>
+                                                                                        <td>20171217000397</td>
+                                                                                        <td>Krishna</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>AP16TJ0661</td>
+                                                                                        <td>Work Related</td>
+                                                                                        <td>Nandigama</td>
+                                                                                        <td>2018-04-02 15:01:00</td>                                   
+                                                                                        <td>In Progress</td>
+                                                                                        <td><button type="button" class="btn btn-primary btn-sm">Update</button></td>                                       
+                                                                                    </tr>   
+                                        
+                                                                                </tbody>
+                                                                            </table>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+                <!--Content End-->
+                <!--Modal box for Registration-->
+                <div id="registration" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Suggestions</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal">
+
+                                    <!--Ambulance Information-->
+                                    <!--Heading-->
+                                    <div class="sub-title">
+                                        <h4> Ambulance Information</h4>
+                                    </div>
+                                    <div class="sub-body">
+                                        <!--District-->
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-4 col-xs-12">District<span class="star">*</span></label>
+                                                    <div class="col-md-8 col-xs-12">
+                                                        <select class="form-control" id="districs_id_reg">
+                                                            <option value="0">Select District</option>
+                                                            <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>-->
+                                                        </select>
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                            <!--Base Location-->   
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4 col-xs-12">Base Location<span class="star">*</span></label>
+                                                    <div class="col-md-8 col-xs-12"> 
+                                                        <select class="form-control" id="basloc_id_reg">
+                                                            <option value="0">Select Base Location</option>
+                                                            <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>-->
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Ambulance-->
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-4 col-xs-12">Ambulance No<span class="star">*</span></label>
+                                                    <div class="col-md-8 col-xs-12">
+                                                        <select class="form-control" id="ambulance_id_reg">
+                                                            <option value="0">Select Ambulance</option>
+                                                            <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>-->
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Shift Type-->
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4 col-xs-12">Shift Type<span class="star">*</span></label>
+                                                    <div class="col-md-8 col-xs-12"> 
+                                                        <select class="form-control" id="shiftTypeId">
+                                                            <option value="0">Select Shift Type</option>
+                                                            <!--                                                       <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>-->
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+</div>
+
+                                        <!--Display EMT/Drivers-->                                
+                                        <!--Heading-->
+                                        <div class="sub-title">
+                                            <h4> Suggestion Information</h4>
+                                        </div>
+                                        <div class="sub-body">
+                                            <!--Suggestion Type-->
+                                            <div class="row">
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4 col-xs-12">Suggestion Type<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <select class="form-control" id="suggestionType_id">
+                                                                <option value="0">Select Suggestion Type</option>
+                                                                <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                        <option value="2">Oxygen Filling</option>
+                                                                                                                        <option value="3">Tyre Life</option>-->
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Report to HO-->                                          
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4 col-xs-12"> Report To HO<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <select class="form-control" id="reportToHo_id">
+                                                                <option value="0">Select One</option>
+                                                                <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                        <option value="2">Oxygen Filling</option>
+                                                                                                                        <option value="3">Tyre Life</option>-->
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Suggestion-->
+                                            <div class="row">
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4 col-xs-12">Suggestion<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <textarea class="form-control" placeholder="Enter Suggestion" id="suggestion_id_reg" maxlength="200"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+
+                                                <!-- Date & Time of Resolution-->
+                                                <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                        <label class="control-label col-md-4 col-xs-12">Date Of Resolution<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <div class='input-group date' id='datetimepicker1'>
+                                                                <input type='text' class="form-control" placeholder="select Date" id="dateOfresolution_id" autocomplete="off"/>
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Remarks-->
+                                            <div class="row">
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4 col-xs-12">Remarks</label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <textarea class="form-control" placeholder="Enter Remarks" id="remarks_id" maxlength="200"></textarea>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--buttons-->
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-primary btn-sm" id="save_suggestionId" onclick="saveSuggestionsDetails()"><i class="fa fa-floppy-o p-r-xs"></i>Submit</button>
+                                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="reset_Registation_suggestion()"><i class="fa fa-refresh p-r-xs"></i>Reset</button> 
+                                            <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="javascript:window.location.reload()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+        <!--Content End-->
+                <!--Modal box for update-->
+                <div id="update" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Suggestions</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal">
+
+                                    <!--Ambulance Information-->
+                                    <!--Heading-->
+                                    <div class="sub-title">
+                                        <h4> Ambulance Information</h4>
+                                    </div>
+                                    <div class="sub-body">
+                                        <!--District-->
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-4 col-xs-12">District<span class="star">*</span></label>
+                                                    <div class="col-md-8 col-xs-12">
+                                                         <input type="text" class="form-control"  disabled placeholder="Enter District" id="districs_id_update">
+<!--                                                        <select class="form-control" id="districs_id_update">
+                                                            <option value="0">Select District</option>
+                                                                                                                    <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>
+                                                        </select>-->
+                                                    </div>
+                                                </div>  
+                                            </div>
+                                            <!--Base Location-->   
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4 col-xs-12">Base Location<span class="star">*</span></label>
+                                                    <div class="col-md-8 col-xs-12"> 
+                                                        <input type="text" class="form-control" disabled placeholder="Enter Base Location" id="basloc_id_update">
+<!--                                                        <select class="form-control" id="basloc_id_update">
+                                                            <option value="0">Select Base Location</option>
+                                                                                                                    <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>
+                                                        </select>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Ambulance-->
+                                        <div class="row">
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-4 col-xs-12">Ambulance No<span class="star">*</span></label>
+                                                    <div class="col-md-8 col-xs-12">
+                                                         <input type="text" class="form-control" disabled placeholder="Enter Ambulance" id="ambulance_id_update">
+<!--                                                        <select class="form-control" id="ambulance_id_update">
+                                                            <option value="0">Select Ambulance</option>
+                                                                                                                    <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>
+                                                        </select>-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Shift Type-->
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-4 col-xs-12">Shift Type<span class="star">*</span></label>
+                                                    <div class="col-md-8 col-xs-12"> 
+                                                        <input type="text" class="form-control" disabled placeholder="Enter Shift Type" id="shiftTypeId_update">
+<!--                                                        <select class="form-control" id="shiftTypeId_update">
+                                                            <option value="0">Select Shift Type</option>
+                                                                                                                   <option value="1">Fuel Filling</option>
+                                                                                                                    <option value="2">Oxygen Filling</option>
+                                                                                                                    <option value="3">Tyre Life</option>
+                                                        </select>-->
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+</div>
+                                        <!--Display EMT/Drivers-->                                
+                                        <!--Heading-->
+                                        <div class="sub-title">
+                                            <h4> Suggestion Information</h4>
+                                        </div>
+                                        <div class="sub-body">
+                                            <!--Suggestion Type-->
+                                            <div class="row">
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4 col-xs-12">Suggestion Type<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <input type="text" class="form-control" disabled  placeholder="Enter Shift Type" id="suggestionTypeId_update">
+<!--                                                            <select class="form-control" id="suggestionTypeId_update">
+                                                                <option value="0">Select Suggestion Type</option>
+                                                                                                                        <option value="1">Fuel Filling</option>
+                                                                                                                        <option value="2">Oxygen Filling</option>
+                                                                                                                        <option value="3">Tyre Life</option>
+                                                            </select>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Report to HO-->                                          
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4 col-xs-12"> Report To HO<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <select class="form-control" id="reportToHoid_update">
+                                                                <option value="0">Select One</option>
+                                                                <!--                                                        <option value="1">Fuel Filling</option>
+                                                                                                                        <option value="2">Oxygen Filling</option>
+                                                                                                                        <option value="3">Tyre Life</option>-->
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Suggestion-->
+                                            <div class="row">
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4 col-xs-12">Suggestion<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <textarea class="form-control" placeholder="Enter Suggestion" id="suggestionId_update" maxlength="200"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+
+                                                <!-- Date & Time of Resolution-->
+                                                <div class="col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                
+                                                        <label class="control-label col-md-4 col-xs-12">Date Of Resolution<span class="star">*</span></label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <div class='input-group date' id='datetimepicker2'>
+                                                                <input type='text' class="form-control" placeholder="select Date" id="dateOfresolutionId_update" autocomplete="off"/>
+                                                                <span class="input-group-addon">
+                                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--Remarks-->
+                                            <div class="row">
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4 col-xs-12">Remarks</label>
+                                                        <div class="col-md-8 col-xs-12"> 
+                                                            <textarea class="form-control" placeholder="Enter Remarks" id="remarksId_update" maxlength="200"></textarea>
+                                                        </div>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--buttons-->
+                                        <div class="text-center">
+                                            <button type="button" class="btn btn-primary btn-sm" id="update_id" onclick="updateSuggestionDetails()"><i class="fa fa-floppy-o p-r-xs"></i>Update</button>
+                                            <button type="button" class="btn btn-outline-warning btn-sm" onclick="reset_search_update_suggestion()"><i class="fa fa-refresh p-r-xs"></i>Reset</button> 
+                                            <button type="button" class="btn btn-outline-warning btn-sm" data-dismiss="modal" onclick="javascript:window.location.reload()"><i class="fa fa-times p-r-xs"></i>Close</button>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+        <input type="hidden" id="serialId"/>
+        <!--Footer-->
+        <div class="footer">
+            <small>Powdered by Procreate Techno systems Private Limited</small>
+        </div>
+        <!--Footer End-->
+    </div>
+
+    <script src="../../js/jquery1.2.min.js"></script>
+    <script src="../../js/moment.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/datatables.min.js"></script>
+    <script src="../../js/bootstrap-datepicker.js"></script> 
+    <script src="../../js/bootstrap-datetimepicker.min.js"></script>       
+    <script src="../../js/chosen.jquery.js"></script>
+    <!--        PAGE RELATED-->
+
+
+    <script src="../../js/jquery.dataTables.min.js"></script>
+    <script src="../../js/dataTables.bootstrap.min.js"></script>       
+
+
+    <script src="../../js/moment.js"></script> 
+    <script src="../../js/datatables.min.js"></script>
+    <script src="../../js/da.js"></script>
+    <script src="../../js/swaltest.min.js"></script>
+    <!--sweet alert-->
+    <script src="../../js/notify.js"></script>
+    <script src="../../js/notify.min.js"></script>
+
+    <script src="../../js/OPDESK/Constants.js"></script>
+    <script src="../../js/OPDESK/ServiceURLS.js"></script>
+    <script src="../../js/OPDESK/msterData.js"></script>
+    <script src="../../js/OPDESK/Suggestions.js"></script>
+       <!--         logout/login url -->
+               <script src="../../../Common/serviceController/dashboard.js"></script>
+                <script src="../../../Common/serviceController/ServiceUrl.js"></script> 
+              <script src="../../../Common/serviceController/logout.js"></script>
+    <script>
+
+                                    $(function () {
+//Date And Time picker in Modal Box
+                                        $('#datetimepicker1').datetimepicker({
+                                            sideBySide: true,
+                                            format: 'YYYY-MM-DD HH:mm:ss'
+                                     });
+                                        $('#datetimepicker2').datetimepicker({
+                                          sideBySide: true,
+                                         format: 'YYYY-MM-DD HH:mm:ss'
+                                      });
+                                    });
+
+                                    $(document).ready(function () {
+                                     	checkLoggedOrNot();
+                                        //$('select').chosen();                            //Chosen select
+                                        $('[data-toggle="tooltip"]').tooltip();          // Tooltip
+                                        $('#driverTable').DataTable({// Data table
+                                            pageLength: 10,
+                                            responsive: true,
+                                            dom: '<"html5buttons"B>lTfgitp',
+                                            buttons: [
+                                                {extend: 'copy'},
+                                                {extend: 'csv'},
+                                                {extend: 'excel', title: 'ExampleFile'},
+                                                {extend: 'pdf', title: 'ExampleFile'},
+                                                {extend: 'print',
+                                                    customize: function (win) {
+                                                        $(win.document.body).addClass('white-bg');
+                                                        $(win.document.body).css('font-size', '10px');
+
+                                                        $(win.document.body).find('table')
+                                                                .addClass('compact')
+                                                                .css('font-size', 'inherit');
+                                                    }
+                                                }
+                                            ]
+
+                                        });
+//Date Pickers
+                                        $("#strtDate").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true
+                                        }).datepicker();
+                                        $("#endDate").datepicker({
+                                            autoclose: true,
+                                            todayHighlight: true
+                                        }).datepicker();
+
+                                    });
+
+//For Collapseble Panels In Registration Modal box
+                                    var selectIds = $('#collapseOne,#collapseTwo,#collapseThree');
+                                    $(function ($) {
+                                        selectIds.on('show.bs.collapse hidden.bs.collapse', function () {
+                                            $(this).prev().find('.fa').toggleClass('fa-plus fa-minus');
+                                        });
+                                    });
+    </script>
+
+</body>
+</html>

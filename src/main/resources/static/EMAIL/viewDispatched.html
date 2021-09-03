@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>view Dispatch</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--Title Icon-->
+<!--<link rel="shortcut icon" href="../img/favicon.ico"> -->
+<!--CSS Links-->
+
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/datatables.min.css">
+<!-- <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.css"> -->
+</head>
+<style>
+ .table>thead>tr>th {
+	background-color: #5e72e4;
+	color: #fff;
+	vertical-align: middle;
+	font-size: 16px;
+	font-weight: 500;
+	text-align: center;
+}
+.table>tbody>tr>td {
+	vertical-align: middle;
+	font-size: 13px;
+	color: #000;
+	text-align: center;
+	font-weight: 400;
+}
+#content-wrap{
+width:97%;
+margin-left:10px;
+}
+</style>
+<body>
+	<div id="page-container">
+		<!--Content-->
+		<div id="content-wrap">
+			<div class="card">
+				<!--Table-->
+				<div class="wrapper wrapper-content">
+					<div class="row">
+					<div  class="col-md-12 col-xs-12"> 
+							<button type="button" class="btn btn-info">Back</button>
+							</div>
+						<div class="col-md-12 col-xs-12">
+						
+							<div class="table-responsive">
+								<table id="driverTable"
+									class="table table-bordered table-striped">
+									<thead>
+										<tr>
+											<!--<th><label class="check" style="top: -5px"> <input
+                                            type="checkbox" name=""> <span class="checkmark"></span>
+                                            </label></th> -->
+											<th>Pid</th>
+											<th>Caller Name</th>
+											<th>VictimName</th>
+											<th>VictimAge</th>
+											<th>Address</th>
+										</tr>
+									</thead>
+									<tbody id="dispatchView">
+									<!--  <tr>
+                                                <td><label class="check" style="top: -5px"> <input
+                                                            type="checkbox" name=""> <span class="checkmark"></span>
+                                                    </label></td>
+                                                <td>1</td>
+                                                <td>Ranjeet kr. Sinha</td>
+                                                <td>Test</td>
+                                                <td>25</td>
+                                                <td>Hyderabad</td>
+                                            </tr>  -->
+										<!--  <tr>
+                                                <td><label class="check" style="top: -5px"> <input
+                                                            type="checkbox" name=""> <span class="checkmark"></span>
+                                                    </label></td>
+                                                <td>kkkk@gmail.com</td>
+                                                <td>Re:failed Mail</td>
+                                                <td>Nov 18 2018</td>
+                                            </tr>
+                                            <tr>
+                                            	<td><label class="check" style="top: -5px"> <input
+                                                  type="checkbox" name=""> <span class="checkmark"></span>
+                                                  </label></td>
+                                                <td>aaa@gmail.com</td>
+                                                <td>Re:Working Mail</td>
+                                                <td>Nov 18 2017</td>
+                                            </tr>
+                                            <tr>
+                                                <td><label class="check" style="top: -5px"> <input
+                                                            type="checkbox" name=""> <span class="checkmark"></span>
+                                                    </label></td>
+                                                <td>bbbb@gmail.com</td>
+                                                <td>Re:Testing Mail</td>
+                                                <td>Nov 18 2016</td>
+                                            </tr> -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/jquery.dataTables.min.js"></script>
+	<script src="../js/bootstrap-tagsinput.js"></script>
+	<script src="../js/dispatchView.js"></script>
+	<script>
+	$(document)
+	.ready(
+		function () {
+			
+			
+			/* Data Table */
+			
+			//$('#driverTable').DataTable();
+			
+			/* invoke javascript function*/
+			loadListOfDispatchedRecords();
+			
+			
+			/*Add DataTable*/
+			/* $('#driverTable')
+				.DataTable({ // Data table
+					pageLength: 10,
+					responsive: true,
+					//                                                dom: '<"html5buttons"B>lTfgitp',
+					buttons: [{
+							extend: ''
+						},
+						{
+							extend: ''
+						},
+						{
+							extend: '',
+							title: 'ExampleFile'
+						},
+						{
+							extend: '',
+							title: 'ExampleFile'
+						},
+						{
+							extend: '',
+							customize: function (
+								win) {
+								$(
+										win.document.body)
+									.addClass(
+										'white-bg');
+								$(
+										win.document.body)
+									.css(
+										'font-size',
+										'10px');
+								$(
+										win.document.body)
+									.find(
+										'table')
+									.addClass(
+										'compact')
+									.css(
+										'font-size',
+										'inherit');
+							}
+						}
+					]
+			});
+ */		
+ 
+		});	
+	 </script>
+	</body>
+</html>
